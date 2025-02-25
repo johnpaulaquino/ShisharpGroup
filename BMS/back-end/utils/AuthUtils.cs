@@ -7,7 +7,7 @@ using Isopoh.Cryptography.Argon2;
 using Isopoh.Cryptography.SecureArray;
 
 
-namespace BMS.backend.utils {
+namespace BackEnd.utils {
 
 
     public class AuthUtils {

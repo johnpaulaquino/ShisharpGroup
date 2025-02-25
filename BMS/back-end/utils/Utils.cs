@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.utils {
+namespace CSharpBackEnd.backend.utils {
     public class Utils {
         public int calculateAge(DateTime birthDate) {
 

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend.utils;
+using CSharpBackEnd.backend.utils;
 
-namespace BMS.backend.models
+namespace CSharpBackEnd.backend.database.models
 {
 
     public enum Gender{

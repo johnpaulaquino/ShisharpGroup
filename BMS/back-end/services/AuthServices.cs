@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.services {
+namespace CSharpBackEnd.backend.services {
     public class AuthServices {
         public AuthServices() {
 

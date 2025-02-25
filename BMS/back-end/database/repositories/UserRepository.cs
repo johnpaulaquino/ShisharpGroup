@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-using BMS.database.connector;
-using BMS.backend.models;
+using BackEnd.database.connection;
+using CSharpBackEnd.backend.models;
 
-namespace BMS.database.respositories {
+namespace BackEnd.database.respositories {
     public class UserRepository {
         private MySqlConnection conn;
         public UserRepository() {

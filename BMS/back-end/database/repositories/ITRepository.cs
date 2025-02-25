@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connector;
-using BMS.backend.models;
+using BackEnd.database.connection;
+using CSharpBackEnd.backend.models;
 using MySql.Data.MySqlClient;
 
-namespace BMS.backend.database.repositories {
+namespace CSharpBackEnd.backend.database.repositories {
     public class ITRepository {
         private readonly MySqlConnection conn;
 
@@ -23,23 +23,19 @@ namespace BMS.backend.database.repositories {
             string stmt = "Insert into admin_users (id, username, email,password, role) "
             + "Values (?,?,?,?,?)";
             try {
-                using (var cmd = new MySqlCommand(stmt, conn))
-                {
-                    cmd.Parameters.AddWithValue("id", admin.id);
-                    cmd.Parameters.AddWithValue("username", admin.username);
-                    cmd.Parameters.AddWithValue("email", admin.email);
-                    cmd.Parameters.AddWithValue("password", admin.password);
-                    cmd.Parameters.AddWithValue("role", admin.role.ToString());
+                using var cmd = new MySqlCommand(stmt, conn);
+                cmd.Parameters.AddWithValue("id", admin.id);
+                cmd.Parameters.AddWithValue("username", admin.username);
+                cmd.Parameters.AddWithValue("email", admin.email);
+                cmd.Parameters.AddWithValue("password", admin.password);
+                cmd.Parameters.AddWithValue("role", admin.role.ToString());
 
-                    int row = cmd.ExecuteNonQuery();
+                int row = cmd.ExecuteNonQuery();
 
-                    if (row < 0)
-                    {
-                        Console.WriteLine("Failed to insert data!");
-                    }
-                    Console.WriteLine("Successfully insert data!");
-
+                if (row < 0) {
+                    Console.WriteLine("Failed to insert data!");
                 }
+                Console.WriteLine("Successfully insert data!");
 
             }
 
@@ -55,13 +51,11 @@ namespace BMS.backend.database.repositories {
             }
             string deleteStmt = "Delete from admin_users "
             + "Where id = ?";
-            using (var cmd = new MySqlCommand(deleteStmt, conn)){
-                cmd.Parameters.AddWithValue("id", data["id"]);
+            using var cmd = new MySqlCommand(deleteStmt, conn);
+            cmd.Parameters.AddWithValue("id", data["id"]);
 
-                cmd.ExecuteNonQuery();
-                Console.WriteLine("Successully deleted admin user");
-            }
-            
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("Successully deleted admin user");
 
         }
         public Dictionary<string, string> getAdminInfoByEmail(string email) {
@@ -69,20 +63,12 @@ namespace BMS.backend.database.repositories {
             string selectStmt = "Select * from admin_users "
             + "Where email = ?";
             try {
-                using (var cmd = new MySqlCommand(selectStmt, conn))
-                {
-                    cmd.Parameters.AddWithValue("email", email);
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            data.Add("id", reader.GetString("id"));
-                        }
-                    }
-                       
+                using var cmd = new MySqlCommand(selectStmt, conn);
+                cmd.Parameters.AddWithValue("email", email);
+                using var reader = cmd.ExecuteReader();
+                if (reader.Read()) {
+                    data.Add("id", reader.GetString("id"));
                 }
-                   
-               
 
             }
             catch (MySqlException e) {

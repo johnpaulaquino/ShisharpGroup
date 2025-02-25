@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connector;
-using BMS.backend.models;
+using BackEnd.database.connection;
+using CSharpBackEnd.backend.models;
 using MySql.Data.MySqlClient;
 
-namespace BMS.backend.database.repositories {
+namespace CSharpBackEnd.backend.database.repositories {
     public class AdminReposiroty {
         private MySqlConnection conn;
         public AdminReposiroty() {
