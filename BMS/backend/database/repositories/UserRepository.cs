@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-using BMS.database.connection;
+using BMS.database.connector;
 using BMS.backend.models;
 
 namespace BMS.database.respositories {
