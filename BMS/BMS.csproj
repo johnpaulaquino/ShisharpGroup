@@ -75,6 +75,9 @@
     <Reference Include="MySql.Data, Version=9.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>packages\MySql.Data.9.2.0\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -120,18 +123,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="backend\database\connector\Connector.cs" />
-    <Compile Include="backend\database\repositories\AdminReposiroty.cs" />
-    <Compile Include="backend\database\repositories\ITRepository.cs" />
-    <Compile Include="backend\database\repositories\UserRepository.cs" />
-    <Compile Include="backend\models\AdminUser.cs" />
-    <Compile Include="backend\models\ResidentAdditionalInfo.cs" />
-    <Compile Include="backend\models\ResidentAddress.cs" />
-    <Compile Include="backend\models\ResidentInfo.cs" />
-    <Compile Include="backend\models\User.cs" />
+    <Compile Include="backend\database\connection\Connector.cs" />
+    <Compile Include="backend\database\repository\ITRepository.cs" />
+    <Compile Include="backend\database\repository\AdminRepository.cs" />
+    <Compile Include="backend\database\repository\ResidentRepository.cs" />
+    <Compile Include="backend\database\repository\BaseRepository.cs" />
+    <Compile Include="backend\data_validation\UserInfoValidation.cs" />
+    <Compile Include="backend\models\admin_model\AdminUser.cs" />
+    <Compile Include="backend\models\base_model\AdditionalInfo.cs" />
+    <Compile Include="backend\models\base_model\Address.cs" />
+    <Compile Include="backend\models\base_model\PersonalInformation.cs" />
+    <Compile Include="backend\models\base_model\User.cs" />
+    <Compile Include="backend\models\bo_model\ElectionHistories.cs" />
+    <Compile Include="backend\models\bo_model\OfficialsInfo.cs" />
+    <Compile Include="backend\models\residents_model\ResidentAdditionalInfo.cs" />
+    <Compile Include="backend\models\residents_model\ResidentDocumentRequest.cs" />
+    <Compile Include="backend\services\AdminServices.cs" />
     <Compile Include="backend\services\AuthServices.cs" />
+    <Compile Include="backend\services\ItServices.cs" />
+    <Compile Include="backend\services\ResidentServices.cs" />
     <Compile Include="backend\utils\AuthUtils.cs" />
     <Compile Include="backend\utils\Utils.cs" />
+    <Compile Include="uiDesign\dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiDesign\dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiDesign\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +167,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="uiDesign\Dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uiDesign\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
