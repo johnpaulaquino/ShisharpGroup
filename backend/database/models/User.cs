@@ -3,33 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BackEnd.database.models
+namespace CSharpBackEnd.backend.database.models
 {
+    public enum Role{
+        IT, Admin, Resident
+    }
     public class User
     {
-            private String id ;
-            private String fName;
-            private String lName;
-            private String email;
-            private String password;
-        
-        public User(
-            String id,
-            String fName, 
-            String lName, 
-            String email, 
-            String password){
-        
-        this.id = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.email = email;
-        this.password = password;
+        public string id = Guid.NewGuid().ToString();
+        public string username{get; set;}
+        public string password{get; set;}
+        public string email{get; set;}
+        public Role role{get; set;}
+
+        public User(string username, string password, string email, Role role = Role.Resident){
+            this.role = role;
+            this.username = username;
+            this.email = email;
+            this.password = password;
         }
-   public override string ToString()
-    {
-        return $"User Information\nid: {this.id}\nFirstname: {this.fName}";
-    }
-    
     }
 }

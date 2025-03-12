@@ -1,14 +1,9 @@
-﻿
+﻿using System;
 
-using BackEnd.database.models;
-using BackEnd.database.respositories;
-using BackEnd.utils;
-
+using CSharpBackEnd.backend.database.models;
+using CSharpBackEnd.backend.utils;
 class MyProgram{
     public static void Main(string[] args){
-          var auth = new Repository();
-
-         auth.getUsers();
-
+     
     }
 }
