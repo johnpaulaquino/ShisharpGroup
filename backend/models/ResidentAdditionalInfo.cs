@@ -17,8 +17,8 @@ namespace CSharpBackEnd.backend.database.models
     public class ResidentAdditionalInfo
     {
         public string id = Guid.NewGuid().ToString();
-        public string residentId;
-        public  byte []  profileImage{ get; set; }
+        public string userId{get; set;}
+        public  byte [] profileImage{ get; set; }
         public string occupation {get; set;}
         public int annualSalary {get; set;}
         public bool isVoter { get; set; }  
@@ -26,17 +26,21 @@ namespace CSharpBackEnd.backend.database.models
         public  EmploymentStatus empStatus{get;set;}
         public EducationalAttainment educAttain{get;set;} 
     
-    public ResidentAdditionalInfo(  string residentId,
+    public ResidentAdditionalInfo(  string userId,
                                     byte [] profileImage, 
                                     string occupation,
                                     int annualSalary,
+                                    EmploymentStatus empStatus,
+                                    EducationalAttainment educAttain,
                                     MaritalStatus maritalStatus,
                                     bool isVoter = false){
-    this.residentId = residentId;
+    this.userId = userId;                                    
     this.profileImage = profileImage;
     this.occupation = occupation;
     this.annualSalary = annualSalary;
     this.maritalStatus = maritalStatus;
+    this.educAttain = educAttain;
+    this.empStatus = empStatus;
 
     }
 

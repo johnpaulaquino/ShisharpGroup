@@ -16,27 +16,33 @@ namespace CSharpBackEnd.backend.database.models
     public class ResidentInfo
     {
        public string id = Guid.NewGuid().ToString();
+       public string userId{get;set;}
        public string firstname{get;set;}
+       public string middlename{get;set;}
        public string lastName{get;set;}
        public DateTime birthDate;
        public Gender gender{get;set;}
-       private int age;
-       private Utils utils;
 
 
-    public ResidentInfo(string firstname, string lastname, DateTime birthDate, Gender gender){
-        utils = new Utils();
+    public ResidentInfo(string userId, 
+    string firstname, 
+    string lastname, 
+    string middlename,
+    string email,
+    DateTime birthDate, 
+    Gender gender){
+
+        this.userId = userId;
         this.firstname = firstname;
+        this.middlename = middlename;
         this.lastName = lastname;   
         this.birthDate = birthDate;
         this.gender = gender;
-        this.age = utils.getAge(this.birthDate);
 
     }
 
     public void setBirthday(DateTime birthDate){
         this.birthDate = birthDate;
-        this.age = utils.getAge(birthDate);
     }
     public void setGender(string genderString){
         switch(genderString){
@@ -69,7 +75,7 @@ namespace CSharpBackEnd.backend.database.models
     }
 
     public override string ToString(){
-        return $"id: {this.id}\nGender: {this.gender}\nage: {this.age}";
+        return $"id: {this.id}\nGender: {this.gender}";
     }
   
 }
