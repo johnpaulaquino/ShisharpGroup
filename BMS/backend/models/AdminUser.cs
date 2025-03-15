@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CSharpBackEnd.backend.models
-{
-    public class AdminUser : User
-    {
-        public AdminUser(string username, string password, string email) 
-        : base(username, password, email, Role.Admin){
-        }
+namespace CSharpBackEnd.backend.models {
+    public class AdminUser(string username, string email, string password) :
+    User(username, email, password, Role.Admin) {
     }
 }
