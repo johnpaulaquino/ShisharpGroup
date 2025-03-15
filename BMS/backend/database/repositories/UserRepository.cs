@@ -14,6 +14,7 @@ namespace BackEnd.database.respositories {
             this.conn = new Connector().getConnection();
 
         }
+
     }
 
 
