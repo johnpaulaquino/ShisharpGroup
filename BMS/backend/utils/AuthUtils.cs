@@ -22,19 +22,33 @@ namespace BackEnd.utils
       return Argon2.Hash(plainPassword);
     }
 
-    public bool verifyHashedPassword(String plainPassword, String hashedPassword){
+    public bool verifyHashedPassword(string plainPassword, string hashedPassword){
 
             
     if (string.IsNullOrEmpty(hashedPassword) ||
-         string.IsNullOrEmpty(plainPassword)){
+        string.IsNullOrEmpty(plainPassword)){
+            Console.WriteLine("Hey");
         return false; 
     }
-            return Argon2.Verify(plainPassword, hashedPassword);
+
+        return Argon2.Verify(hashedPassword, plainPassword);
 
     }
 
+  
+    public bool authenticateUser(Dictionary<string, string > data, string plainPassword){
 
-    
+        if (data == null || data.Count == 0){
+            throw new Exception("User not found!");
+            
+        }
+
+        if(!this.verifyHashedPassword(plainPassword, data["password"])){
+            throw new Exception("Incorrect Password!");
+        }
+
+    return true;
+    }
+
 }   
-    
 }

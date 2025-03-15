@@ -12,7 +12,7 @@ namespace BackEnd.database.connection
         private MySqlConnection conn;
         private  String DB_URL;
         public Connector(){
-            DB_URL = "Server=localhost;Database=monitoring_system"+ 
+            DB_URL = "Server=localhost;Database=BarangayMS"+ 
         ";User=root;Password=\"\";";
         conn = new(DB_URL);
             
