@@ -11,11 +11,6 @@ namespace BackEnd.utils {
 
 
     public class AuthUtils {
-
-
-        public AuthUtils() {
-        }
-
         public string hashedPassword(string plainPassword) {
             return Argon2.Hash(plainPassword);
         }

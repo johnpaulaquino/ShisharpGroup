@@ -12,32 +12,21 @@ namespace CSharpBackEnd.backend.database.models {
         Others
     }
 
-    public class ResidentInfo {
+    public class ResidentInfo(string userId,
+    string firstname,
+    string lastname,
+    string middlename,
+    string email,
+    DateTime birthDate,
+    Gender gender) {
         public string id = Guid.NewGuid().ToString();
-        public string userId { get; set; }
-        public string firstname { get; set; }
-        public string middlename { get; set; }
-        public string lastName { get; set; }
-        public DateTime birthDate;
-        public Gender gender { get; set; }
-
-
-        public ResidentInfo(string userId,
-        string firstname,
-        string lastname,
-        string middlename,
-        string email,
-        DateTime birthDate,
-        Gender gender) {
-
-            this.userId = userId;
-            this.firstname = firstname;
-            this.middlename = middlename;
-            this.lastName = lastname;
-            this.birthDate = birthDate;
-            this.gender = gender;
-
-        }
+        public string userId { get; set; } = userId;
+        public string firstname { get; set; } = firstname;
+        public string email { get; set; } = email;
+        public string middlename { get; set; } = middlename;
+        public string lastName { get; set; } = lastname;
+        public DateTime birthDate = birthDate;
+        public Gender gender { get; set; } = gender;
 
         public void setBirthday(DateTime birthDate) {
             this.birthDate = birthDate;

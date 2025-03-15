@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 
 namespace CSharpBackEnd.backend.utils {
     public class Utils {
-        public Utils() {
-
-        }
-        public int getAge(DateTime birthDate) {
+        public int calculateAge(DateTime birthDate) {
 
             DateTime todayDate = DateTime.Today;
 
@@ -22,18 +19,11 @@ namespace CSharpBackEnd.backend.utils {
 
             int age = yearToday - yearBday;
 
-            if (monthToday < monthBday) {
-                age -= 1;
-
-            }
-            else if (monthToday < monthBday && dayToday < dayToday) {
+            if (monthToday < monthBday && dayToday < dayBday) {
                 age -= 1;
             }
-
-
-
-
             return age;
-        }
+
+        }// End of calculateAge funtion
     }
 }

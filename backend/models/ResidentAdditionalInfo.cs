@@ -13,34 +13,23 @@ namespace CSharpBackEnd.backend.database.models {
     public enum EducationalAttainment {
         None, Elementary, HighSchool, College, Postgraduate
     }
-    public class ResidentAdditionalInfo {
+    public class ResidentAdditionalInfo(string userId,
+                                    byte[] profileImage,
+                                    string occupation,
+                                    int annualSalary,
+                                    EmploymentStatus empStatus,
+                                    EducationalAttainment educAttain,
+                                    MaritalStatus maritalStatus,
+                                    bool isVoter = false) {
         public string id = Guid.NewGuid().ToString();
-        public string userId { get; set; }
-        public byte[] profileImage { get; set; }
-        public string occupation { get; set; }
-        public int annualSalary { get; set; }
-        public bool isVoter { get; set; }
-        public MaritalStatus maritalStatus { get; set; }
-        public EmploymentStatus empStatus { get; set; }
-        public EducationalAttainment educAttain { get; set; }
-
-        public ResidentAdditionalInfo(string userId,
-                                        byte[] profileImage,
-                                        string occupation,
-                                        int annualSalary,
-                                        EmploymentStatus empStatus,
-                                        EducationalAttainment educAttain,
-                                        MaritalStatus maritalStatus,
-                                        bool isVoter = false) {
-            this.userId = userId;
-            this.profileImage = profileImage;
-            this.occupation = occupation;
-            this.annualSalary = annualSalary;
-            this.maritalStatus = maritalStatus;
-            this.educAttain = educAttain;
-            this.empStatus = empStatus;
-
-        }
+        public string userId { get; set; } = userId;
+        public byte[] profileImage { get; set; } = profileImage;
+        public string occupation { get; set; } = occupation;
+        public int annualSalary { get; set; } = annualSalary;
+        public bool isVoter { get; set; } = isVoter;
+        public MaritalStatus maritalStatus { get; set; } = maritalStatus;
+        public EmploymentStatus empStatus { get; set; } = empStatus;
+        public EducationalAttainment educAttain { get; set; } = educAttain;
 
         public void setCivilStatus(string maritalStatus) {
             switch (maritalStatus) {

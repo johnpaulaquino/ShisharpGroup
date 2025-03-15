@@ -5,10 +5,7 @@ using System.Threading.Tasks;
 
 namespace CSharpBackEnd.backend.services {
     public class AuthServices {
-        public AuthServices() {
-
-        }
-
+        
 
     }
 }

@@ -8,12 +8,8 @@ class MyProgram {
   public static void Main(string[] args) {
     var repo = new UserRepository();
     var itRepo = new ITRepository();
-    var utils = new AuthUtils();
+    var auUtils = new AuthUtils();
+    var utils = new Utils();
     var admin = new AdminUser("paul", "pauljohn@gmail.com", "Pasul123");
-
-    Dictionary<string, string> data;
-
-
-
   }
 }
