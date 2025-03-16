@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace BackEnd.database.connection {
+namespace BMS.database.connection {
     public class Connector {
         private MySqlConnection conn;
         private String DB_URL;

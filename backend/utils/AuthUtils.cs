@@ -7,7 +7,7 @@ using Isopoh.Cryptography.Argon2;
 using Isopoh.Cryptography.SecureArray;
 
 
-namespace BackEnd.utils {
+namespace BMS.backend.utils {
 
 
     public class AuthUtils {
@@ -27,21 +27,5 @@ namespace BackEnd.utils {
             return Argon2.Verify(hashedPassword, plainPassword);
 
         }
-
-
-        public bool authenticateUser(Dictionary<string, string> data, string plainPassword) {
-
-            if (data == null || data.Count == 0) {
-                throw new Exception("User not found!");
-
-            }
-
-            if (!this.verifyHashedPassword(plainPassword, data["password"])) {
-                throw new Exception("Incorrect Password!");
-            }
-
-            return true;
-        }
-
     }
 }

@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BackEnd.database.connection;
-using CSharpBackEnd.backend.models;
+using BMS.database.connection;
+using BMS.backend.utils;
+using BMS.backend.models;
 using MySql.Data.MySqlClient;
 
-namespace CSharpBackEnd.backend.database.repositories {
+namespace BMS.backend.database.repositories {
     public class ITRepository {
         private readonly MySqlConnection conn;
+        private readonly AuthUtils authUtils = new AuthUtils();
 
         public ITRepository() {
             this.conn = new Connector().getConnection();
@@ -27,7 +29,7 @@ namespace CSharpBackEnd.backend.database.repositories {
                 cmd.Parameters.AddWithValue("id", admin.id);
                 cmd.Parameters.AddWithValue("username", admin.username);
                 cmd.Parameters.AddWithValue("email", admin.email);
-                cmd.Parameters.AddWithValue("password", admin.password);
+                cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
                 cmd.Parameters.AddWithValue("role", admin.role.ToString());
 
                 int row = cmd.ExecuteNonQuery();
@@ -45,7 +47,7 @@ namespace CSharpBackEnd.backend.database.repositories {
         } // End of the funtion insert admin
 
         public void deleteAdminUser(string email) {
-            Dictionary<string, string> data = getAdminInfoByEmail(email);
+            Dictionary<string, string> data = getInfoByEmail(email);
             if (data.Count < 0) {
                 throw new Exception("Can't delete this, because user not found!");
             }
@@ -57,8 +59,29 @@ namespace CSharpBackEnd.backend.database.repositories {
             cmd.ExecuteNonQuery();
             Console.WriteLine("Successully deleted admin user");
 
+        }// End of delett function
+
+        public void updateAdminInfo(AdminUser admin, string email) {
+            string updateStmt = "Update admin_users "
+            + "set username = ?, password = ?, email = ? "
+            + "Where id = ?";
+            Dictionary<string, string> id = getInfoByEmail(email);
+
+            if (id.Count == 0) {
+                throw new Exception("No user found!");
+            }
+
+            using (var cmd = new MySqlCommand(updateStmt, conn)) {
+                cmd.Parameters.AddWithValue("username", admin.username);
+                cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
+                cmd.Parameters.AddWithValue("email", admin.email);
+                cmd.Parameters.AddWithValue("id", id["id"]);
+                cmd.ExecuteNonQuery();
+
+                Console.WriteLine("Successfully update information");
+            }
         }
-        public Dictionary<string, string> getAdminInfoByEmail(string email) {
+        public Dictionary<string, string> getInfoByEmail(string email) {
             Dictionary<string, string> data = new Dictionary<string, string>();
             string selectStmt = "Select * from admin_users "
             + "Where email = ?";
@@ -68,8 +91,9 @@ namespace CSharpBackEnd.backend.database.repositories {
                 using var reader = cmd.ExecuteReader();
                 if (reader.Read()) {
                     data.Add("id", reader.GetString("id"));
+                    data.Add("password", reader.GetString("password"));
+                    data.Add("role", reader.GetString("role"));
                 }
-
             }
             catch (MySqlException e) {
 
