@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.database.models
-{
-    public class ResidentAddress
-    {
-        private string  id = Guid.NewGuid().ToString();
-        public string userId; 
-        public string subdivisionName{get;set;}
-        public int blockNumber{get;set;}
-        public string street{get; set;}
-        public int houseNumber{get; set;} 
+namespace BMS.backend.database.models {
+    public class ResidentAddress {
+        public string id { get; set; }
+        public string subdivisionName { get; set; }
+        public int blockNumber { get; set; }
+        public string street { get; set; }
+        public int houseNumber { get; set; }
 
-        public ResidentAddress(string userId,
+        public ResidentAddress(
                                 string street,
                                 int houseNumber,
                                 string subdivisionName,
-                                int blockNumber){
-        this.userId = userId;
-        this.street = street;
-        this.houseNumber = houseNumber;
-        this.subdivisionName = subdivisionName;
-        this.blockNumber = blockNumber;                            
+                                int blockNumber) {
+            this.street = street;
+            this.houseNumber = houseNumber;
+            this.subdivisionName = subdivisionName;
+            this.blockNumber = blockNumber;
+            id = Guid.NewGuid().ToString();
         }
-        
+
     }
-    
+
 }

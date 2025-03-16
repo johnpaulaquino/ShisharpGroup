@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using BMS.backend.database.repositories;
 using BMS.backend.models;
 
-namespace CSharpBackEnd.backend.services {
+namespace BMS.backend.services {
     public class ItServices {
         private readonly ITRepository itRepo = new ITRepository();
         public ItServices() {

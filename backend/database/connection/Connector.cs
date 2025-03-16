@@ -17,15 +17,14 @@ namespace BMS.database.connection {
         }
 
         public MySqlConnection getConnection() {
-            if (this.conn == null) {
-                this.conn = new MySqlConnection(this.DB_URL);
+            if (conn == null) {
+                conn = new MySqlConnection(DB_URL);
 
             }
-            if (this.conn.State != ConnectionState.Open) {
-                this.conn.Open();
+            if (conn.State != ConnectionState.Open) {
+                conn.Open();
             }
-
-            return this.conn;
+            return conn;
         }
     }
 }

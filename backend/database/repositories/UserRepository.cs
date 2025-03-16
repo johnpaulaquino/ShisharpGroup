@@ -9,11 +9,12 @@ using BMS.backend.models;
 
 namespace BMS.database.respositories {
     public class UserRepository {
-        private MySqlConnection conn;
+        private readonly MySqlConnection conn;
         public UserRepository() {
             conn = new Connector().getConnection();
-
         }
+
+    
 
     }
 

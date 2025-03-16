@@ -13,7 +13,7 @@ namespace BMS.backend.database.repositories {
         private readonly AuthUtils authUtils = new AuthUtils();
 
         public ITRepository() {
-            this.conn = new Connector().getConnection();
+            conn = new Connector().getConnection();
         }
         public async Task InsertAdminUser(AdminUser admin) {
 
@@ -35,7 +35,7 @@ namespace BMS.backend.database.repositories {
                 int row = await cmd.ExecuteNonQueryAsync();
 
                 if (row < 0) {
-                    Console.WriteLine(" Failedto insert data!");
+                    Console.WriteLine(" Failed to insert data!");
                 }
                 Console.WriteLine("Successfully insert data!");
 
