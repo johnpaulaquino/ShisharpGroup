@@ -14,8 +14,8 @@ namespace BMS.backend.services {
         public AuthServices() {
 
         }
-        public Dictionary<string, string> authenticateAdmin(string email, string plainPassword) {
-            Dictionary<string, string> data = itRepo.getInfoByEmail(email);
+        public async Task<Dictionary<string, string>> authenticateAdmin(string email, string plainPassword) {
+            Dictionary<string, string> data = await itRepo.GetInfoByEmail(email);
 
 
             if (data == null || data.Count == 0) {

@@ -15,7 +15,7 @@ namespace BMS.backend.database.repositories {
         public ITRepository() {
             this.conn = new Connector().getConnection();
         }
-        public void insertAdminUser(AdminUser admin) {
+        public async Task InsertAdminUser(AdminUser admin) {
 
             /// <summary>
             /// Create a admin user and insert into database
@@ -32,10 +32,10 @@ namespace BMS.backend.database.repositories {
                 cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
                 cmd.Parameters.AddWithValue("role", admin.role.ToString());
 
-                int row = cmd.ExecuteNonQuery();
+                int row = await cmd.ExecuteNonQueryAsync();
 
                 if (row < 0) {
-                    Console.WriteLine("Failed to insert data!");
+                    Console.WriteLine(" Failedto insert data!");
                 }
                 Console.WriteLine("Successfully insert data!");
 
@@ -46,53 +46,49 @@ namespace BMS.backend.database.repositories {
             }
         } // End of the funtion insert admin
 
-        public void deleteAdminUser(string email) {
-            Dictionary<string, string> data = getInfoByEmail(email);
+        public async Task DeleteAdminUser(string Id) {
+            Dictionary<string, string> data = await GetInfoById(Id);
             if (data.Count < 0) {
                 throw new Exception("Can't delete this, because user not found!");
             }
             string deleteStmt = "Delete from admin_users "
             + "Where id = ?";
-            using var cmd = new MySqlCommand(deleteStmt, conn);
-            cmd.Parameters.AddWithValue("id", data["id"]);
+            using (var cmd = new MySqlCommand(deleteStmt, conn)) {
+                cmd.Parameters.AddWithValue("id", data["id"]);
+                await cmd.ExecuteNonQueryAsync();
+                Console.WriteLine("Successully deleted admin user");
+            }
 
-            cmd.ExecuteNonQuery();
-            Console.WriteLine("Successully deleted admin user");
 
         }// End of delett function
 
-        public void updateAdminInfo(AdminUser admin, string email) {
+        public async Task UpdateAdminInfo(Dictionary<string, string> Id, AdminUser admin) {
             string updateStmt = "Update admin_users "
             + "set username = ?, password = ?, email = ? "
             + "Where id = ?";
-            Dictionary<string, string> id = getInfoByEmail(email);
-
-            if (id.Count == 0) {
-                throw new Exception("No user found!");
-            }
 
             using (var cmd = new MySqlCommand(updateStmt, conn)) {
                 cmd.Parameters.AddWithValue("username", admin.username);
                 cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
                 cmd.Parameters.AddWithValue("email", admin.email);
-                cmd.Parameters.AddWithValue("id", id["id"]);
-                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("id", Id["id"]);
+                await cmd.ExecuteNonQueryAsync();
 
-                Console.WriteLine("Successfully update information");
+                Console.WriteLine("Successfully update information!");
             }
         }
-        public Dictionary<string, string> getInfoByEmail(string email) {
+        public async Task<Dictionary<string, string>> GetInfoByEmail(string email) {
             Dictionary<string, string> data = new Dictionary<string, string>();
             string selectStmt = "Select * from admin_users "
             + "Where email = ?";
             try {
                 using var cmd = new MySqlCommand(selectStmt, conn);
                 cmd.Parameters.AddWithValue("email", email);
-                using var reader = cmd.ExecuteReader();
+                using var reader = await cmd.ExecuteReaderAsync();
                 if (reader.Read()) {
-                    data.Add("id", reader.GetString("id"));
-                    data.Add("password", reader.GetString("password"));
-                    data.Add("role", reader.GetString("role"));
+                    data.Add("id", reader.GetString(0));
+                    data.Add("username", reader.GetString(2));
+                    data.Add("role", reader.GetString(4));
                 }
             }
             catch (MySqlException e) {
@@ -100,6 +96,30 @@ namespace BMS.backend.database.repositories {
                 Console.WriteLine(e.Message);
             }
             return data;
-        }
+        }// end of getInfo function
+
+        public async Task<Dictionary<string, string>> GetInfoById(string id) {
+            string stmt = "Select * from admin_users " +
+            "Where id = ?";
+            Dictionary<string, string> Data = new Dictionary<string, string>();
+            try {
+                using (var cmd = new MySqlCommand(stmt, conn)) {
+                    cmd.Parameters.AddWithValue("id", id);
+                    using (var reader = await cmd.ExecuteReaderAsync()) {
+                        if (reader.Read()) {
+                            Data.Add("id", reader.GetString(0));
+                            Data.Add("username", reader.GetString(1));
+                            Data.Add("role", reader.GetString(4));
+                        }
+                    }
+                }
+                return Data;
+            }
+            catch (System.Exception) {
+
+                throw;
+            }
+        }// end of the GetInfoById function
+
     }
 }

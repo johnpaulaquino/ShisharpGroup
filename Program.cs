@@ -4,18 +4,23 @@ using BMS.backend.utils;
 using BMS.backend.database.repositories;
 using BMS.backend.models;
 using BMS.backend.services;
+using System.Threading.Tasks;
+using CSharpBackEnd.backend.services;
 
 class MyProgram {
-  public static void Main(string[] args) {
-    var repo = new UserRepository();
-    var itRepo = new ITRepository();
-    var adminRepo = new AdminReposiroty();
+  public static async Task Main(string[] args) {
     var auUtils = new AuthUtils();
     var utils = new Utils();
     var authServices = new AuthServices();
-    var admin = new AdminUser("john", "pauljohn@gmail.com", "Pasul123");
+    var ItServices = new ItServices();
+    var admin = new AdminUser("John Paul", "paulohn123@gmail.com", "paul123");
     Dictionary<string, string> data = new Dictionary<string, string>();
 
+    try {
+    }
+    catch (System.Exception e) {
 
+      Console.WriteLine(e.Message);
+    }
   }
 }

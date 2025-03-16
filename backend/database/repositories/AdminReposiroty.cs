@@ -12,6 +12,5 @@ namespace BMS.backend.database.repositories {
         public AdminReposiroty() {
             conn = new Connector().getConnection();
         }
-
     }
 }
