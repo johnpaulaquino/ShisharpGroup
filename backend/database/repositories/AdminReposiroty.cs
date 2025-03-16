@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connection;
+using BMS.database.connector;
 using BMS.backend.models;
 using MySql.Data.MySqlClient;
 using BMS.backend.database.models;
