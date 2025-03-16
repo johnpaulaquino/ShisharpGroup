@@ -4,16 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-using BMS.database.connector;
+using BMS.database.connection;
 using BMS.backend.models;
 
 namespace BMS.database.respositories {
     public class UserRepository {
-        private MySqlConnection conn;
+        private readonly MySqlConnection conn;
         public UserRepository() {
-            this.conn = new Connector().getConnection();
-
+            conn = new Connector().getConnection();
         }
+
+    
 
     }
 

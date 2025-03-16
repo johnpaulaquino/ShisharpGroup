@@ -27,21 +27,5 @@ namespace BMS.backend.utils {
             return Argon2.Verify(hashedPassword, plainPassword);
 
         }
-
-
-        public bool authenticateUser(Dictionary<string, string> data, string plainPassword) {
-
-            if (data == null || data.Count == 0) {
-                throw new Exception("User not found!");
-
-            }
-
-            if (!this.verifyHashedPassword(plainPassword, data["password"])) {
-                throw new Exception("Incorrect Password!");
-            }
-
-            return true;
-        }
-
     }
 }
