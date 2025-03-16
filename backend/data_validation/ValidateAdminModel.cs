@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace BMS.backend.data_validation {
     public class ValidateAdminModel {
-        public
+        public ValidateAdminModel() {
+            
+        }
     }
 }
