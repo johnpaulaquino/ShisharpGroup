@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connection;
+using BMS.database.connector;
 using BMS.backend.utils;
 using BMS.backend.models;
 using MySql.Data.MySqlClient;
@@ -25,21 +25,23 @@ namespace BMS.backend.database.repositories {
             string stmt = "Insert into admin_users (id, username, email,password, role) "
             + "Values (?,?,?,?,?)";
             try {
-                using var cmd = new MySqlCommand(stmt, conn);
-                cmd.Parameters.AddWithValue("id", admin.id);
-                cmd.Parameters.AddWithValue("username", admin.username);
-                cmd.Parameters.AddWithValue("email", admin.email);
-                cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
-                cmd.Parameters.AddWithValue("role", admin.role.ToString());
+                using (var cmd = new MySqlCommand(stmt, conn)) {
+                    cmd.Parameters.AddWithValue("id", admin.id);
+                    cmd.Parameters.AddWithValue("username", admin.username);
+                    cmd.Parameters.AddWithValue("email", admin.email);
+                    cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
+                    cmd.Parameters.AddWithValue("role", admin.role.ToString());
 
-                int row = await cmd.ExecuteNonQueryAsync();
+                    int row = await cmd.ExecuteNonQueryAsync();
 
-                if (row < 0) {
-                    Console.WriteLine(" Failed to insert data!");
+                    if (row < 0) {
+                        Console.WriteLine(" Failed to insert data!");
+                    }
+                    Console.WriteLine("Successfully insert data!");
+
                 }
-                Console.WriteLine("Successfully insert data!");
-
             }
+
 
             catch (MySqlException e) {
                 throw new Exception(e.Message);
