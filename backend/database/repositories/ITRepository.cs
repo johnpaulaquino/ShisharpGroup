@@ -48,21 +48,6 @@ namespace BMS.backend.database.repositories {
             }
         } // End of the funtion insert admin
 
-        public async Task DeleteAdminUser(string Id) {
-            Dictionary<string, string> data = await GetInfoById(Id);
-            if (data.Count < 0) {
-                throw new Exception("Can't delete this, because user not found!");
-            }
-            string deleteStmt = "Delete from admin_users "
-            + "Where id = ?";
-            using (var cmd = new MySqlCommand(deleteStmt, conn)) {
-                cmd.Parameters.AddWithValue("id", data["id"]);
-                await cmd.ExecuteNonQueryAsync();
-                Console.WriteLine("Successully deleted admin user");
-            }
-
-
-        }// End of delett function
 
         public async Task UpdateAdminInfo(Dictionary<string, string> Id, AdminUser admin) {
             string updateStmt = "Update admin_users "
@@ -122,6 +107,5 @@ namespace BMS.backend.database.repositories {
                 throw;
             }
         }// end of the GetInfoById function
-
     }
 }

@@ -8,6 +8,7 @@ using BMS.backend.models;
 namespace BMS.backend.services {
     public class ItServices {
         private readonly ITRepository itRepo = new ITRepository();
+        private readonly AdminReposiroty adminRepo = new AdminReposiroty();
         public ItServices() {
 
         }
@@ -49,7 +50,7 @@ namespace BMS.backend.services {
                     throw new Exception("No user found!");
                 }
 
-                await itRepo.DeleteAdminUser(Data["id"]);
+                await adminRepo.DeleteAdminUser(Data["id"]);
             }
             catch (System.Exception) {
 
