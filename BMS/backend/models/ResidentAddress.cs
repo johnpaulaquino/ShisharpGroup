@@ -15,7 +15,7 @@ namespace BMS.backend.database.models {
                                 string street,
                                 int houseNumber,
                                 string subdivisionName,
-                                int blockNumber) {
+                                int blockNumber = 0) {
             this.street = street;
             this.houseNumber = houseNumber;
             this.subdivisionName = subdivisionName;

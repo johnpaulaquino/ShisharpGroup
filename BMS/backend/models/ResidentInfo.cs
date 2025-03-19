@@ -27,10 +27,8 @@ namespace BMS.backend.database.models {
             string middlename,
             string lastname,
             string email,
-            Gender gender,
-            string userId = "") {
+            Gender gender){
 
-            this.userId = userId;
             this.firstname = firstname;
             this.middlename = middlename;
             this.lastname = lastname;

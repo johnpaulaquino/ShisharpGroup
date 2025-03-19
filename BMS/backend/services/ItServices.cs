@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BMS.backend.database.repositories;
 using BMS.backend.models;
+using MySql.Data.MySqlClient;
 
 namespace BMS.backend.services {
     public class ItServices {
         private readonly ITRepository itRepo = new ITRepository();
+        private readonly AdminReposiroty adminRepo = new AdminReposiroty();
         public ItServices() {
-
+            
         }
 
         public async Task AddAdminUserAccountServices(AdminUser admin) {
@@ -49,7 +52,7 @@ namespace BMS.backend.services {
                     throw new Exception("No user found!");
                 }
 
-                await itRepo.DeleteAdminUser(Data["id"]);
+                await adminRepo.DeleteAdminUser(Data["id"]);
             }
             catch (System.Exception) {
 
