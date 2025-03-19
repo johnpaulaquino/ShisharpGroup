@@ -24,10 +24,9 @@ class MyProgram {
     var residentAddress = new ResidentAddress("Gumamela", 110, "", 0);
     DateTime bday = new DateTime(2003, 07, 23);
     var residentAddInfo = new ResidentAdditionalInfo(true, bday.Date,
-    "UnEmployed", "College", "Single");
+    "UnEmployed", "College", "Single", "09998614418");
     var admin = new AdminUser("John Paul", "paulohn123@gmail.com", "paul123");
     Dictionary<string, string> data = new Dictionary<string, string>();
 
-    Console.WriteLine(residentAddress.id);
   }
 }

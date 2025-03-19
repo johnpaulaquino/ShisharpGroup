@@ -9,8 +9,8 @@ using BMS.backend.utils;
 namespace BMS.backend.models.residents_model {
 
     public class ResidentAdditionalInfo : AdditionalInfo {
-        public ResidentAdditionalInfo(bool isVoter, DateTime birthDate, string empStatus, string educAttain, string maritalStatus, int[] profileImage = null)
-        : base(isVoter, birthDate, empStatus, educAttain, maritalStatus, profileImage) {
+        public ResidentAdditionalInfo(bool isVoter, DateTime birthDate, string empStatus, string educAttain, string maritalStatus, string contactNo, string status = "Active", int[] profileImage = null)
+        : base(isVoter, birthDate, empStatus, educAttain, maritalStatus, contactNo, status, profileImage) {
         }
     }
 }

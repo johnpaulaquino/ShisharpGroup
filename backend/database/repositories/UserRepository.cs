@@ -17,7 +17,7 @@ namespace BMS.database.respositories {
         }
 
         public async Task AddResidentInformation(ResidentInfo _ResidentInfo) {
-            string stmt1 = "Insert Into resident_info (id, email, firstname, middlename"
+            string stmt1 = "Insert Into personal_info (id, email, firstname, middlename"
                           + ",lastname, gender) "
                           + "Values (?,?,?,?,?,?)";
             try {
@@ -38,7 +38,7 @@ namespace BMS.database.respositories {
         }// End of the Add ResidentINformation function
         public async Task AddResidentAddInfo(ResidentAdditionalInfo _ResidenAddtInfo,
                                         string residentInfoId) {
-            string stmt1 = "Insert Into resident_additional_info (id, resident_info_id, profile_image, is_voter,"
+            string stmt1 = "Insert Into additional_info (id, resident_info_id, profile_image, is_voter,"
                           + "martial_status, educational_attaintment,birth_day, age) "
                           + "Values (?,?,?,?,?,?,?,?)";
             try {
@@ -61,7 +61,7 @@ namespace BMS.database.respositories {
         }// End of the Add ResidentAddInformation function
         public async Task AddResidentAddress(ResidentAddress _ResidenAddress,
                                       string resident_info_id) {
-            string stmt1 = "Insert Into resident_address (id, resident_info_id, street, house_number"
+            string stmt1 = "Insert Into address (id, resident_info_id, street, house_number"
                           + ", subdivision, block_number) "
                           + "Values (?,?,?,?,?,?)";
             try {
@@ -82,7 +82,7 @@ namespace BMS.database.respositories {
         }// End of the Add ResidentAddInformation function
 
         public async Task<Dictionary<string, string>> FindResidentById(string id) {
-            string stmt = "Select id from resident_info "
+            string stmt = "Select id from personal_info "
             + "Where id = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
@@ -102,7 +102,7 @@ namespace BMS.database.respositories {
             }
         }// End of the FindByEmail
         public async Task<Dictionary<string, string>> FindResidentByEmail(string email) {
-            string stmt = "Select id, email from resident_info "
+            string stmt = "Select id, email from personal_info "
             + "Where email = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
@@ -122,17 +122,19 @@ namespace BMS.database.respositories {
             }
         }
 
-        public async Task<DbDataReader> GetResidentInfo() {
-            string stmt = "Select i.email, i.firstname, i.middlename, i.lastname, i.gender, i.display_id, "
+        public async Task<DbDataReader> GetResidentInfo(string category) {
+            string stmt = "Select p.email, p.firstname, p.middlename, p.lastname, p.gender, p.display_id, "
             + "a.street, a.house_number, a.subdivision, a.block_number, "
             + "ai.profile_image, ai.is_voter, ai.martial_status, ai.educational_attaintment, ai.birth_day, ai.age "
-            + "from resident_info i "
-            + "inner join resident_address a "
-            + "On i.id = a.resident_info_id "
-            + "inner join resident_additional_info ai "
-            + "On i.id = ai.resident_info_id";
+            + "from personal_info p "
+            + "inner join address a "
+            + "On p.id = a.resident_info_id "
+            + "inner join additional_info ai "
+            + "On p.id = ai.resident_info_id "
+            + "Where p.category = ?";
             try {
                 var cmd = new MySqlCommand(stmt, conn);
+                cmd.Parameters.AddWithValue("category", category);
                 return await cmd.ExecuteReaderAsync();
             }
             catch (MySqlException) {

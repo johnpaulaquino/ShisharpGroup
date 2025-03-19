@@ -16,6 +16,8 @@ namespace BMS.backend.models.base_model {
         public string educAttain { get; set; } // Elementary, Junior High School, Senior High School, College, Masteral, Docotrate, and None
         public DateTime birthDate;
         public int age { get; }
+        public string contactNo { get; set; }
+        public string status { get; set; }
 
         public AdditionalInfo(
                             bool isVoter,
@@ -23,6 +25,8 @@ namespace BMS.backend.models.base_model {
                             string empStatus,
                             string educAttain,
                             string maritalStatus,
+                            string contactNo,
+                            string status,
                             int[] profileImage) {
             this.profileImage = profileImage;
             this.birthDate = birthDate;
@@ -31,6 +35,8 @@ namespace BMS.backend.models.base_model {
             this.educAttain = educAttain;
             this.maritalStatus = maritalStatus;
             this.empStatus = empStatus;
+            this.contactNo = contactNo;
+            this.status = status;
         }
     }
 }

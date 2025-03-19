@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.models.base_models {
+namespace BMS.backend.models.base_model {
     public enum Role {
         IT, Admin, Resident
     }
