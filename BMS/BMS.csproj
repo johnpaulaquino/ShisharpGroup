@@ -120,7 +120,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="backend\database\connector\Connector.cs" />
+    <Compile Include="backend\database\connector\Connecetor.cs" />
     <Compile Include="backend\database\repositories\AdminReposiroty.cs" />
     <Compile Include="backend\database\repositories\ITRepository.cs" />
     <Compile Include="backend\database\repositories\UserRepository.cs" />

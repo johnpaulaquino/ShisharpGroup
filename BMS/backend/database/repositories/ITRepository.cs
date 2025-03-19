@@ -69,14 +69,21 @@ namespace BMS.backend.database.repositories {
             string selectStmt = "Select * from admin_users "
             + "Where email = ?";
             try {
-                using var cmd = new MySqlCommand(selectStmt, conn);
-                cmd.Parameters.AddWithValue("email", email);
-                using var reader = await cmd.ExecuteReaderAsync();
-                if (reader.Read()) {
-                    data.Add("id", reader.GetString(0));
-                    data.Add("username", reader.GetString(2));
-                    data.Add("role", reader.GetString(4));
+                using (var cmd = new MySqlCommand(selectStmt, conn))
+                {
+                    cmd.Parameters.AddWithValue("email", email);
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.Read())
+                        {
+                            data.Add("id", reader.GetString(0));
+                            data.Add("username", reader.GetString(2));
+                            data.Add("role", reader.GetString(4));
+                        }
+                    }
+                       
                 }
+               
             }
             catch (MySqlException e) {
 
