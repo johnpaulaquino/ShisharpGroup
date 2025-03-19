@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BMS.backend.database.repositories;
-using BMS.backend.models;
+using BMS.backend.models.admin_model;
+using MySql.Data.MySqlClient;
 
 namespace BMS.backend.services {
     public class ItServices {

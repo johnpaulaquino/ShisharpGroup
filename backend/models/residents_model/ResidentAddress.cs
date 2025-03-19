@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.database.models {
+namespace BMS.backend.models.residents_model {
     public class ResidentAddress {
         public string id { get; set; }
         public string subdivisionName { get; set; }
@@ -15,7 +15,7 @@ namespace BMS.backend.database.models {
                                 string street,
                                 int houseNumber,
                                 string subdivisionName,
-                                int blockNumber) {
+                                int blockNumber = 0) {
             this.street = street;
             this.houseNumber = houseNumber;
             this.subdivisionName = subdivisionName;

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BMS.database.connector;
+using MySql.Data.MySqlClient;
 
 namespace BMS.backend.utils {
     public class Utils {
@@ -25,5 +27,6 @@ namespace BMS.backend.utils {
             return age;
 
         }// End of calculateAge funtion
+       
     }
 }

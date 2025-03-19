@@ -6,7 +6,8 @@ using MySql.Data.MySqlClient;
 
 using BMS.database.connector;
 using BMS.backend.models;
-using BMS.backend.database.models;
+using BMS.backend.models.residents_model;
+using System.Data.Common;
 
 namespace BMS.database.respositories {
     public class UserRepository {
@@ -37,15 +38,15 @@ namespace BMS.database.respositories {
         }// End of the Add ResidentINformation function
         public async Task AddResidentAddInfo(ResidentAdditionalInfo _ResidenAddtInfo,
                                         string residentInfoId) {
-            string stmt1 = "Insert Into resident_additional_info (id, profile_image, is_voter, resident_info_id,"
+            string stmt1 = "Insert Into resident_additional_info (id, resident_info_id, profile_image, is_voter,"
                           + "martial_status, educational_attaintment,birth_day, age) "
                           + "Values (?,?,?,?,?,?,?,?)";
             try {
                 using (var cmd = new MySqlCommand(stmt1, conn)) {
                     cmd.Parameters.AddWithValue("id", _ResidenAddtInfo.id);
-                    cmd.Parameters.AddWithValue("is_voter", _ResidenAddtInfo.isVoter);
-                    cmd.Parameters.AddWithValue("profile_image", MySqlDbType.LongBlob).Value = _ResidenAddtInfo.profileImage;
                     cmd.Parameters.AddWithValue("resident_info_id", residentInfoId);
+                    cmd.Parameters.AddWithValue("profile_image", MySqlDbType.LongBlob).Value = _ResidenAddtInfo.profileImage;
+                    cmd.Parameters.AddWithValue("is_voter", _ResidenAddtInfo.isVoter);
                     cmd.Parameters.AddWithValue("martial_status", _ResidenAddtInfo.maritalStatus.ToString());
                     cmd.Parameters.AddWithValue("educational_attaintment", _ResidenAddtInfo.educAttain.ToString());
                     cmd.Parameters.AddWithValue("birth_day", _ResidenAddtInfo.birthDate);
@@ -101,7 +102,7 @@ namespace BMS.database.respositories {
             }
         }// End of the FindByEmail
         public async Task<Dictionary<string, string>> FindResidentByEmail(string email) {
-            string stmt = "Select id from resident_info "
+            string stmt = "Select id, email from resident_info "
             + "Where email = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
@@ -117,6 +118,25 @@ namespace BMS.database.respositories {
                 return data;
             }
             catch (System.Exception) {
+                throw;
+            }
+        }
+
+        public async Task<DbDataReader> GetResidentInfo() {
+            string stmt = "Select i.email, i.firstname, i.middlename, i.lastname, i.gender, i.display_id, "
+            + "a.street, a.house_number, a.subdivision, a.block_number, "
+            + "ai.profile_image, ai.is_voter, ai.martial_status, ai.educational_attaintment, ai.birth_day, ai.age "
+            + "from resident_info i "
+            + "inner join resident_address a "
+            + "On i.id = a.resident_info_id "
+            + "inner join resident_additional_info ai "
+            + "On i.id = ai.resident_info_id";
+            try {
+                var cmd = new MySqlCommand(stmt, conn);
+                return await cmd.ExecuteReaderAsync();
+            }
+            catch (MySqlException) {
+
                 throw;
             }
         }

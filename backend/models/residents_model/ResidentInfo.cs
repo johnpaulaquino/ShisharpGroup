@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BMS.backend.utils;
 
-namespace BMS.backend.database.models {
+namespace BMS.backend.models.residents_model {
 
     public enum Gender {
         Male,
@@ -14,23 +14,19 @@ namespace BMS.backend.database.models {
 
     public class ResidentInfo {
         public string id = Guid.NewGuid().ToString();
-        public string userId { get; set; }
         public string firstname { get; set; }
         public string middlename { get; set; }
         public string lastname { get; set; }
         public string email { get; set; }
         public string gender { get; set; }
 
-
         public ResidentInfo(
+            string email,
             string firstname,
             string middlename,
             string lastname,
-            string email,
-            Gender gender,
-            string userId = "") {
+            Gender gender) {
 
-            this.userId = userId;
             this.firstname = firstname;
             this.middlename = middlename;
             this.lastname = lastname;

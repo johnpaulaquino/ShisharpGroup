@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BMS.backend.utils;
-using Microsoft.VisualBasic;
 
-namespace BMS.backend.database.models {
+
+namespace BMS.backend.models.residents_model {
     public enum MaritalStatus {
         Widowed, Single, Married
     }
