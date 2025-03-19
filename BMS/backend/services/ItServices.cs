@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BMS.backend.database.repositories;
-using BMS.backend.models;
+using BMS.backend.models.admin_model;
 using MySql.Data.MySqlClient;
 
 namespace BMS.backend.services {
@@ -12,7 +12,7 @@ namespace BMS.backend.services {
         private readonly ITRepository itRepo = new ITRepository();
         private readonly AdminReposiroty adminRepo = new AdminReposiroty();
         public ItServices() {
-            
+
         }
 
         public async Task AddAdminUserAccountServices(AdminUser admin) {

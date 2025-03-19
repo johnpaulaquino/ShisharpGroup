@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BMS.database.connector;
-using BMS.backend.models;
 using MySql.Data.MySqlClient;
-using BMS.backend.database.models;
-using Mysqlx.Sql;
+
 
 namespace BMS.backend.database.repositories {
     public class AdminReposiroty : ITRepository {
