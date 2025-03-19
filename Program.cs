@@ -19,8 +19,8 @@ class MyProgram {
     var ItServices = new ItServices();
     var adminServices = new AdminServices();
 
-    var residetInfo = new ResidentInfo("Paul@gmail.com", "John Paul", "Castro",
-    "Aquino", Gender.Male);
+    // var residetInfo = new ResidentInfo("Paul@gmail.com", "John Paul", "Castro",
+    // "Aquino", Gender.Male);
     var residentAddress = new ResidentAddress("Gumamela", 110, "", 0);
     DateTime bday = new DateTime(2003, 07, 23);
     var residentAddInfo = new ResidentAdditionalInfo(true, bday.Date,
@@ -28,5 +28,6 @@ class MyProgram {
     var admin = new AdminUser("John Paul", "paulohn123@gmail.com", "paul123");
     Dictionary<string, string> data = new Dictionary<string, string>();
 
+    Console.WriteLine(residentAddress.id);
   }
 }
