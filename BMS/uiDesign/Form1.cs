@@ -27,6 +27,10 @@ namespace BMS
 
         }
 
-  
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String text = textBox1.Text;
+            MessageBox.Show("You entered: " + text);
+        }
     }
 }

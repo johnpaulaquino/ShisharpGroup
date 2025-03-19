@@ -18,7 +18,7 @@ namespace BMS.backend.database.models {
     public class ResidentAdditionalInfo {
         public Utils utils = new Utils();
         public string id = Guid.NewGuid().ToString();
-        public int[]? profileImage { get; set; }
+        public int[] profileImage { get; set; }
         public bool isVoter { get; set; }
         public MaritalStatus maritalStatus { get; set; }
         public EmploymentStatus empStatus { get; set; }
@@ -32,7 +32,7 @@ namespace BMS.backend.database.models {
                                         string empStatus,
                                         string educAttain,
                                         string maritalStatus,
-                                        int[]? profileImage = null) {
+                                        int[] profileImage = null) {
             this.profileImage = profileImage;
             this.birthDate = birthDate;
             this.isVoter = isVoter;

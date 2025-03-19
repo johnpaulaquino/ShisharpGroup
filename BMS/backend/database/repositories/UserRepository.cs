@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 using BMS.database.connector;
-using BMS.backend.models;
 using BMS.backend.database.models;
 using System.Data.Common;
 
