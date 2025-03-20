@@ -17,7 +17,7 @@ namespace BMS.backend.database.repositories {
             Dictionary<string, string> data = await GetInfoById(Id);
             try {
                 if (data.Count < 0) {
-                    throw new Exception("Can't delete this, because user not found!");
+                    throw new Exception("Can't delete this, because user not Exist!");
                 }
                 string deleteStmt = "Delete from admin_users "
                 + "Where id = ?";
