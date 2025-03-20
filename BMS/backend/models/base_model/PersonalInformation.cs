@@ -5,32 +5,32 @@ using System.Threading.Tasks;
 
 namespace BMS.backend.models.base_model {
     public class PersonalInformation {
-        public string id = Guid.NewGuid().ToString();
-        public string firstname { get; set; }
-        public string middlename { get; set; }
-        public string lastname { get; set; }
-        public string email { get; set; }
-        public string gender { get; set; } // Male, Female, and Other
-        public string category { get; set; } // Resident, Admin, and Officials
+        public string Id = Guid.NewGuid().ToString();
+        public string Firstname { get; set; }
+        public string Middlename { get; set; }
+        public string Lastname { get; set; }
+        public string Gender { get; set; } // Male, Female, and Other
+        public string Category { get; set; } // Resident, Admin, and Officials
+
 
         public PersonalInformation(
-            string email,
-            string firstname,
-            string middlename,
-            string lastname,
-            string gender,
-            string category) {
+            string Firstname,
+            string Middlename,
+            string Lastname,
+            string Gender,
+            string Category
+) {
 
-            this.firstname = firstname;
-            this.middlename = middlename;
-            this.lastname = lastname;
-            this.email = email;
-            this.gender = gender;
-            this.category = category;
+            this.Firstname = Firstname;
+            this.Middlename = Middlename;
+            this.Lastname = Lastname;
+            this.Gender = Gender;
+            this.Category = Category;
+
         }
 
         public override string ToString() {
-            return $"id: {this.id}\nGender: {this.gender}";
+            return $"id: {this.Id}\nGender: {this.Gender}";
         }
     }
 }

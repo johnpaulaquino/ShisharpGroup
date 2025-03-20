@@ -8,35 +8,35 @@ namespace BMS.backend.models.base_model {
     public class AdditionalInfo {
 
         public Utils utils = new Utils();
-        public string id = Guid.NewGuid().ToString();
-        public int[] profileImage { get; set; }
-        public bool isVoter { get; set; }
-        public string maritalStatus { get; set; } // Single, Widowed, Married, and Divorce
-        public string empStatus { get; set; } // Employee, Self-employed, Unemployed, Volunteer
-        public string educAttain { get; set; } // Elementary, Junior High School, Senior High School, College, Masteral, Docotrate, and None
-        public DateTime birthDate;
-        public int age { get; }
-        public string contactNo { get; set; }
-        public string status { get; set; }
+        public string ID = Guid.NewGuid().ToString();
+        public int[] ProfileImage { get; set; }
+        public bool IsVoter { get; set; }
+        public string MaritalStatus { get; set; } // Single, Widowed, Married, and Divorce
+        public string EmpStatus { get; set; } // Employee, Self-employed, Unemployed, Volunteer
+        public string EducAttain { get; set; } // Elementary, Junior High School, Senior High School, College, Masteral, Docotrate, and None
+        public DateTime BirthDate;
+        public int Age { get; }
+        public string ContactNo { get; set; }
+        public string Status { get; set; } // enable and disabled
 
         public AdditionalInfo(
-                            bool isVoter,
-                            DateTime birthDate,
-                            string empStatus,
-                            string educAttain,
-                            string maritalStatus,
-                            string contactNo,
-                            string status,
-                            int[] profileImage) {
-            this.profileImage = profileImage;
-            this.birthDate = birthDate;
-            this.isVoter = isVoter;
-            age = utils.calculateAge(this.birthDate);
-            this.educAttain = educAttain;
-            this.maritalStatus = maritalStatus;
-            this.empStatus = empStatus;
-            this.contactNo = contactNo;
-            this.status = status;
+                            bool IsVoter,
+                            DateTime BirthDate,
+                            string EmpStatus,
+                            string EducAttain,
+                            string MaritalStatus,
+                            string ContactNo,
+                            string Status,
+                            int[] ProfileImage) {
+            this.ProfileImage = ProfileImage;
+            this.BirthDate = BirthDate;
+            this.IsVoter = IsVoter;
+            Age = utils.calculateAge(this.BirthDate);
+            this.EducAttain = EducAttain;
+            this.MaritalStatus = MaritalStatus;
+            this.EmpStatus = EmpStatus;
+            this.ContactNo = ContactNo;
+            this.Status = Status;
         }
     }
 }
