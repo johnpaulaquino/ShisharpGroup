@@ -11,7 +11,7 @@ namespace BMS.backend.models.residents_model {
     public class ResidentAdditionalInfo : AdditionalInfo {
         public byte[] ProofOfResidency { get; set; }
         public ResidentAdditionalInfo(bool IsVoter,
-        DateTime BirthDate,
+        DateOnly BirthDate,
         string EmpStatus,
         string EducAttain,
         string MaritalStatus,

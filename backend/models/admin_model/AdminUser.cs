@@ -6,8 +6,8 @@ using BMS.backend.models.base_model;
 
 namespace BMS.backend.models.admin_model {
     public class AdminUser : User {
-        public AdminUser(string username, string password, string email)
-        : base(username, password, email, Role.Admin) {
+        public AdminUser(string email, string password, string role, bool Status)
+        : base(email, password, role, Status) {
         }
     }
 }

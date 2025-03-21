@@ -22,15 +22,14 @@ namespace BMS.backend.database.repositories {
             /// </summary>
             /// <param name="(Admin">is an admin object that created in model</param>
             /// <returns></returns>
-            string stmt = "Insert into admin_users (id, username, email,password, role) "
-            + "Values (?,?,?,?,?)";
+            string stmt = "Insert into admin_users (id, email,password, role) "
+            + "Values (?,?,?,?)";
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
                     cmd.Parameters.AddWithValue("id", admin.id);
-                    cmd.Parameters.AddWithValue("username", admin.username);
-                    cmd.Parameters.AddWithValue("email", admin.email);
-                    cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
-                    cmd.Parameters.AddWithValue("role", admin.role.ToString());
+                    cmd.Parameters.AddWithValue("email", admin.Email);
+                    cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.Password));
+                    cmd.Parameters.AddWithValue("role", admin.Role.ToString());
 
                     int row = await cmd.ExecuteNonQueryAsync();
 
@@ -51,13 +50,12 @@ namespace BMS.backend.database.repositories {
 
         public async Task UpdateAdminInfo(Dictionary<string, string> Id, AdminUser admin) {
             string updateStmt = "Update admin_users "
-            + "set username = ?, password = ?, email = ? "
+            + "set password = ?, email = ? "
             + "Where id = ?";
 
             using (var cmd = new MySqlCommand(updateStmt, conn)) {
-                cmd.Parameters.AddWithValue("username", admin.username);
-                cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.password));
-                cmd.Parameters.AddWithValue("email", admin.email);
+                cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.Password));
+                cmd.Parameters.AddWithValue("email", admin.Email);
                 cmd.Parameters.AddWithValue("id", Id["id"]);
                 await cmd.ExecuteNonQueryAsync();
 

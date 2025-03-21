@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Newtonsoft.Json;
 using BMS.backend.utils;
 using BMS.backend.database.repositories;
 using BMS.backend.models;
@@ -8,26 +8,22 @@ using System.Threading.Tasks;
 using BMS.backend.models.residents_model;
 using BMS.backend.models.admin_model;
 using BMS.backend.models.base_model;
+using BMS.backend.models.bo_model;
 
 
 class MyProgram {
   public static async Task Main(string[] args) {
-    var auUtils = new AuthUtils();
-    var adminRepo = new AdminReposiroty();
-    var stdRepo = new UserRepository();
-    var utils = new Utils();
-    var authServices = new AuthServices();
-    var ItServices = new ItServices();
-    var adminServices = new AdminServices();
+    List<string> Accomplished = new List<string>();
+    List<string> Awards = new List<string>();
+    var repo = new ResidentRepository();
 
-    var residetInfo = new PersonalInformation( "John Paul", "Castro",
-    "Aquino", "Male", "Resident");
-    var residentAddress = new Address("Gumamela", 110, "", 0);
-    DateTime bday = new DateTime(2003, 07, 23);
-    var residentAddInfo = new ResidentAdditionalInfo(true, bday.Date,
-    "UnEmployed", "College", "Single", "09998614418");
-    var admin = new AdminUser("John Paul", "paulohn123@gmail.com", "paul123");
-    Dictionary<string, string> data = new Dictionary<string, string>();
-    // var officials = new OfficialsInfo();
+    var user = new User("paul@yahoo.com", "123", "Officials", false);
+    var personal = new PersonalInformation(user.id, "John Paul", "Castro", "Aquino", "Male");
+    var elecHisto = new ElectionHistories(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), Accomplished, Awards);
+    string json = JsonConvert.SerializeObject(elecHisto, Formatting.Indented);
+    var officials = new OfficialsInfo(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), "Secretary", json);
+    var address = new Address("Gumamela", "110");
+    var addInfo = new ResidentAdditionalInfo(true, new DateOnly(2003, 07, 23), "Self-Employed", "College", "Single", "09998614418");
+
   }
 }

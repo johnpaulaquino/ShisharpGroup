@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace BMS.backend.utils {
     public class Utils {
-        public int calculateAge(DateTime birthDate) {
+        public int calculateAge(DateOnly birthDate) {
 
             DateTime todayDate = DateTime.Today;
 
@@ -27,6 +27,6 @@ namespace BMS.backend.utils {
             return age;
 
         }// End of calculateAge funtion
-       
+
     }
 }
