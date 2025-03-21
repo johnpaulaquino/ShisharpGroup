@@ -7,15 +7,15 @@ namespace BMS.backend.models.base_model {
     public class Address {
         public string Id { get; set; }
         public string SubdivisionName { get; set; }
-        public int BlockNumber { get; set; }
+        public string BlockNumber { get; set; }
         public string Street { get; set; }
-        public int HouseNumber { get; set; }
+        public string HouseNumber { get; set; }
 
         public Address(
                     string Street,
-                    int HouseNumber,
-                    string SubdivisionName,
-                    int BlockNumber = 0) {
+                    string HouseNumber,
+                    string SubdivisionName = null,
+                    string BlockNumber = null) {
             this.Street = Street;
             this.HouseNumber = HouseNumber;
             this.SubdivisionName = SubdivisionName;

@@ -17,7 +17,7 @@ namespace BMS.backend.services {
 
         public async Task AddAdminUserAccountServices(AdminUser admin) {
             try {
-                Dictionary<string, string> data = await itRepo.GetInfoByEmail(admin.email);
+                Dictionary<string, string> data = await itRepo.GetInfoByEmail(admin.Email);
                 if (data.Count > 0) {
                     throw new Exception("User already Exist!");
                 }

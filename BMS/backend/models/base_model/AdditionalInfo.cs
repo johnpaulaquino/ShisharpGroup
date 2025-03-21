@@ -14,14 +14,13 @@ namespace BMS.backend.models.base_model {
         public string MaritalStatus { get; set; } // Single, Widowed, Married, and Divorce
         public string EmpStatus { get; set; } // Employee, Self-employed, Unemployed, Volunteer
         public string EducAttain { get; set; } // Elementary, Junior High School, Senior High School, College, Masteral, Docotrate, and None
-        public DateTime BirthDate;
-        public int Age { get; }
+        public DateOnly BirthDate;
         public string ContactNo { get; set; }
         public string Status { get; set; } // enable and disabled
 
         public AdditionalInfo(
                             bool IsVoter,
-                            DateTime BirthDate,
+                            DateOnly BirthDate,
                             string EmpStatus,
                             string EducAttain,
                             string MaritalStatus,
@@ -31,7 +30,6 @@ namespace BMS.backend.models.base_model {
             this.ProfileImage = ProfileImage;
             this.BirthDate = BirthDate;
             this.IsVoter = IsVoter;
-            Age = utils.calculateAge(this.BirthDate);
             this.EducAttain = EducAttain;
             this.MaritalStatus = MaritalStatus;
             this.EmpStatus = EmpStatus;
