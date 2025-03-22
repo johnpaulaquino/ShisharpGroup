@@ -20,28 +20,8 @@ namespace BMS.backend.database.repositories {
         }
 
 
-        public async Task<Dictionary<string, string>> FindResidentById(string id) {
-            string stmt = "Select id from personal_info "
-            + "Where id = ?";
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            try {
-                using (var cmd = new MySqlCommand(stmt, conn)) {
-                    cmd.Parameters.AddWithValue("id", id);
-                    using (var reader = await cmd.ExecuteReaderAsync()) {
-                        if (reader.Read()) {
-                            data.Add("id", reader.GetString(0));
-                            data.Add("email", reader.GetString(1));
-                        }
-                    }
-                }
-                return data;
-            }
-            catch (System.Exception) {
-                throw;
-            }
-        }// End of the FindByEmail
-        public async Task<Dictionary<string, string>> FindResidentByEmail(string email) {
-            string stmt = "Select id, email from personal_info "
+        public async Task<Dictionary<string, string>> GetEmail(string email) {
+            string stmt = "Select email from users "
             + "Where email = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
@@ -49,8 +29,7 @@ namespace BMS.backend.database.repositories {
                     cmd.Parameters.AddWithValue("email", email);
                     using (var reader = await cmd.ExecuteReaderAsync()) {
                         if (reader.Read()) {
-                            data.Add("id", reader.GetString(0));
-                            data.Add("email", reader.GetString(1));
+                            data.Add("email", reader.GetString(reader.GetOrdinal("email")));
                         }
                     }
                 }
@@ -59,21 +38,23 @@ namespace BMS.backend.database.repositories {
             catch (System.Exception) {
                 throw;
             }
-        }
+        }// End of FindByEmail
 
-        public async Task<DbDataReader> GetResidentInfo(string category) {
-            string stmt = "Select p.email, p.firstname, p.middlename, p.lastname, p.gender, p.display_id, "
+        public async Task<DbDataReader> GetInformation() {
+            string stmt = "Select u.role, u.status, u.email, p.firstname, p.middlename, p.lastname, p.gender, p.display_id, "
             + "a.street, a.house_number, a.subdivision, a.block_number, "
             + "ai.profile_image, ai.is_voter, ai.martial_status, ai.educational_attaintment, ai.birth_day, ai.age "
-            + "from personal_info p "
+            + "from users u "
+            + "Inner join personal_info p "
+            + "On u.id = p.user_id "
             + "inner join address a "
             + "On p.id = a.resident_info_id "
             + "inner join additional_info ai "
             + "On p.id = ai.resident_info_id "
-            + "Where p.category = ?";
+            + "Where u.role = ?";
             try {
                 var cmd = new MySqlCommand(stmt, conn);
-                cmd.Parameters.AddWithValue("category", category);
+                cmd.Parameters.AddWithValue("role", "Resident");
                 return await cmd.ExecuteReaderAsync();
             }
             catch (MySqlException) {
@@ -118,7 +99,6 @@ namespace BMS.backend.database.repositories {
                     cmd.Parameters.AddWithValue("password", user.Password);
                     cmd.Parameters.AddWithValue("role", user.Role);
                     cmd.Parameters.AddWithValue("status", user.Status);
-
                     await cmd.ExecuteNonQueryAsync();
                 }
             }

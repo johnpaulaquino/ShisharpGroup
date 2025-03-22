@@ -16,10 +16,11 @@ namespace BMS.backend.models.residents_model {
         string EducAttain,
         string MaritalStatus,
         string ContactNo,
+        string Religion,
         string Status = "disabled",
-        int[] ProfileImage = null,
+        byte[] ProfileImage = null,
         byte[] ProofOfResidency = null)
-        : base(IsVoter, BirthDate, EmpStatus, EducAttain, MaritalStatus, ContactNo, Status, ProfileImage) {
+        : base(IsVoter, BirthDate, EmpStatus, EducAttain, MaritalStatus, ContactNo, Status, Religion, ProfileImage) {
             this.ProofOfResidency = ProofOfResidency;
         }
     }

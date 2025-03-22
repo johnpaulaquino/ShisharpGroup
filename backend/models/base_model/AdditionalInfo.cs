@@ -9,7 +9,7 @@ namespace BMS.backend.models.base_model {
 
         public Utils utils = new Utils();
         public string ID = Guid.NewGuid().ToString();
-        public int[] ProfileImage { get; set; }
+        public byte[] ProfileImage { get; set; }
         public bool IsVoter { get; set; }
         public string MaritalStatus { get; set; } // Single, Widowed, Married, and Divorce
         public string EmpStatus { get; set; } // Employee, Self-employed, Unemployed, Volunteer
@@ -17,7 +17,7 @@ namespace BMS.backend.models.base_model {
         public DateOnly BirthDate;
         public string ContactNo { get; set; }
         public string Status { get; set; } // enable and disabled
-
+        public string Religion { get; set; }
         public AdditionalInfo(
                             bool IsVoter,
                             DateOnly BirthDate,
@@ -26,8 +26,11 @@ namespace BMS.backend.models.base_model {
                             string MaritalStatus,
                             string ContactNo,
                             string Status,
-                            int[] ProfileImage) {
+                            string Religion,
+                            byte[] ProfileImage) {
+
             this.ProfileImage = ProfileImage;
+            this.Religion = Religion;
             this.BirthDate = BirthDate;
             this.IsVoter = IsVoter;
             this.EducAttain = EducAttain;
