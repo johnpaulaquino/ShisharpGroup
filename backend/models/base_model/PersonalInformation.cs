@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 namespace BMS.backend.models.base_model {
     public class PersonalInformation {
         public string Id = Guid.NewGuid().ToString();
-        public string UserId { get; set; }
         public string Firstname { get; set; }
         public string Middlename { get; set; }
         public string Lastname { get; set; }
         public string Suffix { get; set; }
         public string Gender { get; set; } // Male, Female, and Other
         public PersonalInformation(
-            string UserId,
             string Firstname,
             string Middlename,
             string Lastname,
             string Gender,
             string Suffix = null) {
 
-            this.UserId = UserId;
             this.Firstname = Firstname;
             this.Middlename = Middlename;
             this.Lastname = Lastname;

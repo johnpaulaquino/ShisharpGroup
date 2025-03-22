@@ -31,9 +31,9 @@ namespace BMS.backend.database.repositories {
 
                 throw;
             }
+            
 
 
-
-        }// End of delett function
+        }// End of delete function
     }
 }

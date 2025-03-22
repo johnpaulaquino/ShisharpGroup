@@ -15,15 +15,27 @@ class MyProgram {
   public static async Task Main(string[] args) {
     List<string> Accomplished = new List<string>();
     List<string> Awards = new List<string>();
-    var repo = new ResidentRepository();
+    byte[] ProfileImage;
+    var ResidentServe = new ResidentServices();
 
-    var user = new User("paul@yahoo.com", "123", "Officials", false);
-    var personal = new PersonalInformation(user.id, "John Paul", "Castro", "Aquino", "Male");
-    var elecHisto = new ElectionHistories(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), Accomplished, Awards);
-    string json = JsonConvert.SerializeObject(elecHisto, Formatting.Indented);
-    var officials = new OfficialsInfo(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), "Secretary", json);
-    var address = new Address("Gumamela", "110");
-    var addInfo = new ResidentAdditionalInfo(true, new DateOnly(2003, 07, 23), "Self-Employed", "College", "Single", "09998614418");
 
+    using (var img = new FileStream("/home/pj/Desktop/CSharpBackEnd/sampleimage/noImage.jpg", FileMode.Open, FileAccess.Read)) {
+      var repo = new ResidentRepository();
+      var adminServices = new AdminServices();
+      ProfileImage = new byte[img.Length];
+
+      await img.ReadExactlyAsync(ProfileImage);
+
+      var user = new User("paul@yahoo.com", "123", "Resident", false);
+      var personal = new PersonalInformation("John Paul", "Castro", "Aquino", "Male");
+      var elecHisto = new ElectionHistories(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), Accomplished, Awards);
+      string json = JsonConvert.SerializeObject(elecHisto, Formatting.Indented);
+      var officials = new OfficialsInfo(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), "Secretary", json);
+      var address = new Address("Gumamela", "110");
+      var addInfo = new ResidentAdditionalInfo(true, new DateOnly(2003, 07, 23), "Self-Employed", "College", "09998614418", "Single", "Chrstian") { ProfileImage = ProfileImage };
+
+
+      await ResidentServe.CreateResidentInformation(user, personal, addInfo, address);
+    }
   }
 }

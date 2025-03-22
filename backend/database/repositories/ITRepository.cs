@@ -104,6 +104,6 @@ namespace BMS.backend.database.repositories {
 
                 throw;
             }
-        }// end of the GetInfoById function
+        }// end of GetInfoById function
     }
 }

@@ -2,24 +2,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend.models.residents_model;
 using BMS.backend.database.repositories;
 using BMS.backend.models.base_model;
 using BMS.backend.models.bo_model;
-using System.Data.Common;
+using BMS.backend.models.residents_model;
 
 namespace BMS.backend.services {
-    public class AdminServices {
-        ResidentRepository _ResidentRepo = new ResidentRepository();
-        public AdminServices() {
 
-        }
-        public async Task CreateOfficialsInformation(User _User,
+    public class ResidentServices {
+        private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
+
+
+
+        public async Task CreateResidentInformation(User _User,
             PersonalInformation _ResidentInfo,
             ResidentAdditionalInfo _ResidentAddInfo,
-            Address _ResidentAddress,
-            OfficialsInfo _OfficialsInfo,
-            ElectionHistories _ElectionHistories
+            Address _ResidentAddress
+
             ) {
 
             try {
@@ -31,17 +30,15 @@ namespace BMS.backend.services {
                 await _ResidentRepo.AddResidentInformation(_ResidentInfo, _User.id);
                 await _ResidentRepo.AddResidentAddInfo(_ResidentAddInfo, _ResidentInfo.Id);
                 await _ResidentRepo.AddResidentAddress(_ResidentAddress, _ResidentInfo.Id);
-                await _ResidentRepo.AddOfficialsInfo(_OfficialsInfo, _ElectionHistories, _ResidentInfo.Id);
+
             }
             catch (System.Exception) {
 
                 throw;
             }
-        }//End of function
-
-        public async Task<DbDataReader> GetResidentInformation() {
-            var reader = await _ResidentRepo.GetInformation();
-            return reader;
         }
+
     }
+
+
 }
