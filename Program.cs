@@ -26,7 +26,7 @@ class MyProgram {
 
       await img.ReadExactlyAsync(ProfileImage);
 
-      var user = new User("paul@yahoo.com", "123", "Resident", false);
+      var user = new User("paul@yahoo1.com", "123", "Resident", false);
       var personal = new PersonalInformation("John Paul", "Castro", "Aquino", "Male");
       var elecHisto = new ElectionHistories(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), Accomplished, Awards);
       string json = JsonConvert.SerializeObject(elecHisto, Formatting.Indented);
@@ -35,7 +35,6 @@ class MyProgram {
       var addInfo = new ResidentAdditionalInfo(true, new DateOnly(2003, 07, 23), "Self-Employed", "College", "09998614418", "Single", "Chrstian") { ProfileImage = ProfileImage };
 
 
-      await ResidentServe.CreateResidentInformation(user, personal, addInfo, address);
     }
   }
 }

@@ -42,8 +42,8 @@ namespace BMS.backend.database.repositories {
 
         }// End of Add ResidentINformation function
         public async Task AddResidentAddInfo(ResidentAdditionalInfo _ResidenAddtInfo,
-                                        string residentInfoId) {
-            string stmt1 = "Insert Into additional_info (resident_info_id, profile_image, is_voter,"
+                                        string UserId) {
+            string stmt1 = "Insert Into additional_info (user_id, profile_image, is_voter,"
                           + "martial_status, educational_attaintment,religion, birth_day, age, contact_number, proof_of_residency ) "
                           + "Values (?,?,?,?,?,?,?,?,?,?)";
 
@@ -51,7 +51,7 @@ namespace BMS.backend.database.repositories {
 
             try {
                 using (var cmd = new MySqlCommand(stmt1, conn)) {
-                    cmd.Parameters.AddWithValue("resident_info_id", residentInfoId);
+                    cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("profile_image", _ResidenAddtInfo.ProfileImage);
                     cmd.Parameters.AddWithValue("is_voter", _ResidenAddtInfo.IsVoter);
                     cmd.Parameters.AddWithValue("martial_status", _ResidenAddtInfo.MaritalStatus.ToString());
@@ -72,13 +72,13 @@ namespace BMS.backend.database.repositories {
 
 
         public async Task AddResidentAddress(Address _ResidenAddress,
-                                      string resident_info_id) {
-            string stmt1 = "Insert Into address (resident_info_id, street, house_number"
+                                      string UserId) {
+            string stmt1 = "Insert Into address (user_id, street, house_number"
                           + ", subdivision, block_number) "
                           + "Values (?,?,?,?,?)";
             try {
                 using (var cmd = new MySqlCommand(stmt1, conn)) {
-                    cmd.Parameters.AddWithValue("resident_info_id", resident_info_id);
+                    cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("street", _ResidenAddress.Street);
                     cmd.Parameters.AddWithValue("house_number", _ResidenAddress.HouseNumber);
                     cmd.Parameters.AddWithValue("subdivision", _ResidenAddress.SubdivisionName);

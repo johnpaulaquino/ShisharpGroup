@@ -28,8 +28,8 @@ namespace BMS.backend.services {
                 }
                 await _ResidentRepo.AddUser(_User);
                 await _ResidentRepo.AddResidentInformation(_ResidentInfo, _User.id);
-                await _ResidentRepo.AddResidentAddInfo(_ResidentAddInfo, _ResidentInfo.Id);
-                await _ResidentRepo.AddResidentAddress(_ResidentAddress, _ResidentInfo.Id);
+                await _ResidentRepo.AddResidentAddInfo(_ResidentAddInfo, _User.id);
+                await _ResidentRepo.AddResidentAddress(_ResidentAddress, _User.id);
 
             }
             catch (System.Exception) {
