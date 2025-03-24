@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BMS.backend.models.base_model {
     public class Address {
-        public string Id { get; set; }
+        public string Id = Guid.NewGuid().ToString();
         public string SubdivisionName { get; set; }
         public string BlockNumber { get; set; }
         public string Street { get; set; }
@@ -20,7 +20,7 @@ namespace BMS.backend.models.base_model {
             this.HouseNumber = HouseNumber;
             this.SubdivisionName = SubdivisionName;
             this.BlockNumber = BlockNumber;
-            Id = Guid.NewGuid().ToString();
+
         }
 
     }

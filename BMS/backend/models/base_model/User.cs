@@ -11,7 +11,7 @@ namespace BMS.backend.models.base_model {
         public string Role { get; set; }
         public bool Status { get; set; }
 
-        public User(string email, string password, string role, bool Status = false) {
+        public User(string email, string password, string role = "users", bool Status = false) {
             this.Role = role;
             this.Email = email;
             this.Password = password;

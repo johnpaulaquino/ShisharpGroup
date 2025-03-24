@@ -11,16 +11,19 @@ namespace BMS.backend.models.base_model {
         public string Lastname { get; set; }
         public string Suffix { get; set; }
         public string Gender { get; set; } // Male, Female, and Other
+        public string Category { get; set; }
         public PersonalInformation(
             string Firstname,
             string Middlename,
             string Lastname,
             string Gender,
+            string Category = "Resident",
             string Suffix = null) {
 
             this.Firstname = Firstname;
             this.Middlename = Middlename;
             this.Lastname = Lastname;
+            this.Category = Category;
             this.Suffix = Suffix;
             this.Gender = Gender;
         }
