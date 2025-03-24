@@ -1,0 +1,3 @@
+- Admin can create a officials and resident information
+- Resident can Create account and automatically send the data into request_account table 
+for account verification by the admin
