@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-=======
+
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,7 +61,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Enter some text";
             // 
->>>>>>> 0fa40d72afdc66257ca65df35320b0a5b2779643
+
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

@@ -7,7 +7,7 @@ using BMS.backend.database.repositories;
 using BMS.backend.models.base_model;
 using BMS.backend.models.bo_model;
 using BMS.backend.models.residents_model;
-using CSharpBackEnd.backend.models.resident_model;
+using BMS.backend.models.residents_model;
 
 
 namespace BMS.backend.services

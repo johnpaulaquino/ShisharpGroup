@@ -75,6 +75,8 @@ namespace BMS.backend.services
                 await _ResidentRepo.AddResidentInformation(_PersonalInfo, _User.id);
                 await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, _User.id);
                 await _ResidentRepo.AddResidentAddress(_ResidentAddress, _User.id);
+
+                Console.WriteLine("successfuly Inserted!");
             }
             catch (System.Exception)
             {

@@ -136,7 +136,6 @@
     <Compile Include="backend\models\base_model\User.cs" />
     <Compile Include="backend\models\bo_model\ElectionHistories.cs" />
     <Compile Include="backend\models\bo_model\OfficialsInfo.cs" />
-    <Compile Include="backend\models\residents_model\ResidentAdditionalInfo.cs" />
     <Compile Include="backend\models\residents_model\ResidentDocumentRequest.cs" />
     <Compile Include="backend\services\AdminServices.cs" />
     <Compile Include="backend\services\AuthServices.cs" />
