@@ -157,11 +157,11 @@
     <Compile Include="uiDesign\LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="uiDesign\SignUpForm.cs">
+    <Compile Include="uiDesign\Personal_Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="uiDesign\SignUpForm.Designer.cs">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
+    <Compile Include="uiDesign\Personal_Info.Designer.cs">
+      <DependentUpon>Personal_Info.cs</DependentUpon>
     </Compile>
     <Compile Include="uiDesign\Index.cs">
       <SubType>Form</SubType>
@@ -177,7 +177,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="uiDesign\home.resx">
       <DependentUpon>home.cs</DependentUpon>
@@ -185,8 +184,8 @@
     <EmbeddedResource Include="uiDesign\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uiDesign\SignUpForm.resx">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
+    <EmbeddedResource Include="uiDesign\Personal_Info.resx">
+      <DependentUpon>Personal_Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiDesign\Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
@@ -205,23 +204,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bahay.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bahay2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\help.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\about.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\burger.jpg" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

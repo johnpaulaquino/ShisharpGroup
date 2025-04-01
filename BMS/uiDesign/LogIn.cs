@@ -42,5 +42,32 @@ namespace BMS.uiDesign
         {
 
         }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Krypton_LogIn back = new Krypton_LogIn();
+            back.Show();
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+    
+        }
+
+        private void kryptonButton2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
