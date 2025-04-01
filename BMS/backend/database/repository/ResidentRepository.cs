@@ -74,17 +74,15 @@ namespace BMS.backend.database.repositories {
 
         public async Task AddRequestDocuments(ResidentDocumentRequest _RequestDocu) {
             string stmt = "INSERT INTO request_document(id, user_id, document_type, status, "
-            + "description) "
+            + "purpose) "
             + "Values(?,?,?,?,?)";
-
-
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
                     cmd.Parameters.AddWithValue("id", _RequestDocu.Id);
                     cmd.Parameters.AddWithValue("user_id", _RequestDocu.UserId);
                     cmd.Parameters.AddWithValue("document_type", _RequestDocu.DocumentType);
                     cmd.Parameters.AddWithValue("status", _RequestDocu.Status);
-                    cmd.Parameters.AddWithValue("description", _RequestDocu.Description);
+                    cmd.Parameters.AddWithValue("purpose", _RequestDocu.Purpose);
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
