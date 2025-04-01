@@ -45,7 +45,7 @@ namespace BMS.backend.utils {
 
             _MimeMessage.Body = _Multipart;
 
-            using (client = new SmtpClient()) {
+            using (var client = new SmtpClient()) {
                 await client.ConnectAsync(settings.EMAIL_SERVER, settings.EMAIL_PORT, MailKit.Security.SecureSocketOptions.StartTls);
                 await client.AuthenticateAsync(settings.EMAIL, settings.EMAIL_PASSWORD);
                 await client.SendAsync(_MimeMessage);
