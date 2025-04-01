@@ -60,5 +60,10 @@ namespace BMS.uiDesign
             //    }
             //}
         }
+
+        private void kryptonPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
