@@ -7,6 +7,7 @@ using BMS.backend.services;
 using System.Threading.Tasks;
 using BMS.backend.models.base_model;
 using BMS.backend.models.bo_model;
+using DotNetEnv;
 
 
 
@@ -18,6 +19,7 @@ class MyProgram {
     Awards.Add("Shabu");
     byte[] ProfileImage;
     var ResidentServe = new ResidentServices();
+    var _EmailServices = new EmailServices();
 
 
     using (var img = new FileStream("/home/pj/Desktop/CSharpBackEnd/sampleimage/noImage.jpg", FileMode.Open, FileAccess.Read)) {
@@ -36,15 +38,16 @@ class MyProgram {
       var address = new Address("Gumamela", "110");
       var addInfo = new AdditionalInfo(true, new DateTime(2003, 07, 23), "Self-Employed", "College", "Single", "09998614418", "Chrstian") { ProofOfResidency = ProfileImage };
 
-      Dictionary<string, string> data = await repo.GetElectionHistories();
-      string electString = data["election_histories0"];
+      // Dictionary<string, string> data = await repo.GetElectionHistories();
+      // string electString = data["election_histories0"];
 
-      ElectionHistories elect = JsonConvert.DeserializeObject<ElectionHistories>(electString);
+      // ElectionHistories elect = JsonConvert.DeserializeObject<ElectionHistories>(electString);
 
-      foreach (var item in elect.Achievements) {
-        Console.WriteLine(item);
-      }
-      // await secretaryServices.CreateOfficialsInfo(user,personal,addInfo,address,officials,elecHisto);
+      // foreach (var item in elect.Achievements) {
+      //   Console.WriteLine(item);
+      // }
+      // await secretaryServices.CreateOfficialsInfo(user, personal, addInfo, address, officials, elecHisto);
+
 
     }
   }
