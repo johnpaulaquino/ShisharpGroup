@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace BMS.uiDesign
 {
-    public partial class User: Form
+    public partial class Index: Form
     {
-        public User()
+        public Index()
         {
             InitializeComponent();
+        }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

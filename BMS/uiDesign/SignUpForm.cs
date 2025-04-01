@@ -16,5 +16,21 @@ namespace BMS.uiDesign
         {
             InitializeComponent();
         }
+
+        private void kryptonLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonTextBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            kryptonTextBox1.UseSystemPasswordChar = !kryptonCheckBox1.Checked;
+
+        }
     }
 }

@@ -27,5 +27,20 @@ namespace BMS.uiDesign
         {
 
         }
+
+        private void kryptonLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

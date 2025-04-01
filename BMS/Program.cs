@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BMS.backend.services;
 using System.IO;
+using BMS.uiDesign;
 
 namespace BMS
 {
@@ -17,9 +18,10 @@ namespace BMS
         [STAThread]
         static async Task Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.Run(new Index());
         }
     }
 }
