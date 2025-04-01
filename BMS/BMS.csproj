@@ -145,6 +145,12 @@
     <Compile Include="backend\utils\Utils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="uiDesign\home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiDesign\home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiDesign\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,7 +177,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="uiDesign\home.resx">
+      <DependentUpon>home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uiDesign\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +205,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bahay.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bahay2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\burger.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
