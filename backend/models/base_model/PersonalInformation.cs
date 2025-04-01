@@ -1,10 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.models.base_model {
-    public class PersonalInformation {
+namespace BMS.backend.models.base_model
+{
+    public class PersonalInformation
+    {
         public string Id = Guid.NewGuid().ToString();
         public string Firstname { get; set; }
         public string Middlename { get; set; }
@@ -18,7 +20,8 @@ namespace BMS.backend.models.base_model {
             string Lastname,
             string Gender,
             string Category = "Resident",
-            string Suffix = null) {
+            string Suffix = null)
+        {
 
             this.Firstname = Firstname;
             this.Middlename = Middlename;
@@ -27,7 +30,8 @@ namespace BMS.backend.models.base_model {
             this.Suffix = Suffix;
             this.Gender = Gender;
         }
-        public override string ToString() {
+        public override string ToString()
+        {
             return $"id: {this.Id}\nGender: {this.Gender}";
         }
     }

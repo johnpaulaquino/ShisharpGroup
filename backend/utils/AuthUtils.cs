@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -7,19 +7,24 @@ using Isopoh.Cryptography.Argon2;
 using Isopoh.Cryptography.SecureArray;
 
 
-namespace BMS.backend.utils {
+namespace BMS.backend.utils
+{
 
 
-    public class AuthUtils {
-        public string hashedPassword(string plainPassword) {
+    public class AuthUtils
+    {
+        public string hashedPassword(string plainPassword)
+        {
             return Argon2.Hash(plainPassword);
         }
 
-        public bool verifyHashedPassword(string plainPassword, string hashedPassword) {
+        public bool verifyHashedPassword(string plainPassword, string hashedPassword)
+        {
 
 
             if (string.IsNullOrEmpty(hashedPassword) ||
-                string.IsNullOrEmpty(plainPassword)) {
+                string.IsNullOrEmpty(plainPassword))
+            {
                 Console.WriteLine("Hey");
                 return false;
             }

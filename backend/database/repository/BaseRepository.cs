@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,22 +7,28 @@ using BMS.backend.utils;
 using BMS.database.connector;
 using MySql.Data.MySqlClient;
 
-namespace BMS.backend.database.repositories {
-    public class BaseRepository {
+namespace BMS.backend.database.repositories
+{
+    public class BaseRepository
+    {
         private readonly MySqlConnection conn;
         private readonly Utils util;
-        public BaseRepository() {
+        public BaseRepository()
+        {
             conn = new Connector().getConnection();
             util = new Utils();
         }
 
 
-        public async Task AddResidentInformation(PersonalInformation _ResidentInfo, string UserId) {
+        public async Task AddResidentInformation(PersonalInformation _ResidentInfo, string UserId)
+        {
             string stmt1 = "Insert Into personal_info (id,user_id, firstname, middlename"
                           + ",lastname, suffix, gender, category) "
                           + "Values (?,?,?,?,?,?,?,?)";
-            try {
-                using (var cmd = new MySqlCommand(stmt1, conn)) {
+            try
+            {
+                using (var cmd = new MySqlCommand(stmt1, conn))
+                {
                     cmd.Parameters.AddWithValue("id", _ResidentInfo.Id);
                     cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("firstname", _ResidentInfo.Firstname);
@@ -35,22 +41,26 @@ namespace BMS.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (System.Exception)
+            {
 
                 throw;
             }
 
         }// End of Add ResidentINformation function
         public async Task AddResidentAddInfo(AdditionalInfo _AdditionalInfo,
-                                        string UserId) {
+                                        string UserId)
+        {
             string stmt1 = "Insert Into additional_info (id, user_id, is_voter,"
                           + "civil_status, educational_attaintment,religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
                           + "Values (?,?,?,?,?,?,?,?,?,?,?)";
 
             int Age = util.calculateAge(_AdditionalInfo.BirthDate);
 
-            try {
-                using (var cmd = new MySqlCommand(stmt1, conn)) {
+            try
+            {
+                using (var cmd = new MySqlCommand(stmt1, conn))
+                {
                     cmd.Parameters.AddWithValue("id", _AdditionalInfo.Id);
                     cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("is_voter", _AdditionalInfo.IsVoter);
@@ -65,7 +75,8 @@ namespace BMS.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (System.Exception)
+            {
 
                 throw;
             }
@@ -73,12 +84,15 @@ namespace BMS.backend.database.repositories {
 
 
         public async Task AddResidentAddress(Address _ResidenAddress,
-                                      string UserId) {
+                                      string UserId)
+        {
             string stmt1 = "Insert Into address (id, user_id, street, house_number"
                           + ", subdivision, block_number) "
                           + "Values (?,?,?,?,?,?)";
-            try {
-                using (var cmd = new MySqlCommand(stmt1, conn)) {
+            try
+            {
+                using (var cmd = new MySqlCommand(stmt1, conn))
+                {
                     cmd.Parameters.AddWithValue("id", _ResidenAddress.Id);
                     cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("street", _ResidenAddress.Street);
@@ -88,7 +102,8 @@ namespace BMS.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (System.Exception)
+            {
 
                 throw;
             }

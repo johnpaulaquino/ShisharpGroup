@@ -5,39 +5,47 @@ using BMS.backend.database.repositories;
 using BMS.backend.models;
 using BMS.backend.services;
 using System.Threading.Tasks;
-
-using BMS.backend.models.admin_model;
 using BMS.backend.models.base_model;
 using BMS.backend.models.bo_model;
-using BMS.backend.data_validation;
-using CSharpBackEnd.backend.models.resident_model;
+
 
 
 class MyProgram {
   public static async Task Main(string[] args) {
     List<string> Accomplished = new List<string>();
     List<string> Awards = new List<string>();
+    Accomplished.Add("Nakapagpagawa ng bahay");
+    Awards.Add("Shabu");
     byte[] ProfileImage;
     var ResidentServe = new ResidentServices();
 
 
     using (var img = new FileStream("/home/pj/Desktop/CSharpBackEnd/sampleimage/noImage.jpg", FileMode.Open, FileAccess.Read)) {
       var repo = new ResidentRepository();
-      var adminServices = new AdminServices();
+      var secretaryServices = new SecretaryServices();
+      var _Authservices = new AuthServices();
       ProfileImage = new byte[img.Length];
 
       await img.ReadExactlyAsync(ProfileImage);
 
-      var user = new User("Paul@gmail1.com", "123asdsadasd") { Status = false };
+      var user = new User("Paul123@4gmail.com", "123asdsadasd") { Status = false };
       var personal = new PersonalInformation("John Paul", "Castro", "Aquino", "Male");
-      var elecHisto = new ElectionHistories(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), Accomplished, Awards);
+      var elecHisto = new ElectionHistories(new DateTime(2003, 07, 23), new DateTime(2006, 07, 23), Accomplished, Awards);
       string json = JsonConvert.SerializeObject(elecHisto, Formatting.Indented);
-      var officials = new OfficialsInfo(new DateOnly(2003, 07, 23), new DateOnly(2006, 07, 23), "Secretary", json);
+      var officials = new OfficialsInfo(new DateTime(2003, 07, 23), new DateTime(2006, 07, 23), "Secretary", json);
       var address = new Address("Gumamela", "110");
-      var addInfo = new AdditionalInfo(true, new DateOnly(2003, 07, 23), "Self-Employed", "College", "Single", "09998614418", "Chrstian") { ProofOfResidency = ProfileImage };
+      var addInfo = new AdditionalInfo(true, new DateTime(2003, 07, 23), "Self-Employed", "College", "Single", "09998614418", "Chrstian") { ProofOfResidency = ProfileImage };
 
+      Dictionary<string, string> data = await repo.GetElectionHistories();
+      string electString = data["election_histories0"];
+
+      ElectionHistories elect = JsonConvert.DeserializeObject<ElectionHistories>(electString);
+
+      foreach (var item in elect.Achievements) {
+        Console.WriteLine(item);
+      }
+      // await secretaryServices.CreateOfficialsInfo(user,personal,addInfo,address,officials,elecHisto);
 
     }
-
   }
 }

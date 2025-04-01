@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace BMS.database.connector {
         public Connector() {
             DB_URL = "Server=localhost;Database=BarangayMS" +
         ";User=root;Password=\"\";";
-            conn = new(DB_URL);
+            conn = new MySqlConnection(DB_URL);
 
         }
 
@@ -22,6 +22,7 @@ namespace BMS.database.connector {
 
             }
             if (conn.State != ConnectionState.Open) {
+
                 conn.Open();
             }
             return conn;

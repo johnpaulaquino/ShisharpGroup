@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +6,8 @@ using BMS.backend.data_validation;
 using BMS.backend.database.repositories;
 using BMS.backend.models.base_model;
 using BMS.backend.models.bo_model;
-using CSharpBackEnd.backend.models.resident_model;
+using BMS.backend.models.residents_model;
+
 
 
 namespace BMS.backend.services {
@@ -29,10 +30,12 @@ namespace BMS.backend.services {
                 if (IsExist.Count > 0) {
                     throw new Exception("Email is already exist, Email must be unique!");
                 }
+
+                string Id = await _ResidentRepo.GenerateId();
                 await _ResidentRepo.AddUser(_User);
-                await _ResidentRepo.AddResidentInformation(_ResidentInfo, _User.id);
-                await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, _User.id);
-                await _ResidentRepo.AddResidentAddress(_ResidentAddress, _User.id);
+                await _ResidentRepo.AddResidentInformation(_ResidentInfo, Id);
+                await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, Id);
+                await _ResidentRepo.AddResidentAddress(_ResidentAddress, Id);
 
             }
             catch (System.Exception) {

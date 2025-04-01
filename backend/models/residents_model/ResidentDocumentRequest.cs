@@ -1,10 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CSharpBackEnd.backend.models.resident_model {
-    public class ResidentDocumentRequest {
+namespace BMS.backend.models.residents_model
+{
+    public class ResidentDocumentRequest
+    {
         public string Id = Guid.NewGuid().ToString();
         public string UserId { get; set; }
         public string DocumentType { get; set; }
@@ -13,7 +15,8 @@ namespace CSharpBackEnd.backend.models.resident_model {
         public ResidentDocumentRequest(string UserId,
         string DocumentType,
         string Description,
-        string Status = "pending") {
+        string Status = "pending")
+        {
             this.DocumentType = DocumentType;
             this.Status = Status;
             this.UserId = UserId;

@@ -1,32 +1,34 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connector;
-using BMS.backend.utils;
 using BMS.backend.models.admin_model;
+using BMS.backend.models.secretary_model;
+using BMS.backend.utils;
+using BMS.database.connector;
 using MySql.Data.MySqlClient;
 
+
 namespace BMS.backend.database.repositories {
-    public class ITRepository {
+    public class AdminRepository {
         private readonly MySqlConnection conn;
         private readonly AuthUtils authUtils = new AuthUtils();
 
-        public ITRepository() {
+        public AdminRepository() {
             conn = new Connector().getConnection();
         }
-        public async Task InsertAdminUser(AdminUser admin) {
+        public async Task InsertAdminUser(SecretaryUser admin) {
 
             /// <summary>
             /// Create a admin user and insert into database
             /// </summary>
             /// <param name="(Admin">is an admin object that created in model</param>
             /// <returns></returns>
-            string stmt = "Insert into admin_users (id, email,password, role) "
+            string stmt = "Insert into users (id, email,password, role) "
             + "Values (?,?,?,?)";
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
-                    cmd.Parameters.AddWithValue("id", admin.id);
+                    cmd.Parameters.AddWithValue("id", admin.Id);
                     cmd.Parameters.AddWithValue("email", admin.Email);
                     cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(admin.Password));
                     cmd.Parameters.AddWithValue("role", admin.Role.ToString());
@@ -67,13 +69,15 @@ namespace BMS.backend.database.repositories {
             string selectStmt = "Select * from admin_users "
             + "Where email = ?";
             try {
-                using var cmd = new MySqlCommand(selectStmt, conn);
-                cmd.Parameters.AddWithValue("email", email);
-                using var reader = await cmd.ExecuteReaderAsync();
-                if (reader.Read()) {
-                    data.Add("id", reader.GetString(0));
-                    data.Add("username", reader.GetString(2));
-                    data.Add("role", reader.GetString(4));
+                using (var cmd = new MySqlCommand(selectStmt, conn)) {
+                    cmd.Parameters.AddWithValue("email", email);
+                    using (var reader = await cmd.ExecuteReaderAsync()) {
+                        if (reader.Read()) {
+                            data.Add("id", reader.GetString(0));
+                            data.Add("username", reader.GetString(2));
+                            data.Add("role", reader.GetString(4));
+                        }
+                    }
                 }
             }
             catch (MySqlException e) {

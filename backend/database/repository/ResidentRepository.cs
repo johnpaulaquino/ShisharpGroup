@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,21 +10,28 @@ using System.Data.Common;
 using BMS.backend.database.repositories;
 using BMS.backend.models.bo_model;
 using BMS.backend.models.base_model;
-using CSharpBackEnd.backend.models.resident_model;
+using BMS.backend.models.residents_model;
+using System.Xml;
+using BMS.backend.utils;
+using ZstdSharp.Unsafe;
 
 namespace BMS.backend.database.repositories {
     public class ResidentRepository : BaseRepository {
         private readonly MySqlConnection conn;
+        private readonly AuthUtils _AuthUtils;
 
         public ResidentRepository() {
             conn = new Connector().getConnection();
+            _AuthUtils = new AuthUtils();
         }
+
+        //This section is for setters
         public async Task AddOfficialsInfo(OfficialsInfo _OfficialsInfo,
             ElectionHistories ElecHistories, string UserId) {
 
             string stmt = "Insert into officials(user_id, term_start, term_end, position, election_histories) "
             + "Values(?,?,?,?,?)";
-            string EelcHisto = JsonConvert.SerializeObject(ElecHistories, Formatting.Indented);
+            string EelcHisto = JsonConvert.SerializeObject(ElecHistories, Newtonsoft.Json.Formatting.Indented);
 
 
             try {
@@ -48,12 +55,12 @@ namespace BMS.backend.database.repositories {
         public async Task AddUser(User user) {
             string stmt = "Insert into users (id, email, password, role, status) "
             + "Values(?,?,?,?,?)";
-
+            string Id = await this.GenerateId();
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
-                    cmd.Parameters.AddWithValue("id", user.id);
+                    cmd.Parameters.AddWithValue("id", Id);
                     cmd.Parameters.AddWithValue("email", user.Email);
-                    cmd.Parameters.AddWithValue("password", user.Password);
+                    cmd.Parameters.AddWithValue("password", _AuthUtils.hashedPassword(user.Password));
                     cmd.Parameters.AddWithValue("role", user.Role);
                     cmd.Parameters.AddWithValue("status", user.Status);
                     await cmd.ExecuteNonQueryAsync();
@@ -86,16 +93,21 @@ namespace BMS.backend.database.repositories {
             }
         }
 
+        // ----------------------------------------------------------//
+        //This section is for getters
         public async Task<Dictionary<string, string>> GetEmail(string email) {
-            string stmt = "Select email from users "
+            string stmt = "Select email, password, status from users "
             + "Where email = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
                     cmd.Parameters.AddWithValue("email", email);
+
                     using (var reader = await cmd.ExecuteReaderAsync()) {
                         if (reader.Read()) {
                             data.Add("email", reader.GetString(reader.GetOrdinal("email")));
+                            data.Add("password", reader.GetString(reader.GetOrdinal("password")));
+                            data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
                         }
                     }
                 }
@@ -105,22 +117,34 @@ namespace BMS.backend.database.repositories {
                 throw;
             }
         }// End of FindByEmail
+        public async Task<string> GenerateId() {
+            string id = "";
+            string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as id from users";
+            using (var cmd = new MySqlCommand(stmt, conn)) {
+                using (var reader = await cmd.ExecuteReaderAsync()) {
+                    if (reader.Read()) {
+                        id = reader.GetString(0);
+                    }
+                }
+                return id;
+            }
+        }
 
         public async Task<DbDataReader> GetInformation() {
-            string stmt = "Select u.role, u.status, u.email, p.firstname, p.middlename, p.lastname, p.suffix, p.gender, p.display_id, p.category, "
+            string stmt = "Select u.role, u.status, u.email, p.firstname, p.middlename, p.lastname, p.suffix, p.gender, p.category, "
             + "a.street, a.house_number, a.subdivision, a.block_number, "
-            + "ai.profile_image, ai.is_voter, ai.marital_status, ai.educational_attaintment, ai.birth_day, ai.age "
+            + "ai.profile_image, ai.is_voter, ai.civil_status, ai.educational_attaintment, ai.birth_day, ai.age, ai.proof_of_residency "
             + "from users u "
-            + "Inner join personal_info p "
+            + "Left join personal_info p "
             + "On u.id = p.user_id "
-            + "inner join address a "
-            + "On p.id = a.resident_info_id "
-            + "inner join additional_info ai "
-            + "On p.id = ai.resident_info_id "
-            + "Where u.role = ?";
+            + "Left join address a "
+            + "On p.id = a.user_id "
+            + "Left join additional_info ai "
+            + "On p.id = ai.user_id "
+            + "Where p.category = ?";
             try {
                 var cmd = new MySqlCommand(stmt, conn);
-                cmd.Parameters.AddWithValue("role", "Resident");
+                cmd.Parameters.AddWithValue("p.category", "Resident");
                 return await cmd.ExecuteReaderAsync();
             }
             catch (MySqlException) {
@@ -129,6 +153,38 @@ namespace BMS.backend.database.repositories {
             }
         }
 
+        public async Task<DbDataReader> GetResidentNotVerified(int Status) {
+            string stmt = "Select p.display_id, p.firstname, p.middlename, p.lastname "
+            + "From users u "
+            + "Left JOIN personal_info p "
+            + "on u.id = p.user_id "
+            + "where status = ? ";
+            try {
+                var cmd = new MySqlCommand(stmt, conn);
+                cmd.Parameters.AddWithValue("status", Status);
+                var reader = await cmd.ExecuteReaderAsync();
+                return reader;
+            }
+            catch (System.Exception) {
+
+                throw;
+            }
+
+        }
+        public async Task<Dictionary<string, string>> GetElectionHistories() {
+            string stmt = "SELECT * FROM officials";
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            using (var cmd = new MySqlCommand(stmt, conn)) {
+                int i = 0;
+                using (var reader = await cmd.ExecuteReaderAsync()) {
+                    while (reader.Read()) {
+                        data.Add($"election_histories{i}", reader.GetString(5));
+                        i++;
+                    }
+                    return data;
+                }
+            }
+        }
 
     }
 }

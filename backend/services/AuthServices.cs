@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,25 +9,24 @@ using BMS.backend.database.repositories;
 namespace BMS.backend.services {
 
     public class AuthServices {
-        AuthUtils utility = new AuthUtils();
-        ITRepository itRepo = new ITRepository();
+        private readonly AuthUtils _AuthUtils = new AuthUtils();
+        private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         public AuthServices() {
-
         }
-        public async Task<Dictionary<string, string>> authenticateAdmin(string email, string plainPassword) {
-            Dictionary<string, string> data = await itRepo.GetInfoByEmail(email);
+        public async Task<bool> AuthenticateUser(string Email, string Password) {
+            Dictionary<string, string> data = await _ResidentRepo.GetEmail(Email);
 
-
-            if (data == null || data.Count == 0) {
+            if (data.Count == 0) {
                 throw new Exception("Incorrect Username!");
-
+            }
+            if (data["status"] == "0") {
+                throw new Exception("It seems you have an account, but not verified yet!");
             }
 
-            if (!utility.verifyHashedPassword(plainPassword, data["password"])) {
-                throw new Exception("Incorrect Password!");
+            if (!_AuthUtils.verifyHashedPassword(Password, data["password"])) {
+                throw new Exception("Incorrect password!");
             }
-            data.Remove("password");
-            return data;
+            return true;
         }
     }
 }

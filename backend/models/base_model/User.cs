@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BMS.backend.models.base_model {
     public class User {
-        public string id = Guid.NewGuid().ToString();
+
         public string Password { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
