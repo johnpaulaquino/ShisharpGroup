@@ -10,11 +10,12 @@ namespace BMS.backend.models.residents_model {
         public string DocumentType { get; set; }
         public string Status { get; set; }
         public string Purpose { get; set; }
+
         public ResidentDocumentRequest(string UserId,
         string DocumentType,
         string Purpose,
         string Status = "pending") {
-            this.DocumentType = DocumentType;
+            this.DocumentType = DocumentType;// This is the documents that the resident is requesting. ex. Brgy Clearance. 
             this.Status = Status;
             this.UserId = UserId;
             this.Purpose = Purpose;
