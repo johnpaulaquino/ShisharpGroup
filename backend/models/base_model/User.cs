@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace BMS.backend.models.base_model {
+    // So this is another type of user, who has a limited access in the system.
+    // Basically this is a resident
     public class User {
 
         public string Password { get; set; }

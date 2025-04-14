@@ -10,7 +10,8 @@ namespace BMS.backend.utils {
     public class EmailServices {
         private readonly Settings settings;
         public EmailServices() {
-            settings = new Settings();
+            settings = new Settings(); // this is the settings who holds the 
+            //environment variables
 
         }
 
@@ -19,6 +20,8 @@ namespace BMS.backend.utils {
         string EmailMessages, string EmailAttachmentFilePath,
         string EMailFileName) {
 
+
+            // this is the plain message text
             var _MimeMessage = new MimeMessage();
             _MimeMessage.From.Add(new MailboxAddress(settings.EMAIL_USERNAME, settings.EMAIL));
             _MimeMessage.To.Add(new MailboxAddress(EmailRecipient, EmailRecipient));
@@ -28,6 +31,8 @@ namespace BMS.backend.utils {
                 Text = EmailMessages
             };
 
+
+            // to attach a file in the email
             var _Attachment = new MimePart("application", "pdf") {
 
                 Content = new MimeContent(File.OpenRead(EmailAttachmentFilePath)),
@@ -43,8 +48,9 @@ namespace BMS.backend.utils {
             };
 
 
-            _MimeMessage.Body = _Multipart;
+            _MimeMessage.Body = _Multipart; // pass the message into the body
 
+            // setup the email connection
             using (var client = new SmtpClient()) {
                 await client.ConnectAsync(settings.EMAIL_SERVER, settings.EMAIL_PORT, MailKit.Security.SecureSocketOptions.StartTls);
                 await client.AuthenticateAsync(settings.EMAIL, settings.EMAIL_PASSWORD);

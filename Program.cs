@@ -15,8 +15,6 @@ class MyProgram {
   public static async Task Main(string[] args) {
     List<string> Accomplished = new List<string>();
     List<string> Awards = new List<string>();
-    Accomplished.Add("Nakapagpagawa ng bahay");
-    Awards.Add("Shabu");
     byte[] ProfileImage;
     var ResidentServe = new ResidentServices();
     var _EmailServices = new EmailServices();
@@ -30,7 +28,7 @@ class MyProgram {
 
       await img.ReadExactlyAsync(ProfileImage);
 
-      var user = new User("Paul123@4gmail.com", "123asdsadasd") { Status = false };
+      var user = new User("Paul1@4gmail.com", "123asdsadasd") { Status = false };
       var personal = new PersonalInformation("John Paul", "Castro", "Aquino", "Male");
       var elecHisto = new ElectionHistories(new DateTime(2003, 07, 23), new DateTime(2006, 07, 23), Accomplished, Awards);
       string json = JsonConvert.SerializeObject(elecHisto, Formatting.Indented);
@@ -46,7 +44,7 @@ class MyProgram {
       // foreach (var item in elect.Achievements) {
       //   Console.WriteLine(item);
       // }
-      // await secretaryServices.CreateOfficialsInfo(user, personal, addInfo, address, officials, elecHisto);
+      await secretaryServices.CreateOfficialsInfo(user, personal, addInfo, address, officials, elecHisto);
 
 
     }

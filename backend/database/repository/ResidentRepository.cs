@@ -29,10 +29,9 @@ namespace BMS.backend.database.repositories {
         public async Task AddOfficialsInfo(OfficialsInfo _OfficialsInfo,
             ElectionHistories ElecHistories, string UserId) {
 
-            string stmt = "Insert into officials(user_id, term_start, term_end, position, election_histories) "
-            + "Values(?,?,?,?,?)";
+            string stmt = "Insert into officials(user_id, term_start, term_end, position, election_histories, status) "
+            + "Values(?,?,?,?,?,?)";
             string EelcHisto = JsonConvert.SerializeObject(ElecHistories, Newtonsoft.Json.Formatting.Indented);
-
 
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
@@ -41,7 +40,7 @@ namespace BMS.backend.database.repositories {
                     cmd.Parameters.AddWithValue("term_end", _OfficialsInfo.TermEnd.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("position", _OfficialsInfo.Position);
                     cmd.Parameters.AddWithValue("election_histories", EelcHisto);
-
+                    cmd.Parameters.AddWithValue("status", _OfficialsInfo.Status);
                     await cmd.ExecuteNonQueryAsync();
                     Console.WriteLine("Successfully add officials info");
                 }
