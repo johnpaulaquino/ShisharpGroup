@@ -1,4 +1,4 @@
-﻿using BrgyMs.backend.services;
+using BrgyMs.backend.services;
 using BrgyMs.backend.variables;
 using DotNetEnv;
 using System;
@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace BrgyMs.uiDesign
 {
-    public partial class LoginForm: Form
+    public partial class LoginForm : Form
     {
         private readonly AuthServices _Authervices = new AuthServices();
 
@@ -25,10 +25,10 @@ namespace BrgyMs.uiDesign
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-           
+
         }
 
-  
+
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -56,6 +56,26 @@ namespace BrgyMs.uiDesign
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPass.Checked)
+            {
+                txtPassword.PasswordChar = (char)0;
+                cbShowPass.Text = "Hide Password";
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+                cbShowPass.Text = "Show Password";
+            }
+        }
+
+        private void btnSignup_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new PersonalInfo().Show();
         }
     }
 }

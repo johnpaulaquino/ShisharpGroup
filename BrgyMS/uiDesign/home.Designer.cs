@@ -28,52 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
-            this.pnlHMainPnl = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlHMainPnl)).BeginInit();
-            this.pnlHMainPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            sidebartimer = new System.Windows.Forms.Timer(components);
+            pnlHMainPnl = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)pnlHMainPnl).BeginInit();
+            pnlHMainPnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
+            SuspendLayout();
             // 
             // pnlHMainPnl
             // 
-            this.pnlHMainPnl.Controls.Add(this.kryptonPanel1);
-            this.pnlHMainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHMainPnl.Location = new System.Drawing.Point(0, 0);
-            this.pnlHMainPnl.Name = "pnlHMainPnl";
-            this.pnlHMainPnl.Size = new System.Drawing.Size(954, 437);
-            this.pnlHMainPnl.StateCommon.Color1 = System.Drawing.Color.White;
-            this.pnlHMainPnl.TabIndex = 0;
+            pnlHMainPnl.Controls.Add(kryptonPanel1);
+            pnlHMainPnl.Dock = DockStyle.Fill;
+            pnlHMainPnl.Location = new Point(0, 0);
+            pnlHMainPnl.Margin = new Padding(4, 3, 4, 3);
+            pnlHMainPnl.Name = "pnlHMainPnl";
+            pnlHMainPnl.Size = new Size(1113, 504);
+            pnlHMainPnl.StateCommon.Color1 = Color.White;
+            pnlHMainPnl.TabIndex = 0;
+            pnlHMainPnl.Paint += pnlHMainPnl_Paint;
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
-            this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(91, 437);
-            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.kryptonPanel1.TabIndex = 0;
+            kryptonPanel1.Dock = DockStyle.Left;
+            kryptonPanel1.Location = new Point(0, 0);
+            kryptonPanel1.Margin = new Padding(4, 3, 4, 3);
+            kryptonPanel1.Name = "kryptonPanel1";
+            kryptonPanel1.Size = new Size(106, 504);
+            kryptonPanel1.StateCommon.Color1 = Color.FromArgb(224, 224, 224);
+            kryptonPanel1.TabIndex = 0;
             // 
             // Homepage
             // 
-            this.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(954, 437);
-            this.Controls.Add(this.pnlHMainPnl);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Homepage";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "Home";
-            this.Load += new System.EventHandler(this.home_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pnlHMainPnl)).EndInit();
-            this.pnlHMainPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
-            this.ResumeLayout(false);
+            AccessibleRole = AccessibleRole.MenuBar;
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(1113, 504);
+            Controls.Add(pnlHMainPnl);
+            Margin = new Padding(2);
+            Name = "Homepage";
+            RightToLeft = RightToLeft.No;
+            Text = "Home";
+            
+            ((System.ComponentModel.ISupportInitialize)pnlHMainPnl).EndInit();
+            pnlHMainPnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
+            ResumeLayout(false);
 
         }
 

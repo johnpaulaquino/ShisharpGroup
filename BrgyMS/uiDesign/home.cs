@@ -19,15 +19,10 @@ namespace BrgyMs.uiDesign
             InitializeComponent();
         }
 
-        private void home_Load(object sender, EventArgs e)
+
+        private void pnlHMainPnl_Paint(object sender, PaintEventArgs e)
         {
-             
-          
+
         }
-        
-
-
-
-
     }
 }
