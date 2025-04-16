@@ -75,7 +75,7 @@ namespace BrgyMs.uiDesign
         private void btnSignup_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new PersonalInfo().Show();
+            new SignUpForm().Show();
         }
     }
 }

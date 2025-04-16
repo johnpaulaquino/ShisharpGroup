@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BrgyMs.backend.models.base_model;
@@ -14,7 +15,8 @@ namespace BrgyMs.backend.data_validation {
         private readonly string ImagePattern = @"^.+\.(jpg|jpeg|png|webp)$";
 
         public UserInfoValidation() { }
-        public void ValidateUser(User _User) {
+        public void ValidateUser(User _User, string ConfirmEmail,
+           string ConfirmPassword) {
             bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
 
             if (_User.Email.Length < 0) {
@@ -24,6 +26,12 @@ namespace BrgyMs.backend.data_validation {
             if (!IsValid) {
                 throw new Exception("Invalid Email address!");
             }
+
+            if (!string.Equals(_User.Email, ConfirmEmail))
+            {
+                throw new Exception("Email and confirm email does not match!");
+            }
+
             if (_User.Password.Length < 0) {
                 throw new Exception("Password should not be empty!");
             }
@@ -31,24 +39,52 @@ namespace BrgyMs.backend.data_validation {
             if (_User.Password.Length < 8) {
                 throw new Exception("Password should at least 8 characters!");
             }
-
-            if (_User.Role.Length < 0) {
-                throw new Exception("Role should not be empty!");
+            if (!string.Equals(_User.Password, ConfirmPassword))
+            {
+                throw new Exception("Password and confirm password does not match!");
             }
 
+        } // end of first validation
+
+        public void ValidateUser(User _User)
+        {
+            bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
+
+            if (_User.Email.Length < 0) 
+            {
+                throw new Exception("Email should not be empty!");
+            }
+
+            if (!IsValid)
+            {
+                throw new Exception("Invalid Email address!");
+            }
+            if (_User.Password.Length < 0)
+            {
+                throw new Exception("Password should not be empty!");
+            }
+
+            if (_User.Password.Length < 8)
+            {
+                throw new Exception("Password should at least 8 characters!");
+            }
 
         } // end of first validation
 
         public void ValidatePersonalInfo(PersonalInformation _Personalinfo) {
 
-            if (_Personalinfo.Firstname.Length < 0) {
+            if (string.IsNullOrEmpty( _Personalinfo.Firstname)) {
                 throw new Exception("Firstname should not be empty!");
             }
-            if (_Personalinfo.Lastname.Length < 0) {
+            if (string.IsNullOrEmpty(_Personalinfo.Lastname)) {
                 throw new Exception("Lastname should not be empty!");
             }
-            if (_Personalinfo.Gender.Length < 0) {
+            if (string.IsNullOrEmpty(_Personalinfo.Gender)) {
                 throw new Exception("Gender should not be empty!");
+            }
+            if (string.Equals(_Personalinfo.Gender, "--Select--"))
+            {
+                throw new Exception("Please specify your gender!");
             }
 
 
@@ -92,6 +128,17 @@ namespace BrgyMs.backend.data_validation {
 
             if (!IsExtensionValid) {
                 throw new Exception("File Extension should [.jpg, .jpeg, .png, .webp]!");
+            }
+        }
+        public void SetEmptyStringThatCanAcceptNull(PersonalInformation _PersonalInfo)
+        {
+            if (string.IsNullOrEmpty(_PersonalInfo.Middlename))
+            {
+                _PersonalInfo.Middlename = "";
+            }
+            if (string.Equals(_PersonalInfo.Suffix, "--Select--"))
+            {
+                _PersonalInfo.Suffix = "";
             }
         }
     }
