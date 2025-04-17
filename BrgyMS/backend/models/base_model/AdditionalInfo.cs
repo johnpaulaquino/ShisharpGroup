@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,9 +29,9 @@ namespace BrgyMs.backend.models.base_model
                             string CivilStatus,
                             string ContactNo,
                              string Religion,
+                             byte[] ProofOfResidency,
         string Status = "disabled",
-        byte[] ProfileImage = null,
-        byte[] ProofOfResidency = null)
+        byte[] ProfileImage = null)
         { 
 
             this.ProfileImage = ProfileImage;

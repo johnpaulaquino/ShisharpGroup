@@ -86,23 +86,27 @@ namespace BrgyMs.backend.data_validation {
             {
                 throw new Exception("Please specify your gender!");
             }
+            if (string.Equals(_Personalinfo.Gender, "--Select--"))
+            {
+                throw new Exception("Please specify your gender!");
+            }
 
 
         }
 
         public void ValidateAddInfo(AdditionalInfo _AdditionalInfo) {
             bool IsPhoneValid = Regex.IsMatch(_AdditionalInfo.ContactNo, PhonePattern);
-            if (_AdditionalInfo.CivilStatus.Length < 0) {
-                throw new Exception("Educational Attaintment should not be empty!");
+            if (string.Equals(_AdditionalInfo.CivilStatus,"--Select--")) {
+                throw new Exception("Please specify you Civil status!");
             }
-            if (_AdditionalInfo.EducAttain.Length < 0) {
-                throw new Exception("Educational Attaintment should not be empty!");
+            if (string.Equals(_AdditionalInfo.EducAttain,"--Select--")) {
+                throw new Exception("Please specify you Educational Attaintment!");
             }
-            if (_AdditionalInfo.Religion.Length < 0) {
+            if (string.IsNullOrEmpty(_AdditionalInfo.Religion)) {
                 throw new Exception("Religion should not be empty!");
             }
 
-            if (_AdditionalInfo.ContactNo.Length < 0) {
+            if (string.IsNullOrEmpty(_AdditionalInfo.ContactNo)) {
                 throw new Exception("Contact No. should not be empty!");
             }
             if (!IsPhoneValid) {
@@ -116,10 +120,10 @@ namespace BrgyMs.backend.data_validation {
         }
 
         public void ValdiateRequestDocs(ResidentDocumentRequest _RequestDocs) {
-            if (_RequestDocs.DocumentType.Length < 0) {
+            if (string.IsNullOrEmpty(_RequestDocs.DocumentType)) {
                 throw new Exception("Document Type should not be empty!");
             }
-            if (_RequestDocs.Purpose.Length < 0) {
+            if (string.IsNullOrEmpty(_RequestDocs.Purpose)) {
                 throw new Exception("Pupose of requesting document should not be empty!");
             }
         }

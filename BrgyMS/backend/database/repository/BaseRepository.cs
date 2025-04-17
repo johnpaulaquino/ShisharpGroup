@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,8 +42,8 @@ namespace BrgyMs.backend.database.repositories {
         public async Task AddResidentAddInfo(AdditionalInfo _AdditionalInfo,
                                         string UserId) {
             string stmt1 = "Insert Into additional_info (id, user_id, is_voter,"
-                          + "civil_status, educational_attaintment,religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
-                          + "Values (?,?,?,?,?,?,?,?,?,?,?)";
+                          + "civil_status, educational_attaintment, employment_status, religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
+                          + "Values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
             int Age = util.calculateAge(_AdditionalInfo.BirthDate);
 
@@ -54,6 +54,7 @@ namespace BrgyMs.backend.database.repositories {
                     cmd.Parameters.AddWithValue("is_voter", _AdditionalInfo.IsVoter);
                     cmd.Parameters.AddWithValue("civil_status", _AdditionalInfo.CivilStatus);
                     cmd.Parameters.AddWithValue("educational_attaintment", _AdditionalInfo.EducAttain);
+                    cmd.Parameters.AddWithValue("employment_status", _AdditionalInfo.EmpStatus);
                     cmd.Parameters.AddWithValue("religion", _AdditionalInfo.Religion);
                     cmd.Parameters.AddWithValue("birth_day", _AdditionalInfo.BirthDate.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("age", Age);
