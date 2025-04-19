@@ -62,7 +62,7 @@ namespace BrgyMs.uiDesign
         {
             if (cbShowPass.Checked)
             {
-                txtPassword.PasswordChar = (char)0;
+                txtPassword.PasswordChar = (char) 0;
                 cbShowPass.Text = "Hide Password";
             }
             else
@@ -74,8 +74,10 @@ namespace BrgyMs.uiDesign
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new SignUpForm().Show();
+            SignUpForm signupForm = new SignUpForm();
+            Hide();
+            signupForm.Show();
+            signupForm.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

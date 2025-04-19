@@ -118,6 +118,30 @@ namespace BrgyMs.backend.data_validation {
             }
 
         }
+        public void ValidateAddress (Address _Address) {
+            bool IsHouseNoDigits = Regex.IsMatch(_Address.HouseNumber, @"\d");
+            bool IsLotNoDigits = Regex.IsMatch(_Address.LotNo, @"\d");
+            bool IsBlockNoDigits = Regex.IsMatch(_Address.LotNo, @"\d");
+            if (string.IsNullOrEmpty(_Address.HouseNumber)) {
+                throw new Exception("House No. should not be empty!");
+            }
+            if (!IsHouseNoDigits) {
+                throw new Exception("House No. should be digits!");
+            }
+            if (string.IsNullOrEmpty(_Address.Street)) {
+                throw new Exception("Street should not be empty!");
+            }
+            if (!string.IsNullOrEmpty(_Address.LotNo)) {
+                if (!IsLotNoDigits) {
+                    throw new Exception("Lot No. should be digits!");
+                }
+            }
+            if (!string.IsNullOrEmpty(_Address.BlockNumber)) {
+                if (!IsBlockNoDigits) {
+                    throw new Exception("Block No. should be digits!");
+                }
+            }
+        }
 
         public void ValdiateRequestDocs(ResidentDocumentRequest _RequestDocs) {
             if (string.IsNullOrEmpty(_RequestDocs.DocumentType)) {

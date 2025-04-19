@@ -32,8 +32,8 @@ namespace BrgyMs.backend.models.base_model
                              byte[] ProofOfResidency,
         string Status = "disabled",
         byte[] ProfileImage = null)
-        { 
-
+        {
+            this.ProofOfResidency = ProofOfResidency;
             this.ProfileImage = ProfileImage;
             this.Religion = Religion;
             this.BirthDate = BirthDate;

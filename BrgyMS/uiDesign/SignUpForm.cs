@@ -1,8 +1,10 @@
 ﻿using BrgyMs.backend.data_validation;
 using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using Krypton.Toolkit;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +17,7 @@ using System.Windows.Forms;
 
 namespace BrgyMs.uiDesign
 {
-    public partial class SignUpForm : Form
-    {
+    public partial class SignUpForm : Form {
         //This is the global variables
         private int pnlPage = 0;
         private int lblPgNumber = 1;
@@ -27,17 +28,18 @@ namespace BrgyMs.uiDesign
         private PersonalInformation _PersonalInfo;
         private AdditionalInfo _AddlInfo;
         private Address _Address;
-        private List<object> modelStorage = new List<object>();
         private Utils utils = new Utils();
         private bool voterStatus = false;
-        private byte[] bytesProofOfR = null;
-        private byte[] bytesProfilePic = null;
+        private byte [] bytesProofOfR = null;
+        private byte [] bytesProfilePic = null;
         private string filePathProofOfR = "";
         private string filePathProfilePic = "";
+        private ResidentServices _ResidentServices = new ResidentServices();
 
+        private List<object> models = new List<object>();
+       
 
-        public SignUpForm()
-        {
+        public SignUpForm () {
             InitializeComponent();
 
             //This is the method below in this program
@@ -46,37 +48,29 @@ namespace BrgyMs.uiDesign
 
         }
 
-        private void Personal_Info_Load(object sender, EventArgs e)
-        {
+        private void Personal_Info_Load ( object sender, EventArgs e ) {
 
         }
 
-        private void btnSLogin_Click(object sender, EventArgs e)
-        {
+        private void btnSLogin_Click ( object sender, EventArgs e ) {
             this.Hide();
             new LoginForm().Show();
         }
 
-        private void cbSShowPass_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (cbSShowPass.Checked)
-            {
+        private void cbSShowPass_CheckedChanged_1 ( object sender, EventArgs e ) {
+            if (cbSShowPass.Checked) {
                 cbSShowPass.Text = "Hide Password";
                 txtSConfirmPass.PasswordChar = (char)0;
                 txtSPassword.PasswordChar = (char)0;
-            }
-            else
-            {
+            } else {
                 cbSShowPass.Text = "Show Password";
                 txtSConfirmPass.PasswordChar = '●';
                 txtSPassword.PasswordChar = '●';
             }
         }
 
-        private async void btnSNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private async void btnSNext_Click ( object sender, EventArgs e ) {
+            try {
                 //Data from 1st page
                 string email = txtSEmail.Text.ToString();
                 string password = txtSPassword.Text.ToString();
@@ -91,11 +85,12 @@ namespace BrgyMs.uiDesign
                 string suffix = cboSSuffix.SelectedItem.ToString();
                 string gender = cboSGender.SelectedItem.ToString();
 
+                // personal info
+                _PersonalInfo = new PersonalInformation(firstname, middlename, lastname, gender) { Suffix = suffix };
 
 
                 // Data from 3rd and 4th page 
-                if (cbAVoterStatus.Checked)
-                {
+                if (cbAVoterStatus.Checked) {
                     voterStatus = true;
                 }
 
@@ -108,44 +103,25 @@ namespace BrgyMs.uiDesign
                 string contactNo = txtAContactNo.Text.ToString();
 
                 //check if the filepath of the proof of residency
-                if (!string.IsNullOrEmpty(filePathProofOfR))
-                {
+                if (!string.IsNullOrEmpty(filePathProofOfR)) {
                     //Read the selected image
-                    using (var fileStream = new FileStream(filePathProofOfR, FileMode.Open, FileAccess.Read))
-                    {
+                    using (var fileStream = new FileStream(filePathProofOfR, FileMode.Open, FileAccess.Read)) {
                         //set the bytes on the bytesProofOfR variable
-                        bytesProofOfR = new byte[fileStream.Length];
+                        bytesProofOfR = new byte [fileStream.Length];
                         await fileStream.ReadExactlyAsync(bytesProofOfR);
                     }
                 }
 
 
                 //check if the filepath of the profile image
-                if (!string.IsNullOrEmpty(filePathProofOfR))
-                {
+                if (!string.IsNullOrEmpty(filePathProfilePic)) {
                     //Read the selected image
-                    using (var fileStream = new FileStream(filePathProfilePic, FileMode.Open, FileAccess.Read))
-                    {
+                    using (var fileStream = new FileStream(filePathProfilePic, FileMode.Open, FileAccess.Read)) {
                         //set the bytes on the bytesProofOfR variable
-                        bytesProfilePic = new byte[fileStream.Length];
+                        bytesProfilePic = new byte [fileStream.Length];
                         await fileStream.ReadExactlyAsync(bytesProfilePic);
                     }
                 }
-
-                // This is the 5th page for address
-
-                string houseNo = txtSHouseNo.Text;
-                string street = txtSStreet.Text;
-                string villagename = txtSSubdivision.Text;
-                string lotNo = txtSLotNo.Text;
-                string blockNo = txtSBlockNo.Text;
-                string purok = txtSpurok.Text;
-
-
-                // personal info
-                _PersonalInfo = new PersonalInformation(firstname, middlename, lastname, gender)
-                { Suffix = suffix };
-               
                 // additional info
                 _AddlInfo = new AdditionalInfo(
                     voterStatus,
@@ -155,44 +131,59 @@ namespace BrgyMs.uiDesign
                     civilStatus,
                     contactNo,
                     religion,
-                    bytesProofOfR
+                   bytesProofOfR
                     )
-                { ProfileImage = bytesProfilePic};
+                { ProfileImage = bytesProfilePic };
+   
 
+                // This is the 5th page for address
+                string houseNo = txtSHouseNo.Text;
+                string street = txtSStreet.Text;
+                string villagename = txtSSubdivision.Text;
+                string lotNo = txtSLotNo.Text;
+                string blockNo = txtSBlockNo.Text;
+                string purok = txtSpurok.Text;
+             
                 _Address = new Address(
                     street,
-                    houseNo)
-                { SubdivisionName = villagename ,
-                LotNo = lotNo,
-                BlockNumber = blockNo,
-                Purok = purok};
-
+                    houseNo) {
+                    SubdivisionName = villagename,
+                    LotNo = lotNo,
+                    BlockNumber = blockNo,
+                    Purok = purok
+                };
 
                 //set empty strings to the not required fields if not set.
                 _UserValidation.SetEmptyStringThatCanAcceptNull(_PersonalInfo);
 
-
                 //validate per page
-                switch (pnlPage)
-                {
+                switch (pnlPage) {
                     case 0:
                         _UserValidation.ValidateUser(_Users, confirmEmail, confirmPassword);
+                        models.Add(_Users);
                         // validate first the field before go to another page.
                         break;
                     case 1:
                         _UserValidation.ValidatePersonalInfo(_PersonalInfo);
-                       
+                        models.Add(_PersonalInfo);
                         break;
 
                     case 3:
                         _UserValidation.ValidateAddInfo(_AddlInfo);
+
                         _UserValidation.ValidateFileType(filePathProofOfR);
-                        if (!string.IsNullOrEmpty(filePathProfilePic))
-                        {
+
+                        if (!string.IsNullOrEmpty(filePathProfilePic)) {
                             _UserValidation.ValidateFileType(filePathProfilePic);
                         }
+                        models.Add(_AddlInfo);
                         break;
-                  
+
+                    case 4:
+                        _UserValidation.ValidateAddress(_Address);
+                        models.Add(_Address);
+                        break;
+
                 }
 
                 //increment the index for accessing the list
@@ -200,53 +191,44 @@ namespace BrgyMs.uiDesign
                 pnlPage++;
 
                 //check wether the page is less than or equal to the number of pages
-                if (pnlPage <= kryptonpanels.Count - 1)
-                {
+                if (pnlPage <= kryptonpanels.Count - 1) {
                     //then set visible the button prev
                     btnSPrevious.Visible = true;
 
                     //bring front the panel to make it show
-                    kryptonpanels[pnlPage].BringToFront();
+                    kryptonpanels [pnlPage].BringToFront();
 
                     // set the current page of the user filling up
-                    pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
+                    pageNumberlabel [pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
                 }
 
 
                 //always chceck if the number of page is exceeding the limit, so we will show the submit button.
-                if (pnlPage == kryptonpanels.Count - 1)
-                {
+                if (pnlPage == kryptonpanels.Count - 1) {
                     btnSCreateAccount.BringToFront();
 
                 }
-                //then add the object, so that we can access this in the submit button
-                modelStorage.Add(_Users);
-            }
-            catch (Exception ex)
-            {
+               
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btnSPrevious_Click(object sender, EventArgs e)
-        {
+        private void btnSPrevious_Click ( object sender, EventArgs e ) {
             pnlPage--;
             lblPgNumber -= 1;
             Console.WriteLine(pnlPage);
-            if (pnlPage >= 0)
-            {
-                kryptonpanels[pnlPage].BringToFront();
-                pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
+            if (pnlPage >= 0) {
+                kryptonpanels [pnlPage].BringToFront();
+                pageNumberlabel [pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
             }
-            if (pnlPage == 0)
-            {
+            if (pnlPage == 0) {
                 btnSPrevious.Visible = false;
             }
 
             btnSNext.BringToFront();
         }
 
-        public void AfterInitComponent()
-        {
+        public void AfterInitComponent () {
             //set the first option in the combo box suffix and gender
             cboSSuffix.Items.Insert(0, "--Select--");
             cboSSuffix.SelectedItem = "--Select--";
@@ -284,33 +266,49 @@ namespace BrgyMs.uiDesign
             txtSLotNo.Enabled = false;
             txtSBlockNo.Enabled = false;
 
-            pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of { kryptonpanels.Count}";
+            pageNumberlabel [pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
 
         }
 
-        private void btnAProofOfresidency_Click(object sender, EventArgs e)
-        {
+        private void btnAProofOfresidency_Click ( object sender, EventArgs e ) {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
+            if (fileDialog.ShowDialog() == DialogResult.OK) {
                 filePathProofOfR = fileDialog.FileName;
+                Console.WriteLine(fileDialog.FileName);
                 txtAPoRFilePath.Text = filePathProofOfR;
             }
-      
+
         }
 
-        private void cbIsLiveInSubdivision_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbIsLiveInSubdivision.Checked)
-            {
+        private void cbIsLiveInSubdivision_CheckedChanged ( object sender, EventArgs e ) {
+            if (cbIsLiveInSubdivision.Checked) {
                 txtSSubdivision.Enabled = true;
                 txtSLotNo.Enabled = true;
                 txtSBlockNo.Enabled = true;
-            }
-            else{
+            } else {
                 txtSSubdivision.Enabled = false;
                 txtSLotNo.Enabled = false;
                 txtSBlockNo.Enabled = false;
+
+                txtSSubdivision.Text = "";
+                txtSLotNo.Text = "";
+                txtSBlockNo.Text = "";
+            }
+        }
+
+        private async void btnSCreateAccount_Click_1 ( object sender, EventArgs e ) {
+            try {
+                var userSubmit = (User)models[0];
+                var personalInfoSubmit = (PersonalInformation)models[1];
+                var addInfoSubmit = (AdditionalInfo)models[2];
+                var addressSubmit = (Address)models[3];
+                await _ResidentServices.CreateResidentInformation(userSubmit, personalInfoSubmit, addInfoSubmit, addressSubmit);
+                MessageBox.Show("Successfully created account. Please be patient for your account verification!");
+                this.Hide();
+                new LoginForm().Show();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
+                Console.WriteLine(ex.Message);
             }
         }
     }

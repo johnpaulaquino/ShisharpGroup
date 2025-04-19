@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             btnSPrevious = new Krypton.Toolkit.KryptonButton();
-            btnSNext = new Krypton.Toolkit.KryptonButton();
             btnSLogin = new Krypton.Toolkit.KryptonButton();
             pictureBox1 = new PictureBox();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            btnSNext = new Krypton.Toolkit.KryptonButton();
             btnSCreateAccount = new Krypton.Toolkit.KryptonButton();
             pnlSLogCredentials = new Krypton.Toolkit.KryptonPanel();
             lblpageNumber1 = new Krypton.Toolkit.KryptonLabel();
@@ -157,17 +157,17 @@
             // kryptonPanel1
             // 
             kryptonPanel1.Controls.Add(btnSPrevious);
-            kryptonPanel1.Controls.Add(btnSNext);
             kryptonPanel1.Controls.Add(btnSLogin);
             kryptonPanel1.Controls.Add(pictureBox1);
             kryptonPanel1.Controls.Add(kryptonLabel3);
+            kryptonPanel1.Controls.Add(btnSNext);
             kryptonPanel1.Controls.Add(btnSCreateAccount);
-            kryptonPanel1.Controls.Add(pnlSAddInfo2);
-            kryptonPanel1.Controls.Add(pnlSAddress);
-            kryptonPanel1.Controls.Add(pnlSAddress2);
             kryptonPanel1.Controls.Add(pnlSLogCredentials);
             kryptonPanel1.Controls.Add(pnlSPinfo1);
             kryptonPanel1.Controls.Add(pnlSAddInfo1);
+            kryptonPanel1.Controls.Add(pnlSAddInfo2);
+            kryptonPanel1.Controls.Add(pnlSAddress);
+            kryptonPanel1.Controls.Add(pnlSAddress2);
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
@@ -226,58 +226,6 @@
             btnSPrevious.Values.Text = "Previous";
             btnSPrevious.Visible = false;
             btnSPrevious.Click += btnSPrevious_Click;
-            // 
-            // btnSNext
-            // 
-            btnSNext.Location = new Point(942, 615);
-            btnSNext.Margin = new Padding(4, 3, 4, 3);
-            btnSNext.Name = "btnSNext";
-            btnSNext.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
-            btnSNext.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSNext.OverrideDefault.Back.ColorAngle = 45F;
-            btnSNext.OverrideDefault.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSNext.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnSNext.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSNext.OverrideDefault.Border.Rounding = 18F;
-            btnSNext.OverrideDefault.Border.Width = 1;
-            btnSNext.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnSNext.Size = new Size(187, 51);
-            btnSNext.StateCommon.Back.Color1 = Color.FromArgb(6, 174, 244);
-            btnSNext.StateCommon.Back.Color2 = Color.FromArgb(6, 174, 244);
-            btnSNext.StateCommon.Back.ColorAngle = 45F;
-            btnSNext.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSNext.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            btnSNext.StateCommon.Border.ColorAngle = 45F;
-            btnSNext.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSNext.StateCommon.Border.Rounding = 5F;
-            btnSNext.StateCommon.Border.Width = 1;
-            btnSNext.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnSNext.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnSNext.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSNext.StateNormal.Border.Rounding = 5F;
-            btnSNext.StatePressed.Back.Color1 = Color.White;
-            btnSNext.StatePressed.Back.Color2 = Color.White;
-            btnSNext.StatePressed.Back.ColorAngle = 130F;
-            btnSNext.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            btnSNext.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            btnSNext.StatePressed.Border.ColorAngle = 130F;
-            btnSNext.StatePressed.Border.Rounding = 5F;
-            btnSNext.StatePressed.Border.Width = 1;
-            btnSNext.StatePressed.Content.ShortText.Color1 = Color.FromArgb(6, 174, 244);
-            btnSNext.StatePressed.Content.ShortText.Color2 = Color.FromArgb(6, 174, 244);
-            btnSNext.StateTracking.Back.Color1 = Color.FromArgb(128, 128, 255);
-            btnSNext.StateTracking.Back.Color2 = Color.FromArgb(128, 128, 255);
-            btnSNext.StateTracking.Back.ColorAngle = 45F;
-            btnSNext.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSNext.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnSNext.StateTracking.Border.ColorAngle = 45F;
-            btnSNext.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSNext.StateTracking.Border.Rounding = 5F;
-            btnSNext.StateTracking.Border.Width = 1;
-            btnSNext.TabIndex = 42;
-            btnSNext.Values.DropDownArrowColor = Color.Empty;
-            btnSNext.Values.Text = "Next";
-            btnSNext.Click += btnSNext_Click;
             // 
             // btnSLogin
             // 
@@ -354,6 +302,58 @@
             kryptonLabel3.TabIndex = 39;
             kryptonLabel3.Values.Text = "Let's Get Started!";
             // 
+            // btnSNext
+            // 
+            btnSNext.Location = new Point(942, 615);
+            btnSNext.Margin = new Padding(4, 3, 4, 3);
+            btnSNext.Name = "btnSNext";
+            btnSNext.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
+            btnSNext.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSNext.OverrideDefault.Back.ColorAngle = 45F;
+            btnSNext.OverrideDefault.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSNext.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnSNext.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSNext.OverrideDefault.Border.Rounding = 18F;
+            btnSNext.OverrideDefault.Border.Width = 1;
+            btnSNext.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnSNext.Size = new Size(187, 51);
+            btnSNext.StateCommon.Back.Color1 = Color.FromArgb(6, 174, 244);
+            btnSNext.StateCommon.Back.Color2 = Color.FromArgb(6, 174, 244);
+            btnSNext.StateCommon.Back.ColorAngle = 45F;
+            btnSNext.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSNext.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnSNext.StateCommon.Border.ColorAngle = 45F;
+            btnSNext.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSNext.StateCommon.Border.Rounding = 5F;
+            btnSNext.StateCommon.Border.Width = 1;
+            btnSNext.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnSNext.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnSNext.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSNext.StateNormal.Border.Rounding = 5F;
+            btnSNext.StatePressed.Back.Color1 = Color.White;
+            btnSNext.StatePressed.Back.Color2 = Color.White;
+            btnSNext.StatePressed.Back.ColorAngle = 130F;
+            btnSNext.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnSNext.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnSNext.StatePressed.Border.ColorAngle = 130F;
+            btnSNext.StatePressed.Border.Rounding = 5F;
+            btnSNext.StatePressed.Border.Width = 1;
+            btnSNext.StatePressed.Content.ShortText.Color1 = Color.FromArgb(6, 174, 244);
+            btnSNext.StatePressed.Content.ShortText.Color2 = Color.FromArgb(6, 174, 244);
+            btnSNext.StateTracking.Back.Color1 = Color.FromArgb(128, 128, 255);
+            btnSNext.StateTracking.Back.Color2 = Color.FromArgb(128, 128, 255);
+            btnSNext.StateTracking.Back.ColorAngle = 45F;
+            btnSNext.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSNext.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnSNext.StateTracking.Border.ColorAngle = 45F;
+            btnSNext.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSNext.StateTracking.Border.Rounding = 5F;
+            btnSNext.StateTracking.Border.Width = 1;
+            btnSNext.TabIndex = 42;
+            btnSNext.Values.DropDownArrowColor = Color.Empty;
+            btnSNext.Values.Text = "Next";
+            btnSNext.Click += btnSNext_Click;
+            // 
             // btnSCreateAccount
             // 
             btnSCreateAccount.Location = new Point(942, 615);
@@ -404,6 +404,7 @@
             btnSCreateAccount.TabIndex = 46;
             btnSCreateAccount.Values.DropDownArrowColor = Color.Empty;
             btnSCreateAccount.Values.Text = "Submit";
+            btnSCreateAccount.Click += btnSCreateAccount_Click_1;
             // 
             // pnlSLogCredentials
             // 
@@ -1681,12 +1682,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1155, 687);
             Controls.Add(kryptonPanel1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "SignUpForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "User Information";
-            TopMost = true;
             Load += Personal_Info_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

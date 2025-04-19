@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +26,7 @@ namespace BrgyMs.backend.services {
                     throw new Exception("Email is already exist, Email must be unique!");
                 }
                 string Id = await _ResidentRepo.GenerateId();
+
                 await _ResidentRepo.AddUser(_User);
                 await _ResidentRepo.AddResidentInformation(_ResidentInfo, Id);
                 await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, Id);
