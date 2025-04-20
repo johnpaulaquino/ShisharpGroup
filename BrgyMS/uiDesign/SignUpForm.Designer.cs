@@ -71,16 +71,16 @@
             lblPanelInfo1 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
             pnlSAddInfo1 = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel22 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel35 = new Krypton.Toolkit.KryptonLabel();
+            cboResidentType = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel20 = new Krypton.Toolkit.KryptonLabel();
             cboEmpStatus = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel21 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel25 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel23 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel14 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel28 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel24 = new Krypton.Toolkit.KryptonLabel();
-            txtAReligion = new Krypton.Toolkit.KryptonTextBox();
-            kryptonLabel17 = new Krypton.Toolkit.KryptonLabel();
             cboAEducAttain = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel16 = new Krypton.Toolkit.KryptonLabel();
             cboACivilStatus = new Krypton.Toolkit.KryptonComboBox();
@@ -95,11 +95,14 @@
             kryptonLabel29 = new Krypton.Toolkit.KryptonLabel();
             txtAContactNo = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel18 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel25 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel48 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel49 = new Krypton.Toolkit.KryptonLabel();
             txtAPoRFilePath = new Krypton.Toolkit.KryptonTextBox();
             btnAProofOfresidency = new Krypton.Toolkit.KryptonButton();
             txtAProfilePicFilePath = new Krypton.Toolkit.KryptonTextBox();
+            txtAReligion = new Krypton.Toolkit.KryptonTextBox();
+            kryptonLabel17 = new Krypton.Toolkit.KryptonLabel();
             btnAAddProfilePic = new Krypton.Toolkit.KryptonButton();
             kryptonLabel19 = new Krypton.Toolkit.KryptonLabel();
             lblpageNumber4 = new Krypton.Toolkit.KryptonLabel();
@@ -143,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)cboSSuffix).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlSAddInfo1).BeginInit();
             pnlSAddInfo1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cboResidentType).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboEmpStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboAEducAttain).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboACivilStatus).BeginInit();
@@ -171,12 +175,12 @@
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1155, 687);
+            kryptonPanel1.Size = new Size(1224, 684);
             kryptonPanel1.TabIndex = 39;
             // 
             // btnSPrevious
             // 
-            btnSPrevious.Location = new Point(652, 615);
+            btnSPrevious.Location = new Point(701, 621);
             btnSPrevious.Margin = new Padding(4, 3, 4, 3);
             btnSPrevious.Name = "btnSPrevious";
             btnSPrevious.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
@@ -229,7 +233,7 @@
             // 
             // btnSLogin
             // 
-            btnSLogin.Location = new Point(47, 20);
+            btnSLogin.Location = new Point(40, 30);
             btnSLogin.Margin = new Padding(4, 3, 4, 3);
             btnSLogin.Name = "btnSLogin";
             btnSLogin.OverrideDefault.Back.Color1 = Color.FromArgb(250, 252, 252);
@@ -282,7 +286,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(25, 160);
+            pictureBox1.Location = new Point(40, 174);
             pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(602, 396);
@@ -292,7 +296,7 @@
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(750, 51);
+            kryptonLabel3.Location = new Point(799, 57);
             kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
@@ -304,7 +308,7 @@
             // 
             // btnSNext
             // 
-            btnSNext.Location = new Point(942, 615);
+            btnSNext.Location = new Point(991, 621);
             btnSNext.Margin = new Padding(4, 3, 4, 3);
             btnSNext.Name = "btnSNext";
             btnSNext.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
@@ -356,7 +360,7 @@
             // 
             // btnSCreateAccount
             // 
-            btnSCreateAccount.Location = new Point(942, 615);
+            btnSCreateAccount.Location = new Point(991, 621);
             btnSCreateAccount.Margin = new Padding(4, 3, 4, 3);
             btnSCreateAccount.Name = "btnSCreateAccount";
             btnSCreateAccount.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
@@ -423,7 +427,7 @@
             pnlSLogCredentials.Controls.Add(txtSPassword);
             pnlSLogCredentials.Controls.Add(txtSEmail);
             pnlSLogCredentials.Controls.Add(txtSConfirmPass);
-            pnlSLogCredentials.Location = new Point(652, 110);
+            pnlSLogCredentials.Location = new Point(701, 116);
             pnlSLogCredentials.Margin = new Padding(4, 3, 4, 3);
             pnlSLogCredentials.Name = "pnlSLogCredentials";
             pnlSLogCredentials.Size = new Size(477, 499);
@@ -645,7 +649,7 @@
             pnlSPinfo1.Controls.Add(lblpageNumber2);
             pnlSPinfo1.Controls.Add(lblPanelInfo1);
             pnlSPinfo1.Controls.Add(kryptonLabel10);
-            pnlSPinfo1.Location = new Point(652, 110);
+            pnlSPinfo1.Location = new Point(701, 116);
             pnlSPinfo1.Margin = new Padding(4, 3, 4, 3);
             pnlSPinfo1.Name = "pnlSPinfo1";
             pnlSPinfo1.Size = new Size(477, 499);
@@ -855,16 +859,16 @@
             // 
             // pnlSAddInfo1
             // 
+            pnlSAddInfo1.Controls.Add(kryptonLabel22);
+            pnlSAddInfo1.Controls.Add(kryptonLabel35);
+            pnlSAddInfo1.Controls.Add(cboResidentType);
             pnlSAddInfo1.Controls.Add(kryptonLabel20);
             pnlSAddInfo1.Controls.Add(cboEmpStatus);
             pnlSAddInfo1.Controls.Add(kryptonLabel21);
-            pnlSAddInfo1.Controls.Add(kryptonLabel25);
             pnlSAddInfo1.Controls.Add(kryptonLabel23);
             pnlSAddInfo1.Controls.Add(kryptonLabel14);
             pnlSAddInfo1.Controls.Add(kryptonLabel28);
             pnlSAddInfo1.Controls.Add(kryptonLabel24);
-            pnlSAddInfo1.Controls.Add(txtAReligion);
-            pnlSAddInfo1.Controls.Add(kryptonLabel17);
             pnlSAddInfo1.Controls.Add(cboAEducAttain);
             pnlSAddInfo1.Controls.Add(kryptonLabel16);
             pnlSAddInfo1.Controls.Add(cboACivilStatus);
@@ -875,7 +879,7 @@
             pnlSAddInfo1.Controls.Add(lblpageNumber3);
             pnlSAddInfo1.Controls.Add(lblPanelinfo2);
             pnlSAddInfo1.Controls.Add(kryptonLabel2);
-            pnlSAddInfo1.Location = new Point(652, 110);
+            pnlSAddInfo1.Location = new Point(701, 116);
             pnlSAddInfo1.Margin = new Padding(4, 3, 4, 3);
             pnlSAddInfo1.Name = "pnlSAddInfo1";
             pnlSAddInfo1.Size = new Size(477, 499);
@@ -883,9 +887,41 @@
             pnlSAddInfo1.StateCommon.Color2 = Color.White;
             pnlSAddInfo1.TabIndex = 44;
             // 
+            // kryptonLabel22
+            // 
+            kryptonLabel22.Location = new Point(155, 400);
+            kryptonLabel22.Name = "kryptonLabel22";
+            kryptonLabel22.Size = new Size(15, 26);
+            kryptonLabel22.StateCommon.Padding = new Padding(-2, -1, -1, -1);
+            kryptonLabel22.StateCommon.ShortText.Color1 = Color.Red;
+            kryptonLabel22.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel22.TabIndex = 71;
+            kryptonLabel22.Values.Text = "*";
+            // 
+            // kryptonLabel35
+            // 
+            kryptonLabel35.Location = new Point(24, 400);
+            kryptonLabel35.Name = "kryptonLabel35";
+            kryptonLabel35.Size = new Size(131, 26);
+            kryptonLabel35.StateCommon.Padding = new Padding(-1, -1, -5, -1);
+            kryptonLabel35.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel35.TabIndex = 70;
+            kryptonLabel35.Values.Text = "Resident Type";
+            // 
+            // cboResidentType
+            // 
+            cboResidentType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboResidentType.DropDownWidth = 413;
+            cboResidentType.Items.AddRange(new object[] { "Normal", "PWD", "Senior Citizen" });
+            cboResidentType.Location = new Point(28, 432);
+            cboResidentType.Name = "cboResidentType";
+            cboResidentType.Size = new Size(413, 22);
+            cboResidentType.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cboResidentType.TabIndex = 69;
+            // 
             // kryptonLabel20
             // 
-            kryptonLabel20.Location = new Point(202, 307);
+            kryptonLabel20.Location = new Point(201, 325);
             kryptonLabel20.Name = "kryptonLabel20";
             kryptonLabel20.Size = new Size(15, 26);
             kryptonLabel20.StateCommon.Padding = new Padding(-2, -1, -1, -1);
@@ -899,7 +935,7 @@
             cboEmpStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cboEmpStatus.DropDownWidth = 416;
             cboEmpStatus.Items.AddRange(new object[] { "Employed", "Self-Employed", "Unemployed", "Student" });
-            cboEmpStatus.Location = new Point(28, 339);
+            cboEmpStatus.Location = new Point(28, 357);
             cboEmpStatus.Name = "cboEmpStatus";
             cboEmpStatus.Size = new Size(416, 25);
             cboEmpStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -909,24 +945,13 @@
             // 
             // kryptonLabel21
             // 
-            kryptonLabel21.Location = new Point(29, 307);
+            kryptonLabel21.Location = new Point(28, 325);
             kryptonLabel21.Name = "kryptonLabel21";
             kryptonLabel21.Size = new Size(174, 26);
             kryptonLabel21.StateCommon.Padding = new Padding(-1, -1, -5, -1);
             kryptonLabel21.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             kryptonLabel21.TabIndex = 66;
             kryptonLabel21.Values.Text = "Employment Status";
-            // 
-            // kryptonLabel25
-            // 
-            kryptonLabel25.Location = new Point(104, 381);
-            kryptonLabel25.Name = "kryptonLabel25";
-            kryptonLabel25.Size = new Size(15, 26);
-            kryptonLabel25.StateCommon.Padding = new Padding(-2, -1, -1, -1);
-            kryptonLabel25.StateCommon.ShortText.Color1 = Color.Red;
-            kryptonLabel25.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel25.TabIndex = 65;
-            kryptonLabel25.Values.Text = "*";
             // 
             // kryptonLabel23
             // 
@@ -963,7 +988,7 @@
             // 
             // kryptonLabel24
             // 
-            kryptonLabel24.Location = new Point(240, 229);
+            kryptonLabel24.Location = new Point(241, 244);
             kryptonLabel24.Name = "kryptonLabel24";
             kryptonLabel24.Size = new Size(15, 26);
             kryptonLabel24.StateCommon.Padding = new Padding(-2, -1, -1, -1);
@@ -972,30 +997,12 @@
             kryptonLabel24.TabIndex = 58;
             kryptonLabel24.Values.Text = "*";
             // 
-            // txtAReligion
-            // 
-            txtAReligion.Location = new Point(28, 413);
-            txtAReligion.Multiline = true;
-            txtAReligion.Name = "txtAReligion";
-            txtAReligion.Size = new Size(420, 40);
-            txtAReligion.TabIndex = 46;
-            // 
-            // kryptonLabel17
-            // 
-            kryptonLabel17.Location = new Point(28, 381);
-            kryptonLabel17.Name = "kryptonLabel17";
-            kryptonLabel17.Size = new Size(76, 26);
-            kryptonLabel17.StateCommon.Padding = new Padding(-1, -1, -5, -1);
-            kryptonLabel17.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel17.TabIndex = 45;
-            kryptonLabel17.Values.Text = "Religion";
-            // 
             // cboAEducAttain
             // 
             cboAEducAttain.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAEducAttain.DropDownWidth = 416;
             cboAEducAttain.Items.AddRange(new object[] { "Elementary Graduate", "Junior High Graduate", "Senior High Graduate", "Undergraduate", "College Graduate" });
-            cboAEducAttain.Location = new Point(28, 261);
+            cboAEducAttain.Location = new Point(28, 276);
             cboAEducAttain.Name = "cboAEducAttain";
             cboAEducAttain.Size = new Size(416, 25);
             cboAEducAttain.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1005,7 +1012,7 @@
             // 
             // kryptonLabel16
             // 
-            kryptonLabel16.Location = new Point(28, 229);
+            kryptonLabel16.Location = new Point(29, 244);
             kryptonLabel16.Name = "kryptonLabel16";
             kryptonLabel16.Size = new Size(212, 26);
             kryptonLabel16.StateCommon.Padding = new Padding(-1, -1, -5, -1);
@@ -1047,7 +1054,7 @@
             // 
             // dtpkABirthday
             // 
-            dtpkABirthday.Location = new Point(28, 114);
+            dtpkABirthday.Location = new Point(28, 112);
             dtpkABirthday.Name = "dtpkABirthday";
             dtpkABirthday.Size = new Size(271, 25);
             dtpkABirthday.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1105,17 +1112,20 @@
             pnlSAddInfo2.Controls.Add(kryptonLabel29);
             pnlSAddInfo2.Controls.Add(txtAContactNo);
             pnlSAddInfo2.Controls.Add(kryptonLabel18);
+            pnlSAddInfo2.Controls.Add(kryptonLabel25);
             pnlSAddInfo2.Controls.Add(kryptonLabel48);
             pnlSAddInfo2.Controls.Add(kryptonLabel49);
             pnlSAddInfo2.Controls.Add(txtAPoRFilePath);
             pnlSAddInfo2.Controls.Add(btnAProofOfresidency);
             pnlSAddInfo2.Controls.Add(txtAProfilePicFilePath);
+            pnlSAddInfo2.Controls.Add(txtAReligion);
+            pnlSAddInfo2.Controls.Add(kryptonLabel17);
             pnlSAddInfo2.Controls.Add(btnAAddProfilePic);
             pnlSAddInfo2.Controls.Add(kryptonLabel19);
             pnlSAddInfo2.Controls.Add(lblpageNumber4);
             pnlSAddInfo2.Controls.Add(kryptonLabel26);
             pnlSAddInfo2.Controls.Add(kryptonLabel27);
-            pnlSAddInfo2.Location = new Point(652, 110);
+            pnlSAddInfo2.Location = new Point(701, 116);
             pnlSAddInfo2.Margin = new Padding(4, 3, 4, 3);
             pnlSAddInfo2.Name = "pnlSAddInfo2";
             pnlSAddInfo2.Size = new Size(477, 499);
@@ -1125,7 +1135,7 @@
             // 
             // kryptonLabel29
             // 
-            kryptonLabel29.Location = new Point(135, 79);
+            kryptonLabel29.Location = new Point(131, 170);
             kryptonLabel29.Name = "kryptonLabel29";
             kryptonLabel29.Size = new Size(15, 26);
             kryptonLabel29.StateCommon.Padding = new Padding(-2, -1, -1, -1);
@@ -1136,7 +1146,7 @@
             // 
             // txtAContactNo
             // 
-            txtAContactNo.Location = new Point(28, 111);
+            txtAContactNo.Location = new Point(29, 208);
             txtAContactNo.Multiline = true;
             txtAContactNo.Name = "txtAContactNo";
             txtAContactNo.Size = new Size(420, 40);
@@ -1144,7 +1154,7 @@
             // 
             // kryptonLabel18
             // 
-            kryptonLabel18.Location = new Point(28, 79);
+            kryptonLabel18.Location = new Point(24, 170);
             kryptonLabel18.Name = "kryptonLabel18";
             kryptonLabel18.Size = new Size(108, 26);
             kryptonLabel18.StateCommon.Padding = new Padding(-1, -1, -5, -1);
@@ -1152,9 +1162,20 @@
             kryptonLabel18.TabIndex = 67;
             kryptonLabel18.Values.Text = "Contact No.";
             // 
+            // kryptonLabel25
+            // 
+            kryptonLabel25.Location = new Point(104, 79);
+            kryptonLabel25.Name = "kryptonLabel25";
+            kryptonLabel25.Size = new Size(15, 26);
+            kryptonLabel25.StateCommon.Padding = new Padding(-2, -1, -1, -1);
+            kryptonLabel25.StateCommon.ShortText.Color1 = Color.Red;
+            kryptonLabel25.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel25.TabIndex = 65;
+            kryptonLabel25.Values.Text = "*";
+            // 
             // kryptonLabel48
             // 
-            kryptonLabel48.Location = new Point(31, 170);
+            kryptonLabel48.Location = new Point(28, 264);
             kryptonLabel48.Name = "kryptonLabel48";
             kryptonLabel48.Size = new Size(170, 26);
             kryptonLabel48.StateCommon.Padding = new Padding(-1, -1, -5, -1);
@@ -1164,7 +1185,7 @@
             // 
             // kryptonLabel49
             // 
-            kryptonLabel49.Location = new Point(198, 170);
+            kryptonLabel49.Location = new Point(194, 261);
             kryptonLabel49.Name = "kryptonLabel49";
             kryptonLabel49.Size = new Size(20, 26);
             kryptonLabel49.StateCommon.ShortText.Color1 = Color.Red;
@@ -1174,7 +1195,7 @@
             // 
             // txtAPoRFilePath
             // 
-            txtAPoRFilePath.Location = new Point(28, 204);
+            txtAPoRFilePath.Location = new Point(28, 296);
             txtAPoRFilePath.Multiline = true;
             txtAPoRFilePath.Name = "txtAPoRFilePath";
             txtAPoRFilePath.ScrollBars = ScrollBars.Vertical;
@@ -1185,7 +1206,7 @@
             // 
             // btnAProofOfresidency
             // 
-            btnAProofOfresidency.Location = new Point(343, 204);
+            btnAProofOfresidency.Location = new Point(343, 292);
             btnAProofOfresidency.Margin = new Padding(4, 3, 4, 3);
             btnAProofOfresidency.Name = "btnAProofOfresidency";
             btnAProofOfresidency.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
@@ -1237,7 +1258,7 @@
             // 
             // txtAProfilePicFilePath
             // 
-            txtAProfilePicFilePath.Location = new Point(29, 293);
+            txtAProfilePicFilePath.Location = new Point(28, 384);
             txtAProfilePicFilePath.Multiline = true;
             txtAProfilePicFilePath.Name = "txtAProfilePicFilePath";
             txtAProfilePicFilePath.ScrollBars = ScrollBars.Vertical;
@@ -1246,9 +1267,27 @@
             txtAProfilePicFilePath.TabIndex = 51;
             txtAProfilePicFilePath.Text = "File Path";
             // 
+            // txtAReligion
+            // 
+            txtAReligion.Location = new Point(28, 111);
+            txtAReligion.Multiline = true;
+            txtAReligion.Name = "txtAReligion";
+            txtAReligion.Size = new Size(420, 40);
+            txtAReligion.TabIndex = 46;
+            // 
+            // kryptonLabel17
+            // 
+            kryptonLabel17.Location = new Point(28, 79);
+            kryptonLabel17.Name = "kryptonLabel17";
+            kryptonLabel17.Size = new Size(76, 26);
+            kryptonLabel17.StateCommon.Padding = new Padding(-1, -1, -5, -1);
+            kryptonLabel17.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel17.TabIndex = 45;
+            kryptonLabel17.Values.Text = "Religion";
+            // 
             // btnAAddProfilePic
             // 
-            btnAAddProfilePic.Location = new Point(343, 293);
+            btnAAddProfilePic.Location = new Point(343, 384);
             btnAAddProfilePic.Margin = new Padding(4, 3, 4, 3);
             btnAAddProfilePic.Name = "btnAAddProfilePic";
             btnAAddProfilePic.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
@@ -1299,7 +1338,7 @@
             // 
             // kryptonLabel19
             // 
-            kryptonLabel19.Location = new Point(29, 261);
+            kryptonLabel19.Location = new Point(28, 352);
             kryptonLabel19.Name = "kryptonLabel19";
             kryptonLabel19.Size = new Size(135, 26);
             kryptonLabel19.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -1363,7 +1402,7 @@
             pnlSAddress.Controls.Add(lblPageNumber5);
             pnlSAddress.Controls.Add(kryptonLabel42);
             pnlSAddress.Controls.Add(kryptonLabel43);
-            pnlSAddress.Location = new Point(652, 110);
+            pnlSAddress.Location = new Point(701, 113);
             pnlSAddress.Margin = new Padding(4, 3, 4, 3);
             pnlSAddress.Name = "pnlSAddress";
             pnlSAddress.Size = new Size(477, 499);
@@ -1574,7 +1613,7 @@
             pnlSAddress2.Controls.Add(kryptonLabel50);
             pnlSAddress2.Controls.Add(kryptonLabel51);
             pnlSAddress2.Controls.Add(txtSpurok);
-            pnlSAddress2.Location = new Point(652, 107);
+            pnlSAddress2.Location = new Point(701, 113);
             pnlSAddress2.Margin = new Padding(4, 3, 4, 3);
             pnlSAddress2.Name = "pnlSAddress2";
             pnlSAddress2.Size = new Size(477, 499);
@@ -1683,7 +1722,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1155, 687);
+            ClientSize = new Size(1224, 684);
             Controls.Add(kryptonPanel1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "SignUpForm";
@@ -1705,6 +1744,7 @@
             ((System.ComponentModel.ISupportInitialize)pnlSAddInfo1).EndInit();
             pnlSAddInfo1.ResumeLayout(false);
             pnlSAddInfo1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cboResidentType).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboEmpStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboAEducAttain).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboACivilStatus).EndInit();
@@ -1831,5 +1871,8 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel18;
         private Krypton.Toolkit.KryptonLabel kryptonLabel20;
         private Krypton.Toolkit.KryptonComboBox cboEmpStatus;
+        private Krypton.Toolkit.KryptonComboBox cboResidentType;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel22;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel35;
     }
 }

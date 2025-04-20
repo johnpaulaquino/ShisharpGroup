@@ -97,15 +97,18 @@ namespace BrgyMs.backend.data_validation {
         public void ValidateAddInfo(AdditionalInfo _AdditionalInfo) {
             bool IsPhoneValid = Regex.IsMatch(_AdditionalInfo.ContactNo, PhonePattern);
             if (string.Equals(_AdditionalInfo.CivilStatus,"--Select--")) {
-                throw new Exception("Please specify you Civil status!");
+                throw new Exception("Please specify your Civil status!");
             }
             if (string.Equals(_AdditionalInfo.EducAttain,"--Select--")) {
-                throw new Exception("Please specify you Educational Attaintment!");
+                throw new Exception("Please specify your Educational Attaintment!");
             }
             if (string.IsNullOrEmpty(_AdditionalInfo.Religion)) {
                 throw new Exception("Religion should not be empty!");
             }
-
+            if (string.Equals(_AdditionalInfo.ResidentType, "--Select--"))
+            {
+                throw new Exception("PLease specify your Resident type!");
+            }
             if (string.IsNullOrEmpty(_AdditionalInfo.ContactNo)) {
                 throw new Exception("Contact No. should not be empty!");
             }

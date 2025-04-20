@@ -7,16 +7,32 @@ using DotNetEnv;
 
 namespace BrgyMs.backend.variables {
     public class Settings {
+        //db configuration
         public readonly string DB_NAME;
+        public readonly string DB_USERNAME;
+        public readonly string DB_PASSWORD;
+        public readonly string DB_PORT;
+        public readonly string DB_SERVER;
+        
+
+        //email configuration
         public readonly string EMAIL;
         public readonly string EMAIL_PASSWORD;
         public readonly string EMAIL_SERVER;
         public readonly int EMAIL_PORT;
         public readonly string EMAIL_USERNAME;
+        
         public Settings() {
             Env.Load(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\.env"));
-
+            //DB
             DB_NAME = Env.GetString("DB_NAME");
+            DB_USERNAME = Env.GetString("DB_USERNAME");
+            DB_PASSWORD = Env.GetString("DB_PASSWORD");
+            DB_PORT = Env.GetString("DB_PORT");
+            DB_SERVER = Env.GetString("DB_SERVER");
+
+
+            //EMAIL
             EMAIL = Env.GetString("EMAIL");
             EMAIL_PASSWORD = Env.GetString("EMAIL_PASSWORD");
             EMAIL_SERVER = Env.GetString("EMAIL_SERVER");

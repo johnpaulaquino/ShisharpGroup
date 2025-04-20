@@ -39,7 +39,6 @@ namespace BrgyMs.uiDesign
             txtUsername = new Krypton.Toolkit.KryptonTextBox();
             txtPassword = new Krypton.Toolkit.KryptonTextBox();
             btnSignup = new Krypton.Toolkit.KryptonButton();
-            kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             btnLogin = new Krypton.Toolkit.KryptonButton();
             cbShowPass = new Krypton.Toolkit.KryptonCheckBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -221,57 +220,6 @@ namespace BrgyMs.uiDesign
             btnSignup.Values.Text = "Sign Up";
             btnSignup.Click += btnSignup_Click;
             // 
-            // kryptonButton2
-            // 
-            kryptonButton2.Location = new Point(28, 24);
-            kryptonButton2.Margin = new Padding(4, 3, 4, 3);
-            kryptonButton2.Name = "kryptonButton2";
-            kryptonButton2.OverrideDefault.Back.Color1 = Color.FromArgb(250, 252, 252);
-            kryptonButton2.OverrideDefault.Back.Color2 = Color.FromArgb(250, 252, 252);
-            kryptonButton2.OverrideDefault.Back.ColorAngle = 45F;
-            kryptonButton2.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
-            kryptonButton2.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            kryptonButton2.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton2.OverrideDefault.Border.Rounding = 18F;
-            kryptonButton2.OverrideDefault.Border.Width = 1;
-            kryptonButton2.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            kryptonButton2.Size = new Size(187, 51);
-            kryptonButton2.StateCommon.Back.Color1 = Color.FromArgb(250, 252, 252);
-            kryptonButton2.StateCommon.Back.Color2 = Color.FromArgb(250, 252, 252);
-            kryptonButton2.StateCommon.Back.ColorAngle = 45F;
-            kryptonButton2.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton2.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            kryptonButton2.StateCommon.Border.ColorAngle = 45F;
-            kryptonButton2.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton2.StateCommon.Border.Rounding = 5F;
-            kryptonButton2.StateCommon.Border.Width = 1;
-            kryptonButton2.StateCommon.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            kryptonButton2.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonButton2.StateDisabled.Border.Rounding = 5F;
-            kryptonButton2.StateNormal.Border.Rounding = 5F;
-            kryptonButton2.StatePressed.Back.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton2.StatePressed.Back.Color2 = Color.FromArgb(6, 174, 244);
-            kryptonButton2.StatePressed.Back.ColorAngle = 130F;
-            kryptonButton2.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            kryptonButton2.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            kryptonButton2.StatePressed.Border.ColorAngle = 130F;
-            kryptonButton2.StatePressed.Border.Rounding = 5F;
-            kryptonButton2.StatePressed.Border.Width = 1;
-            kryptonButton2.StatePressed.Content.ShortText.Color1 = Color.White;
-            kryptonButton2.StatePressed.Content.ShortText.Color2 = Color.White;
-            kryptonButton2.StateTracking.Back.Color1 = Color.WhiteSmoke;
-            kryptonButton2.StateTracking.Back.Color2 = Color.WhiteSmoke;
-            kryptonButton2.StateTracking.Back.ColorAngle = 45F;
-            kryptonButton2.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton2.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            kryptonButton2.StateTracking.Border.ColorAngle = 45F;
-            kryptonButton2.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton2.StateTracking.Border.Rounding = 5F;
-            kryptonButton2.StateTracking.Border.Width = 1;
-            kryptonButton2.TabIndex = 36;
-            kryptonButton2.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton2.Values.Text = "Back";
-            // 
             // btnLogin
             // 
             btnLogin.Location = new Point(719, 449);
@@ -353,7 +301,6 @@ namespace BrgyMs.uiDesign
             ClientSize = new Size(1224, 684);
             Controls.Add(cbShowPass);
             Controls.Add(btnLogin);
-            Controls.Add(kryptonButton2);
             Controls.Add(btnSignup);
             Controls.Add(txtPassword);
             Controls.Add(kryptonLinkLabel1);
@@ -367,7 +314,6 @@ namespace BrgyMs.uiDesign
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = " Barangay LogIn";
-            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -385,7 +331,6 @@ namespace BrgyMs.uiDesign
         private Krypton.Toolkit.KryptonTextBox txtUsername;
         private Krypton.Toolkit.KryptonTextBox txtPassword;
         private Krypton.Toolkit.KryptonButton btnSignup;
-        private Krypton.Toolkit.KryptonButton kryptonButton2;
         private Krypton.Toolkit.KryptonButton btnLogin;
         private Krypton.Toolkit.KryptonCheckBox cbShowPass;
     }

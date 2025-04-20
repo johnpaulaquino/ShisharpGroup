@@ -1,4 +1,4 @@
-﻿namespace BrgyMs.uiDesign
+namespace BrgyMs.uiDesign
 {
     partial class Homepage
     {
@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             sidebartimer = new System.Windows.Forms.Timer(components);
             pnlHMainPnl = new Krypton.Toolkit.KryptonPanel();
@@ -44,7 +43,7 @@
             pnlHMainPnl.Location = new Point(0, 0);
             pnlHMainPnl.Margin = new Padding(4, 3, 4, 3);
             pnlHMainPnl.Name = "pnlHMainPnl";
-            pnlHMainPnl.Size = new Size(1113, 504);
+            pnlHMainPnl.Size = new Size(1224, 684);
             pnlHMainPnl.StateCommon.Color1 = Color.White;
             pnlHMainPnl.TabIndex = 0;
             pnlHMainPnl.Paint += pnlHMainPnl_Paint;
@@ -55,7 +54,7 @@
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Margin = new Padding(4, 3, 4, 3);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(106, 504);
+            kryptonPanel1.Size = new Size(106, 684);
             kryptonPanel1.StateCommon.Color1 = Color.FromArgb(224, 224, 224);
             kryptonPanel1.TabIndex = 0;
             // 
@@ -66,13 +65,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1113, 504);
+            ClientSize = new Size(1224, 684);
             Controls.Add(pnlHMainPnl);
             Margin = new Padding(2);
             Name = "Homepage";
             RightToLeft = RightToLeft.No;
             Text = "Home";
-            
             ((System.ComponentModel.ISupportInitialize)pnlHMainPnl).EndInit();
             pnlHMainPnl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();

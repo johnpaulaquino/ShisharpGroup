@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +11,7 @@ namespace BrgyMs.backend.services {
     public class AuthServices {
         private readonly AuthUtils _AuthUtils = new AuthUtils();
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
+        private string Status = "users";
         public AuthServices() {
         }
         public async Task<bool> AuthenticateUser(string Email, string Password) {
@@ -42,7 +43,12 @@ namespace BrgyMs.backend.services {
             if (!_AuthUtils.verifyHashedPassword(Password, data["password"])) {
                 throw new Exception("Incorrect Password!");
             }
+            Status = data["role"];
             return true;
+        }
+
+        public string GetStatus(){
+            return Status;
         }
     }
 }

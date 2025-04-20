@@ -1,4 +1,5 @@
 using BrgyMs.backend;
+using BrgyMs.backend.utils;
 using BrgyMs.uiDesign;
 
 namespace BrgyMS
@@ -11,13 +12,14 @@ namespace BrgyMS
         [STAThread]
         static void Main()
         {
-            Settings settings = new Settings();
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             
             ApplicationConfiguration.Initialize();
-            
             Application.Run(new LoginForm());
+            
+           
         }
     }
 }

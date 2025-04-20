@@ -16,9 +16,10 @@ namespace BrgyMs.backend.models.base_model
         public string CivilStatus { get; set; } // Single, Widowed, Married, and Divorce
         public string EmpStatus { get; set; } // Employee, Self-employed, Unemployed, Volunteer
         public string EducAttain { get; set; } // Elementary, Junior High School, Senior High School, College, Masteral, Docotrate, and None
+        public string ResidentType { get; set; }
+
         public DateTime BirthDate;
         public string ContactNo { get; set; }
-        public string Status { get; set; } // enable and disabled
         public string Religion { get; set; }
         public byte[] ProofOfResidency { get; set; }
         public AdditionalInfo(
@@ -27,10 +28,10 @@ namespace BrgyMs.backend.models.base_model
                             string EmpStatus,
                             string EducAttain,
                             string CivilStatus,
+                             string ResidentType,
                             string ContactNo,
                              string Religion,
                              byte[] ProofOfResidency,
-        string Status = "disabled",
         byte[] ProfileImage = null)
         {
             this.ProofOfResidency = ProofOfResidency;
@@ -42,7 +43,8 @@ namespace BrgyMs.backend.models.base_model
             this.CivilStatus = CivilStatus;
             this.EmpStatus = EmpStatus;
             this.ContactNo = ContactNo;
-            this.Status = Status;
+            this.ResidentType = ResidentType;
+
         }
     }
 }

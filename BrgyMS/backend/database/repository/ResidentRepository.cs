@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -93,7 +93,7 @@ namespace BrgyMs.backend.database.repositories {
         // ----------------------------------------------------------//
         //This section is for getters
         public async Task<Dictionary<string, string>> GetEmail(string email) {
-            string stmt = "Select email, password, status from users "
+            string stmt = "Select email, password, status, role from users "
             + "Where email = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
@@ -104,8 +104,8 @@ namespace BrgyMs.backend.database.repositories {
                         if (reader.Read()) {
                             data.Add("email", reader.GetString(reader.GetOrdinal("email")));
                             data.Add("password", reader.GetString(reader.GetOrdinal("password")));
-                            
                             data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
+                            data.Add("role", reader.GetString(reader.GetOrdinal("role")));
                         }
                     }
                 }
