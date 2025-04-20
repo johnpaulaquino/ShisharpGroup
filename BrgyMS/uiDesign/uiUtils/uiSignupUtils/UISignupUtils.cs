@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BrgyMS.uiDesign.uiUtils.signupUtils
 {
-    class SignupUtility
+    class UISignupUtils
     {
     }
 

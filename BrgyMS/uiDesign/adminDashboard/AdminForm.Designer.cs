@@ -23,27 +23,20 @@ namespace BrgyMS.uiDesign {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            cboFilter = new Krypton.Toolkit.KryptonComboBox();
+            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            kryptonPanel5 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            pnlTopSeperator = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel4 = new Krypton.Toolkit.KryptonPanel();
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
-            txtSearch = new Krypton.Toolkit.KryptonTextBox();
-            kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
-            nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
-            kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
-            pnlRightSeperator = new Krypton.Toolkit.KryptonPanel();
-            pnlSidebar = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
-            kryptonTaskDialog1 = new Krypton.Toolkit.KryptonTaskDialog();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
             colrole = new DataGridViewTextBoxColumn();
@@ -53,36 +46,39 @@ namespace BrgyMS.uiDesign {
             colbday = new DataGridViewTextBoxColumn();
             age = new DataGridViewTextBoxColumn();
             colcontact = new DataGridViewTextBoxColumn();
-            colcivilStatus = new DataGridViewTextBoxColumn();
-            colEduc = new DataGridViewTextBoxColumn();
-            colemp = new DataGridViewTextBoxColumn();
-            colreligion = new DataGridViewTextBoxColumn();
-            colrestype = new DataGridViewTextBoxColumn();
+            colrtype = new DataGridViewTextBoxColumn();
+            nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
+            kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            txtSearch = new Krypton.Toolkit.KryptonTextBox();
+            kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             pnlRighSeperator = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel5 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            pnlRightSeperator = new Krypton.Toolkit.KryptonPanel();
+            pnlTopSeperator = new Krypton.Toolkit.KryptonPanel();
+            pnlSidebar = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel6 = new Krypton.Toolkit.KryptonPanel();
-            cboFilter = new Krypton.Toolkit.KryptonComboBox();
+            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
+            kryptonTaskDialog1 = new Krypton.Toolkit.KryptonTaskDialog();
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).BeginInit();
             pnlMainContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cboFilter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pnlTopSeperator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).BeginInit();
             kryptonPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel4).BeginInit();
             kryptonPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pnlRighSeperator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlRightSeperator).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pnlTopSeperator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).BeginInit();
             pnlSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picMenuButton).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pnlRighSeperator).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cboFilter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picMenuButton).BeginInit();
             SuspendLayout();
             // 
             // pnlMainContainer
@@ -115,6 +111,38 @@ namespace BrgyMS.uiDesign {
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 6;
             // 
+            // cboFilter
+            // 
+            cboFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboFilter.DropDownWidth = 203;
+            cboFilter.Location = new Point(872, 45);
+            cboFilter.Name = "cboFilter";
+            cboFilter.Size = new Size(203, 22);
+            cboFilter.StateCommon.ComboBox.Border.Color1 = Color.Transparent;
+            cboFilter.StateCommon.ComboBox.Border.Color2 = Color.Transparent;
+            cboFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cboFilter.TabIndex = 13;
+            // 
+            // kryptonLabel5
+            // 
+            kryptonLabel5.Location = new Point(53, 38);
+            kryptonLabel5.Name = "kryptonLabel5";
+            kryptonLabel5.Size = new Size(62, 29);
+            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
+            kryptonLabel5.TabIndex = 3;
+            kryptonLabel5.Target = this;
+            kryptonLabel5.Values.Text = "Filter";
+            // 
+            // kryptonPanel5
+            // 
+            kryptonPanel5.Dock = DockStyle.Bottom;
+            kryptonPanel5.Location = new Point(25, 80);
+            kryptonPanel5.Name = "kryptonPanel5";
+            kryptonPanel5.Size = new Size(1074, 25);
+            kryptonPanel5.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
+            kryptonPanel5.TabIndex = 12;
+            // 
             // kryptonPanel1
             // 
             kryptonPanel1.Dock = DockStyle.Top;
@@ -124,16 +152,6 @@ namespace BrgyMS.uiDesign {
             kryptonPanel1.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel1.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             kryptonPanel1.TabIndex = 5;
-            // 
-            // pnlTopSeperator
-            // 
-            pnlTopSeperator.Dock = DockStyle.Top;
-            pnlTopSeperator.Location = new Point(100, 0);
-            pnlTopSeperator.Name = "pnlTopSeperator";
-            pnlTopSeperator.Size = new Size(1124, 49);
-            pnlTopSeperator.StateCommon.Color1 = Color.White;
-            pnlTopSeperator.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            pnlTopSeperator.TabIndex = 4;
             // 
             // kryptonPanel3
             // 
@@ -185,15 +203,19 @@ namespace BrgyMS.uiDesign {
             dataGridAdminDashboard.AllowUserToResizeRows = false;
             dataGridAdminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
+            dataGridAdminDashboard.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridAdminDashboard.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridAdminDashboard.BorderStyle = BorderStyle.None;
-            dataGridAdminDashboard.ColumnHeadersHeight = 45;
-            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colrole, colStatus, colfullname, colgender, colbday, age, colcontact, colcivilStatus, colEduc, colemp, colreligion, colrestype });
+            dataGridAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colrole, colStatus, colfullname, colgender, colbday, age, colcontact, colrtype });
             dataGridAdminDashboard.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridAdminDashboard.Location = new Point(28, 105);
             dataGridAdminDashboard.MultiSelect = false;
             dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             dataGridAdminDashboard.RowHeadersVisible = false;
+            dataGridAdminDashboard.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridAdminDashboard.ScrollBars = ScrollBars.Vertical;
+            dataGridAdminDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAdminDashboard.Size = new Size(1022, 337);
             dataGridAdminDashboard.StateCommon.Background.Color1 = Color.White;
             dataGridAdminDashboard.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -209,6 +231,93 @@ namespace BrgyMS.uiDesign {
             dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
             dataGridAdminDashboard.TabIndex = 11;
+            // 
+            // id
+            // 
+            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            id.DefaultCellStyle = dataGridViewCellStyle5;
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Resizable = DataGridViewTriState.False;
+            id.Width = 55;
+            // 
+            // colemail
+            // 
+            dataGridViewCellStyle6.BackColor = Color.White;
+            colemail.DefaultCellStyle = dataGridViewCellStyle6;
+            colemail.HeaderText = "Email";
+            colemail.Name = "colemail";
+            colemail.Resizable = DataGridViewTriState.False;
+            // 
+            // colrole
+            // 
+            colrole.HeaderText = "Role";
+            colrole.Name = "colrole";
+            colrole.Resizable = DataGridViewTriState.False;
+            // 
+            // colStatus
+            // 
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.Resizable = DataGridViewTriState.False;
+            // 
+            // colfullname
+            // 
+            colfullname.HeaderText = "Fullname";
+            colfullname.Name = "colfullname";
+            colfullname.Resizable = DataGridViewTriState.False;
+            // 
+            // colgender
+            // 
+            colgender.HeaderText = "Gender";
+            colgender.Name = "colgender";
+            colgender.Resizable = DataGridViewTriState.False;
+            // 
+            // colbday
+            // 
+            colbday.HeaderText = "Birthday";
+            colbday.Name = "colbday";
+            colbday.Resizable = DataGridViewTriState.False;
+            // 
+            // age
+            // 
+            age.HeaderText = "Age";
+            age.Name = "age";
+            age.Resizable = DataGridViewTriState.False;
+            // 
+            // colcontact
+            // 
+            colcontact.HeaderText = "Contact No.";
+            colcontact.Name = "colcontact";
+            colcontact.Resizable = DataGridViewTriState.False;
+            // 
+            // colrtype
+            // 
+            colrtype.HeaderText = "Resident Type";
+            colrtype.Name = "colrtype";
+            colrtype.Resizable = DataGridViewTriState.False;
+            // 
+            // nudLimit
+            // 
+            nudLimit.Increment = new decimal(new int[] { 1, 0, 0, 0 });
+            nudLimit.Location = new Point(88, 48);
+            nudLimit.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
+            nudLimit.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
+            nudLimit.Name = "nudLimit";
+            nudLimit.Size = new Size(55, 22);
+            nudLimit.TabIndex = 4;
+            nudLimit.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            // 
+            // kryptonLabel3
+            // 
+            kryptonLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            kryptonLabel3.Location = new Point(38, 50);
+            kryptonLabel3.Name = "kryptonLabel3";
+            kryptonLabel3.Size = new Size(44, 19);
+            kryptonLabel3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 9.75F);
+            kryptonLabel3.TabIndex = 3;
+            kryptonLabel3.Values.Text = "Show";
             // 
             // txtSearch
             // 
@@ -232,26 +341,14 @@ namespace BrgyMS.uiDesign {
             kryptonLabel4.TabIndex = 5;
             kryptonLabel4.Values.Text = "Entries";
             // 
-            // nudLimit
+            // pnlRighSeperator
             // 
-            nudLimit.Increment = new decimal(new int[] { 1, 0, 0, 0 });
-            nudLimit.Location = new Point(88, 48);
-            nudLimit.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
-            nudLimit.Minimum = new decimal(new int[] { 0, 0, 0, 0 });
-            nudLimit.Name = "nudLimit";
-            nudLimit.Size = new Size(55, 22);
-            nudLimit.TabIndex = 4;
-            nudLimit.Value = new decimal(new int[] { 0, 0, 0, 0 });
-            // 
-            // kryptonLabel3
-            // 
-            kryptonLabel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel3.Location = new Point(38, 50);
-            kryptonLabel3.Name = "kryptonLabel3";
-            kryptonLabel3.Size = new Size(44, 19);
-            kryptonLabel3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 9.75F);
-            kryptonLabel3.TabIndex = 3;
-            kryptonLabel3.Values.Text = "Show";
+            pnlRighSeperator.Dock = DockStyle.Left;
+            pnlRighSeperator.Location = new Point(0, 0);
+            pnlRighSeperator.Name = "pnlRighSeperator";
+            pnlRighSeperator.Size = new Size(25, 635);
+            pnlRighSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
+            pnlRighSeperator.TabIndex = 11;
             // 
             // pnlRightSeperator
             // 
@@ -262,6 +359,16 @@ namespace BrgyMS.uiDesign {
             pnlRightSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             pnlRightSeperator.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlRightSeperator.TabIndex = 4;
+            // 
+            // pnlTopSeperator
+            // 
+            pnlTopSeperator.Dock = DockStyle.Top;
+            pnlTopSeperator.Location = new Point(100, 0);
+            pnlTopSeperator.Name = "pnlTopSeperator";
+            pnlTopSeperator.Size = new Size(1124, 49);
+            pnlTopSeperator.StateCommon.Color1 = Color.White;
+            pnlTopSeperator.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            pnlTopSeperator.TabIndex = 4;
             // 
             // pnlSidebar
             // 
@@ -282,6 +389,15 @@ namespace BrgyMS.uiDesign {
             pnlSidebar.StateNormal.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlSidebar.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.TopMiddle;
             pnlSidebar.TabIndex = 0;
+            // 
+            // kryptonPanel6
+            // 
+            kryptonPanel6.Dock = DockStyle.Right;
+            kryptonPanel6.Location = new Point(99, 0);
+            kryptonPanel6.Name = "kryptonPanel6";
+            kryptonPanel6.Size = new Size(1, 684);
+            kryptonPanel6.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
+            kryptonPanel6.TabIndex = 2;
             // 
             // kryptonLabel1
             // 
@@ -314,182 +430,6 @@ namespace BrgyMS.uiDesign {
             kryptonTaskDialog1.UseNativeOSIcons = false;
             kryptonTaskDialog1.WindowTitle = null;
             // 
-            // id
-            // 
-            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            id.DefaultCellStyle = dataGridViewCellStyle3;
-            id.Frozen = true;
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Resizable = DataGridViewTriState.False;
-            id.Width = 55;
-            // 
-            // colemail
-            // 
-            dataGridViewCellStyle4.BackColor = Color.White;
-            colemail.DefaultCellStyle = dataGridViewCellStyle4;
-            colemail.Frozen = true;
-            colemail.HeaderText = "Email";
-            colemail.Name = "colemail";
-            colemail.ReadOnly = true;
-            colemail.Resizable = DataGridViewTriState.False;
-            colemail.Width = 108;
-            // 
-            // colrole
-            // 
-            colrole.Frozen = true;
-            colrole.HeaderText = "Role";
-            colrole.Name = "colrole";
-            colrole.ReadOnly = true;
-            colrole.Resizable = DataGridViewTriState.False;
-            colrole.Width = 108;
-            // 
-            // colStatus
-            // 
-            colStatus.Frozen = true;
-            colStatus.HeaderText = "Status";
-            colStatus.Name = "colStatus";
-            colStatus.ReadOnly = true;
-            colStatus.Resizable = DataGridViewTriState.False;
-            colStatus.Width = 108;
-            // 
-            // colfullname
-            // 
-            colfullname.Frozen = true;
-            colfullname.HeaderText = "Fullname";
-            colfullname.Name = "colfullname";
-            colfullname.ReadOnly = true;
-            colfullname.Resizable = DataGridViewTriState.False;
-            colfullname.Width = 108;
-            // 
-            // colgender
-            // 
-            colgender.Frozen = true;
-            colgender.HeaderText = "Gender";
-            colgender.Name = "colgender";
-            colgender.ReadOnly = true;
-            colgender.Resizable = DataGridViewTriState.False;
-            colgender.Width = 108;
-            // 
-            // colbday
-            // 
-            colbday.Frozen = true;
-            colbday.HeaderText = "Birthday";
-            colbday.Name = "colbday";
-            colbday.ReadOnly = true;
-            colbday.Resizable = DataGridViewTriState.False;
-            colbday.Width = 108;
-            // 
-            // age
-            // 
-            age.Frozen = true;
-            age.HeaderText = "Age";
-            age.Name = "age";
-            age.ReadOnly = true;
-            age.Resizable = DataGridViewTriState.False;
-            age.Width = 108;
-            // 
-            // colcontact
-            // 
-            colcontact.Frozen = true;
-            colcontact.HeaderText = "Contact No.";
-            colcontact.Name = "colcontact";
-            colcontact.ReadOnly = true;
-            colcontact.Resizable = DataGridViewTriState.False;
-            colcontact.Width = 108;
-            // 
-            // colcivilStatus
-            // 
-            colcivilStatus.Frozen = true;
-            colcivilStatus.HeaderText = "Civil Status";
-            colcivilStatus.Name = "colcivilStatus";
-            colcivilStatus.ReadOnly = true;
-            colcivilStatus.Resizable = DataGridViewTriState.False;
-            colcivilStatus.Width = 108;
-            // 
-            // colEduc
-            // 
-            colEduc.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            colEduc.Frozen = true;
-            colEduc.HeaderText = "Educational Attaintment";
-            colEduc.Name = "colEduc";
-            colEduc.ReadOnly = true;
-            colEduc.Resizable = DataGridViewTriState.False;
-            // 
-            // colemp
-            // 
-            colemp.Frozen = true;
-            colemp.HeaderText = "Employee Status";
-            colemp.Name = "colemp";
-            colemp.ReadOnly = true;
-            colemp.Resizable = DataGridViewTriState.False;
-            // 
-            // colreligion
-            // 
-            colreligion.Frozen = true;
-            colreligion.HeaderText = "Religion";
-            colreligion.Name = "colreligion";
-            colreligion.ReadOnly = true;
-            colreligion.Resizable = DataGridViewTriState.False;
-            // 
-            // colrestype
-            // 
-            colrestype.Frozen = true;
-            colrestype.HeaderText = "Resident Type";
-            colrestype.Name = "colrestype";
-            colrestype.ReadOnly = true;
-            colrestype.Resizable = DataGridViewTriState.False;
-            // 
-            // pnlRighSeperator
-            // 
-            pnlRighSeperator.Dock = DockStyle.Left;
-            pnlRighSeperator.Location = new Point(0, 0);
-            pnlRighSeperator.Name = "pnlRighSeperator";
-            pnlRighSeperator.Size = new Size(25, 635);
-            pnlRighSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
-            pnlRighSeperator.TabIndex = 11;
-            // 
-            // kryptonPanel5
-            // 
-            kryptonPanel5.Dock = DockStyle.Bottom;
-            kryptonPanel5.Location = new Point(25, 80);
-            kryptonPanel5.Name = "kryptonPanel5";
-            kryptonPanel5.Size = new Size(1074, 25);
-            kryptonPanel5.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
-            kryptonPanel5.TabIndex = 12;
-            // 
-            // kryptonLabel5
-            // 
-            kryptonLabel5.Location = new Point(53, 38);
-            kryptonLabel5.Name = "kryptonLabel5";
-            kryptonLabel5.Size = new Size(62, 29);
-            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
-            kryptonLabel5.TabIndex = 3;
-            kryptonLabel5.Target = this;
-            kryptonLabel5.Values.Text = "Filter";
-            // 
-            // kryptonPanel6
-            // 
-            kryptonPanel6.Dock = DockStyle.Right;
-            kryptonPanel6.Location = new Point(99, 0);
-            kryptonPanel6.Name = "kryptonPanel6";
-            kryptonPanel6.Size = new Size(1, 684);
-            kryptonPanel6.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
-            kryptonPanel6.TabIndex = 2;
-            // 
-            // cboFilter
-            // 
-            cboFilter.DropDownWidth = 203;
-            cboFilter.Location = new Point(872, 45);
-            cboFilter.Name = "cboFilter";
-            cboFilter.Size = new Size(203, 22);
-            cboFilter.StateCommon.ComboBox.Border.Color1 = Color.Transparent;
-            cboFilter.StateCommon.ComboBox.Border.Color2 = Color.Transparent;
-            cboFilter.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            cboFilter.TabIndex = 13;
-            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -505,8 +445,9 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);
             kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cboFilter).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pnlTopSeperator).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).EndInit();
             kryptonPanel3.ResumeLayout(false);
             kryptonPanel3.PerformLayout();
@@ -515,15 +456,14 @@ namespace BrgyMS.uiDesign {
             kryptonPanel4.ResumeLayout(false);
             kryptonPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pnlRighSeperator).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlRightSeperator).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pnlTopSeperator).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).EndInit();
             pnlSidebar.ResumeLayout(false);
             pnlSidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picMenuButton).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pnlRighSeperator).EndInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel5).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cboFilter).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picMenuButton).EndInit();
             ResumeLayout(false);
         }
 
@@ -548,6 +488,11 @@ namespace BrgyMS.uiDesign {
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private Krypton.Toolkit.KryptonTextBox txtSearch;
         private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
+        private Krypton.Toolkit.KryptonPanel pnlRighSeperator;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel5;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel6;
+        private Krypton.Toolkit.KryptonComboBox cboFilter;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn colemail;
         private DataGridViewTextBoxColumn colrole;
@@ -557,15 +502,6 @@ namespace BrgyMS.uiDesign {
         private DataGridViewTextBoxColumn colbday;
         private DataGridViewTextBoxColumn age;
         private DataGridViewTextBoxColumn colcontact;
-        private DataGridViewTextBoxColumn colcivilStatus;
-        private DataGridViewTextBoxColumn colEduc;
-        private DataGridViewTextBoxColumn colemp;
-        private DataGridViewTextBoxColumn colreligion;
-        private DataGridViewTextBoxColumn colrestype;
-        private Krypton.Toolkit.KryptonPanel pnlRighSeperator;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel5;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel6;
-        private Krypton.Toolkit.KryptonComboBox cboFilter;
+        private DataGridViewTextBoxColumn colrtype;
     }
 }
