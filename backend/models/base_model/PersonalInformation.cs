@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.models.base_model {
+namespace BrgyMs.backend.models.base_model {
     public class PersonalInformation {
         public string Id = Guid.NewGuid().ToString();
         public string Firstname { get; set; }

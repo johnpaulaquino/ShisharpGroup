@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend.models.admin_model;
-using BMS.backend.models.secretary_model;
-using BMS.backend.utils;
-using BMS.database.connector;
+using BrgyMs.backend.models.admin_model;
+using BrgyMs.backend.models.secretary_model;
+using BrgyMs.backend.utils;
+using BrgyMs.database.connector;
 using MySql.Data.MySqlClient;
 
 
-namespace BMS.backend.database.repositories {
+namespace BrgyMs.backend.database.repositories {
     public class AdminRepository {
         private readonly MySqlConnection conn;
         private readonly AuthUtils authUtils = new AuthUtils();
@@ -63,51 +64,30 @@ namespace BMS.backend.database.repositories {
 
                 Console.WriteLine("Successfully update information!");
             }
-        }
-        public async Task<Dictionary<string, string>> GetInfoByEmail(string email) {
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            string selectStmt = "Select * from admin_users "
-            + "Where email = ?";
-            try {
-                using (var cmd = new MySqlCommand(selectStmt, conn)) {
-                    cmd.Parameters.AddWithValue("email", email);
-                    using (var reader = await cmd.ExecuteReaderAsync()) {
-                        if (reader.Read()) {
-                            data.Add("id", reader.GetString(0));
-                            data.Add("username", reader.GetString(2));
-                            data.Add("role", reader.GetString(4));
-                        }
-                    }
-                }
-            }
-            catch (MySqlException e) {
+        }// end of updateADminInfo
 
-                Console.WriteLine(e.Message);
-            }
-            return data;
-        }// end of getInfo function
-
-        public async Task<Dictionary<string, string>> GetInfoById(string id) {
-            string stmt = "Select * from admin_users " +
-            "Where id = ?";
-            Dictionary<string, string> Data = new Dictionary<string, string>();
+        public async Task<DbDataReader> GetUserInformation() {
+            String stmt = "Select u.id, u.email, u.role, u.status, "
+            + "p.firstname, p.middlename, p.lastname, p.suffix, p.gender "
+            + "From users u "
+            + "Left Join personal_info p "
+            + "On u.id = p.user_id "
+            + "Where u.role IN ({placeholders}) AND u.status = ?";
             try {
-                using (var cmd = new MySqlCommand(stmt, conn)) {
-                    cmd.Parameters.AddWithValue("id", id);
-                    using (var reader = await cmd.ExecuteReaderAsync()) {
-                        if (reader.Read()) {
-                            Data.Add("id", reader.GetString(0));
-                            Data.Add("username", reader.GetString(1));
-                            Data.Add("role", reader.GetString(4));
-                        }
-                    }
-                }
-                return Data;
+                var cmd = new MySqlCommand(stmt, conn);
+                cmd.Parameters.AddWithValue("u.role1", "secretary");
+                cmd.Parameters.AddWithValue("u.role2", "user");
+                cmd.Parameters.AddWithValue("u.status", "1");
+                var reader = await cmd.ExecuteReaderAsync();
+
+                return reader;
             }
             catch (System.Exception) {
 
                 throw;
             }
-        }// end of GetInfoById function
+        } // End of getUserInformation
+
+
     }
 }

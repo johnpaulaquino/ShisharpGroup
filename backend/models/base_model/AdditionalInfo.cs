@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend.utils;
+using BrgyMs.backend.utils;
 
-namespace BMS.backend.models.base_model
+namespace BrgyMs.backend.models.base_model
 {
     public class AdditionalInfo
     {
@@ -16,9 +16,10 @@ namespace BMS.backend.models.base_model
         public string CivilStatus { get; set; } // Single, Widowed, Married, and Divorce
         public string EmpStatus { get; set; } // Employee, Self-employed, Unemployed, Volunteer
         public string EducAttain { get; set; } // Elementary, Junior High School, Senior High School, College, Masteral, Docotrate, and None
+        public string ResidentType { get; set; }
+
         public DateTime BirthDate;
         public string ContactNo { get; set; }
-        public string Status { get; set; } // enable and disabled
         public string Religion { get; set; }
         public byte[] ProofOfResidency { get; set; }
         public AdditionalInfo(
@@ -27,13 +28,13 @@ namespace BMS.backend.models.base_model
                             string EmpStatus,
                             string EducAttain,
                             string CivilStatus,
+                             string ResidentType,
                             string ContactNo,
                              string Religion,
-        string Status = "disabled",
-        byte[] ProfileImage = null,
-        byte[] ProofOfResidency = null)
-        { 
-
+                             byte[] ProofOfResidency,
+        byte[] ProfileImage = null)
+        {
+            this.ProofOfResidency = ProofOfResidency;
             this.ProfileImage = ProfileImage;
             this.Religion = Religion;
             this.BirthDate = BirthDate;
@@ -42,7 +43,8 @@ namespace BMS.backend.models.base_model
             this.CivilStatus = CivilStatus;
             this.EmpStatus = EmpStatus;
             this.ContactNo = ContactNo;
-            this.Status = Status;
+            this.ResidentType = ResidentType;
+
         }
     }
 }

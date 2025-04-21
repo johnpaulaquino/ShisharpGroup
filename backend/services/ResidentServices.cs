@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend.data_validation;
-using BMS.backend.database.repositories;
-using BMS.backend.models.base_model;
-using BMS.backend.models.residents_model;
+using BrgyMs.backend.data_validation;
+using BrgyMs.backend.database.repositories;
+using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.models.residents_model;
 
 
 
-namespace BMS.backend.services {
+namespace BrgyMs.backend.services {
 
     public class ResidentServices {
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
@@ -26,6 +26,7 @@ namespace BMS.backend.services {
                     throw new Exception("Email is already exist, Email must be unique!");
                 }
                 string Id = await _ResidentRepo.GenerateId();
+
                 await _ResidentRepo.AddUser(_User);
                 await _ResidentRepo.AddResidentInformation(_ResidentInfo, Id);
                 await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, Id);

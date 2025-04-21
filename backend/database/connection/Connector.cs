@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend;
+using BrgyMs.backend;
 using MySql.Data.MySqlClient;
 
-namespace BMS.database.connector {
+namespace BrgyMs.database.connector {
     public class Connector {
         private MySqlConnection conn;
         private string DB_URL;
         private Settings settings;
         public Connector() {
             settings = new Settings();
-            DB_URL = $"Server=localhost;Database={settings.DB_NAME}" +
-        ";User=root;Password=\"\";";
+            DB_URL = $"Server={settings.DB_SERVER};User={settings.DB_USERNAME};" +
+        $"Password={settings.DB_PASSWORD};database={settings.DB_NAME};Port={settings.DB_PORT}";
             conn = new MySqlConnection(DB_URL);
-
         }
 
         public MySqlConnection getConnection() {

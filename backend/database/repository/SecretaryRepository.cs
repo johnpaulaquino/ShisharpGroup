@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connector;
-using BMS.backend.utils;
-using BMS.backend.models.admin_model;
+using BrgyMs.database.connector;
+using BrgyMs.backend.utils;
+using BrgyMs.backend.models.admin_model;
 using MySql.Data.MySqlClient;
-using BMS.backend.models.secretary_model;
+using BrgyMs.backend.models.secretary_model;
 
-namespace BMS.backend.database.repositories {
+namespace BrgyMs.backend.database.repositories {
     public class SecretaryRepository {
         private readonly MySqlConnection conn;
         private readonly AuthUtils authUtils = new AuthUtils();

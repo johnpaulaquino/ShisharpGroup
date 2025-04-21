@@ -4,7 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BMS.backend.models.bo_model {
+namespace BrgyMs.backend.models.bo_model {
     public class OfficialsInfo {
         public DateTime TermStart { get; set; }
         public DateTime TermEnd { get; set; }

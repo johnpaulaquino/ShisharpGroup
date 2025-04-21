@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.database.connector;
+using BrgyMs.database.connector;
 using MySql.Data.MySqlClient;
 
-namespace BMS.backend.utils
+namespace BrgyMs.backend.utils
 {
     public class Utils
     {

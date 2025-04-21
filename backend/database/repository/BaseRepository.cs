@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend.models.base_model;
-using BMS.backend.utils;
-using BMS.database.connector;
+using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.utils;
+using BrgyMs.database.connector;
 using MySql.Data.MySqlClient;
 
-namespace BMS.backend.database.repositories {
+namespace BrgyMs.backend.database.repositories {
     public class BaseRepository {
         private readonly MySqlConnection conn;
         private readonly Utils util;
@@ -42,8 +43,8 @@ namespace BMS.backend.database.repositories {
         public async Task AddResidentAddInfo(AdditionalInfo _AdditionalInfo,
                                         string UserId) {
             string stmt1 = "Insert Into additional_info (id, user_id, is_voter,"
-                          + "civil_status, educational_attaintment,religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
-                          + "Values (?,?,?,?,?,?,?,?,?,?,?)";
+                          + "civil_status, educational_attaintment, employment_status,resident_type, religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
+                          + "Values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             int Age = util.calculateAge(_AdditionalInfo.BirthDate);
 
@@ -54,6 +55,8 @@ namespace BMS.backend.database.repositories {
                     cmd.Parameters.AddWithValue("is_voter", _AdditionalInfo.IsVoter);
                     cmd.Parameters.AddWithValue("civil_status", _AdditionalInfo.CivilStatus);
                     cmd.Parameters.AddWithValue("educational_attaintment", _AdditionalInfo.EducAttain);
+                    cmd.Parameters.AddWithValue("employment_status", _AdditionalInfo.EmpStatus);
+                    cmd.Parameters.AddWithValue("resident_type", _AdditionalInfo.ResidentType);
                     cmd.Parameters.AddWithValue("religion", _AdditionalInfo.Religion);
                     cmd.Parameters.AddWithValue("birth_day", _AdditionalInfo.BirthDate.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("age", Age);
@@ -91,6 +94,5 @@ namespace BMS.backend.database.repositories {
                 throw;
             }
         }// End of Add ResidentAddInformation function
-
     }
 }

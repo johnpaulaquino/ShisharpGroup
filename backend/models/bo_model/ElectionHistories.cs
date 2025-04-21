@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace BMS.backend.models.bo_model
+namespace BrgyMs.backend.models.bo_model
 {
     public class ElectionHistories
     {

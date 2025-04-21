@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using BMS.backend;
 using MailKit.Net.Smtp;
 using MimeKit;
 
-namespace BMS.backend.utils {
+namespace BrgyMs.backend.utils {
     public class EmailServices {
         private readonly Settings settings;
         public EmailServices() {
@@ -25,6 +25,7 @@ namespace BMS.backend.utils {
             var _MimeMessage = new MimeMessage();
             _MimeMessage.From.Add(new MailboxAddress(settings.EMAIL_USERNAME, settings.EMAIL));
             _MimeMessage.To.Add(new MailboxAddress(EmailRecipient, EmailRecipient));
+
             _MimeMessage.Subject = EmailSubject;
 
             var _Body = new TextPart("plain") {
