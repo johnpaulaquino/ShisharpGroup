@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using BrgyMs.backend.variables;
+using BrgyMs.backend;
 using MySql.Data.MySqlClient;
 
 namespace BrgyMs.database.connector {

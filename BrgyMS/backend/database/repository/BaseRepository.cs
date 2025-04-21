@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BrgyMs.backend.models.base_model;
@@ -93,6 +94,5 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         }// End of Add ResidentAddInformation function
-
     }
 }

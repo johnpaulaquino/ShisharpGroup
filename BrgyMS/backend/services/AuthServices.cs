@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,6 +44,7 @@ namespace BrgyMs.backend.services {
                 throw new Exception("Incorrect Password!");
             }
             Status = data["role"];
+            
             return true;
         }
 

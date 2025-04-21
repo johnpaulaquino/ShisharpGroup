@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -127,48 +127,25 @@ namespace BrgyMs.backend.database.repositories {
                 return id;
             }
         }
+        // public async Task<DbDataReader> GetResidentNotVerified(int Status) {
+        //     string stmt = "Select p.display_id, p.firstname, p.middlename, p.lastname "
+        //     + "From users u "
+        //     + "Left JOIN personal_info p "
+        //     + "on u.id = p.user_id "
+        //     + "where status = ? ";
+        //     try {
+        //         var cmd = new MySqlCommand(stmt, conn);
+        //         cmd.Parameters.AddWithValue("status", Status);
+        //         var reader = await cmd.ExecuteReaderAsync();
+        //         return reader;
+        //     }
+        //     catch (System.Exception) {
 
-        public async Task<DbDataReader> GetInformation() {
-            string stmt = "Select u.role, u.status, u.email, p.firstname, p.middlename, p.lastname, p.suffix, p.gender, p.category, "
-            + "a.street, a.house_number, a.subdivision, a.block_number, "
-            + "ai.profile_image, ai.is_voter, ai.civil_status, ai.educational_attaintment, ai.birth_day, ai.age, ai.proof_of_residency "
-            + "from users u "
-            + "Left join personal_info p "
-            + "On u.id = p.user_id "
-            + "Left join address a "
-            + "On p.id = a.user_id "
-            + "Left join additional_info ai "
-            + "On p.id = ai.user_id "
-            + "Where p.category = ?";
-            try {
-                var cmd = new MySqlCommand(stmt, conn);
-                cmd.Parameters.AddWithValue("p.category", "Resident");
-                return await cmd.ExecuteReaderAsync();
-            }
-            catch (MySqlException) {
+        //         throw;
+        //     }
+        // }
 
-                throw;
-            }
-        }
-
-        public async Task<DbDataReader> GetResidentNotVerified(int Status) {
-            string stmt = "Select p.display_id, p.firstname, p.middlename, p.lastname "
-            + "From users u "
-            + "Left JOIN personal_info p "
-            + "on u.id = p.user_id "
-            + "where status = ? ";
-            try {
-                var cmd = new MySqlCommand(stmt, conn);
-                cmd.Parameters.AddWithValue("status", Status);
-                var reader = await cmd.ExecuteReaderAsync();
-                return reader;
-            }
-            catch (System.Exception) {
-
-                throw;
-            }
-
-        }
+       
         public async Task<Dictionary<string, string>> GetElectionHistories() {
             string stmt = "SELECT * FROM officials";
             Dictionary<string, string> data = new Dictionary<string, string>();

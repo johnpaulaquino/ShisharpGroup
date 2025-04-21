@@ -78,9 +78,6 @@ namespace BrgyMs.backend.services {
             }
         }//End of function
 
-        public async Task<DbDataReader> GetResidentInformation() {
-            var reader = await _ResidentRepo.GetInformation();
-            return reader;
-        }
+       
     }
 }
