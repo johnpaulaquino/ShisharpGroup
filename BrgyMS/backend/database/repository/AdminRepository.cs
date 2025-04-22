@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -67,17 +67,20 @@ namespace BrgyMs.backend.database.repositories {
         }// end of updateADminInfo
 
         public async Task<DbDataReader> GetUserInformation() {
-            String stmt = "Select u.id, u.email, u.role, u.status, "
-            + "p.firstname, p.middlename, p.lastname, p.suffix, p.gender "
+            String stmt = "Select u.id, u.email, u.status, u.role, "
+            + "p.firstname, p.middlename, p.lastname, p.suffix, p.gender, " +
+            "ai.resident_type, ai.birth_day,ai.age, ai.contact_number "
             + "From users u "
             + "Left Join personal_info p "
-            + "On u.id = p.user_id "
-            + "Where u.role IN ({placeholders}) AND u.status = ?";
+            + "On u.id = p.user_id " 
+            +"Left join additional_info ai " +
+            "ON u.id = ai.user_id "
+            + "Where u.role IN (@role1, @role2) AND u.status = @status";
             try {
                 var cmd = new MySqlCommand(stmt, conn);
-                cmd.Parameters.AddWithValue("u.role1", "secretary");
-                cmd.Parameters.AddWithValue("u.role2", "user");
-                cmd.Parameters.AddWithValue("u.status", "1");
+                cmd.Parameters.AddWithValue("@role1", "secretary");
+                cmd.Parameters.AddWithValue("@role2", "users");
+                cmd.Parameters.AddWithValue("@status", "1");
                 var reader = await cmd.ExecuteReaderAsync();
 
                 return reader;

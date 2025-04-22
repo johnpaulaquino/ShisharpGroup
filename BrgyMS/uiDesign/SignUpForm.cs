@@ -84,9 +84,9 @@ namespace BrgyMs.uiDesign
                 //Data from 1st page
                 string email = txtSEmail.Text.ToString();
                 string password = txtSPassword.Text.ToString();
-                string confirmEmail = txtSConfirmEmail.Text.ToString();
+                string Username = txtSUsername.Text.ToString();
                 string confirmPassword = txtSConfirmPass.Text.ToString();
-                _Users = new User(email, password);
+                _Users = new User(email, password, Username);
 
                 //Data from 2nd page
                 string firstname = txtSFName.Text.ToString();
@@ -179,7 +179,7 @@ namespace BrgyMs.uiDesign
                 switch (pnlPage)
                 {
                     case 0:
-                        _UserValidation.ValidateUser(_Users, confirmEmail, confirmPassword);
+                        _UserValidation.ValidateUser(_Users, confirmPassword);
                         models.Add(_Users);
                         // validate first the field before go to another page.
                         break;

@@ -14,8 +14,10 @@
     <PackageReference Include="Krypton.Docking" Version="90.25.2.55" />
     <PackageReference Include="Krypton.Toolkit" Version="90.25.2.55" />
     <PackageReference Include="Mailkit" Version="4.11.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.8.0" />
     <PackageReference Include="Mysql.Data" Version="9.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.8.0" />
   </ItemGroup>
 
   <ItemGroup>

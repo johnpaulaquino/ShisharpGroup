@@ -21,6 +21,12 @@ namespace BrgyMS.uiDesign
 
         private void AdminForm_Load(object sender, EventArgs e) {
             uiadmin.setAdminDashboardTableWitdth(dataGridAdminDashboard);
+            uiadmin.SetUserInformation(lblRole,lblUsername);
+            uiadmin.SetUserAndSecInfo(dataGridAdminDashboard);
+
+        }
+
+        private void picProfilePic_Click(object sender, EventArgs e) {
 
         }
     }

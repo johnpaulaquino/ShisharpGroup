@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,14 +52,15 @@ namespace BrgyMs.backend.database.repositories {
         }//End of Function
 
         public async Task AddUser(User user) {
-            string stmt = "Insert into users (id, email, password, role, status) "
-            + "Values(?,?,?,?,?)";
+            string stmt = "Insert into users (id, email, password,username, role, status) "
+            + "Values(?,?,?,?,?,?)";
             string Id = await this.GenerateId();
             try {
                 using (var cmd = new MySqlCommand(stmt, conn)) {
                     cmd.Parameters.AddWithValue("id", Id);
                     cmd.Parameters.AddWithValue("email", user.Email);
                     cmd.Parameters.AddWithValue("password", _AuthUtils.hashedPassword(user.Password));
+                    cmd.Parameters.AddWithValue("username", user.Username);
                     cmd.Parameters.AddWithValue("role", user.Role);
                     cmd.Parameters.AddWithValue("status", user.Status);
                     await cmd.ExecuteNonQueryAsync();
@@ -93,7 +94,7 @@ namespace BrgyMs.backend.database.repositories {
         // ----------------------------------------------------------//
         //This section is for getters
         public async Task<Dictionary<string, string>> GetEmail(string email) {
-            string stmt = "Select email, password, status, role from users "
+            string stmt = "Select id, email, password,username, role, status from users "
             + "Where email = ?";
             Dictionary<string, string> data = new Dictionary<string, string>();
             try {
@@ -102,10 +103,13 @@ namespace BrgyMs.backend.database.repositories {
 
                     using (var reader = await cmd.ExecuteReaderAsync()) {
                         if (reader.Read()) {
+
+                            data.Add("userId", reader.GetString(reader.GetOrdinal("id")));
                             data.Add("email", reader.GetString(reader.GetOrdinal("email")));
                             data.Add("password", reader.GetString(reader.GetOrdinal("password")));
                             data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
                             data.Add("role", reader.GetString(reader.GetOrdinal("role")));
+                            data.Add("username", reader.GetString(reader.GetOrdinal("username")));
                         }
                     }
                 }

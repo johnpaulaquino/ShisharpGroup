@@ -15,8 +15,7 @@ namespace BrgyMs.backend.data_validation {
         private readonly string ImagePattern = @"^.+\.(jpg|jpeg|png|webp)$";
 
         public UserInfoValidation() { }
-        public void ValidateUser(User _User, string ConfirmEmail,
-           string ConfirmPassword) {
+        public void ValidateUser(User _User, string ConfirmPassword) {
             bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
 
             if (_User.Email.Length < 0) {
@@ -27,9 +26,8 @@ namespace BrgyMs.backend.data_validation {
                 throw new Exception("Invalid Email address!");
             }
 
-            if (!string.Equals(_User.Email, ConfirmEmail))
-            {
-                throw new Exception("Email and confirm email does not match!");
+            if (string.IsNullOrEmpty(_User.Username)) {
+                throw new Exception("Username should not be empty!");
             }
 
             if (_User.Password.Length < 0) {
@@ -39,33 +37,27 @@ namespace BrgyMs.backend.data_validation {
             if (_User.Password.Length < 8) {
                 throw new Exception("Password should at least 8 characters!");
             }
-            if (!string.Equals(_User.Password, ConfirmPassword))
-            {
+            if (!string.Equals(_User.Password, ConfirmPassword)) {
                 throw new Exception("Password and confirm password does not match!");
             }
 
         } // end of first validation
 
-        public void ValidateUser(User _User)
-        {
+        public void ValidateUser(User _User) {
             bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
 
-            if (_User.Email.Length < 0) 
-            {
+            if (_User.Email.Length < 0) {
                 throw new Exception("Email should not be empty!");
             }
 
-            if (!IsValid)
-            {
+            if (!IsValid) {
                 throw new Exception("Invalid Email address!");
             }
-            if (_User.Password.Length < 0)
-            {
+            if (_User.Password.Length < 0) {
                 throw new Exception("Password should not be empty!");
             }
 
-            if (_User.Password.Length < 8)
-            {
+            if (_User.Password.Length < 8) {
                 throw new Exception("Password should at least 8 characters!");
             }
 
@@ -73,7 +65,7 @@ namespace BrgyMs.backend.data_validation {
 
         public void ValidatePersonalInfo(PersonalInformation _Personalinfo) {
 
-            if (string.IsNullOrEmpty( _Personalinfo.Firstname)) {
+            if (string.IsNullOrEmpty(_Personalinfo.Firstname)) {
                 throw new Exception("Firstname should not be empty!");
             }
             if (string.IsNullOrEmpty(_Personalinfo.Lastname)) {
@@ -82,12 +74,10 @@ namespace BrgyMs.backend.data_validation {
             if (string.IsNullOrEmpty(_Personalinfo.Gender)) {
                 throw new Exception("Gender should not be empty!");
             }
-            if (string.Equals(_Personalinfo.Gender, "--Select--"))
-            {
+            if (string.Equals(_Personalinfo.Gender, "--Select--")) {
                 throw new Exception("Please specify your gender!");
             }
-            if (string.Equals(_Personalinfo.Gender, "--Select--"))
-            {
+            if (string.Equals(_Personalinfo.Gender, "--Select--")) {
                 throw new Exception("Please specify your gender!");
             }
 
@@ -96,17 +86,16 @@ namespace BrgyMs.backend.data_validation {
 
         public void ValidateAddInfo(AdditionalInfo _AdditionalInfo) {
             bool IsPhoneValid = Regex.IsMatch(_AdditionalInfo.ContactNo, PhonePattern);
-            if (string.Equals(_AdditionalInfo.CivilStatus,"--Select--")) {
+            if (string.Equals(_AdditionalInfo.CivilStatus, "--Select--")) {
                 throw new Exception("Please specify your Civil status!");
             }
-            if (string.Equals(_AdditionalInfo.EducAttain,"--Select--")) {
+            if (string.Equals(_AdditionalInfo.EducAttain, "--Select--")) {
                 throw new Exception("Please specify your Educational Attaintment!");
             }
             if (string.IsNullOrEmpty(_AdditionalInfo.Religion)) {
                 throw new Exception("Religion should not be empty!");
             }
-            if (string.Equals(_AdditionalInfo.ResidentType, "--Select--"))
-            {
+            if (string.Equals(_AdditionalInfo.ResidentType, "--Select--")) {
                 throw new Exception("PLease specify your Resident type!");
             }
             if (string.IsNullOrEmpty(_AdditionalInfo.ContactNo)) {
@@ -121,7 +110,7 @@ namespace BrgyMs.backend.data_validation {
             }
 
         }
-        public void ValidateAddress (Address _Address) {
+        public void ValidateAddress(Address _Address) {
             bool IsHouseNoDigits = Regex.IsMatch(_Address.HouseNumber, @"\d");
             bool IsLotNoDigits = Regex.IsMatch(_Address.LotNo, @"\d");
             bool IsBlockNoDigits = Regex.IsMatch(_Address.LotNo, @"\d");
@@ -161,14 +150,11 @@ namespace BrgyMs.backend.data_validation {
                 throw new Exception("File Extension should [.jpg, .jpeg, .png, .webp]!");
             }
         }
-        public void SetEmptyStringThatCanAcceptNull(PersonalInformation _PersonalInfo)
-        {
-            if (string.IsNullOrEmpty(_PersonalInfo.Middlename))
-            {
+        public void SetEmptyStringThatCanAcceptNull(PersonalInformation _PersonalInfo) {
+            if (string.IsNullOrEmpty(_PersonalInfo.Middlename)) {
                 _PersonalInfo.Middlename = "";
             }
-            if (string.Equals(_PersonalInfo.Suffix, "--Select--"))
-            {
+            if (string.Equals(_PersonalInfo.Suffix, "--Select--")) {
                 _PersonalInfo.Suffix = "";
             }
         }

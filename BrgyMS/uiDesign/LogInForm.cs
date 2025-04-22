@@ -1,5 +1,5 @@
 using BrgyMs.backend.services;
-using BrgyMs.backend.variables;
+using BrgyMs.backend.utils;
 using BrgyMs.uiDesign.IndexUtils;
 using DotNetEnv;
 using System;
@@ -19,6 +19,7 @@ namespace BrgyMs.uiDesign
     {
         private readonly AuthServices _Authervices = new AuthServices();
         private readonly UILoginUtils logUtils = new UILoginUtils();
+        private readonly AuthUtils _AuthUtils = new AuthUtils();
         public LoginForm()
         {
             InitializeComponent();
@@ -32,10 +33,12 @@ namespace BrgyMs.uiDesign
             {
                 bool isLoggedIn = await _Authervices.AuthenticateUser(username, password);
 
+                
                 if (isLoggedIn)
                 {
                     MessageBox.Show("Successfully Login!");
                     logUtils.Homepage(this,_Authervices.GetStatus());
+
                 }
             }
             catch (Exception ex)

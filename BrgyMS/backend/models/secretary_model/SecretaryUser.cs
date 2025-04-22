@@ -1,4 +1,4 @@
-﻿using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.models.base_model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace BrgyMs.backend.models.secretary_model
     public class SecretaryUser : User
     {
         public string Id = Guid.NewGuid().ToString();
-        public SecretaryUser(string Email, string Password, string Role = "secretary", bool Status = true) : base(Email, Password, Role, Status)
+        public SecretaryUser(string Email, string Password, string Username, string Role = "secretary", bool Status = true) : base(Email, Password,Username, Role, Status)
         {
 
         }

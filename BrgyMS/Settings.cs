@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotNetEnv;
 
-namespace BrgyMs.backend.variables {
+namespace BrgyMs.backend {
     public class Settings {
         //db configuration
         public readonly string DB_NAME;
@@ -13,7 +13,11 @@ namespace BrgyMs.backend.variables {
         public readonly string DB_PASSWORD;
         public readonly string DB_PORT;
         public readonly string DB_SERVER;
-        
+
+        //token
+        public readonly string TOKEN_SECRET_KEY;
+        public readonly string ISSUER;
+        public readonly string AUDIENCE;
 
         //email configuration
         public readonly string EMAIL;
@@ -31,6 +35,10 @@ namespace BrgyMs.backend.variables {
             DB_PORT = Env.GetString("DB_PORT");
             DB_SERVER = Env.GetString("DB_SERVER");
 
+            //token 
+            TOKEN_SECRET_KEY = Env.GetString("TOKEN_SECRET_KEY");
+            ISSUER = Env.GetString("ISSUER");
+            AUDIENCE = Env.GetString("AUDIENCE");
 
             //EMAIL
             EMAIL = Env.GetString("EMAIL");

@@ -17,6 +17,7 @@ namespace BrgyMS
             // see https://aka.ms/applicationconfiguration.
             
             ApplicationConfiguration.Initialize();
+            System.Diagnostics.Debug.WriteLine(Guid.NewGuid().ToString()+ Guid.NewGuid().ToString());
             Application.Run(new LoginForm());
             
            

@@ -1,4 +1,4 @@
-namespace BrgyMs.uiDesign
+﻿namespace BrgyMs.uiDesign
 {
     partial class LoginForm
     {
@@ -154,7 +154,7 @@ namespace BrgyMs.uiDesign
             txtPassword.Margin = new Padding(4, 3, 4, 3);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
+            txtPassword.PasswordChar = '●';
             txtPassword.Size = new Size(416, 40);
             txtPassword.StateCommon.Back.Color1 = Color.White;
             txtPassword.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
