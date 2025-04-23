@@ -9,15 +9,19 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
-    class UIAdminUtils {
+namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils
+{
+    class UIAdminUtils
+    {
         private AuthUtils _AuthUtils = new AuthUtils();
         private AdminRepository _AdminRepo = new AdminRepository();
-        public UIAdminUtils() {
+        public UIAdminUtils()
+        {
 
 
         }
-        public void setAdminDashboardTableWitdth(DataGridView dataGridView) {
+        public void setAdminDashboardTableWitdth(DataGridView dataGridView)
+        {
             dataGridView.Columns[0].Width = 50;
             dataGridView.Columns[1].Width = 200;
             dataGridView.Columns[2].Width = 100;
@@ -31,10 +35,12 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         }
 
         public void SetUserInformation(KryptonLabel lblRole,
-            KryptonLabel lblusername) {
+            KryptonLabel lblusername)
+        {
             string token = _AuthUtils.ReadTokenInFile();
             var principal = _AuthUtils.ValidateToken(token);
-            if (principal != null) {
+            if (principal != null)
+            {
                 string? username = principal.FindFirst("username")?.Value;
                 string? userId = principal.FindFirst("userId")?.Value;
                 string? role = principal.FindFirst(ClaimTypes.Role)?.Value;
@@ -43,22 +49,49 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 lblusername.Text = "Hi, " + username;
             }
         }
-        public async void SetUserAndSecInfo(DataGridView table) {
+        public async void SetUserAndSecInfo(DataGridView table)
+        {
 
-            using (var dataReader = await _AdminRepo.GetUserInformation()){
-                DataTable dt = new DataTable();
-            
+            using (var dataReader = await _AdminRepo.GetUserInformation())
+            {
+                table.rows.clear();
 
-                DataRow dr = dt.NewRow(); // for rows
-                while (dataReader.Read()) {
-                  
+                while (dataReader.Read())
+                {
+                    string fName = dataReader["firstname"];
+                    string? mName = dataReader["middlename"];
+                    string lName = dataReader["lastname"];
+                    string? suffix = dataReader["suffix"];
+                    string fullname = "";
+
+                    if (String.IsNullOrEmpty(mName) && string.IsNullOrEmpty(suffix))
+                    {
+                        fullname = mName + " " + lName;
+                    }
+                    else if (string.IsNullOrEmpty(mName))
+                    {
+                        fullname = mName + " " + lName + " " + suffix;
+                    }
+                    else if (string.IsNullOrEmpty(suffix))
+                    {
+                        fullname = mName + mName[0].ToString().ToUpper() + " " + lName;
+                    }
+                    else
+                    {
+                        fullname = fullname = mName + mName[0].ToString().ToUpper() + " " + lName + " " + suffix;
+                    }
+
+                    string roleInitial = dataReader["role"][0].ToString().ToUpper();
+                    string role = roleInitial + dataReader["role"].Substring(1);
+                    table.Rows.Add(dataReader["id"],
+                     dataReader["email"], role, fullname,
+                     dataReader["gender"],
+                     dataReader["birth_day"],
+                     dataReader["age"],
+                     dataReader["contact_number"],
+                     dataReader["resident_type"]);
                 }
-                
             }
-           
-
-
-
         }
     }
 }
