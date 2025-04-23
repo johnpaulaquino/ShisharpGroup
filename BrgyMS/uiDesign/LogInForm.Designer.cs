@@ -313,6 +313,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = " Barangay LogIn";
+            FormClosed += LoginForm_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

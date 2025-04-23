@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -34,7 +34,7 @@ namespace BrgyMs.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (System.Exception e) {
 
                 throw;
             }
@@ -66,7 +66,7 @@ namespace BrgyMs.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (System.Exception e) {
 
                 throw;
             }
@@ -89,7 +89,7 @@ namespace BrgyMs.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (System.Exception e) {
 
                 throw;
             }

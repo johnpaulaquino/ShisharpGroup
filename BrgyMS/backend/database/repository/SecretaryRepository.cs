@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,8 +44,8 @@ namespace BrgyMs.backend.database.repositories {
             }
 
 
-            catch (MySqlException e) {
-                throw new Exception(e.Message);
+            catch (System.Exception e) {
+                throw;
             }
         } // End of the funtion insert admin
 
@@ -54,15 +54,21 @@ namespace BrgyMs.backend.database.repositories {
             string updateStmt = "Update users "
             + "set password = ?, email = ? "
             + "Where id = ?";
+            try {
+                using (var cmd = new MySqlCommand(updateStmt, conn)) {
+                    cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(_Secretary.Password));
+                    cmd.Parameters.AddWithValue("email", _Secretary.Email);
+                    cmd.Parameters.AddWithValue("id", Id["id"]);
+                    await cmd.ExecuteNonQueryAsync();
 
-            using (var cmd = new MySqlCommand(updateStmt, conn)) {
-                cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(_Secretary.Password));
-                cmd.Parameters.AddWithValue("email", _Secretary.Email);
-                cmd.Parameters.AddWithValue("id", Id["id"]);
-                await cmd.ExecuteNonQueryAsync();
-
-                Console.WriteLine("Successfully update information!");
+                    Console.WriteLine("Successfully update information!");
+                }
             }
+            catch (System.Exception e) {
+                throw;
+
+            }
+
         }
     }
 }

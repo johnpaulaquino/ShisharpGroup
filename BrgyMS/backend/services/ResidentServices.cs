@@ -21,10 +21,7 @@ namespace BrgyMs.backend.services {
             Address _ResidentAddress
             ) {
             try {
-                Dictionary<string, string> IsExist = await _ResidentRepo.GetEmail(_User.Email);
-                if (IsExist.Count > 0) {
-                    throw new Exception("Email is already exist, Email must be unique!");
-                }
+               
                 string Id = await _ResidentRepo.GenerateId();
 
                 await _ResidentRepo.AddUser(_User);
@@ -32,8 +29,8 @@ namespace BrgyMs.backend.services {
                 await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, Id);
                 await _ResidentRepo.AddResidentAddress(_ResidentAddress, Id);
             }
-            catch (System.Exception) {
-                throw;
+            catch (Exception e) {
+                throw new Exception(e.Message);
             }
         } // End of function
 
@@ -46,8 +43,8 @@ namespace BrgyMs.backend.services {
                 await _ResidentRepo.AddRequestDocuments(_RequestDocs);
 
             }
-            catch (System.Exception) {
-                throw;
+            catch (Exception e) {
+                throw new Exception(e.Message);
             }
         }
     }

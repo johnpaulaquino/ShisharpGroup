@@ -49,7 +49,7 @@ namespace BrgyMs.backend.services {
                 return true;
             }
             catch (Exception e) {
-                throw;
+                throw e;
             }
 
         }

@@ -2,7 +2,9 @@
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
+using BrgyMs.database.connector;
 using Krypton.Toolkit;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,10 +17,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMs.uiDesign
-{
-    public partial class SignUpForm : Form
-    {
+namespace BrgyMs.uiDesign {
+    public partial class SignUpForm : Form {
         //This is the global variables
         private int pnlPage = 0;
         private int lblPgNumber = 1;
@@ -36,12 +36,11 @@ namespace BrgyMs.uiDesign
         private string filePathProofOfR = "";
         private string filePathProfilePic = "";
         private ResidentServices _ResidentServices = new ResidentServices();
+        private MySqlConnection conn = new Connector().getConnection();
 
-        private List<object> models = new List<object>();
 
 
-        public SignUpForm()
-        {
+        public SignUpForm() {
             InitializeComponent();
 
             //This is the method below in this program
@@ -50,76 +49,69 @@ namespace BrgyMs.uiDesign
 
         }
 
-        private void Personal_Info_Load(object sender, EventArgs e)
-        {
+        private void Personal_Info_Load(object sender, EventArgs e) {
 
         }
 
-        private void btnSLogin_Click(object sender, EventArgs e)
-        {
+        private void btnSLogin_Click(object sender, EventArgs e) {
             this.Hide();
             new LoginForm().Show();
         }
 
-        private void cbSShowPass_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (cbSShowPass.Checked)
-            {
+        private void cbSShowPass_CheckedChanged_1(object sender, EventArgs e) {
+            if (cbSShowPass.Checked) {
                 cbSShowPass.Text = "Hide Password";
                 txtSConfirmPass.PasswordChar = (char)0;
                 txtSPassword.PasswordChar = (char)0;
             }
-            else
-            {
+            else {
                 cbSShowPass.Text = "Show Password";
                 txtSConfirmPass.PasswordChar = '●';
                 txtSPassword.PasswordChar = '●';
             }
         }
 
-        private async void btnSNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private async void btnSNext_Click(object sender, EventArgs e) {
+            try {
+
                 //Data from 1st page
-                string email = txtSEmail.Text.ToString();
-                string password = txtSPassword.Text.ToString();
-                string Username = txtSUsername.Text.ToString();
-                string confirmPassword = txtSConfirmPass.Text.ToString();
+                string email = txtSEmail.Text;
+                string password = txtSPassword.Text;
+                string Username = txtSUsername.Text;
+                string confirmPassword = txtSConfirmPass.Text;
                 _Users = new User(email, password, Username);
 
                 //Data from 2nd page
-                string firstname = txtSFName.Text.ToString();
-                string middlename = txtSMName.Text.ToString();
-                string lastname = txtSLastname.Text.ToString();
+                string firstname = txtSFName.Text;
+                string middlename = txtSMName.Text;
+                string lastname = txtSLastname.Text;
                 string suffix = cboSSuffix.SelectedItem.ToString();
                 string gender = cboSGender.SelectedItem.ToString();
+
+
 
                 // personal info
                 _PersonalInfo = new PersonalInformation(firstname, middlename, lastname, gender) { Suffix = suffix };
 
 
                 // Data from 3rd and 4th page 
-                if (cbAVoterStatus.Checked)
-                {
+                if (cbAVoterStatus.Checked) {
                     voterStatus = true;
                 }
 
                 string civilStatus = cboACivilStatus.SelectedItem.ToString();
                 string educationalStatus = cboAEducAttain.SelectedItem.ToString();
                 string empStatus = cboEmpStatus.SelectedItem.ToString();
-                string religion = txtAReligion.Text.ToString();
+                string religion = txtAReligion.Text;
                 DateTime bday = dtpkABirthday.Value.Date;
                 int age = utils.calculateAge(bday);
-                string contactNo = txtAContactNo.Text.ToString();
-                string residentType = cboResidentType.Text.ToString();
+                string contactNo = txtAContactNo.Text;
+                string residentType = cboResidentType.Text;
 
                 //check if the filepath of the proof of residency
-                if (!string.IsNullOrEmpty(filePathProofOfR))
-                {
+                if (!string.IsNullOrEmpty(filePathProofOfR)) {
                     //Read the selected image
-                    using (var fileStream = new FileStream(filePathProofOfR, FileMode.Open, FileAccess.Read))
-                    {
+                    using (var fileStream = new FileStream(filePathProofOfR, FileMode.Open, FileAccess.Read)) {
                         //set the bytes on the bytesProofOfR variable
                         bytesProofOfR = new byte[fileStream.Length];
                         await fileStream.ReadExactlyAsync(bytesProofOfR);
@@ -128,11 +120,9 @@ namespace BrgyMs.uiDesign
 
 
                 //check if the filepath of the profile image
-                if (!string.IsNullOrEmpty(filePathProfilePic))
-                {
+                if (!string.IsNullOrEmpty(filePathProfilePic)) {
                     //Read the selected image
-                    using (var fileStream = new FileStream(filePathProfilePic, FileMode.Open, FileAccess.Read))
-                    {
+                    using (var fileStream = new FileStream(filePathProfilePic, FileMode.Open, FileAccess.Read)) {
                         //set the bytes on the bytesProofOfR variable
                         bytesProfilePic = new byte[fileStream.Length];
                         await fileStream.ReadExactlyAsync(bytesProfilePic);
@@ -176,16 +166,13 @@ namespace BrgyMs.uiDesign
                 _UserValidation.SetEmptyStringThatCanAcceptNull(_PersonalInfo);
 
                 //validate per page
-                switch (pnlPage)
-                {
+                switch (pnlPage) {
                     case 0:
-                        _UserValidation.ValidateUser(_Users, confirmPassword);
-                        models.Add(_Users);
+                        await _UserValidation.ValidateUser(_Users, confirmPassword);
                         // validate first the field before go to another page.
                         break;
                     case 1:
                         _UserValidation.ValidatePersonalInfo(_PersonalInfo);
-                        models.Add(_PersonalInfo);
                         break;
 
                     case 3:
@@ -193,27 +180,23 @@ namespace BrgyMs.uiDesign
 
                         _UserValidation.ValidateFileType(filePathProofOfR);
 
-                        if (!string.IsNullOrEmpty(filePathProfilePic))
-                        {
+                        if (!string.IsNullOrEmpty(filePathProfilePic)) {
                             _UserValidation.ValidateFileType(filePathProfilePic);
                         }
-                        models.Add(_AddlInfo);
                         break;
 
                     case 4:
                         _UserValidation.ValidateAddress(_Address);
-                        models.Add(_Address);
+                 
                         break;
 
                 }
-
                 //increment the index for accessing the list
                 lblPgNumber++;
                 pnlPage++;
 
                 //check wether the page is less than or equal to the number of pages
-                if (pnlPage <= kryptonpanels.Count - 1)
-                {
+                if (pnlPage <= kryptonpanels.Count - 1) {
                     //then set visible the button prev
                     btnSPrevious.Visible = true;
 
@@ -226,38 +209,35 @@ namespace BrgyMs.uiDesign
 
 
                 //always chceck if the number of page is exceeding the limit, so we will show the submit button.
-                if (pnlPage == kryptonpanels.Count - 1)
-                {
+                if (pnlPage == kryptonpanels.Count - 1) {
                     btnSCreateAccount.BringToFront();
 
                 }
 
+
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+       
         }
-        private void btnSPrevious_Click(object sender, EventArgs e)
-        {
+        private void btnSPrevious_Click(object sender, EventArgs e) {
             pnlPage--;
             lblPgNumber -= 1;
-            Console.WriteLine(pnlPage);
-            if (pnlPage >= 0)
-            {
+
+            if (pnlPage >= 0) {
                 kryptonpanels[pnlPage].BringToFront();
                 pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
             }
-            if (pnlPage == 0)
-            {
+            if (pnlPage == 0) {
                 btnSPrevious.Visible = false;
             }
 
             btnSNext.BringToFront();
         }
 
-        public void AfterInitComponent()
-        {
+
+        public void AfterInitComponent() {
             //set the first option in the combo box suffix and gender
             cboSSuffix.Items.Insert(0, "--Select--");
             cboSSuffix.SelectedItem = "--Select--";
@@ -273,6 +253,9 @@ namespace BrgyMs.uiDesign
 
             cboEmpStatus.Items.Insert(0, "--Select--");
             cboEmpStatus.SelectedItem = "--Select--";
+
+            cboResidentType.Items.Insert(0, "--Select--");
+            cboResidentType.SelectedItem = "--Select--";
 
             //This is the panel
             kryptonpanels.Add(pnlSLogCredentials);
@@ -299,28 +282,23 @@ namespace BrgyMs.uiDesign
 
         }
 
-        private void btnAProofOfresidency_Click(object sender, EventArgs e)
-        {
+        private void btnAProofOfresidency_Click(object sender, EventArgs e) {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-            {
+            if (fileDialog.ShowDialog() == DialogResult.OK) {
                 filePathProofOfR = fileDialog.FileName;
                 Console.WriteLine(fileDialog.FileName);
                 txtAPoRFilePath.Text = filePathProofOfR;
             }
 
         }
-
-        private void cbIsLiveInSubdivision_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbIsLiveInSubdivision.Checked)
-            {
+        //If the resident lives in village
+        private void cbIsLiveInSubdivision_CheckedChanged(object sender, EventArgs e) {
+            if (cbIsLiveInSubdivision.Checked) {
                 txtSSubdivision.Enabled = true;
                 txtSLotNo.Enabled = true;
                 txtSBlockNo.Enabled = true;
             }
-            else
-            {
+            else {
                 txtSSubdivision.Enabled = false;
                 txtSLotNo.Enabled = false;
                 txtSBlockNo.Enabled = false;
@@ -331,27 +309,34 @@ namespace BrgyMs.uiDesign
             }
         }
 
-        private async void btnSCreateAccount_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                var userSubmit = (User)models[0];
-                var personalInfoSubmit = (PersonalInformation)models[1];
-                var addInfoSubmit = (AdditionalInfo)models[2];
-                var addressSubmit = (Address)models[3];
-                await _ResidentServices.CreateResidentInformation(userSubmit, personalInfoSubmit, addInfoSubmit, addressSubmit);
+        private async void btnSCreateAccount_Click_1(object sender, EventArgs e) {
+       
+            try {
+                await _ResidentServices.CreateResidentInformation(_Users, _PersonalInfo, _AddlInfo, _Address);
                 MessageBox.Show("Successfully created account. Please be patient for your account verification!");
                 this.Hide();
                 new LoginForm().Show();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-                Console.WriteLine(ex.Message);
+            catch (Exception ex) {
+                MessageBox.Show("An error occured when try to submit " + ex.Message);
             }
         }
 
-    
+        private void txtSLastname_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (char.IsDigit(c) && c !=
+                (char)Keys.Delete
+                && c != (char)Keys.Back) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e) {
+            if (conn != null) {
+                conn.Close();
+            }
+        }
     }
 
 }

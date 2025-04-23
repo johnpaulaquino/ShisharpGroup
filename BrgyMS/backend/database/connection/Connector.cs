@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -21,6 +21,7 @@ namespace BrgyMs.database.connector {
         public MySqlConnection getConnection() {
             if (conn == null) {
                 conn = new MySqlConnection(DB_URL);
+                conn.Open();
 
             }
             if (conn.State != ConnectionState.Open) {

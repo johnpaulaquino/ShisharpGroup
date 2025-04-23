@@ -9,38 +9,31 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils
-{
-    class UIAdminUtils
-    {
+namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
+    class UIAdminUtils {
         private AuthUtils _AuthUtils = new AuthUtils();
         private AdminRepository _AdminRepo = new AdminRepository();
-        public UIAdminUtils()
-        {
+        public UIAdminUtils() {
 
 
         }
-        public void setAdminDashboardTableWitdth(DataGridView dataGridView)
-        {
-            dataGridView.Columns[0].Width = 50;
-            dataGridView.Columns[1].Width = 200;
-            dataGridView.Columns[2].Width = 100;
-            dataGridView.Columns[3].Width = 100;
-            dataGridView.Columns[4].Width = 200;
-            dataGridView.Columns[5].Width = 100;
-            dataGridView.Columns[6].Width = 200;
-            dataGridView.Columns[7].Width = 100;
-            dataGridView.Columns[8].Width = 200;
-            dataGridView.Columns[9].Width = 200;
+        public void setAdminDashboardTableWitdth(DataGridView dataGridView) {
+            dataGridView.Columns["id"].Width = 50;
+            dataGridView.Columns["colemail"].Width = 200;
+            dataGridView.Columns["colrole"].Width = 100;
+            dataGridView.Columns["colfullname"].Width = 200;
+            dataGridView.Columns["colgender"].Width = 100;
+            dataGridView.Columns["colbday"].Width = 200;
+            dataGridView.Columns["colage"].Width = 50;
+            dataGridView.Columns["colcontact"].Width = 150;
+            dataGridView.Columns["colrtype"].Width = 150;
         }
 
         public void SetUserInformation(KryptonLabel lblRole,
-            KryptonLabel lblusername)
-        {
+            KryptonLabel lblusername) {
             string token = _AuthUtils.ReadTokenInFile();
             var principal = _AuthUtils.ValidateToken(token);
-            if (principal != null)
-            {
+            if (principal != null) {
                 string? username = principal.FindFirst("username")?.Value;
                 string? userId = principal.FindFirst("userId")?.Value;
                 string? role = principal.FindFirst(ClaimTypes.Role)?.Value;
@@ -49,47 +42,47 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils
                 lblusername.Text = "Hi, " + username;
             }
         }
-        public async void SetUserAndSecInfo(DataGridView table)
-        {
+        public async void SetUserAndSecInfo(DataGridView table, int limit) {
 
-            using (var dataReader = await _AdminRepo.GetUserInformation())
-            {
-                table.rows.clear();
+            using (var dataReader = await _AdminRepo.GetUserInformation(limit)) {
 
-                while (dataReader.Read())
-                {
-                    string fName = dataReader["firstname"];
-                    string? mName = dataReader["middlename"];
-                    string lName = dataReader["lastname"];
-                    string? suffix = dataReader["suffix"];
-                    string fullname = "";
+                table.Rows.Clear();
 
-                    if (String.IsNullOrEmpty(mName) && string.IsNullOrEmpty(suffix))
-                    {
-                        fullname = mName + " " + lName;
-                    }
-                    else if (string.IsNullOrEmpty(mName))
-                    {
-                        fullname = mName + " " + lName + " " + suffix;
-                    }
-                    else if (string.IsNullOrEmpty(suffix))
-                    {
-                        fullname = mName + mName[0].ToString().ToUpper() + " " + lName;
-                    }
-                    else
-                    {
-                        fullname = fullname = mName + mName[0].ToString().ToUpper() + " " + lName + " " + suffix;
+                while (dataReader.Read()) {
+                    if (limit <= dataReader.GetInt32("counter_limit")) {
+                        string fName = (string)dataReader["firstname"];
+                        string? mName = (string)dataReader["middlename"];
+                        string lName = (string)dataReader["lastname"];
+                        string? suffix = (string)dataReader["suffix"];
+                        string fullname = "";
+
+                        if (String.IsNullOrEmpty(mName) && string.IsNullOrEmpty(suffix)) {
+                            fullname = mName + " " + lName;
+                        }
+                        else if (string.IsNullOrEmpty(mName)) {
+                            fullname = mName + " " + lName + " " + suffix;
+                        }
+                        else if (string.IsNullOrEmpty(suffix)) {
+                            fullname = mName + " " + mName[0].ToString().ToUpper() + ". " + lName;
+                        }
+                        else {
+                            fullname = fullname = mName + mName[0].ToString().ToUpper() + " " + lName + " " + suffix;
+                        }
+
+                        string role = (string)dataReader["role"];
+                        string roleInit = string.Concat(role[0].ToString().ToUpper(), role.Substring(1));
+                        DateTime bday = (DateTime)dataReader["birth_day"];
+                        String formattedBday = bday.ToString("MMMM, dd, yyyy");
+
+                        table.Rows.Add(dataReader["id"],
+                         dataReader["email"], roleInit, fullname,
+                         dataReader["gender"],
+                         formattedBday,
+                         dataReader["age"],
+                         dataReader["contact_number"],
+                         dataReader["resident_type"]);
                     }
 
-                    string roleInitial = dataReader["role"][0].ToString().ToUpper();
-                    string role = roleInitial + dataReader["role"].Substring(1);
-                    table.Rows.Add(dataReader["id"],
-                     dataReader["email"], role, fullname,
-                     dataReader["gender"],
-                     dataReader["birth_day"],
-                     dataReader["age"],
-                     dataReader["contact_number"],
-                     dataReader["resident_type"]);
                 }
             }
         }

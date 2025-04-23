@@ -53,9 +53,9 @@ namespace BrgyMs.backend.database.repositories
             }
 
 
-            catch (MySqlException e)
+            catch (System.Exception e)
             {
-                throw new Exception(e.Message);
+                throw;
             }
         } // End of the funtion insert admin
 
@@ -79,9 +79,9 @@ namespace BrgyMs.backend.database.repositories
 
 
         // to set data in table in admin dashboard
-        public async Task<DbDataReader> GetUserInformation()
+        public async Task<DbDataReader> GetUserInformation(int limit)
         {
-            String stmt = "Select u.id, u.email, u.status, u.role, "
+            String stmt = "Select count(u.id) as counter_limit, u.id, u.email, u.status, u.role, "
             + "p.firstname, p.middlename, p.lastname, p.suffix, p.gender, " +
             "ai.resident_type, ai.birth_day,ai.age, ai.contact_number "
             + "From users u "
@@ -89,18 +89,20 @@ namespace BrgyMs.backend.database.repositories
             + "On u.id = p.user_id "
             + "Left join additional_info ai " +
             "ON u.id = ai.user_id "
-            + "Where u.role IN (@role1, @role2) AND u.status = @status";
+            + "Where u.role IN (@role1, @role2) AND u.status = @status " +
+            "Limit @limit";
             try
             {
                 var cmd = new MySqlCommand(stmt, conn);
                 cmd.Parameters.AddWithValue("@role1", "secretary");
                 cmd.Parameters.AddWithValue("@role2", "users");
                 cmd.Parameters.AddWithValue("@status", "1");
+                cmd.Parameters.AddWithValue("@limit", limit);
                 var reader = await cmd.ExecuteReaderAsync();
 
                 return reader;
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
 
                 throw;
@@ -131,7 +133,7 @@ namespace BrgyMs.backend.database.repositories
 
                 return reader;
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
                 throw;
             }

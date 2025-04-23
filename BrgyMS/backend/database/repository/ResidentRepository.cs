@@ -14,6 +14,7 @@ using BrgyMs.backend.models.residents_model;
 using System.Xml;
 using BrgyMs.backend.utils;
 using ZstdSharp.Unsafe;
+using System.Data;
 
 namespace BrgyMs.backend.database.repositories {
     public class ResidentRepository : BaseRepository {
@@ -45,8 +46,8 @@ namespace BrgyMs.backend.database.repositories {
                     Console.WriteLine("Successfully add officials info");
                 }
             }
-            catch (MySqlException) {
-                throw;
+            catch (Exception e) {
+                throw new Exception(e.Message);
             }
 
         }//End of Function
@@ -66,9 +67,9 @@ namespace BrgyMs.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
+            catch (Exception e) {
 
-                throw;
+                throw new Exception(e.Message);
             }
         }
 
@@ -86,8 +87,8 @@ namespace BrgyMs.backend.database.repositories {
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
-            catch (System.Exception) {
-                throw;
+            catch (Exception e) {
+                throw new Exception(e.Message);
             }
         }
 
@@ -110,10 +111,11 @@ namespace BrgyMs.backend.database.repositories {
                             data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
                             data.Add("role", reader.GetString(reader.GetOrdinal("role")));
                             data.Add("username", reader.GetString(reader.GetOrdinal("username")));
+                              return data;
                         }
                     }
                 }
-                return data;
+                return null;
             }
             catch (System.Exception) {
                 throw;
@@ -121,11 +123,11 @@ namespace BrgyMs.backend.database.repositories {
         }// End of FindByEmail
         public async Task<string> GenerateId() {
             string id = "";
-            string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as id from users";
+            string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as nextId from users";
             using (var cmd = new MySqlCommand(stmt, conn)) {
                 using (var reader = await cmd.ExecuteReaderAsync()) {
                     if (reader.Read()) {
-                        id = reader.GetString(0);
+                        id = reader.GetString("nextId");
                     }
                 }
                 return id;

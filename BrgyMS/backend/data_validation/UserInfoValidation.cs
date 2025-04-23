@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_model;
 
@@ -13,33 +14,46 @@ namespace BrgyMs.backend.data_validation {
         private readonly string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         private readonly string PhonePattern = @"^(09|\+639)\d{9}$";
         private readonly string ImagePattern = @"^.+\.(jpg|jpeg|png|webp)$";
-
+        private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         public UserInfoValidation() { }
-        public void ValidateUser(User _User, string ConfirmPassword) {
+        public async Task ValidateUser(User _User, string ConfirmPassword) {
             bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
 
-            if (_User.Email.Length < 0) {
-                throw new Exception("Email should not be empty!");
+            try {
+                Dictionary<string, string> IsExist = await _ResidentRepo.GetEmail(_User.Email);
+
+                if (_User.Email.Length < 0) {
+                    throw new Exception("Email should not be empty!");
+                }
+
+                if (!IsValid) {
+                    throw new Exception("Invalid Email address!");
+                }
+
+                if (IsExist.ContainsKey("email")) {
+                    throw new Exception("Email is already exist, Email must be unique!");
+                }
+
+
+                if (string.IsNullOrEmpty(_User.Username)) {
+                    throw new Exception("Username should not be empty!");
+                }
+
+                if (_User.Password.Length < 0) {
+                    throw new Exception("Password should not be empty!");
+                }
+
+                if (_User.Password.Length < 8) {
+                    throw new Exception("Password should at least 8 characters!");
+                }
+                if (!string.Equals(_User.Password, ConfirmPassword)) {
+                    throw new Exception("Password and confirm password does not match!");
+                }
+            }
+            catch (System.Exception) {
+                throw;
             }
 
-            if (!IsValid) {
-                throw new Exception("Invalid Email address!");
-            }
-
-            if (string.IsNullOrEmpty(_User.Username)) {
-                throw new Exception("Username should not be empty!");
-            }
-
-            if (_User.Password.Length < 0) {
-                throw new Exception("Password should not be empty!");
-            }
-
-            if (_User.Password.Length < 8) {
-                throw new Exception("Password should at least 8 characters!");
-            }
-            if (!string.Equals(_User.Password, ConfirmPassword)) {
-                throw new Exception("Password and confirm password does not match!");
-            }
 
         } // end of first validation
 
@@ -53,6 +67,7 @@ namespace BrgyMs.backend.data_validation {
             if (!IsValid) {
                 throw new Exception("Invalid Email address!");
             }
+
             if (_User.Password.Length < 0) {
                 throw new Exception("Password should not be empty!");
             }

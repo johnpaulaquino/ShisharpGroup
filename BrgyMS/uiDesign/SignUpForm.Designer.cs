@@ -759,6 +759,7 @@
             txtSLastname.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             txtSLastname.StateNormal.Content.Padding = new Padding(10, 10, 0, 0);
             txtSLastname.TabIndex = 41;
+            txtSLastname.KeyPress += txtSLastname_KeyPress;
             // 
             // kryptonLabel8
             // 
@@ -1727,6 +1728,7 @@
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "User Information";
+            FormClosing += SignUpForm_FormClosing;
             Load += Personal_Info_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
