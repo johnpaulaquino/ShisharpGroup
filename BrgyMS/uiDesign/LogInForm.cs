@@ -15,32 +15,43 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace BrgyMs.uiDesign
-{
+namespace BrgyMs.uiDesign {
     public partial class LoginForm : Form {
         private readonly AuthServices _Authervices = new AuthServices();
         private readonly UILoginUtils logUtils = new UILoginUtils();
-        private MySqlConnection conn = new Connector().getConnection();
+        private bool isCLicked = true;
         public LoginForm() {
             InitializeComponent();
         }
 
         private async void btnLogin_Click(object sender, EventArgs e) {
-            string username = txtUsername.Text.ToString();
-            string password = txtPassword.Text.ToString();
-            try {
-                bool isLoggedIn = await _Authervices.AuthenticateUser(username, password);
+
+            if (isCLicked) {
+                isCLicked = false;
+                string username = txtUsername.Text.ToString();
+                string password = txtPassword.Text.ToString();
+                try {
+
+                    bool isLoggedIn = await _Authervices.AuthenticateUser(username, password);
 
 
-                if (isLoggedIn) {
-                    MessageBox.Show("Successfully Login!");
-                    logUtils.Homepage(this, _Authervices.GetStatus());
+                    if (isLoggedIn) {
 
+                        MessageBox.Show("Successfully Login!");
+                        logUtils.Homepage(this, _Authervices.GetStatus());
+
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                    btnLogin.ResumeLayout();
+                    btnSignup.ResumeLayout();
+                }
+                finally {
+                    isCLicked = true;
                 }
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+          
         }
 
         private void cbShowPass_CheckedChanged(object sender, EventArgs e) {
@@ -62,9 +73,7 @@ namespace BrgyMs.uiDesign
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e) {
-            if (conn != null) {
-                conn.Close(); 
-            }
+
         }
     }
 }

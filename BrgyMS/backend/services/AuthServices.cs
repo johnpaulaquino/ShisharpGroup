@@ -15,8 +15,9 @@ namespace BrgyMs.backend.services {
         public AuthServices() {
         }
         public async Task<bool> AuthenticateUser(string Email, string Password) {
-            Dictionary<string, string> data = await _ResidentRepo.GetEmail(Email);
+
             try {
+                Dictionary<string, string> data = await _ResidentRepo.GetEmail(Email);
                 if (Password.Length <= 0 && Email.Length <= 0) {
                     throw new Exception("Username and Password should not be empty!");
                 }
@@ -29,7 +30,7 @@ namespace BrgyMs.backend.services {
                 }
 
 
-                if (data.Count == 0) {
+                if (data == null) {
                     throw new Exception("Incorrect Username!");
                 }
                 if (data["status"] == "0") {
@@ -49,7 +50,7 @@ namespace BrgyMs.backend.services {
                 return true;
             }
             catch (Exception e) {
-                throw e;
+                throw;
             }
 
         }

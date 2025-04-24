@@ -18,17 +18,10 @@ namespace BrgyMs.database.connector {
             conn = new MySqlConnection(DB_URL);
         }
 
-        public MySqlConnection getConnection() {
-            if (conn == null) {
-                conn = new MySqlConnection(DB_URL);
-                conn.Open();
-
-            }
-            if (conn.State != ConnectionState.Open) {
-
-                conn.Open();
-            }
-            return conn;
+        public async Task<MySqlConnection> getConnection() {
+            var connection = new MySqlConnection(DB_URL);
+            await connection.OpenAsync();
+            return connection;
         }
     }
 }

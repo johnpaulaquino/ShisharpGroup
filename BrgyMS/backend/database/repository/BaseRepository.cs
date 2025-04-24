@@ -10,10 +10,10 @@ using MySql.Data.MySqlClient;
 
 namespace BrgyMs.backend.database.repositories {
     public class BaseRepository {
-        private readonly MySqlConnection conn;
+        private Connector conn;
         private readonly Utils util;
         public BaseRepository() {
-            conn = new Connector().getConnection();
+            conn = new Connector();
             util = new Utils();
         }
 
@@ -23,7 +23,8 @@ namespace BrgyMs.backend.database.repositories {
                           + ",lastname, suffix, gender) "
                           + "Values (?,?,?,?,?,?,?)";
             try {
-                using (var cmd = new MySqlCommand(stmt1, conn)) {
+                using var connection = await conn.getConnection();
+                using (var cmd = new MySqlCommand(stmt1, connection)) {
                     cmd.Parameters.AddWithValue("id", _ResidentInfo.Id);
                     cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("firstname", _ResidentInfo.Firstname);
@@ -49,7 +50,8 @@ namespace BrgyMs.backend.database.repositories {
             int Age = util.calculateAge(_AdditionalInfo.BirthDate);
 
             try {
-                using (var cmd = new MySqlCommand(stmt1, conn)) {
+                using var connection = await conn.getConnection();
+                using (var cmd = new MySqlCommand(stmt1, connection)) {
                     cmd.Parameters.AddWithValue("id", _AdditionalInfo.Id);
                     cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("is_voter", _AdditionalInfo.IsVoter);
@@ -79,7 +81,8 @@ namespace BrgyMs.backend.database.repositories {
                           + ", subdivision, block_number) "
                           + "Values (?,?,?,?,?,?)";
             try {
-                using (var cmd = new MySqlCommand(stmt1, conn)) {
+                using var connection = await conn.getConnection();
+                using (var cmd = new MySqlCommand(stmt1, connection)) {
                     cmd.Parameters.AddWithValue("id", _ResidenAddress.Id);
                     cmd.Parameters.AddWithValue("user_id", UserId);
                     cmd.Parameters.AddWithValue("street", _ResidenAddress.Street);

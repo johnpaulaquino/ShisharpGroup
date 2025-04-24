@@ -10,11 +10,11 @@ using BrgyMs.backend.models.secretary_model;
 
 namespace BrgyMs.backend.database.repositories {
     public class SecretaryRepository {
-        private readonly MySqlConnection conn;
+        private readonly Connector conn;
         private readonly AuthUtils authUtils = new AuthUtils();
 
         public SecretaryRepository() {
-            conn = new Connector().getConnection();
+            conn = new Connector();
         }
         public async Task InsertSecretaryUser(SecretaryUser _Secretary) {
 
@@ -26,7 +26,8 @@ namespace BrgyMs.backend.database.repositories {
             string stmt = "Insert into users (id, email,password, role,status) "
             + "Values (?,?,?,?,?)";
             try {
-                using (var cmd = new MySqlCommand(stmt, conn)) {
+                using var connection = await conn.getConnection();
+                using (var cmd = new MySqlCommand(stmt,await conn.getConnection())) {
                     cmd.Parameters.AddWithValue("id", _Secretary.Id);
                     cmd.Parameters.AddWithValue("email", _Secretary.Email);
                     cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(_Secretary.Password));
@@ -55,7 +56,7 @@ namespace BrgyMs.backend.database.repositories {
             + "set password = ?, email = ? "
             + "Where id = ?";
             try {
-                using (var cmd = new MySqlCommand(updateStmt, conn)) {
+                using (var cmd = new MySqlCommand(updateStmt, await conn.getConnection())) {
                     cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(_Secretary.Password));
                     cmd.Parameters.AddWithValue("email", _Secretary.Email);
                     cmd.Parameters.AddWithValue("id", Id["id"]);

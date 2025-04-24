@@ -36,10 +36,6 @@ namespace BrgyMs.uiDesign {
         private string filePathProofOfR = "";
         private string filePathProfilePic = "";
         private ResidentServices _ResidentServices = new ResidentServices();
-        private MySqlConnection conn = new Connector().getConnection();
-
-
-
         public SignUpForm() {
             InitializeComponent();
 
@@ -333,9 +329,7 @@ namespace BrgyMs.uiDesign {
         }
 
         private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e) {
-            if (conn != null) {
-                conn.Close();
-            }
+            
         }
     }
 
