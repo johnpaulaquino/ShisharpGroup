@@ -18,21 +18,21 @@ namespace BrgyMS.uiDesign {
         private int limit = 0;
         public AdminForm() {
             InitializeComponent();
-            limit = ((int)nudLimit.Value);
+
 
         }
 
         private async void AdminForm_Load(object sender, EventArgs e) {
             uiadmin.setAdminDashboardTableWitdth(dataGridAdminDashboard);
             uiadmin.SetUserInformation(lblRole, lblUsername);
-
-             uiadmin.SetUserAndSecInfo(dataGridAdminDashboard, limit, txtSearch.Text);
+            limit = (int)nudLimit.Value;
+            await uiadmin.SetUserAndSecInfo(dataGridAdminDashboard, limit, txtSearch.Text);
 
         }
         private async void nudLimit_ValueChanged(object sender, EventArgs e) {
 
-            
-             uiadmin.SetUserAndSecInfo(dataGridAdminDashboard, limit, txtSearch.Text);
+            limit = (int)nudLimit.Value + 1;
+            await uiadmin.SetUserAndSecInfo(dataGridAdminDashboard, limit, txtSearch.Text);
         }
 
         private void txtSearch_Enter(object sender, EventArgs e) {
@@ -44,7 +44,7 @@ namespace BrgyMS.uiDesign {
 
         private async void txtSearch_TextChanged(object sender, EventArgs e) {
             try {
-                 uiadmin.SearchRecords(dataGridAdminDashboard, limit, txtSearch.Text.ToString());
+                uiadmin.SearchRecords(dataGridAdminDashboard, limit, txtSearch.Text.ToString());
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

@@ -9,6 +9,7 @@ using BrgyMs.backend.models.bo_model;
 using System.Data.Common;
 using BrgyMs.backend.data_validation;
 using BrgyMS.backend.database.connection.models;
+using MySql.Data.MySqlClient;
 
 namespace BrgyMs.backend.services {
     public class AdminServices {
@@ -18,8 +19,8 @@ namespace BrgyMs.backend.services {
         public AdminServices() { }
 
         //for limiting records and when start the app
-        public async Task<List<GetUserInformationResult>> GetUserInformation(int limit) {
-            List<GetUserInformationResult> userInfo = await _AdminRepository.GetUserInformation(limit);
+        public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
+            var userInfo = await _AdminRepository.GetUserInformation(limit);
             int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
             if (limit <= totalusers) {
                 return userInfo;
@@ -28,41 +29,15 @@ namespace BrgyMs.backend.services {
         }
 
         //for searching data
-        public async Task<List<GetUserInformationResult>> GetUserInformation(int limit, string keyword) {
-            List<GetUserInformationResult> userInfo = new List<GetUserInformationResult>();
-            using (var dataReader = await _AdminRepository.GetUserInformation(limit, keyword)) {
-                int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
+        public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
 
-                if (limit <= totalusers) {
-                    while (dataReader.Read()) {
-                        //Get the firstname, middlename, lastname and the suffix
-                        string fName = (string)dataReader["firstname"];
-                        string? mName = (string)dataReader["middlename"];
-                        string lName = (string)dataReader["lastname"];
-                        string? suffix = (string)dataReader["suffix"];
-                        string fullname = "";
+            var dataReader = await _AdminRepository.GetUserInformation(limit, keyword);
+            int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
 
-                    
-                        userInfo.Add(new GetUserInformationResult()
-                        {
-                            Id = (string)dataReader["id"],
-                            Email = (string)dataReader["email"],
-                            Role = dataReader.GetString(dataReader.GetOrdinal("role")),
-                            Firstname = fName,
-                            Middelanme = mName,
-                            Lastname = lName,
-                            Suffix = suffix,
-                            Gender = (string)dataReader["gender"],
-                            BirthDate = (DateTime)dataReader["birth_day"],
-                            Age = (int)dataReader["age"],
-                            ContactNo = (string)dataReader["contact_number"],
-                            ResidentType = (string)dataReader["resident_type"]
-                        });
-                
-                    }
-                    return userInfo;
-                }
+            if (limit <= totalusers) {
+                return dataReader;
             }
+
             return null;
         }
     }

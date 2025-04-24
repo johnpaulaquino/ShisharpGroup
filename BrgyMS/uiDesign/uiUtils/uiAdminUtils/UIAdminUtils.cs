@@ -27,17 +27,15 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
         }
         public void setAdminDashboardTableWitdth(DataGridView dataGridView) {
-
-
-            dataGridView.Columns["id"].Width = 100;
-            dataGridView.Columns["colemail"].Width = 200;
-            dataGridView.Columns["colrole"].Width = 100;
-            dataGridView.Columns["colfullname"].Width = 200;
-            dataGridView.Columns["colgender"].Width = 100;
-            dataGridView.Columns["colbday"].Width = 200;
-            dataGridView.Columns["colage"].Width = 50;
-            dataGridView.Columns["colcontact"].Width = 150;
-            dataGridView.Columns["colrtype"].Width = 150;
+            dataGridView.Columns[0].Width = 85;
+            dataGridView.Columns[1].Width = 200;
+            dataGridView.Columns[2].Width = 90;
+            dataGridView.Columns[3].Width = 200;
+            dataGridView.Columns[4].Width = 85;
+            dataGridView.Columns[5].Width = 200;
+            dataGridView.Columns[6].Width = 50;
+            dataGridView.Columns[7].Width = 150;
+            dataGridView.Columns[8].Width = 150;
         }
 
         public void SetUserInformation(KryptonLabel lblRole,
@@ -53,95 +51,46 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 lblusername.Text = "Hi, " + username;
             }
         }
-        public async void SetUserAndSecInfo(DataGridView table, int limit, string search) {
+        public async Task SetUserAndSecInfo(DataGridView table, int limit, string search) {
             try {
-
-
-                List<GetUserInformationResult> userInfo = await _AdminServices.GetUserInformation(limit);
-                var rows = new List<DataGridViewRow>();
-
+                table.SuspendLayout();
+                var dt = new DataTable();
+                using var userInfo = await _AdminServices.GetUserInformation(limit);
                 if (userInfo != null) {
+                    await userInfo.FillAsync(dt);
+                    table.Columns.Clear();
+                    table.DataSource = dt;
+                    setAdminDashboardTableWitdth(table);
 
-                    table.SuspendLayout();
-                    table.Rows.Clear();
-                    foreach (var item in userInfo) {
-                        string fullname = utils.FormatFullname(item.Firstname,
-                            item.Middelanme, item.Lastname, item.Suffix);
-
-                        string bday = utils.FormatDate(item.BirthDate);
-
-                        string role = utils.FormatRoles(item.Role);
-
-                        //table.Rows.Add(item.Id,
-                        //    item.Email,
-                        //    role,
-                        //    fullname,
-                        //    item.Gender,
-                        //    bday,
-                        //    item.Age,
-                        //    item.ContactNo,
-                        //    item.ResidentType);
-                      
-                        var row = new DataGridViewRow();
-                        row.CreateCells(table, item.Id,
-                            item.Email,
-                            role, fullname,
-                            item.Gender,
-                            bday,
-                            item.Age, item.ContactNo, item.ResidentType
-                            );
-                        rows.Add(row);
-                    }
-                    table.Rows.Clear();
-                    table.Rows.AddRange(rows.ToArray());
                 }
+
+
             }
             catch (System.Exception e) {
                 MessageBox.Show(e.Message);
             }
             finally {
                 table.ResumeLayout();
+
             }
         }
 
 
-        public async void SearchRecords(DataGridView table, int limit, string keyword) {
+        public async Task SearchRecords(DataGridView table, int limit, string keyword) {
             try {
-                var rows = new List<DataGridViewRow>();
+                table.SuspendLayout();
+                using var userIno = await _AdminServices.GetUserInformation(limit, keyword);
 
-                List<GetUserInformationResult> userInfo = await _AdminServices.GetUserInformation(limit, keyword);
-                if (userInfo != null) {
-                    table.SuspendLayout();
-                    table.Rows.Clear();
-                    if (!string.IsNullOrEmpty(keyword)) {
-                        foreach (var item in userInfo) {
-                            string fullname = utils.FormatFullname(item.Firstname,
-                                item.Middelanme, item.Lastname, item.Suffix);
-                            string bday = utils.FormatDate(item.BirthDate);
-                            string role = utils.FormatRoles(item.Role);
+                var dt = new DataTable();
+                if (userIno != null) {
+                    await userIno.FillAsync(dt);
+                    table.Columns.Clear();
+                    table.DataSource = dt;
+                    setAdminDashboardTableWitdth(table);
 
-                            //table.Rows.Add(item.Id,
-                            //    item.Email,
-                            //    role,
-                            //    fullname,
-                            //    item.Gender,
-                            //    bday,
-                            //    item.Age,
-                            //    item.ContactNo,
-                            //    item.ResidentType);
-                            var row = new DataGridViewRow();
-                            row.CreateCells(table, item.Id, item.Email, role
-                                , fullname,
-                                item.Gender,
-                                bday,
-                                item.Age, item.ContactNo, item.ResidentType
-                                );
-                            rows.Add(row);
-                        }
-                        table.Rows.Clear();
-                        table.Rows.AddRange(rows.ToArray());
-                    }
-
+                }
+                if (string.IsNullOrEmpty(keyword)) {
+                   await SetUserAndSecInfo(table, limit, keyword);
                 }
             }
             catch (System.Exception e) {

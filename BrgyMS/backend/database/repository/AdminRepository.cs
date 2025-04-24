@@ -73,10 +73,11 @@ namespace BrgyMs.backend.database.repositories {
 
 
         // to set data in table in admin dashboard
-        public async Task<List<GetUserInformationResult>> GetUserInformation(int limit) {
-            string stmt = "Select u.id, u.email, u.status, u.role, "
-            + "p.firstname, p.middlename, p.lastname, p.suffix, p.gender, " +
-            "ai.resident_type, ai.birth_day,ai.age, ai.contact_number "
+        public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', u.role as 'Role', "
+            + "CONCAT_WS(' ', p.firstname, CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE CONCAT(LEFT(p.middlename, 1), '.') END,  " +
+            ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
+            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
             + "From users u "
             + "Left Join personal_info p "
             + "On u.id = p.user_id "
@@ -84,43 +85,15 @@ namespace BrgyMs.backend.database.repositories {
             "ON u.id = ai.user_id "
             + "Where u.role IN(@role1, @role2) AND u.status = @status " +
             "Limit @limit";
-            List<GetUserInformationResult> userInfo = new List<GetUserInformationResult>();
             try {
-                using (var connection = await conn.getConnection()) {
-                    using (var cmd = new MySqlCommand(stmt, connection)) {
-                        cmd.Parameters.AddWithValue("@role1", "secretary");
-                        cmd.Parameters.AddWithValue("@role2", "users");
-                        cmd.Parameters.AddWithValue("@status", "1");
-                        cmd.Parameters.AddWithValue("@limit", limit);
-                        using (var dataReader = await cmd.ExecuteReaderAsync()) {
+                var connection = await conn.getConnection();
+                var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@role1", "secretary");
+                adapter.SelectCommand.Parameters.AddWithValue("@role2", "users");
+                adapter.SelectCommand.Parameters.AddWithValue("@status", "1");
+                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
+                return adapter;
 
-                            while ( dataReader.Read()) {
-                                //Get the firstname, middlename, lastname and the suffix
-                                string fName = (string)dataReader["firstname"];
-                                string? mName = (string)dataReader["middlename"];
-                                string lName = (string)dataReader["lastname"];
-                                string? suffix = (string)dataReader["suffix"];
-
-                                userInfo.Add(new GetUserInformationResult()
-                                {
-                                    Id = (string)dataReader["id"],
-                                    Email = (string)dataReader["email"],
-                                    Role = dataReader.GetString(dataReader.GetOrdinal("role")),
-                                    Firstname = fName,
-                                    Middelanme = mName,
-                                    Lastname = lName,
-                                    Suffix = suffix,
-                                    Gender = (string)dataReader["gender"],
-                                    BirthDate = (DateTime)dataReader["birth_day"],
-                                    Age = (int)dataReader["age"],
-                                    ContactNo = (string)dataReader["contact_number"],
-                                    ResidentType = (string)dataReader["resident_type"]
-                                });
-                            }
-                            return userInfo;
-                        }
-                    }
-                }
             }
             catch (System.Exception e) {
 
@@ -129,28 +102,31 @@ namespace BrgyMs.backend.database.repositories {
         } // End of getUserInformation
 
 
-        public async Task<DbDataReader> GetUserInformation(int limit, string keyword) {
-            string stmt = "Select DISTINCT  u.id, u.email, u.status, u.role, "
-            + "p.firstname, p.middlename, p.lastname, p.suffix, p.gender, " +
-            "ai.resident_type, ai.birth_day,ai.age, ai.contact_number "
-            + "From users u "
-            + "Left Join personal_info p "
-            + "On u.id = p.user_id "
-            + "Left join additional_info ai " +
-            "ON u.id = ai.user_id "
-            + "Where u.role IN (@role1, @role2) AND u.status = @status AND " +
-            "(firstname Like @keyword OR lastname Like @keyword) Limit @limit";
+        //Use for searching
+        public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
+            string stmt = "Select u.id as 'ID', u.email as 'Email', u.role as 'Role', "
+             + "CONCAT_WS(' ', p.firstname,  CASE " +
+             "WHEN p.middlename IS NULL OR p.middlename = '' THEN NUL ELSE " +
+             "CONCAT(LEFT(p.middlename, 1), '.') " +
+             "END, p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
+             "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
+             + "From users u "
+             + "Left Join personal_info p "
+             + "On u.id = p.user_id "
+             + "Left join additional_info ai " +
+             "ON u.id = ai.user_id "
+             + "Where u.role IN(@role1, @role2) AND u.status = @status AND " +
+             "(firstname Like @keyword OR lastname Like @keyword) Limit @limit";
 
             try {
                 var connection = await conn.getConnection();
-                var cmd = new MySqlCommand(stmt, connection);
-                cmd.Parameters.AddWithValue("@role1", "users");
-                cmd.Parameters.AddWithValue("@role2", "secretary");
-                cmd.Parameters.AddWithValue("@status", "1");
-                cmd.Parameters.AddWithValue("@keyword", $"%{keyword}%");
-                cmd.Parameters.AddWithValue("@limit", limit);
-                var dataReader = await cmd.ExecuteReaderAsync();
-                return dataReader;
+                var cmd = new MySqlDataAdapter(stmt, connection);
+                cmd.SelectCommand.Parameters.AddWithValue("@role1", "users");
+                cmd.SelectCommand.Parameters.AddWithValue("@role2", "secretary");
+                cmd.SelectCommand.Parameters.AddWithValue("@status", "1");
+                cmd.SelectCommand.Parameters.AddWithValue("@keyword", $"%{keyword}%");
+                cmd.SelectCommand.Parameters.AddWithValue("@limit", limit);
+                return cmd;
 
             }
             catch (System.Exception e) {
