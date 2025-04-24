@@ -1,5 +1,5 @@
 namespace BrgyMS.uiDesign {
-    partial class AdminForm {
+    partial class AdminAnnouncementsForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,10 +23,19 @@ namespace BrgyMS.uiDesign {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminAnnouncementsForm));
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
+            id = new DataGridViewTextBoxColumn();
+            colemail = new DataGridViewTextBoxColumn();
+            colrole = new DataGridViewTextBoxColumn();
+            colfullname = new DataGridViewTextBoxColumn();
+            colgender = new DataGridViewTextBoxColumn();
+            colbday = new DataGridViewTextBoxColumn();
+            colage = new DataGridViewTextBoxColumn();
+            colcontact = new DataGridViewTextBoxColumn();
+            colrtype = new DataGridViewTextBoxColumn();
             pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
@@ -47,19 +56,13 @@ namespace BrgyMS.uiDesign {
             picProfilePic = new Krypton.Toolkit.KryptonPictureBox();
             lblUsername = new Krypton.Toolkit.KryptonLabel();
             pnlSidebar = new Krypton.Toolkit.KryptonPanel();
+            picAnnouncements = new Krypton.Toolkit.KryptonPictureBox();
+            picLogs = new Krypton.Toolkit.KryptonPictureBox();
+            picDashboardIcon = new Krypton.Toolkit.KryptonPictureBox();
+            picAccountManagement = new Krypton.Toolkit.KryptonPictureBox();
             kryptonPanel6 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
             kryptonTaskDialog1 = new Krypton.Toolkit.KryptonTaskDialog();
-            id = new DataGridViewTextBoxColumn();
-            colemail = new DataGridViewTextBoxColumn();
-            colrole = new DataGridViewTextBoxColumn();
-            colfullname = new DataGridViewTextBoxColumn();
-            colgender = new DataGridViewTextBoxColumn();
-            colbday = new DataGridViewTextBoxColumn();
-            colage = new DataGridViewTextBoxColumn();
-            colcontact = new DataGridViewTextBoxColumn();
-            colrtype = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).BeginInit();
             pnlMainContainer.SuspendLayout();
@@ -81,6 +84,10 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)picProfilePic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).BeginInit();
             pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAnnouncements).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picLogs).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picDashboardIcon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAccountManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).BeginInit();
             SuspendLayout();
@@ -93,8 +100,8 @@ namespace BrgyMS.uiDesign {
             dataGridAdminDashboard.AllowUserToDeleteRows = false;
             dataGridAdminDashboard.AllowUserToResizeColumns = false;
             dataGridAdminDashboard.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridAdminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
             dataGridAdminDashboard.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -108,8 +115,8 @@ namespace BrgyMS.uiDesign {
             dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             dataGridAdminDashboard.RowHeadersVisible = false;
             dataGridAdminDashboard.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridAdminDashboard.ScrollBars = ScrollBars.Vertical;
             dataGridAdminDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAdminDashboard.Size = new Size(1073, 480);
@@ -129,6 +136,60 @@ namespace BrgyMS.uiDesign {
             dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
             dataGridAdminDashboard.TabIndex = 11;
             dataGridAdminDashboard.ToolTipShadow = false;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // colemail
+            // 
+            colemail.HeaderText = "Email";
+            colemail.Name = "colemail";
+            colemail.ReadOnly = true;
+            // 
+            // colrole
+            // 
+            colrole.HeaderText = "Role";
+            colrole.Name = "colrole";
+            colrole.ReadOnly = true;
+            // 
+            // colfullname
+            // 
+            colfullname.HeaderText = "Fullname";
+            colfullname.Name = "colfullname";
+            colfullname.ReadOnly = true;
+            // 
+            // colgender
+            // 
+            colgender.HeaderText = "Gender";
+            colgender.Name = "colgender";
+            colgender.ReadOnly = true;
+            // 
+            // colbday
+            // 
+            colbday.HeaderText = "Birthday";
+            colbday.Name = "colbday";
+            colbday.ReadOnly = true;
+            // 
+            // colage
+            // 
+            colage.HeaderText = "Age";
+            colage.Name = "colage";
+            colage.ReadOnly = true;
+            // 
+            // colcontact
+            // 
+            colcontact.HeaderText = "Contact No.";
+            colcontact.Name = "colcontact";
+            colcontact.ReadOnly = true;
+            // 
+            // colrtype
+            // 
+            colrtype.HeaderText = "Resident Type";
+            colrtype.Name = "colrtype";
+            colrtype.ReadOnly = true;
             // 
             // pnlMainContainer
             // 
@@ -192,10 +253,10 @@ namespace BrgyMS.uiDesign {
             // 
             kryptonLabel2.Location = new Point(6, 33);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(173, 29);
+            kryptonLabel2.Size = new Size(254, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 3;
-            kryptonLabel2.Values.Text = "User Information";
+            kryptonLabel2.Values.Text = "Manage Announcements";
             // 
             // kryptonPanel4
             // 
@@ -308,7 +369,7 @@ namespace BrgyMS.uiDesign {
             // 
             // lblRole
             // 
-            lblRole.Location = new Point(53, 12);
+            lblRole.Location = new Point(25, 12);
             lblRole.Name = "lblRole";
             lblRole.Size = new Size(60, 23);
             lblRole.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
@@ -337,8 +398,11 @@ namespace BrgyMS.uiDesign {
             // 
             // pnlSidebar
             // 
+            pnlSidebar.Controls.Add(picAnnouncements);
+            pnlSidebar.Controls.Add(picLogs);
+            pnlSidebar.Controls.Add(picDashboardIcon);
+            pnlSidebar.Controls.Add(picAccountManagement);
             pnlSidebar.Controls.Add(kryptonPanel6);
-            pnlSidebar.Controls.Add(kryptonLabel1);
             pnlSidebar.Controls.Add(picMenuButton);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
@@ -355,6 +419,54 @@ namespace BrgyMS.uiDesign {
             pnlSidebar.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.TopMiddle;
             pnlSidebar.TabIndex = 0;
             // 
+            // picAnnouncements
+            // 
+            picAnnouncements.Cursor = Cursors.Hand;
+            picAnnouncements.Image = (Image)resources.GetObject("picAnnouncements.Image");
+            picAnnouncements.Location = new Point(12, 310);
+            picAnnouncements.Name = "picAnnouncements";
+            picAnnouncements.Size = new Size(25, 25);
+            picAnnouncements.SizeMode = PictureBoxSizeMode.Zoom;
+            picAnnouncements.TabIndex = 10;
+            picAnnouncements.TabStop = false;
+            picAnnouncements.Click += picAnnouncements_Click;
+            // 
+            // picLogs
+            // 
+            picLogs.Cursor = Cursors.Hand;
+            picLogs.Image = (Image)resources.GetObject("picLogs.Image");
+            picLogs.Location = new Point(12, 257);
+            picLogs.Name = "picLogs";
+            picLogs.Size = new Size(25, 25);
+            picLogs.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogs.TabIndex = 9;
+            picLogs.TabStop = false;
+            picLogs.Click += picLogs_Click;
+            // 
+            // picDashboardIcon
+            // 
+            picDashboardIcon.Cursor = Cursors.Hand;
+            picDashboardIcon.Image = (Image)resources.GetObject("picDashboardIcon.Image");
+            picDashboardIcon.Location = new Point(12, 156);
+            picDashboardIcon.Name = "picDashboardIcon";
+            picDashboardIcon.Size = new Size(25, 25);
+            picDashboardIcon.SizeMode = PictureBoxSizeMode.Zoom;
+            picDashboardIcon.TabIndex = 8;
+            picDashboardIcon.TabStop = false;
+            picDashboardIcon.Click += picDashboardIcon_Click;
+            // 
+            // picAccountManagement
+            // 
+            picAccountManagement.Cursor = Cursors.Hand;
+            picAccountManagement.Image = (Image)resources.GetObject("picAccountManagement.Image");
+            picAccountManagement.Location = new Point(12, 207);
+            picAccountManagement.Name = "picAccountManagement";
+            picAccountManagement.Size = new Size(25, 25);
+            picAccountManagement.SizeMode = PictureBoxSizeMode.Zoom;
+            picAccountManagement.TabIndex = 7;
+            picAccountManagement.TabStop = false;
+            picAccountManagement.Click += picAccountManagement_Click;
+            // 
             // kryptonPanel6
             // 
             kryptonPanel6.Dock = DockStyle.Right;
@@ -363,14 +475,6 @@ namespace BrgyMS.uiDesign {
             kryptonPanel6.Size = new Size(1, 749);
             kryptonPanel6.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel6.TabIndex = 2;
-            // 
-            // kryptonLabel1
-            // 
-            kryptonLabel1.Location = new Point(6, 361);
-            kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(36, 20);
-            kryptonLabel1.TabIndex = 1;
-            kryptonLabel1.Values.Text = "Logs";
             // 
             // picMenuButton
             // 
@@ -395,67 +499,13 @@ namespace BrgyMS.uiDesign {
             kryptonTaskDialog1.UseNativeOSIcons = false;
             kryptonTaskDialog1.WindowTitle = null;
             // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            // 
-            // colemail
-            // 
-            colemail.HeaderText = "Email";
-            colemail.Name = "colemail";
-            colemail.ReadOnly = true;
-            // 
-            // colrole
-            // 
-            colrole.HeaderText = "Role";
-            colrole.Name = "colrole";
-            colrole.ReadOnly = true;
-            // 
-            // colfullname
-            // 
-            colfullname.HeaderText = "Fullname";
-            colfullname.Name = "colfullname";
-            colfullname.ReadOnly = true;
-            // 
-            // colgender
-            // 
-            colgender.HeaderText = "Gender";
-            colgender.Name = "colgender";
-            colgender.ReadOnly = true;
-            // 
-            // colbday
-            // 
-            colbday.HeaderText = "Birthday";
-            colbday.Name = "colbday";
-            colbday.ReadOnly = true;
-            // 
-            // colage
-            // 
-            colage.HeaderText = "Age";
-            colage.Name = "colage";
-            colage.ReadOnly = true;
-            // 
-            // colcontact
-            // 
-            colcontact.HeaderText = "Contact No.";
-            colcontact.Name = "colcontact";
-            colcontact.ReadOnly = true;
-            // 
-            // colrtype
-            // 
-            colrtype.HeaderText = "Resident Type";
-            colrtype.Name = "colrtype";
-            colrtype.ReadOnly = true;
-            // 
-            // AdminForm
+            // AdminAnnouncementsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1224, 749);
             Controls.Add(pnlMainContainer);
-            Name = "AdminForm";
+            Name = "AdminAnnouncementsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminForm";
             Load += AdminForm_Load;
@@ -483,7 +533,10 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)picProfilePic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).EndInit();
             pnlSidebar.ResumeLayout(false);
-            pnlSidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picAnnouncements).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogs).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picDashboardIcon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAccountManagement).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).EndInit();
             ResumeLayout(false);
@@ -494,7 +547,6 @@ namespace BrgyMS.uiDesign {
         private Krypton.Toolkit.KryptonPanel pnlMainContainer;
         private Krypton.Toolkit.KryptonPanel pnlSidebar;
         private Krypton.Toolkit.KryptonPictureBox picMenuButton;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonDataGridViewDateTimePickerColumn Column1;
         private Krypton.Toolkit.KryptonTaskDialog kryptonTaskDialog1;
         private Krypton.Toolkit.KryptonPanel pnlRightSeperator;
@@ -526,5 +578,9 @@ namespace BrgyMS.uiDesign {
         private DataGridViewTextBoxColumn colage;
         private DataGridViewTextBoxColumn colcontact;
         private DataGridViewTextBoxColumn colrtype;
+        private Krypton.Toolkit.KryptonPictureBox picAnnouncements;
+        private Krypton.Toolkit.KryptonPictureBox picLogs;
+        private Krypton.Toolkit.KryptonPictureBox picDashboardIcon;
+        private Krypton.Toolkit.KryptonPictureBox picAccountManagement;
     }
 }

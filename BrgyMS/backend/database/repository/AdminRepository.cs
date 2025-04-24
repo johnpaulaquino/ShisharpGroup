@@ -15,7 +15,7 @@ using MySqlX.XDevAPI.Relational;
 
 
 namespace BrgyMs.backend.database.repositories {
-    public class AdminRepository {
+    public class AdminRepository :BaseRepository{
         private Connector conn;
         private readonly AuthUtils authUtils = new AuthUtils();
 
@@ -74,8 +74,9 @@ namespace BrgyMs.backend.database.repositories {
 
         // to set data in table in admin dashboard
         public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
-            string stmt = @"Select u.id as 'ID', u.email as 'Email', u.role as 'Role', "
-            + "CONCAT_WS(' ', p.firstname, CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE CONCAT(LEFT(p.middlename, 1), '.') END,  " +
+
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
+            + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
             ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
             "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
             + "From users u "
@@ -104,19 +105,18 @@ namespace BrgyMs.backend.database.repositories {
 
         //Use for searching
         public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
-            string stmt = "Select u.id as 'ID', u.email as 'Email', u.role as 'Role', "
-             + "CONCAT_WS(' ', p.firstname,  CASE " +
-             "WHEN p.middlename IS NULL OR p.middlename = '' THEN NUL ELSE " +
-             "CONCAT(LEFT(p.middlename, 1), '.') " +
-             "END, p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
-             "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
-             + "From users u "
-             + "Left Join personal_info p "
-             + "On u.id = p.user_id "
-             + "Left join additional_info ai " +
-             "ON u.id = ai.user_id "
-             + "Where u.role IN(@role1, @role2) AND u.status = @status AND " +
-             "(firstname Like @keyword OR lastname Like @keyword) Limit @limit";
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
+            + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
+            ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
+            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
+            + "From users u "
+            + "Left Join personal_info p "
+            + "On u.id = p.user_id "
+            + "Left join additional_info ai " +
+            "ON u.id = ai.user_id "
+            + "Where u.role IN(@role1, @role2) AND u.status = @status  AND " +
+             "(p.firstname Like @keyword OR p.lastname Like @keyword) Limit @limit";
+
 
             try {
                 var connection = await conn.getConnection();

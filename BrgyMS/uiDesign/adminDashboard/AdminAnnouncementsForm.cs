@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign {
-    public partial class AdminForm : Form {
+    public partial class AdminAnnouncementsForm : Form {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private bool isClicked = true;
         private int limit = 0;
-        public AdminForm() {
+        public AdminAnnouncementsForm() {
             InitializeComponent();
 
 
@@ -52,5 +52,32 @@ namespace BrgyMS.uiDesign {
             }
         }
 
+        private void picDashboardIcon_Click(object sender, EventArgs e) {
+            AdminDashboardForm form = new AdminDashboardForm();
+            form.Owner = this;
+            this.Hide();
+            form.Show();
+        }
+
+        private void picAccountManagement_Click(object sender, EventArgs e) {
+            AdminAccountManagementForm form = new AdminAccountManagementForm();
+            form.Owner = this;
+            this.Hide();
+            form.Show();
+        }
+
+        private void picLogs_Click(object sender, EventArgs e) {
+            AdminUsersLogsForm form = new AdminUsersLogsForm();
+            form.Owner = this;
+            this.Hide();
+            form.Show();
+        }
+
+        private void picAnnouncements_Click(object sender, EventArgs e) {
+            AdminAnnouncementsForm form = new AdminAnnouncementsForm();
+            form.Owner = this;
+            this.Hide();
+            form.Show();
+        }
     }
 }

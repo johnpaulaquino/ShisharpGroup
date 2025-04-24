@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BrgyMs.backend.utils;
 using BrgyMs.backend.database.repositories;
+using BrgyMS.backend.models;
 
 
 namespace BrgyMs.backend.services {
@@ -46,6 +47,13 @@ namespace BrgyMs.backend.services {
 
                 _AuthUtils.GenerateToken(data); // Generate Token after login
 
+               
+                string id = await _ResidentRepo.GenerateLogsId(); // id generated
+                var logs = new Logs(id, data["userId"],  // Logs Object
+                    new DateTime(), "Login");
+
+                //log actions
+                await _ResidentRepo.LogUserActions(logs);
 
                 return true;
             }

@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="uiDesign\secretaryDashboard\**" />
+    <EmbeddedResource Remove="uiDesign\secretaryDashboard\**" />
+    <None Remove="uiDesign\secretaryDashboard\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DotnetEnv" Version="3.1.1" />
     <PackageReference Include="Isopoh.Cryptography.Argon2" Version="2.0.0" />
     <PackageReference Include="Krypton.Docking" Version="90.25.2.55" />
@@ -26,6 +32,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="uiDesign\adminDashboard\AdminAnnouncementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="uiDesign\adminDashboard\AdminAccountManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="uiDesign\adminDashboard\AdminUsersLogsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -33,10 +48,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="uiDesign\secretaryDashboard\" />
   </ItemGroup>
 
 </Project>

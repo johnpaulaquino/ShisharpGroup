@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 using BrgyMs.backend.models.secretary_model;
 
 namespace BrgyMs.backend.database.repositories {
-    public class SecretaryRepository {
+    public class SecretaryRepository : BaseRepository {
         private readonly Connector conn;
         private readonly AuthUtils authUtils = new AuthUtils();
 

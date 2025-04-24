@@ -117,33 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colemail.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colrole.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colfullname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colgender.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colbday.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colage.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colcontact.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colrtype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="picProfilePic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -183,6 +156,57 @@
         4Pu85B2tiKCT5C8u/27AP3xmLXa/LXKLsv1769/Gvp94e0WoSlxunm7GoezqPR9Oa8ZpfCNkMVQXE450
         kfSGU7QmyDtqRxRFURRFURRFURRFURRFURRFURRFURRFURRFUZTvEwT/AlIQS4bTjJaXAAAAAElFTkSu
         QmCC
+</value>
+  </data>
+  <data name="picAnnouncements.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGDSURBVEhL7ZS7
+        LwRRFIfXI+LZKUmIKBQi8YpSpdWotP4ENUIioRA68SdovRKNwiNasokCDUKEKCWI1/ebMyZ27uzMrMx2
+        vuTLnDszOefuOXcnVya68cbCbKnGfjzFL90IU49zeImv/nUW6zBMDS7iHSqZfMM8TvjrApT8GDdxABv8
+        6xYeYbjIAm5ji7dycQpo50oehYrMWBhwi8WSCxU4sNBQO9S/KAbxwsKAR0wqsG+hoZ43Weig+y8WBqzg
+        DrZ6KxenRUm/4NzCgE78xCdUMhk7ZJ2WYjPQMKctLGAPx3AJ51HHtBdP0CmgU6LTooFqx43+VckPsRbD
+        jOMudqGGXoFCf7RrCwtREZ0WDVQz0VU7j0oudP8B+/AZmzFz1lGzWPVWGVGJPbiBZziMibThGuoj9Y4/
+        JyPKD9SpmkR9MhIZwXucwg6swsxoRyUf8lZlQG3RzuMYxWULS0c9V1vi0PMrC0tHA03quZ7rvT+hU5GG
+        tO85/BdIJPydL0ba936Ry30D2ZRhLH/X/tEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="picLogs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFjSURBVEhL3Za9
+        LkRBAEa38k/iCbyEn5JePIEOrRcg8bNvQiVIFGgoEQ0vgE6lRiGRcM7uHbl7d/buTLKVk5zszOzMfPfO
+        7J27jQpj2MQX/MafiB/4iNs4hck4+T2e4xwOYYxxNOgAX3EBk/DKnTwFA2QZ33CpVeuDyzLbLvYlBMgi
+        JoW45r2WpUo5QJJCqoPqiPV1ckN67klOwBfG7tY9ceMnW7UKOQHXuIWxkEP0uy5yAmbwCr0Tx1V9wC78
+        YhBM4Hu72MmgAiQ61/8LeCo+ZRhP0YPupKiHtk88w1EMJAWU6xvoOeXpeYFrpbZpPMIVDGQH7BVKKJfb
+        qgw0YBXtu4mB7IB1dGlcokt0iWJtgaSAG7TNzXZD3VwfoOOiHmsLRANyjus6DHKuLnJeOHXMY/kn/sc+
+        pr4y63A/dtrFTnxQ7tCN8ypylsu+jnHyWxzBKIbs4jP2+tsS076O8cpLkzcav+mbeU4yP7qxAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="picDashboardIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFXSURBVEhLxZRL
+        SgQxFEXLsfMGde5CdKjuwLkILc78DP3uwQ24CrVBu1fQbsKZ+AGdqPfEvGc6FAVVFfXAofOSzk1ViqT6
+        SzbkSL7Iz44y90auyxnOZd2EPp7KAE9Ox7vck4uyK8zdl2SRGd6EbaFgoBQHksxriudYLFAUgiwynyho
+        YFsm0uYi23ImDc/1RkvG0uaab9Kwvp9GA3PxN2cgp9Iy0hyv84GUTfkg+U7HMl0oDU8XMbzOB4xt+SEZ
+        s98LySJ5OHWe43U+ABaOO3JVvkr+dynvY9vCgRN89d0MeK43IlvSwod0RFakLYJpeB2e643Io8zDjWV5
+        JHflPB0NeK4dNLsi1iTXRx+WJJnhoLF3FBzvUhxKMsNVwYVEwUlkkT6XHU9OuF127EaAq5WOkp7IGXgT
+        Xsm+SReZS4Y/eVss6NcoukB+HTd5J1vDpLqwOm/lf1BVX9Rw2fPbi/uEAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="picAccountManagement.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGMSURBVEhLxZTL
+        LmVBFIbPgBaJxFQ0BoI3QPQjuCWEhBia6KBHElNz3oCXYEQwEJdHEAZioGNEh0QPDITvq5xiOxeHcvuT
+        L5W1Vu1/7121qnLfpWqYhX34B/dwCXswDVWQLM23QdNybEDyS/6AJmcwCI3wIz8OwTlY/w1JOgANBkJU
+        rBGwvhOiBF2BBg0hKlYzWL8IUYLuQAP3opRqwfptiBJU6Q9a4F1/YGtq4AaX0ihYT94D+1+DvzAMP6Em
+        P2oeu2gKkuTab4Im5ViHdx+2GdgF11pTR2P7P2veD9fQF6JP0AL4AY4fom6YhCZYgewfGpu33gUlVQ9u
+        9CqcwA1kOyae9HheCol5L8YijYPrWfhQdnIPHIL5I2gH98TxGMxbd94zaR4Nt2AC2qAOCjUHzlsM0ZOW
+        wLz1Z3JZ4pfPm6igN78gXtH2fyX9grhELkkH2NaOZZdoDSyMhehlJW3yKZhsDdHLsv1imy5Dtk2NY5t2
+        wqP+g5O8it+qVx00rwBJkVeEDdIboq9VLvcAM82Pj6uv1W4AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="picMenuButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

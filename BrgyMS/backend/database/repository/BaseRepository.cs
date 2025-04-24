@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
+using BrgyMS.backend.models;
 using MySql.Data.MySqlClient;
 
 namespace BrgyMs.backend.database.repositories {
@@ -18,7 +20,7 @@ namespace BrgyMs.backend.database.repositories {
         }
 
 
-        public async Task AddResidentInformation(PersonalInformation _ResidentInfo, string UserId) {
+        public async Task InsertUserPersonalInformation(PersonalInformation _ResidentInfo, string UserId) {
             string stmt1 = "Insert Into personal_info (id,user_id, firstname, middlename"
                           + ",lastname, suffix, gender) "
                           + "Values (?,?,?,?,?,?,?)";
@@ -41,7 +43,7 @@ namespace BrgyMs.backend.database.repositories {
             }
 
         }// End of Add ResidentINformation function
-        public async Task AddResidentAddInfo(AdditionalInfo _AdditionalInfo,
+        public async Task InsertUserAddinfo(AdditionalInfo _AdditionalInfo,
                                         string UserId) {
             string stmt1 = "Insert Into additional_info (id, user_id, is_voter,"
                           + "civil_status, educational_attaintment, employment_status,resident_type, religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
@@ -75,7 +77,7 @@ namespace BrgyMs.backend.database.repositories {
         }// End of Add ResidentAddInformation function
 
 
-        public async Task AddResidentAddress(Address _ResidenAddress,
+        public async Task InsertUserAddress(Address _ResidenAddress,
                                       string UserId) {
             string stmt1 = "Insert Into address (id, user_id, street, house_number"
                           + ", subdivision, block_number) "
@@ -97,5 +99,40 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         }// End of Add ResidentAddInformation function
+
+        public async Task LogUserActions(Logs logs) {
+            string stmt = "INSERT INTO action_logs(id, user_id, date_performed, " +
+                "actions_made, affected_table) " +
+                "VALUES(@id, @userId, @dtPerformed, @actionmade,@affectedtable ) ";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@id", logs.Id);
+                cmd.Parameters.AddWithValue("@userId", logs.UserId);
+                cmd.Parameters.AddWithValue("@dtPerformed", logs.DatePerformed);
+                cmd.Parameters.AddWithValue("@actionmade", logs.ActionsMade);
+                cmd.Parameters.AddWithValue("@affectedtable", logs.AffectedTable);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception) {
+                throw;
+
+            }
+        }
+        public async Task<string> GenerateLogsId() {
+            string id = "";
+            string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as nextId from action_logs";
+            using var connection = await conn.getConnection();
+            using (var cmd = new MySqlCommand(stmt, connection)) {
+                using (var reader = await cmd.ExecuteReaderAsync()) {
+                    if (reader.Read()) {
+                        id = reader.GetString("nextId");
+                    }
+                }
+                return id;
+            }
+        }
     }
 }

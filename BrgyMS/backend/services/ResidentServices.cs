@@ -25,9 +25,9 @@ namespace BrgyMs.backend.services {
                 string Id = await _ResidentRepo.GenerateId();
 
                 await _ResidentRepo.AddUser(_User);
-                await _ResidentRepo.AddResidentInformation(_ResidentInfo, Id);
-                await _ResidentRepo.AddResidentAddInfo(_AdditionalInfo, Id);
-                await _ResidentRepo.AddResidentAddress(_ResidentAddress, Id);
+                await _ResidentRepo.InsertUserPersonalInformation(_ResidentInfo, Id);
+                await _ResidentRepo.InsertUserAddinfo(_AdditionalInfo, Id);
+                await _ResidentRepo.InsertUserAddress(_ResidentAddress, Id);
             }
             catch (Exception e) {
                 throw new Exception(e.Message);
