@@ -155,9 +155,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         //for users Account verification table
         public void SetWidthToAccVerificationtable(DataGridView dataGridView) {
             dataGridView.Columns[0].Width = 90;
-            dataGridView.Columns[1].Width = 150;
-            dataGridView.Columns[2].Width = 150;
-            dataGridView.Columns[3].Width = 90;
+            dataGridView.Columns[1].Width = 100;
+            dataGridView.Columns[2].Width = 100;
+            dataGridView.Columns[3].Width = 100;
             dataGridView.Columns[4].Width = 200;
 
         }

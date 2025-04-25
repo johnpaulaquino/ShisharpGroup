@@ -1,6 +1,9 @@
 using BrgyMs.backend.database.repositories;
+using BrgyMs.backend.utils;
+using BrgyMs.uiDesign;
 using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using Google.Protobuf.Reflection;
 using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
@@ -16,6 +19,7 @@ using System.Windows.Forms;
 namespace BrgyMS.uiDesign {
     public partial class AdminDashboardForm : Form {
         private UIAdminUtils uiadmin = new UIAdminUtils();
+        private AuthUtils _AuthUtils = new AuthUtils();
         private AdminDashboardControl dashcontrol = new AdminDashboardControl();
         private AdminUserLogsControl logscontrol = new AdminUserLogsControl();
         private AdminAnnouncementsControl acnnoucnecontrol = new AdminAnnouncementsControl();
@@ -69,6 +73,18 @@ namespace BrgyMS.uiDesign {
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(verificationcontrol);
             accountcontrol.Dock = DockStyle.Fill;
+        }
+
+        private void picLogout_Click(object sender, EventArgs e) {
+            DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
+                MessageBoxButtons.YesNo , MessageBoxIcon.Question);
+            if (option == DialogResult.OK) {
+                this.Hide();
+                _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
+                LoginForm login = new LoginForm();
+                login.Owner = this;
+                login.Show();
+            }
         }
     }
 }

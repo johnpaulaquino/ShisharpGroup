@@ -168,7 +168,7 @@ namespace BrgyMs.backend.database.repositories {
         /// <returns> MysqlAdapter taht will use later for the filling the table</returns>
         public async Task<MySqlDataAdapter> GetAllUsersLogs(int limit) {
             string stmt = "SELECT la.id as 'ID', la.user_id as 'User ID', u.username as 'Username', CONCAT(UPPER(LEFT(u.role, 1)),LOWER(SUBSTRING(u.role FROM 2))) as 'Role', " +
-                "la.actions_made as 'Actions Made' ,la.affected_table as 'Affected Table', DATE_FORMAT(la.date_performed, '%W, %M %d, %Y %r' ) as 'Date Performed' " +
+                "la.actions_made as 'Actions Made' ,la.details as 'Description', DATE_FORMAT(la.date_performed, '%W, %M %d, %Y %r' ) as 'Date Performed' " +
                 "FROM users u " +
                 "Right join action_logs la " +
                 "ON u.id = la.user_id " +

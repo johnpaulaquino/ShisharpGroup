@@ -91,6 +91,7 @@ namespace BrgyMs.backend.database.repositories {
                     cmd.Parameters.AddWithValue("house_number", _ResidenAddress.HouseNumber);
                     cmd.Parameters.AddWithValue("subdivision", _ResidenAddress.SubdivisionName);
                     cmd.Parameters.AddWithValue("block_number", _ResidenAddress.BlockNumber);
+                    cmd.Parameters.AddWithValue("lot_number", _ResidenAddress.BlockNumber);
                     await cmd.ExecuteNonQueryAsync();
                 }
             }

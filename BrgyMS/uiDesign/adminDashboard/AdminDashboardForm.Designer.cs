@@ -36,6 +36,7 @@ namespace BrgyMS.uiDesign {
             picProfilePic = new Krypton.Toolkit.KryptonPictureBox();
             lblUsername = new Krypton.Toolkit.KryptonLabel();
             pnlSidebar = new Krypton.Toolkit.KryptonPanel();
+            picAccountVerification = new Krypton.Toolkit.KryptonPictureBox();
             picAnnouncements = new Krypton.Toolkit.KryptonPictureBox();
             picLogs = new Krypton.Toolkit.KryptonPictureBox();
             picDashboardIcon = new Krypton.Toolkit.KryptonPictureBox();
@@ -43,7 +44,7 @@ namespace BrgyMS.uiDesign {
             kryptonPanel6 = new Krypton.Toolkit.KryptonPanel();
             picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
             kryptonTaskDialog1 = new Krypton.Toolkit.KryptonTaskDialog();
-            picAccountVerification = new Krypton.Toolkit.KryptonPictureBox();
+            picLogout = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).BeginInit();
             pnlMainContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -58,13 +59,14 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)picProfilePic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).BeginInit();
             pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAccountVerification).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picAnnouncements).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picDashboardIcon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picAccountManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picAccountVerification).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picLogout).BeginInit();
             SuspendLayout();
             // 
             // pnlMainContainer
@@ -186,6 +188,7 @@ namespace BrgyMS.uiDesign {
             // 
             // pnlSidebar
             // 
+            pnlSidebar.Controls.Add(picLogout);
             pnlSidebar.Controls.Add(picAccountVerification);
             pnlSidebar.Controls.Add(picAnnouncements);
             pnlSidebar.Controls.Add(picLogs);
@@ -207,6 +210,18 @@ namespace BrgyMS.uiDesign {
             pnlSidebar.StateNormal.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlSidebar.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.TopMiddle;
             pnlSidebar.TabIndex = 0;
+            // 
+            // picAccountVerification
+            // 
+            picAccountVerification.Cursor = Cursors.Hand;
+            picAccountVerification.Image = (Image)resources.GetObject("picAccountVerification.Image");
+            picAccountVerification.Location = new Point(12, 396);
+            picAccountVerification.Name = "picAccountVerification";
+            picAccountVerification.Size = new Size(25, 25);
+            picAccountVerification.SizeMode = PictureBoxSizeMode.Zoom;
+            picAccountVerification.TabIndex = 7;
+            picAccountVerification.TabStop = false;
+            picAccountVerification.Click += picAccountVerification_Click;
             // 
             // picAnnouncements
             // 
@@ -288,17 +303,17 @@ namespace BrgyMS.uiDesign {
             kryptonTaskDialog1.UseNativeOSIcons = false;
             kryptonTaskDialog1.WindowTitle = null;
             // 
-            // picAccountVerification
+            // picLogout
             // 
-            picAccountVerification.Cursor = Cursors.Hand;
-            picAccountVerification.Image = (Image)resources.GetObject("picAccountVerification.Image");
-            picAccountVerification.Location = new Point(12, 396);
-            picAccountVerification.Name = "picAccountVerification";
-            picAccountVerification.Size = new Size(25, 25);
-            picAccountVerification.SizeMode = PictureBoxSizeMode.Zoom;
-            picAccountVerification.TabIndex = 7;
-            picAccountVerification.TabStop = false;
-            picAccountVerification.Click += picAccountVerification_Click;
+            picLogout.Cursor = Cursors.Hand;
+            picLogout.Image = (Image)resources.GetObject("picLogout.Image");
+            picLogout.Location = new Point(12, 712);
+            picLogout.Name = "picLogout";
+            picLogout.Size = new Size(25, 25);
+            picLogout.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogout.TabIndex = 8;
+            picLogout.TabStop = false;
+            picLogout.Click += picLogout_Click;
             // 
             // AdminDashboardForm
             // 
@@ -325,13 +340,14 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)picProfilePic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).EndInit();
             pnlSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picAccountVerification).EndInit();
             ((System.ComponentModel.ISupportInitialize)picAnnouncements).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogs).EndInit();
             ((System.ComponentModel.ISupportInitialize)picDashboardIcon).EndInit();
             ((System.ComponentModel.ISupportInitialize)picAccountManagement).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picAccountVerification).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogout).EndInit();
             ResumeLayout(false);
         }
 
@@ -358,5 +374,6 @@ namespace BrgyMS.uiDesign {
         private Krypton.Toolkit.KryptonPanel pnlMainContentHolder1;
         private Krypton.Toolkit.KryptonPanel pnlFilterValueHolder;
         private Krypton.Toolkit.KryptonPictureBox picAccountVerification;
+        private Krypton.Toolkit.KryptonPictureBox picLogout;
     }
 }

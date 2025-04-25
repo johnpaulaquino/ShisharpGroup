@@ -23,6 +23,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
@@ -30,6 +31,11 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            ctxmenuAccManagement = new ContextMenuStrip(components);
+            actionsToolStripMenuItem = new ToolStripMenuItem();
+            tsmShowInformation = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
@@ -47,6 +53,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
+            ctxmenuAccManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
@@ -98,6 +105,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonPanel1
             // 
             kryptonPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            kryptonPanel1.ContextMenuStrip = ctxmenuAccManagement;
             kryptonPanel1.Controls.Add(dataGridAdminDashboard);
             kryptonPanel1.Controls.Add(txtSearch);
             kryptonPanel1.Controls.Add(nudLimit);
@@ -108,6 +116,39 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.Size = new Size(1125, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
+            kryptonPanel1.MouseDown += kryptonPanel1_MouseDown;
+            // 
+            // ctxmenuAccManagement
+            // 
+            ctxmenuAccManagement.Font = new Font("Segoe UI", 9F);
+            ctxmenuAccManagement.Items.AddRange(new ToolStripItem[] { actionsToolStripMenuItem });
+            ctxmenuAccManagement.Name = "contextMenuStrip1";
+            ctxmenuAccManagement.Size = new Size(115, 26);
+            // 
+            // actionsToolStripMenuItem
+            // 
+            actionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmShowInformation, toolStripMenuItem2, toolStripMenuItem3 });
+            actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+            actionsToolStripMenuItem.Size = new Size(114, 22);
+            actionsToolStripMenuItem.Text = "Actions";
+            // 
+            // tsmShowInformation
+            // 
+            tsmShowInformation.Name = "tsmShowInformation";
+            tsmShowInformation.Size = new Size(204, 22);
+            tsmShowInformation.Text = "Show User Information";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(204, 22);
+            toolStripMenuItem2.Text = "Update User Information";
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(204, 22);
+            toolStripMenuItem3.Text = "Delete User Information";
             // 
             // dataGridAdminDashboard
             // 
@@ -266,6 +307,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
+            ctxmenuAccManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
@@ -296,5 +338,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private DataGridViewTextBoxColumn colcontact;
         private DataGridViewTextBoxColumn colrtype;
         private Krypton.Toolkit.KryptonTextBox txtSearch;
+        private ContextMenuStrip ctxmenuAccManagement;
+        private ToolStripMenuItem actionsToolStripMenuItem;
+        private ToolStripMenuItem tsmShowInformation;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
     }
 }

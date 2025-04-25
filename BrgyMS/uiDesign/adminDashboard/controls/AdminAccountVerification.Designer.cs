@@ -198,6 +198,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // id
             // 
+            id.FillWeight = 50F;
             id.HeaderText = "ID";
             id.Name = "id";
             id.ReadOnly = true;
@@ -222,6 +223,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // colcaddress
             // 
+            colcaddress.FillWeight = 200F;
             colcaddress.HeaderText = "Address";
             colcaddress.Name = "colcaddress";
             colcaddress.ReadOnly = true;

@@ -14,6 +14,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private UIAdminUtils uiAdmin = new UIAdminUtils();
         public AdminAccountManagementControl() {
             InitializeComponent();
+
         }
 
         private async void nudLimit_ValueChanged(object sender, EventArgs e) {
@@ -44,5 +45,27 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ResumeLayout();
             Cursor = Cursors.Default;
         }
+
+        private void kryptonContextMenu1_Opening(object sender, CancelEventArgs e) {
+
+        }
+
+        private void kryptonPanel1_MouseDown(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right) {
+                var hit = dataGridAdminDashboard.HitTest(e.X, e.Y); // get the location where clicked
+                if (hit.RowIndex >= 0) {
+                    dataGridAdminDashboard.ClearSelection();
+                    dataGridAdminDashboard.Rows[hit.RowIndex].Selected = true; // set selection where the mouse clicked
+
+                    //focus to the cell
+                    dataGridAdminDashboard.CurrentCell = dataGridAdminDashboard.Rows[hit.RowIndex].Cells[0];
+
+                    //show the context
+                    ctxmenuAccManagement.Show(this, dataGridAdminDashboard.PointToScreen(e.Location));
+                }
+            }
+        }
+
+        
     }
 }

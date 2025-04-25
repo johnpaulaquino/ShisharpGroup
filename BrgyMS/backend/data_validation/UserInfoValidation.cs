@@ -30,9 +30,12 @@ namespace BrgyMs.backend.data_validation {
                     throw new Exception("Invalid Email address!");
                 }
 
-                if (IsExist.ContainsKey("email")) {
-                    throw new Exception("Email is already exist, Email must be unique!");
+                if (IsExist != null) {
+                    if (IsExist.ContainsKey("email")) {
+                        throw new Exception("Email is already exist, Email must be unique!");
+                    }
                 }
+
 
 
                 if (string.IsNullOrEmpty(_User.Username)) {
