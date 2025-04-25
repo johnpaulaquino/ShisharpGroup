@@ -12,7 +12,6 @@ namespace BrgyMs.backend.models.base_model
         public string BlockNumber { get; set; }
         public string Street { get; set; }
         public string HouseNumber { get; set; }
-        public string Purok { get; set; }
         public string LotNo { get; set; }
 
 
@@ -21,14 +20,12 @@ namespace BrgyMs.backend.models.base_model
                     string HouseNumber,
                     string SubdivisionName = "",
                     string BlockNumber = "",
-                    string LotNo = "",
-                    string Purok = "")
+                    string LotNo = "")
         {
             this.Street = Street;
             this.HouseNumber = HouseNumber;
             this.SubdivisionName = SubdivisionName;
             this.BlockNumber = BlockNumber;
-            this.Purok = Purok;
             this.LotNo = LotNo;
 
         }

@@ -10,6 +10,7 @@ using System.Data.Common;
 using BrgyMs.backend.data_validation;
 using BrgyMS.backend.database.connection.models;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace BrgyMs.backend.services {
     public class AdminServices {
@@ -21,24 +22,37 @@ namespace BrgyMs.backend.services {
         //for limiting records and when start the app
         public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
             var userInfo = await _AdminRepository.GetUserInformation(limit);
-            int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
-            if (limit <= totalusers) {
-                return userInfo;
-            }
-            return null;
+
+            return userInfo;
+
         }
 
         //for searching data
         public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
 
             var dataReader = await _AdminRepository.GetUserInformation(limit, keyword);
-            int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
+            //int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
 
-            if (limit <= totalusers) {
-                return dataReader;
-            }
+            return dataReader;
 
-            return null;
+
+        }
+
+        //Get all logs
+        public async Task<MySqlDataAdapter> GetAllLogs(int limit) {
+            var dataAdapter = await _AdminRepository.GetAllUsersLogs(limit);
+            //int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
+
+            return dataAdapter;
+
+
+        }
+
+        //Get all users who are inactive
+        public async Task<MySqlDataAdapter> GetInActiveResidentUser() {
+
+            var dataAdapter = await _AdminRepository.GetInActiveResidentUser();
+            return dataAdapter;
         }
     }
 

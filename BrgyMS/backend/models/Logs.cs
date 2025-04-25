@@ -9,19 +9,19 @@ namespace BrgyMS.backend.models {
 
         public string Id { get; set; }
         public string UserId { get; set; }
-        public DateTime DatePerformed { get; set; }
+        public DateTime? DatePerformed { get; set; }
         public string ActionsMade { get; set; }
-        public string AffectedTable { get; set; }
+        public string Details { get; set; }
 
         public Logs(string Id, string UserId,
-            DateTime DatePerformed, string ActionsMade,
-                string AffectedTable = "") {
+             string ActionsMade, DateTime? DatePerformed = null,
+                string Details = "") {
 
             this.Id = Id;
             this.UserId = UserId;
             this.DatePerformed = DatePerformed;
             this.ActionsMade = ActionsMade;
-            this.AffectedTable = AffectedTable;
+            this.Details = Details;
 
         }
     }

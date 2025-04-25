@@ -44,8 +44,7 @@ namespace BrgyMs.uiDesign {
                 }
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message);
-                    btnLogin.ResumeLayout();
-                    btnSignup.ResumeLayout();
+                    MessageBox.Show(ex.StackTrace);
                 }
                 finally {
                     isCLicked = true;

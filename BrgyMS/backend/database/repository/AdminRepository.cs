@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using BrgyMs.backend.models.admin_model;
 using BrgyMs.backend.models.base_model;
@@ -15,7 +16,7 @@ using MySqlX.XDevAPI.Relational;
 
 
 namespace BrgyMs.backend.database.repositories {
-    public class AdminRepository :BaseRepository{
+    public class AdminRepository : BaseRepository {
         private Connector conn;
         private readonly AuthUtils authUtils = new AuthUtils();
 
@@ -159,6 +160,58 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
+        /// <summary>
+        /// Get logs froms all users
+        /// </summary>
+        /// <param name="limit">to limit the number of records to return</param>
+        /// 
+        /// <returns> MysqlAdapter taht will use later for the filling the table</returns>
+        public async Task<MySqlDataAdapter> GetAllUsersLogs(int limit) {
+            string stmt = "SELECT la.id as 'ID', la.user_id as 'User ID', u.username as 'Username', CONCAT(UPPER(LEFT(u.role, 1)),LOWER(SUBSTRING(u.role FROM 2))) as 'Role', " +
+                "la.actions_made as 'Actions Made' ,la.affected_table as 'Affected Table', DATE_FORMAT(la.date_performed, '%W, %M %d, %Y %r' ) as 'Date Performed' " +
+                "FROM users u " +
+                "Right join action_logs la " +
+                "ON u.id = la.user_id " +
+                "ORDER by la.date_performed ASC LIMIT @limit ";
+
+            try {
+                var connection = await conn.getConnection();
+                var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
+
+                return adapter;
+
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // End of function
+
+        /// <summary>
+        /// Use to get all the users for verification
+        /// </summary>
+        /// <returns></returns>
+        public async Task<MySqlDataAdapter> GetInActiveResidentUser() {
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename " +
+                " IS NULL OR p.middlename = '' " +
+                " THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END), " +
+                " p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', " +
+                "p.gender as 'Gender', CONCAT_WS(', ', ad.house_number, ad.street, " +
+                "IFNULL(ad.lot_number, ''), IFNULL(ad.block_number, ''), IFNULL(ad.subdivision, '')) as 'Address' " +
+                "FROM users u " +
+                "LEFT join personal_info p " +
+                "On u.id = p.user_id " +
+                "LEFT JOIN address ad " +
+                "ON u.id = ad.user_id " +
+                "WHERE u.status = @status LIMIT @limit";
+
+            var connection = await conn.getConnection();
+            var adapter = new MySqlDataAdapter(stmt, connection);
+            adapter.SelectCommand.Parameters.AddWithValue("@status", "0");
+            adapter.SelectCommand.Parameters.AddWithValue("@limit", 15);
+
+            return adapter;
+        }
 
     }
 }

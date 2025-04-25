@@ -5,17 +5,13 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using BrgyMs.database.connector;
-
-using System.Data.Common;
-using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.bo_model;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_model;
-using System.Xml;
+
 using BrgyMs.backend.utils;
-using ZstdSharp.Unsafe;
 using System.Data;
-using DotNetEnv;
+
 
 namespace BrgyMs.backend.database.repositories {
     public class ResidentRepository : BaseRepository {

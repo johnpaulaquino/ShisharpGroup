@@ -26,13 +26,8 @@ namespace BrgyMS.uiDesign {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboardForm));
             pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            pnlMainContentHolder1 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel5 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            kryptonPanel4 = new Krypton.Toolkit.KryptonPanel();
-            kryptonTableLayoutPanel1 = new Krypton.Toolkit.KryptonTableLayoutPanel();
-            kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             pnlRighSeperator = new Krypton.Toolkit.KryptonPanel();
             pnlRightSeperator = new Krypton.Toolkit.KryptonPanel();
             pnlFilterValueHolder = new Krypton.Toolkit.KryptonPanel();
@@ -48,18 +43,13 @@ namespace BrgyMS.uiDesign {
             kryptonPanel6 = new Krypton.Toolkit.KryptonPanel();
             picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
             kryptonTaskDialog1 = new Krypton.Toolkit.KryptonTaskDialog();
+            picAccountVerification = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).BeginInit();
             pnlMainContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel3).BeginInit();
-            kryptonPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel5).BeginInit();
-            kryptonPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel4).BeginInit();
-            kryptonPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlRighSeperator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlRightSeperator).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlFilterValueHolder).BeginInit();
@@ -74,6 +64,7 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)picAccountManagement).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAccountVerification).BeginInit();
             SuspendLayout();
             // 
             // pnlMainContainer
@@ -92,8 +83,8 @@ namespace BrgyMS.uiDesign {
             // 
             // kryptonPanel2
             // 
+            kryptonPanel2.Controls.Add(pnlMainContentHolder1);
             kryptonPanel2.Controls.Add(kryptonPanel1);
-            kryptonPanel2.Controls.Add(kryptonPanel3);
             kryptonPanel2.Controls.Add(pnlRighSeperator);
             kryptonPanel2.Controls.Add(pnlRightSeperator);
             kryptonPanel2.Controls.Add(pnlFilterValueHolder);
@@ -104,6 +95,15 @@ namespace BrgyMS.uiDesign {
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 6;
             // 
+            // pnlMainContentHolder1
+            // 
+            pnlMainContentHolder1.Dock = DockStyle.Fill;
+            pnlMainContentHolder1.Location = new Point(25, 25);
+            pnlMainContentHolder1.Name = "pnlMainContentHolder1";
+            pnlMainContentHolder1.Size = new Size(1125, 675);
+            pnlMainContentHolder1.StateCommon.Color1 = Color.White;
+            pnlMainContentHolder1.TabIndex = 5;
+            // 
             // kryptonPanel1
             // 
             kryptonPanel1.Dock = DockStyle.Top;
@@ -113,72 +113,6 @@ namespace BrgyMS.uiDesign {
             kryptonPanel1.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel1.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             kryptonPanel1.TabIndex = 5;
-            // 
-            // kryptonPanel3
-            // 
-            kryptonPanel3.Controls.Add(kryptonPanel5);
-            kryptonPanel3.Controls.Add(kryptonPanel4);
-            kryptonPanel3.Location = new Point(25, 23);
-            kryptonPanel3.Name = "kryptonPanel3";
-            kryptonPanel3.Size = new Size(1125, 677);
-            kryptonPanel3.StateCommon.Color1 = Color.White;
-            kryptonPanel3.TabIndex = 5;
-            // 
-            // kryptonPanel5
-            // 
-            kryptonPanel5.Controls.Add(kryptonLabel2);
-            kryptonPanel5.Dock = DockStyle.Top;
-            kryptonPanel5.Location = new Point(0, 0);
-            kryptonPanel5.Name = "kryptonPanel5";
-            kryptonPanel5.Size = new Size(1125, 78);
-            kryptonPanel5.StateCommon.Color1 = Color.White;
-            kryptonPanel5.TabIndex = 3;
-            // 
-            // kryptonLabel2
-            // 
-            kryptonLabel2.Location = new Point(6, 33);
-            kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(186, 29);
-            kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
-            kryptonLabel2.TabIndex = 3;
-            kryptonLabel2.Values.Text = "Admin Dashboard";
-            // 
-            // kryptonPanel4
-            // 
-            kryptonPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            kryptonPanel4.Controls.Add(kryptonTableLayoutPanel1);
-            kryptonPanel4.Controls.Add(kryptonSeparator1);
-            kryptonPanel4.Location = new Point(0, 84);
-            kryptonPanel4.Name = "kryptonPanel4";
-            kryptonPanel4.Size = new Size(1125, 593);
-            kryptonPanel4.StateCommon.Color1 = Color.White;
-            kryptonPanel4.TabIndex = 1;
-            // 
-            // kryptonTableLayoutPanel1
-            // 
-            kryptonTableLayoutPanel1.AutoScroll = true;
-            kryptonTableLayoutPanel1.AutoSize = true;
-            kryptonTableLayoutPanel1.ColumnCount = 3;
-            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
-            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
-            kryptonTableLayoutPanel1.Dock = DockStyle.Fill;
-            kryptonTableLayoutPanel1.Location = new Point(0, 0);
-            kryptonTableLayoutPanel1.Name = "kryptonTableLayoutPanel1";
-            kryptonTableLayoutPanel1.RowCount = 1;
-            kryptonTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            kryptonTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            kryptonTableLayoutPanel1.Size = new Size(1125, 593);
-            kryptonTableLayoutPanel1.StateCommon.Color1 = Color.White;
-            kryptonTableLayoutPanel1.TabIndex = 1;
-            // 
-            // kryptonSeparator1
-            // 
-            kryptonSeparator1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            kryptonSeparator1.Location = new Point(0, 0);
-            kryptonSeparator1.Name = "kryptonSeparator1";
-            kryptonSeparator1.Size = new Size(1125, 5);
-            kryptonSeparator1.TabIndex = 0;
             // 
             // pnlRighSeperator
             // 
@@ -221,6 +155,7 @@ namespace BrgyMS.uiDesign {
             // 
             // lblRole
             // 
+            lblRole.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblRole.Location = new Point(31, 12);
             lblRole.Name = "lblRole";
             lblRole.Size = new Size(60, 23);
@@ -230,6 +165,7 @@ namespace BrgyMS.uiDesign {
             // 
             // picProfilePic
             // 
+            picProfilePic.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             picProfilePic.Image = (Image)resources.GetObject("picProfilePic.Image");
             picProfilePic.Location = new Point(1104, 0);
             picProfilePic.Name = "picProfilePic";
@@ -240,8 +176,8 @@ namespace BrgyMS.uiDesign {
             // 
             // lblUsername
             // 
-            lblUsername.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            lblUsername.Location = new Point(1010, 12);
+            lblUsername.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblUsername.Location = new Point(982, 12);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(116, 23);
             lblUsername.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -250,6 +186,7 @@ namespace BrgyMS.uiDesign {
             // 
             // pnlSidebar
             // 
+            pnlSidebar.Controls.Add(picAccountVerification);
             pnlSidebar.Controls.Add(picAnnouncements);
             pnlSidebar.Controls.Add(picLogs);
             pnlSidebar.Controls.Add(picDashboardIcon);
@@ -275,7 +212,7 @@ namespace BrgyMS.uiDesign {
             // 
             picAnnouncements.Cursor = Cursors.Hand;
             picAnnouncements.Image = (Image)resources.GetObject("picAnnouncements.Image");
-            picAnnouncements.Location = new Point(12, 310);
+            picAnnouncements.Location = new Point(12, 336);
             picAnnouncements.Name = "picAnnouncements";
             picAnnouncements.Size = new Size(25, 25);
             picAnnouncements.SizeMode = PictureBoxSizeMode.Zoom;
@@ -287,7 +224,7 @@ namespace BrgyMS.uiDesign {
             // 
             picLogs.Cursor = Cursors.Hand;
             picLogs.Image = (Image)resources.GetObject("picLogs.Image");
-            picLogs.Location = new Point(12, 257);
+            picLogs.Location = new Point(12, 276);
             picLogs.Name = "picLogs";
             picLogs.Size = new Size(25, 25);
             picLogs.SizeMode = PictureBoxSizeMode.Zoom;
@@ -311,13 +248,13 @@ namespace BrgyMS.uiDesign {
             // 
             picAccountManagement.Cursor = Cursors.Hand;
             picAccountManagement.Image = (Image)resources.GetObject("picAccountManagement.Image");
-            picAccountManagement.Location = new Point(12, 207);
+            picAccountManagement.Location = new Point(12, 215);
             picAccountManagement.Name = "picAccountManagement";
             picAccountManagement.Size = new Size(25, 25);
             picAccountManagement.SizeMode = PictureBoxSizeMode.Zoom;
             picAccountManagement.TabIndex = 3;
             picAccountManagement.TabStop = false;
-            picAccountManagement.Click += kryptonPictureBox1_Click;
+            picAccountManagement.Click += picAccountManagement_Click;
             // 
             // kryptonPanel6
             // 
@@ -351,6 +288,18 @@ namespace BrgyMS.uiDesign {
             kryptonTaskDialog1.UseNativeOSIcons = false;
             kryptonTaskDialog1.WindowTitle = null;
             // 
+            // picAccountVerification
+            // 
+            picAccountVerification.Cursor = Cursors.Hand;
+            picAccountVerification.Image = (Image)resources.GetObject("picAccountVerification.Image");
+            picAccountVerification.Location = new Point(12, 396);
+            picAccountVerification.Name = "picAccountVerification";
+            picAccountVerification.Size = new Size(25, 25);
+            picAccountVerification.SizeMode = PictureBoxSizeMode.Zoom;
+            picAccountVerification.TabIndex = 7;
+            picAccountVerification.TabStop = false;
+            picAccountVerification.Click += picAccountVerification_Click;
+            // 
             // AdminDashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -365,16 +314,8 @@ namespace BrgyMS.uiDesign {
             pnlMainContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel3).EndInit();
-            kryptonPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel5).EndInit();
-            kryptonPanel5.ResumeLayout(false);
-            kryptonPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel4).EndInit();
-            kryptonPanel4.ResumeLayout(false);
-            kryptonPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlRighSeperator).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlRightSeperator).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlFilterValueHolder).EndInit();
@@ -390,6 +331,7 @@ namespace BrgyMS.uiDesign {
             ((System.ComponentModel.ISupportInitialize)picAccountManagement).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel6).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAccountVerification).EndInit();
             ResumeLayout(false);
         }
 
@@ -402,23 +344,19 @@ namespace BrgyMS.uiDesign {
         private Krypton.Toolkit.KryptonTaskDialog kryptonTaskDialog1;
         private Krypton.Toolkit.KryptonPanel pnlRightSeperator;
         private Krypton.Toolkit.KryptonPanel pnlTopSeperator;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private Krypton.Toolkit.KryptonSeparator kryptonSeparator1;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel4;
         private Krypton.Toolkit.KryptonPanel pnlRighSeperator;
         private Krypton.Toolkit.KryptonPanel kryptonPanel6;
         private Krypton.Toolkit.KryptonLabel lblUsername;
         private Krypton.Toolkit.KryptonPictureBox picProfilePic;
         private Krypton.Toolkit.KryptonLabel lblRole;
-        private Krypton.Toolkit.KryptonPanel pnlFilterValueHolder;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel5;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonPictureBox picAccountManagement;
         private Krypton.Toolkit.KryptonPictureBox picDashboardIcon;
         private Krypton.Toolkit.KryptonPictureBox picLogs;
         private Krypton.Toolkit.KryptonPictureBox picAnnouncements;
-        private Krypton.Toolkit.KryptonTableLayoutPanel kryptonTableLayoutPanel1;
+        private Krypton.Toolkit.KryptonPanel pnlMainContentHolder1;
+        private Krypton.Toolkit.KryptonPanel pnlFilterValueHolder;
+        private Krypton.Toolkit.KryptonPictureBox picAccountVerification;
     }
 }

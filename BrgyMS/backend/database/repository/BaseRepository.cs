@@ -80,8 +80,8 @@ namespace BrgyMs.backend.database.repositories {
         public async Task InsertUserAddress(Address _ResidenAddress,
                                       string UserId) {
             string stmt1 = "Insert Into address (id, user_id, street, house_number"
-                          + ", subdivision, block_number) "
-                          + "Values (?,?,?,?,?,?)";
+                          + ", subdivision, block_number, lot_number) "
+                          + "Values (?,?,?,?,?,?,?)";
             try {
                 using var connection = await conn.getConnection();
                 using (var cmd = new MySqlCommand(stmt1, connection)) {
@@ -102,17 +102,17 @@ namespace BrgyMs.backend.database.repositories {
 
         public async Task LogUserActions(Logs logs) {
             string stmt = "INSERT INTO action_logs(id, user_id, date_performed, " +
-                "actions_made, affected_table) " +
-                "VALUES(@id, @userId, @dtPerformed, @actionmade,@affectedtable ) ";
+                "actions_made, details) " +
+                "VALUES(@id, @userId, @dateperformed, @actionmade,@details ) ";
 
             try {
                 using var connection = await conn.getConnection();
                 using var cmd = new MySqlCommand(stmt, connection);
                 cmd.Parameters.AddWithValue("@id", logs.Id);
                 cmd.Parameters.AddWithValue("@userId", logs.UserId);
-                cmd.Parameters.AddWithValue("@dtPerformed", logs.DatePerformed);
+                cmd.Parameters.AddWithValue("@dateperformed", logs.DatePerformed);
                 cmd.Parameters.AddWithValue("@actionmade", logs.ActionsMade);
-                cmd.Parameters.AddWithValue("@affectedtable", logs.AffectedTable);
+                cmd.Parameters.AddWithValue("@details", logs.Details);
 
                 await cmd.ExecuteNonQueryAsync();
             }
@@ -134,5 +134,7 @@ namespace BrgyMs.backend.database.repositories {
                 return id;
             }
         }
+
+       
     }
 }

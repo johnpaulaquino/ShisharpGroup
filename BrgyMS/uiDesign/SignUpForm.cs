@@ -146,7 +146,7 @@ namespace BrgyMs.uiDesign {
                 string villagename = txtSSubdivision.Text;
                 string lotNo = txtSLotNo.Text;
                 string blockNo = txtSBlockNo.Text;
-                string purok = txtSpurok.Text;
+              
 
                 _Address = new Address(
                     street,
@@ -155,7 +155,6 @@ namespace BrgyMs.uiDesign {
                     SubdivisionName = villagename,
                     LotNo = lotNo,
                     BlockNumber = blockNo,
-                    Purok = purok
                 };
 
                 //set empty strings to the not required fields if not set.

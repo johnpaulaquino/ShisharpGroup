@@ -49,8 +49,7 @@ namespace BrgyMs.backend.services {
 
                
                 string id = await _ResidentRepo.GenerateLogsId(); // id generated
-                var logs = new Logs(id, data["userId"],  // Logs Object
-                    new DateTime(), "Login");
+                var logs = new Logs(id, data["userId"], "Login") { DatePerformed = DateTime.Now};
 
                 //log actions
                 await _ResidentRepo.LogUserActions(logs);

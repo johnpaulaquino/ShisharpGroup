@@ -10,6 +10,7 @@ using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -26,7 +27,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
 
         }
-        public void setAdminDashboardTableWitdth(DataGridView dataGridView) {
+
+        //for account management table
+        public void SetWidthToAccountManagementTable(DataGridView dataGridView) {
             dataGridView.Columns[0].Width = 85;
             dataGridView.Columns[1].Width = 200;
             dataGridView.Columns[2].Width = 90;
@@ -38,6 +41,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             dataGridView.Columns[8].Width = 150;
         }
 
+
+
+        //for main form
         public void SetUserInformation(KryptonLabel lblRole,
             KryptonLabel lblusername) {
             string token = _AuthUtils.ReadTokenInFile();
@@ -51,18 +57,20 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 lblusername.Text = "Hi, " + username;
             }
         }
-        public async Task SetUserAndSecInfo(DataGridView table, int limit, string search) {
+        public async Task SetUserAndSecInfo(DataGridView table, int limit) {
+
+
             try {
                 table.SuspendLayout();
+
                 var dt = new DataTable();
                 using var userInfo = await _AdminServices.GetUserInformation(limit);
-                if (userInfo != null) {
-                    await userInfo.FillAsync(dt);
-                    table.Columns.Clear();
-                    table.DataSource = dt;
-                    setAdminDashboardTableWitdth(table);
+                userInfo.Fill(dt);
 
-                }
+                table.Columns.Clear();
+                table.DataSource = dt;
+
+                SetWidthToAccountManagementTable(table);
 
 
             }
@@ -71,27 +79,29 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             }
             finally {
                 table.ResumeLayout();
-
             }
+
         }
 
 
         public async Task SearchRecords(DataGridView table, int limit, string keyword) {
+
             try {
                 table.SuspendLayout();
                 using var userIno = await _AdminServices.GetUserInformation(limit, keyword);
 
                 var dt = new DataTable();
-                if (userIno != null) {
-                    await userIno.FillAsync(dt);
-                    table.Columns.Clear();
-                    table.DataSource = dt;
-                    setAdminDashboardTableWitdth(table);
 
-                }
-                if (string.IsNullOrEmpty(keyword)) {
-                   await SetUserAndSecInfo(table, limit, keyword);
-                }
+
+                userIno.Fill(dt);
+
+                table.Columns.Clear();
+
+                table.DataSource = dt;
+
+                SetWidthToAccountManagementTable(table);
+
+
             }
             catch (System.Exception e) {
                 MessageBox.Show(e.Message);
@@ -100,6 +110,82 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 table.ResumeLayout();
             }
 
+        }// End 
+
+        //for users logs table
+        public void SetWidthToUsersLogsTable(DataGridView dataGridView) {
+            dataGridView.Columns[0].Width = 90;
+            dataGridView.Columns[1].Width = 90;
+            dataGridView.Columns[2].Width = 150;
+            dataGridView.Columns[3].Width = 90;
+            dataGridView.Columns[4].Width = 100;
+            dataGridView.Columns[5].Width = 200;
+            dataGridView.Columns[6].Width = 200;
         }
+
+        //users logs
+        public async Task SetUserLogsToTable(DataGridView table, int limit) {
+            try {
+                using var adapter = await _AdminServices.GetAllLogs(limit);
+
+
+                table.SuspendLayout();
+
+                var dt = new DataTable();
+
+                adapter.Fill(dt);
+
+
+                table.Columns.Clear();
+
+                table.DataSource = dt;
+
+
+                SetWidthToUsersLogsTable(table);
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+            finally {
+                table.ResumeLayout();
+            }
+        }
+        //for users Account verification table
+        public void SetWidthToAccVerificationtable(DataGridView dataGridView) {
+            dataGridView.Columns[0].Width = 90;
+            dataGridView.Columns[1].Width = 150;
+            dataGridView.Columns[2].Width = 150;
+            dataGridView.Columns[3].Width = 90;
+            dataGridView.Columns[4].Width = 200;
+
+        }
+        public async Task SetInActiveUsersInTable(DataGridView table) {
+            try {
+                using var adapter = await _AdminServices.GetInActiveResidentUser();
+                table.SuspendLayout();
+
+                var dt = new DataTable();
+
+                adapter.Fill(dt);
+
+
+                table.Columns.Clear();
+
+                table.DataSource = dt;
+
+
+                SetWidthToAccVerificationtable(table);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+            }
+            finally {
+                table.ResumeLayout();
+            }
+        }
+
     }
 }
