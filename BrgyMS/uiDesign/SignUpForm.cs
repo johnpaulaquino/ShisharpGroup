@@ -37,6 +37,8 @@ namespace BrgyMs.uiDesign {
         private string filePathProfilePic = "";
         private ResidentServices _ResidentServices = new ResidentServices();
         private AuthUtils auth;
+        private DateTime startTime;
+        private DateTime endTime;
         public SignUpForm() {
             InitializeComponent();
             auth = new AuthUtils();
@@ -47,10 +49,9 @@ namespace BrgyMs.uiDesign {
         }
 
         private void Personal_Info_Load(object sender, EventArgs e) {
-            string code = auth.GenerateOTP();
-            MessageBox.Show(code);
-            System.Diagnostics.Debug.WriteLine(code);
-           
+
+
+
         }
 
         private void btnSLogin_Click(object sender, EventArgs e) {
@@ -171,10 +172,15 @@ namespace BrgyMs.uiDesign {
                         // validate first the field before go to another page.
                         break;
                     case 1:
-                        _UserValidation.ValidatePersonalInfo(_PersonalInfo);
+                      
                         break;
 
-                    case 3:
+                    case 2:
+                        _UserValidation.ValidatePersonalInfo(_PersonalInfo);
+                       
+                        break;
+
+                    case 4:
                         _UserValidation.ValidateAddInfo(_AddlInfo);
 
                         _UserValidation.ValidateFileType(filePathProofOfR);
@@ -184,9 +190,8 @@ namespace BrgyMs.uiDesign {
                         }
                         break;
 
-                    case 4:
+                    case 5:
                         _UserValidation.ValidateAddress(_Address);
-
                         break;
 
                 }
@@ -235,7 +240,7 @@ namespace BrgyMs.uiDesign {
             btnSNext.BringToFront();
         }
 
-
+        //after the components intialize
         public void AfterInitComponent() {
             //set the first option in the combo box suffix and gender
             cboSSuffix.Items.Insert(0, "--Select--");
@@ -258,19 +263,21 @@ namespace BrgyMs.uiDesign {
 
             //This is the panel
             kryptonpanels.Add(pnlSLogCredentials);
+            kryptonpanels.Add(pnlSEmailVerification);
             kryptonpanels.Add(pnlSPinfo1);
             kryptonpanels.Add(pnlSAddInfo1);
             kryptonpanels.Add(pnlSAddInfo2);
             kryptonpanels.Add(pnlSAddress);
-            kryptonpanels.Add(pnlSAddress2);
+
 
             //This is the panel page number
-            pageNumberlabel.Add(lblpageNumber1);
-            pageNumberlabel.Add(lblpageNumber2);
-            pageNumberlabel.Add(lblpageNumber3);
-            pageNumberlabel.Add(lblpageNumber4);
-            pageNumberlabel.Add(lblPageNumber5);
-            pageNumberlabel.Add(lblPageNumber6);
+            pageNumberlabel.Add(lblPageNum1);
+            pageNumberlabel.Add(lblPageNum2);
+            pageNumberlabel.Add(lblPageNum3);
+            pageNumberlabel.Add(lblPageNum4);
+            pageNumberlabel.Add(lblPageNum5);
+            pageNumberlabel.Add(lblPageNum6);
+
 
             //set enable to false these textfield if not living in village 
             txtSSubdivision.Enabled = false;
@@ -280,6 +287,8 @@ namespace BrgyMs.uiDesign {
             pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
 
         }
+
+
 
         private void btnAProofOfresidency_Click(object sender, EventArgs e) {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -335,14 +344,6 @@ namespace BrgyMs.uiDesign {
 
         }
 
-        private void kryptonButton1_Click(object sender, EventArgs e) {
-           
-            if (auth.VerifyTOTP(txtSOtpCode.Text)) {
-                MessageBox.Show("Correct");
-            }else {
-                MessageBox.Show("Wrong");
-            }
-        }
     }
 
 }

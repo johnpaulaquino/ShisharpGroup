@@ -24,8 +24,8 @@ namespace BrgyMs.backend.utils {
         private string filename = "/users.token";
         public int otpExpirationTime = 60; // default of expiration is 60
         private byte[] secretKey = KeyGeneration.GenerateRandomKey(100);
-        private Totp totp ;
-      
+        private Totp totp;
+
 
 
         public AuthUtils() {
@@ -136,10 +136,9 @@ namespace BrgyMs.backend.utils {
                 }
                 // check if not exist, then create
                 String filepath = fileDirectory + filename;
-                if (!File.Exists(filepath)) {
-                    File.Create(filepath);
 
-                }
+                FileStream fileWriter = File.Create(filepath);
+                fileWriter.Close(); // close the stream before using again   
 
                 using (FileStream fs = new FileStream(filepath, FileMode.Create, FileAccess.Write)) {
                     using (StreamWriter writer = new StreamWriter(fs)) {
@@ -196,7 +195,7 @@ namespace BrgyMs.backend.utils {
 
         public bool VerifyTOTP(string code) {
 
-           ;
+            ;
 
             bool isValid = totp.VerifyTotp(code, out long timeStepMatched);
 

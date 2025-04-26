@@ -44,7 +44,7 @@ namespace BrgyMs.uiDesign {
                 }
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message);
-                    MessageBox.Show(ex.StackTrace);
+                    System.Diagnostics.Debug.WriteLine(ex.StackTrace);
                 }
                 finally {
                     isCLicked = true;

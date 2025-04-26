@@ -30,12 +30,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            pnlSAddress2 = new Krypton.Toolkit.KryptonPanel();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            lblPageNumber6 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel50 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel51 = new Krypton.Toolkit.KryptonLabel();
-            txtSOtpCode = new Krypton.Toolkit.KryptonTextBox();
             btnSPrevious = new Krypton.Toolkit.KryptonButton();
             btnSLogin = new Krypton.Toolkit.KryptonButton();
             pictureBox1 = new PictureBox();
@@ -43,7 +37,7 @@
             btnSNext = new Krypton.Toolkit.KryptonButton();
             btnSCreateAccount = new Krypton.Toolkit.KryptonButton();
             pnlSLogCredentials = new Krypton.Toolkit.KryptonPanel();
-            lblpageNumber1 = new Krypton.Toolkit.KryptonLabel();
+            lblPageNum1 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel33 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel32 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel31 = new Krypton.Toolkit.KryptonLabel();
@@ -58,6 +52,11 @@
             txtSPassword = new Krypton.Toolkit.KryptonTextBox();
             txtSEmail = new Krypton.Toolkit.KryptonTextBox();
             txtSConfirmPass = new Krypton.Toolkit.KryptonTextBox();
+            pnlSEmailVerification = new Krypton.Toolkit.KryptonPanel();
+            lblPageNum2 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel50 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel51 = new Krypton.Toolkit.KryptonLabel();
+            txtSOtpCode = new Krypton.Toolkit.KryptonTextBox();
             pnlSPinfo1 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel37 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel36 = new Krypton.Toolkit.KryptonLabel();
@@ -72,7 +71,7 @@
             txtSMName = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             txtSFName = new Krypton.Toolkit.KryptonTextBox();
-            lblpageNumber2 = new Krypton.Toolkit.KryptonLabel();
+            lblPageNum3 = new Krypton.Toolkit.KryptonLabel();
             lblPanelInfo1 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel10 = new Krypton.Toolkit.KryptonLabel();
             pnlSAddInfo1 = new Krypton.Toolkit.KryptonPanel();
@@ -93,7 +92,7 @@
             cbAVoterStatus = new Krypton.Toolkit.KryptonCheckBox();
             dtpkABirthday = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonLabel13 = new Krypton.Toolkit.KryptonLabel();
-            lblpageNumber3 = new Krypton.Toolkit.KryptonLabel();
+            lblPageNum4 = new Krypton.Toolkit.KryptonLabel();
             lblPanelinfo2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             pnlSAddInfo2 = new Krypton.Toolkit.KryptonPanel();
@@ -110,7 +109,7 @@
             kryptonLabel17 = new Krypton.Toolkit.KryptonLabel();
             btnAAddProfilePic = new Krypton.Toolkit.KryptonButton();
             kryptonLabel19 = new Krypton.Toolkit.KryptonLabel();
-            lblpageNumber4 = new Krypton.Toolkit.KryptonLabel();
+            lblPageNum5 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel26 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel27 = new Krypton.Toolkit.KryptonLabel();
             pnlSAddress = new Krypton.Toolkit.KryptonPanel();
@@ -130,18 +129,18 @@
             txtSHouseNo = new Krypton.Toolkit.KryptonTextBox();
             txtSStreet = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel40 = new Krypton.Toolkit.KryptonLabel();
-            lblPageNumber5 = new Krypton.Toolkit.KryptonLabel();
+            lblPageNum6 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel42 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel43 = new Krypton.Toolkit.KryptonLabel();
             btnAAddPOR = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
             kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pnlSAddress2).BeginInit();
-            pnlSAddress2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlSLogCredentials).BeginInit();
             pnlSLogCredentials.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pnlSEmailVerification).BeginInit();
+            pnlSEmailVerification.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlSPinfo1).BeginInit();
             pnlSPinfo1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cboSGender).BeginInit();
@@ -160,7 +159,6 @@
             // 
             // kryptonPanel1
             // 
-            kryptonPanel1.Controls.Add(pnlSAddress2);
             kryptonPanel1.Controls.Add(btnSPrevious);
             kryptonPanel1.Controls.Add(btnSLogin);
             kryptonPanel1.Controls.Add(pictureBox1);
@@ -168,6 +166,7 @@
             kryptonPanel1.Controls.Add(btnSNext);
             kryptonPanel1.Controls.Add(btnSCreateAccount);
             kryptonPanel1.Controls.Add(pnlSLogCredentials);
+            kryptonPanel1.Controls.Add(pnlSEmailVerification);
             kryptonPanel1.Controls.Add(pnlSPinfo1);
             kryptonPanel1.Controls.Add(pnlSAddInfo1);
             kryptonPanel1.Controls.Add(pnlSAddInfo2);
@@ -177,128 +176,6 @@
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(1224, 684);
             kryptonPanel1.TabIndex = 39;
-            // 
-            // pnlSAddress2
-            // 
-            pnlSAddress2.Controls.Add(kryptonButton1);
-            pnlSAddress2.Controls.Add(lblPageNumber6);
-            pnlSAddress2.Controls.Add(kryptonLabel50);
-            pnlSAddress2.Controls.Add(kryptonLabel51);
-            pnlSAddress2.Controls.Add(txtSOtpCode);
-            pnlSAddress2.Location = new Point(201, 85);
-            pnlSAddress2.Margin = new Padding(4, 3, 4, 3);
-            pnlSAddress2.Name = "pnlSAddress2";
-            pnlSAddress2.Size = new Size(477, 499);
-            pnlSAddress2.StateCommon.Color1 = Color.White;
-            pnlSAddress2.StateCommon.Color2 = Color.White;
-            pnlSAddress2.TabIndex = 66;
-            // 
-            // kryptonButton1
-            // 
-            kryptonButton1.Location = new Point(142, 389);
-            kryptonButton1.Margin = new Padding(4, 3, 4, 3);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            kryptonButton1.OverrideDefault.Back.ColorAngle = 45F;
-            kryptonButton1.OverrideDefault.Border.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            kryptonButton1.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton1.OverrideDefault.Border.Rounding = 18F;
-            kryptonButton1.OverrideDefault.Border.Width = 1;
-            kryptonButton1.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            kryptonButton1.Size = new Size(187, 51);
-            kryptonButton1.StateCommon.Back.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StateCommon.Back.Color2 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StateCommon.Back.ColorAngle = 45F;
-            kryptonButton1.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StateCommon.Border.ColorAngle = 45F;
-            kryptonButton1.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton1.StateCommon.Border.Rounding = 5F;
-            kryptonButton1.StateCommon.Border.Width = 1;
-            kryptonButton1.StateCommon.Content.ShortText.Color1 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Color2 = Color.White;
-            kryptonButton1.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonButton1.StateNormal.Border.Rounding = 5F;
-            kryptonButton1.StatePressed.Back.Color1 = Color.White;
-            kryptonButton1.StatePressed.Back.Color2 = Color.White;
-            kryptonButton1.StatePressed.Back.ColorAngle = 130F;
-            kryptonButton1.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            kryptonButton1.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            kryptonButton1.StatePressed.Border.ColorAngle = 130F;
-            kryptonButton1.StatePressed.Border.Rounding = 5F;
-            kryptonButton1.StatePressed.Border.Width = 1;
-            kryptonButton1.StatePressed.Content.ShortText.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StatePressed.Content.ShortText.Color2 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StateTracking.Back.Color1 = Color.FromArgb(128, 128, 255);
-            kryptonButton1.StateTracking.Back.Color2 = Color.FromArgb(128, 128, 255);
-            kryptonButton1.StateTracking.Back.ColorAngle = 45F;
-            kryptonButton1.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            kryptonButton1.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            kryptonButton1.StateTracking.Border.ColorAngle = 45F;
-            kryptonButton1.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            kryptonButton1.StateTracking.Border.Rounding = 5F;
-            kryptonButton1.StateTracking.Border.Width = 1;
-            kryptonButton1.TabIndex = 67;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "TestOTp";
-            kryptonButton1.Click += kryptonButton1_Click;
-            // 
-            // lblPageNumber6
-            // 
-            lblPageNumber6.Location = new Point(350, 16);
-            lblPageNumber6.Margin = new Padding(4, 3, 4, 3);
-            lblPageNumber6.Name = "lblPageNumber6";
-            lblPageNumber6.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            lblPageNumber6.Size = new Size(94, 26);
-            lblPageNumber6.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPageNumber6.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPageNumber6.TabIndex = 65;
-            lblPageNumber6.Values.Text = "1 out of 7";
-            // 
-            // kryptonLabel50
-            // 
-            kryptonLabel50.Location = new Point(28, 82);
-            kryptonLabel50.Margin = new Padding(3, 3, 0, 3);
-            kryptonLabel50.Name = "kryptonLabel50";
-            kryptonLabel50.Size = new Size(102, 26);
-            kryptonLabel50.StateCommon.Padding = new Padding(-1, -1, 0, -1);
-            kryptonLabel50.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel50.TabIndex = 36;
-            kryptonLabel50.Values.Text = "OTP Code";
-            // 
-            // kryptonLabel51
-            // 
-            kryptonLabel51.Location = new Point(28, 16);
-            kryptonLabel51.Margin = new Padding(4, 3, 4, 3);
-            kryptonLabel51.Name = "kryptonLabel51";
-            kryptonLabel51.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            kryptonLabel51.Size = new Size(160, 26);
-            kryptonLabel51.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonLabel51.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel51.TabIndex = 26;
-            kryptonLabel51.Values.Text = "Email Verificaton";
-            // 
-            // txtSOtpCode
-            // 
-            txtSOtpCode.Location = new Point(28, 114);
-            txtSOtpCode.Margin = new Padding(4, 3, 4, 3);
-            txtSOtpCode.Multiline = true;
-            txtSOtpCode.Name = "txtSOtpCode";
-            txtSOtpCode.Size = new Size(416, 40);
-            txtSOtpCode.StateCommon.Back.Color1 = Color.White;
-            txtSOtpCode.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
-            txtSOtpCode.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
-            txtSOtpCode.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
-            txtSOtpCode.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            txtSOtpCode.StateCommon.Border.Rounding = 5F;
-            txtSOtpCode.StateCommon.Content.Color1 = Color.Gray;
-            txtSOtpCode.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSOtpCode.StateCommon.Content.Padding = new Padding(10, 10, 0, 0);
-            txtSOtpCode.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            txtSOtpCode.StateNormal.Content.Padding = new Padding(10, 10, 0, 0);
-            txtSOtpCode.TabIndex = 30;
             // 
             // btnSPrevious
             // 
@@ -534,7 +411,7 @@
             // 
             // pnlSLogCredentials
             // 
-            pnlSLogCredentials.Controls.Add(lblpageNumber1);
+            pnlSLogCredentials.Controls.Add(lblPageNum1);
             pnlSLogCredentials.Controls.Add(kryptonLabel33);
             pnlSLogCredentials.Controls.Add(kryptonLabel32);
             pnlSLogCredentials.Controls.Add(kryptonLabel31);
@@ -557,17 +434,17 @@
             pnlSLogCredentials.StateCommon.Color2 = Color.White;
             pnlSLogCredentials.TabIndex = 43;
             // 
-            // lblpageNumber1
+            // lblPageNum1
             // 
-            lblpageNumber1.Location = new Point(350, 16);
-            lblpageNumber1.Margin = new Padding(4, 3, 4, 3);
-            lblpageNumber1.Name = "lblpageNumber1";
-            lblpageNumber1.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            lblpageNumber1.Size = new Size(94, 26);
-            lblpageNumber1.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpageNumber1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblpageNumber1.TabIndex = 65;
-            lblpageNumber1.Values.Text = "1 out of 7";
+            lblPageNum1.Location = new Point(350, 16);
+            lblPageNum1.Margin = new Padding(4, 3, 4, 3);
+            lblPageNum1.Name = "lblPageNum1";
+            lblPageNum1.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            lblPageNum1.Size = new Size(94, 26);
+            lblPageNum1.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageNum1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPageNum1.TabIndex = 65;
+            lblPageNum1.Values.Text = "1 out of 7";
             // 
             // kryptonLabel33
             // 
@@ -753,6 +630,75 @@
             txtSConfirmPass.StateCommon.Content.Padding = new Padding(10, 0, 10, 0);
             txtSConfirmPass.TabIndex = 31;
             // 
+            // pnlSEmailVerification
+            // 
+            pnlSEmailVerification.Controls.Add(lblPageNum2);
+            pnlSEmailVerification.Controls.Add(kryptonLabel50);
+            pnlSEmailVerification.Controls.Add(kryptonLabel51);
+            pnlSEmailVerification.Controls.Add(txtSOtpCode);
+            pnlSEmailVerification.Location = new Point(701, 113);
+            pnlSEmailVerification.Margin = new Padding(4, 3, 4, 3);
+            pnlSEmailVerification.Name = "pnlSEmailVerification";
+            pnlSEmailVerification.Size = new Size(477, 499);
+            pnlSEmailVerification.StateCommon.Color1 = Color.White;
+            pnlSEmailVerification.StateCommon.Color2 = Color.White;
+            pnlSEmailVerification.TabIndex = 66;
+            // 
+            // lblPageNum2
+            // 
+            lblPageNum2.Location = new Point(350, 16);
+            lblPageNum2.Margin = new Padding(4, 3, 4, 3);
+            lblPageNum2.Name = "lblPageNum2";
+            lblPageNum2.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            lblPageNum2.Size = new Size(94, 26);
+            lblPageNum2.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageNum2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPageNum2.TabIndex = 65;
+            lblPageNum2.Values.Text = "1 out of 7";
+            // 
+            // kryptonLabel50
+            // 
+            kryptonLabel50.Location = new Point(28, 82);
+            kryptonLabel50.Margin = new Padding(3, 3, 0, 3);
+            kryptonLabel50.Name = "kryptonLabel50";
+            kryptonLabel50.Size = new Size(102, 26);
+            kryptonLabel50.StateCommon.Padding = new Padding(-1, -1, 0, -1);
+            kryptonLabel50.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel50.TabIndex = 36;
+            kryptonLabel50.Values.Text = "OTP Code";
+            // 
+            // kryptonLabel51
+            // 
+            kryptonLabel51.Location = new Point(28, 16);
+            kryptonLabel51.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel51.Name = "kryptonLabel51";
+            kryptonLabel51.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            kryptonLabel51.Size = new Size(160, 26);
+            kryptonLabel51.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonLabel51.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel51.TabIndex = 26;
+            kryptonLabel51.Values.Text = "Email Verificaton";
+            // 
+            // txtSOtpCode
+            // 
+            txtSOtpCode.Location = new Point(28, 114);
+            txtSOtpCode.Margin = new Padding(4, 3, 4, 3);
+            txtSOtpCode.Multiline = true;
+            txtSOtpCode.Name = "txtSOtpCode";
+            txtSOtpCode.Size = new Size(416, 40);
+            txtSOtpCode.StateCommon.Back.Color1 = Color.White;
+            txtSOtpCode.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
+            txtSOtpCode.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
+            txtSOtpCode.StateCommon.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom | Krypton.Toolkit.PaletteDrawBorders.Left | Krypton.Toolkit.PaletteDrawBorders.Right;
+            txtSOtpCode.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            txtSOtpCode.StateCommon.Border.Rounding = 5F;
+            txtSOtpCode.StateCommon.Content.Color1 = Color.Gray;
+            txtSOtpCode.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSOtpCode.StateCommon.Content.Padding = new Padding(10, 10, 0, 0);
+            txtSOtpCode.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            txtSOtpCode.StateNormal.Content.Padding = new Padding(10, 10, 0, 0);
+            txtSOtpCode.TabIndex = 30;
+            // 
             // pnlSPinfo1
             // 
             pnlSPinfo1.Controls.Add(kryptonLabel37);
@@ -768,7 +714,7 @@
             pnlSPinfo1.Controls.Add(txtSMName);
             pnlSPinfo1.Controls.Add(kryptonLabel1);
             pnlSPinfo1.Controls.Add(txtSFName);
-            pnlSPinfo1.Controls.Add(lblpageNumber2);
+            pnlSPinfo1.Controls.Add(lblPageNum3);
             pnlSPinfo1.Controls.Add(lblPanelInfo1);
             pnlSPinfo1.Controls.Add(kryptonLabel10);
             pnlSPinfo1.Location = new Point(701, 116);
@@ -944,17 +890,17 @@
             txtSFName.StateNormal.Content.Padding = new Padding(10, 10, 0, 0);
             txtSFName.TabIndex = 37;
             // 
-            // lblpageNumber2
+            // lblPageNum3
             // 
-            lblpageNumber2.Location = new Point(369, 16);
-            lblpageNumber2.Margin = new Padding(4, 3, 4, 3);
-            lblpageNumber2.Name = "lblpageNumber2";
-            lblpageNumber2.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            lblpageNumber2.Size = new Size(94, 26);
-            lblpageNumber2.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpageNumber2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblpageNumber2.TabIndex = 28;
-            lblpageNumber2.Values.Text = "1 out of 7";
+            lblPageNum3.Location = new Point(369, 16);
+            lblPageNum3.Margin = new Padding(4, 3, 4, 3);
+            lblPageNum3.Name = "lblPageNum3";
+            lblPageNum3.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            lblPageNum3.Size = new Size(94, 26);
+            lblPageNum3.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageNum3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPageNum3.TabIndex = 28;
+            lblPageNum3.Values.Text = "1 out of 7";
             // 
             // lblPanelInfo1
             // 
@@ -999,7 +945,7 @@
             pnlSAddInfo1.Controls.Add(cbAVoterStatus);
             pnlSAddInfo1.Controls.Add(dtpkABirthday);
             pnlSAddInfo1.Controls.Add(kryptonLabel13);
-            pnlSAddInfo1.Controls.Add(lblpageNumber3);
+            pnlSAddInfo1.Controls.Add(lblPageNum4);
             pnlSAddInfo1.Controls.Add(lblPanelinfo2);
             pnlSAddInfo1.Controls.Add(kryptonLabel2);
             pnlSAddInfo1.Location = new Point(701, 116);
@@ -1194,17 +1140,17 @@
             kryptonLabel13.TabIndex = 37;
             kryptonLabel13.Values.Text = "Birthday";
             // 
-            // lblpageNumber3
+            // lblPageNum4
             // 
-            lblpageNumber3.Location = new Point(369, 16);
-            lblpageNumber3.Margin = new Padding(4, 3, 4, 3);
-            lblpageNumber3.Name = "lblpageNumber3";
-            lblpageNumber3.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            lblpageNumber3.Size = new Size(94, 26);
-            lblpageNumber3.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpageNumber3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblpageNumber3.TabIndex = 29;
-            lblpageNumber3.Values.Text = "1 out of 7";
+            lblPageNum4.Location = new Point(369, 16);
+            lblPageNum4.Margin = new Padding(4, 3, 4, 3);
+            lblPageNum4.Name = "lblPageNum4";
+            lblPageNum4.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            lblPageNum4.Size = new Size(94, 26);
+            lblPageNum4.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageNum4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPageNum4.TabIndex = 29;
+            lblPageNum4.Values.Text = "1 out of 7";
             // 
             // lblPanelinfo2
             // 
@@ -1245,7 +1191,7 @@
             pnlSAddInfo2.Controls.Add(kryptonLabel17);
             pnlSAddInfo2.Controls.Add(btnAAddProfilePic);
             pnlSAddInfo2.Controls.Add(kryptonLabel19);
-            pnlSAddInfo2.Controls.Add(lblpageNumber4);
+            pnlSAddInfo2.Controls.Add(lblPageNum5);
             pnlSAddInfo2.Controls.Add(kryptonLabel26);
             pnlSAddInfo2.Controls.Add(kryptonLabel27);
             pnlSAddInfo2.Location = new Point(701, 116);
@@ -1468,17 +1414,17 @@
             kryptonLabel19.TabIndex = 38;
             kryptonLabel19.Values.Text = "Profile Picture";
             // 
-            // lblpageNumber4
+            // lblPageNum5
             // 
-            lblpageNumber4.Location = new Point(355, 16);
-            lblpageNumber4.Margin = new Padding(4, 3, 4, 3);
-            lblpageNumber4.Name = "lblpageNumber4";
-            lblpageNumber4.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            lblpageNumber4.Size = new Size(94, 26);
-            lblpageNumber4.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpageNumber4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblpageNumber4.TabIndex = 29;
-            lblpageNumber4.Values.Text = "1 out of 7";
+            lblPageNum5.Location = new Point(355, 16);
+            lblPageNum5.Margin = new Padding(4, 3, 4, 3);
+            lblPageNum5.Name = "lblPageNum5";
+            lblPageNum5.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            lblPageNum5.Size = new Size(94, 26);
+            lblPageNum5.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageNum5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPageNum5.TabIndex = 29;
+            lblPageNum5.Values.Text = "1 out of 7";
             // 
             // kryptonLabel26
             // 
@@ -1522,7 +1468,7 @@
             pnlSAddress.Controls.Add(txtSHouseNo);
             pnlSAddress.Controls.Add(txtSStreet);
             pnlSAddress.Controls.Add(kryptonLabel40);
-            pnlSAddress.Controls.Add(lblPageNumber5);
+            pnlSAddress.Controls.Add(lblPageNum6);
             pnlSAddress.Controls.Add(kryptonLabel42);
             pnlSAddress.Controls.Add(kryptonLabel43);
             pnlSAddress.Location = new Point(701, 113);
@@ -1694,17 +1640,17 @@
             kryptonLabel40.TabIndex = 38;
             kryptonLabel40.Values.Text = "Street";
             // 
-            // lblPageNumber5
+            // lblPageNum6
             // 
-            lblPageNumber5.Location = new Point(354, 16);
-            lblPageNumber5.Margin = new Padding(4, 3, 4, 3);
-            lblPageNumber5.Name = "lblPageNumber5";
-            lblPageNumber5.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            lblPageNumber5.Size = new Size(94, 26);
-            lblPageNumber5.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPageNumber5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPageNumber5.TabIndex = 29;
-            lblPageNumber5.Values.Text = "1 out of 7";
+            lblPageNum6.Location = new Point(354, 16);
+            lblPageNum6.Margin = new Padding(4, 3, 4, 3);
+            lblPageNum6.Name = "lblPageNum6";
+            lblPageNum6.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            lblPageNum6.Size = new Size(94, 26);
+            lblPageNum6.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageNum6.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPageNum6.TabIndex = 29;
+            lblPageNum6.Values.Text = "1 out of 7";
             // 
             // kryptonLabel42
             // 
@@ -1787,13 +1733,13 @@
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pnlSAddress2).EndInit();
-            pnlSAddress2.ResumeLayout(false);
-            pnlSAddress2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlSLogCredentials).EndInit();
             pnlSLogCredentials.ResumeLayout(false);
             pnlSLogCredentials.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pnlSEmailVerification).EndInit();
+            pnlSEmailVerification.ResumeLayout(false);
+            pnlSEmailVerification.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pnlSPinfo1).EndInit();
             pnlSPinfo1.ResumeLayout(false);
             pnlSPinfo1.PerformLayout();
@@ -1843,8 +1789,8 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel10;
         private Krypton.Toolkit.KryptonLabel lblPanelinfo2;
         private Krypton.Toolkit.KryptonLabel lblPanelInfo1;
-        private Krypton.Toolkit.KryptonLabel lblpageNumber2;
-        private Krypton.Toolkit.KryptonLabel lblpageNumber3;
+        private Krypton.Toolkit.KryptonLabel lblPageNum3;
+        private Krypton.Toolkit.KryptonLabel lblPageNum4;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonTextBox txtSFName;
         private Krypton.Toolkit.KryptonLabel kryptonLabel8;
@@ -1866,7 +1812,7 @@
         private Krypton.Toolkit.KryptonTextBox txtAReligion;
         private Krypton.Toolkit.KryptonPanel pnlSAddInfo2;
         private Krypton.Toolkit.KryptonTextBox txtSStreet;
-        private Krypton.Toolkit.KryptonLabel lblpageNumber4;
+        private Krypton.Toolkit.KryptonLabel lblPageNum5;
         private Krypton.Toolkit.KryptonLabel kryptonLabel26;
         private Krypton.Toolkit.KryptonLabel kryptonLabel27;
         private Krypton.Toolkit.KryptonLabel kryptonLabel19;
@@ -1890,7 +1836,7 @@
         private Krypton.Toolkit.KryptonLabel lblHouseNo;
         private Krypton.Toolkit.KryptonLabel lblHouseNoAs;
         private Krypton.Toolkit.KryptonLabel kryptonLabel40;
-        private Krypton.Toolkit.KryptonLabel lblPageNumber5;
+        private Krypton.Toolkit.KryptonLabel lblPageNum6;
         private Krypton.Toolkit.KryptonLabel kryptonLabel42;
         private Krypton.Toolkit.KryptonLabel kryptonLabel43;
         private Krypton.Toolkit.KryptonTextBox txtSHouseNo;
@@ -1908,9 +1854,9 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel48;
         private Krypton.Toolkit.KryptonLabel kryptonLabel49;
         private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private Krypton.Toolkit.KryptonLabel lblpageNumber1;
-        private Krypton.Toolkit.KryptonPanel pnlSAddress2;
-        private Krypton.Toolkit.KryptonLabel lblPageNumber6;
+        private Krypton.Toolkit.KryptonLabel lblPageNum1;
+        private Krypton.Toolkit.KryptonPanel pnlSEmailVerification;
+        private Krypton.Toolkit.KryptonLabel lblPageNum2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel21;
         private Krypton.Toolkit.KryptonLabel kryptonLabel38;
         private Krypton.Toolkit.KryptonLabel kryptonLabel39;
@@ -1929,6 +1875,5 @@
         private Krypton.Toolkit.KryptonComboBox cboResidentType;
         private Krypton.Toolkit.KryptonLabel kryptonLabel22;
         private Krypton.Toolkit.KryptonLabel kryptonLabel35;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
     }
 }
