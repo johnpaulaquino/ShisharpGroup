@@ -206,7 +206,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
             // Get the user 
             try {
-                List<User> user = await _AdminServices.GetUserAllInformation(UserIdInFile);
+                List<User> user = await _AdminServices.GetUserBasicInfo(UserIdInFile);
                 userinfoControl.userModals = user;
                 foreach (var item in user) {
                     txtUserId.Text = UserIdInFile;
@@ -270,14 +270,14 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 await _AdminServices.UpdateAccountInfo(userModel, userId); // Update info
 
                 string Logsid = await _AdminServices.GenerateLogsId(); // id for logs
-                
+
                 string token = _AuthUtils.ReadTokenInFile(); // token, which credentials of the user who logged in
-                
+
                 var user = _AuthUtils.ValidateToken(token); // Decrypt generated token and get the data.
-                
+
                 await _admin.LogUserActions(new Logs( // log user Action
                     Logsid, user.UserId, "Update")
-                {DatePerformed = DateTime.Now, Details = $"Update account info with the user id of {userId}." });
+                { DatePerformed = DateTime.Now, Details = $"Update account info with the user id of {userId}." });
 
                 MessageBox.Show("Successfully updated account info!");
             }
@@ -291,13 +291,83 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         //To activate the account 
         public async Task ActivateUserAccount(string userId, bool isValidated) {
             try {
-
                 await _AdminServices.ActivateUserAccount(userId, isValidated);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
+        } // end of the function
+        //set the data to the Account Verification control
+        public async Task SetuserInformationToVerificationControl(
+            KryptonPictureBox picprofilePic,
+            KryptonTextBox txtFullname,
+            KryptonTextBox txtFulAddress,
+            KryptonTextBox txtBirthday,
+            KryptonTextBox txtGender,
+            KryptonTextBox txtAge,
+            KryptonPictureBox picproofOfResidency
+            ) {
+
+
+
+            try {
+                string userId = utils.ReadUserIdInFile();
+
+                List<object> userInfo = await _AdminServices.GetAllUserInformations(userId);
+
+                if (userInfo != null) {
+                    User user = (User)userInfo[0];
+                    PersonalInformation pInfo = (PersonalInformation)userInfo[1];
+                    AdditionalInfo addInfo = (AdditionalInfo)userInfo[2];
+                    Address address = (Address)userInfo[3];
+
+
+                    string fullname = utils.FormatFullname(pInfo.Firstname, pInfo.Middlename,
+                        pInfo.Lastname, pInfo.Suffix);
+
+                    string bday = utils.FormatDate(addInfo.BirthDate);
+                    int age = addInfo.Age;
+
+                    byte[]? profileImg = addInfo.ProfileImage;
+                    byte[]? proof = addInfo.ProofOfResidency;
+                    string blk = address.BlockNumber;
+                    string lotno = address.LotNo;
+                    string subdivision = address.SubdivisionName;
+
+                    String fulladdress = $"{address.HouseNumber}, {address.Street}," +
+                        $" {(string.IsNullOrEmpty(blk) ? "" : blk + ", ")} " +
+                        $"{(string.IsNullOrEmpty(lotno) ? "" : lotno + ", ")}" +
+                        $"{(string.IsNullOrEmpty(subdivision) ? "" : subdivision)}";
+
+
+                    if (profileImg != null) {
+                        using MemoryStream memoryStream = new MemoryStream(profileImg);
+                        picprofilePic.Image = new Bitmap(memoryStream);
+                    }
+
+                    if (proof != null) {
+                        using MemoryStream memoryStream = new MemoryStream(proof);
+                        picproofOfResidency.Image = new Bitmap(memoryStream);
+
+                    }
+
+                    txtFullname.Text = fullname;
+                    txtFulAddress.Text = fulladdress;
+                    txtBirthday.Text = bday;
+                    txtAge.Text = age.ToString();
+                    txtGender.Text = pInfo.Gender;
+
+                }
+
+            }
+            catch (Exception) {
+                throw;
+            }
+
+
+
         }
+
     }
 }

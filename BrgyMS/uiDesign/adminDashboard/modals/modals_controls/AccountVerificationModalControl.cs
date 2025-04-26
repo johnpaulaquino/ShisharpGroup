@@ -36,5 +36,17 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
 
             }
         }
+
+        private async void AccountVerificationModalControl_Load(object sender, EventArgs e) {
+            await uiadmin.SetuserInformationToVerificationControl(
+                picAvProfilePicture, 
+                txtAvFname,
+                txtxAvaddress,
+                txtAvBday,
+                txtAvGender,
+                txtAvAge,
+                picAvProofOfResidency
+                );
+        }
     }
 }

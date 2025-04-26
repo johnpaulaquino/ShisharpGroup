@@ -58,7 +58,7 @@ namespace BrgyMs.backend.services {
             var dataAdapter = await _AdminRepository.GetInActiveResidentUser();
             return dataAdapter;
         }
-        public async Task<List<User>> GetUserAllInformation(string UserId) {
+        public async Task<List<User>> GetUserBasicInfo(string UserId) {
             try {
                 using var reader = await _AdminRepository.GetUserAllInformation(UserId);
                 List<User> user = new List<User>();
@@ -113,7 +113,8 @@ namespace BrgyMs.backend.services {
                     await _AdminRepository.ActivateUserAccount(userId);
                     //Will notify the user via email. will implement soon
 
-                }else {
+                }
+                else {
                     //otherwise Delete the user account
                     await _AdminRepository.DeleteUserPermanently(userId);
                     //Will notify the user via email. will implement soon
