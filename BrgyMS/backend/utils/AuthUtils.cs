@@ -128,7 +128,7 @@ namespace BrgyMs.backend.utils {
 
 
             //then read
-            using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read)) {
+            using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                 using (var reader = new StreamReader(fs)) {
                     token = reader.ReadToEnd();
                 }

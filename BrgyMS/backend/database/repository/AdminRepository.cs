@@ -76,10 +76,10 @@ namespace BrgyMs.backend.database.repositories {
         // to set data in table in admin dashboard
         public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
 
-            string stmt = @"Select u.id as 'ID', u.email as 'Email', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', u.username as 'Username', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
             + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
             ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
-            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
+            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No' "
             + "From users u "
             + "Left Join personal_info p "
             + "On u.id = p.user_id "
@@ -106,10 +106,10 @@ namespace BrgyMs.backend.database.repositories {
 
         //Use for searching
         public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
-            string stmt = @"Select u.id as 'ID', u.email as 'Email', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', u.username as 'Username', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
             + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
             ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
-            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No', ai.resident_type as 'Resident Type' "
+            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No' "
             + "From users u "
             + "Left Join personal_info p "
             + "On u.id = p.user_id "

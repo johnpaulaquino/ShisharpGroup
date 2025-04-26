@@ -122,6 +122,37 @@ namespace BrgyMs.backend.database.repositories {
 
             }
         }
+
+        //Get all the information of the specific user 
+        public async Task<DbDataReader> GetUserAllInformation(String UserId) {
+            string stmt = "SELECT u.id, u.email, u.username, u.password, u.role, u.status, " +
+                "p.firstname, p.middlename, p.lastname, p.suffix, p.gender," +
+                "ai.is_voter, ai.civil_status, ai.educational_attaintment, ai.employment_status, " +
+                "ai.resident_type, ai.religion, ai.birth_day, ai.age, ai.contact_number, " +
+                "ai.profile_image, ai.proof_of_residency, " +
+                "a.house_number, a.street, a.subdivision, a.block_number, a.lot_number " +
+                "FROM users u " +
+                "LEFT JOIN personal_info p " +
+                "ON u.id = p.user_id " +
+                "LEFT JOIN additional_info ai " +
+                "ON u.id = ai.user_id " +
+                "LEFT JOIN address a " +
+                "ON u.id = a.user_id " +
+                "Where u.id = @userid ";
+            try {
+                var connection = await conn.getConnection();
+                var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@userid", UserId);
+                var reader = await cmd.ExecuteReaderAsync();
+
+                return reader;
+
+            }
+            catch (Exception) {
+                throw;
+            } // end of this function
+
+        }
         public async Task<string> GenerateLogsId() {
             string id = "";
             string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as nextId from action_logs";
@@ -136,6 +167,31 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
-       
+        //Update account info, only admin can do this
+        public async Task UpdateAccountInfo(User user, string userId) {
+            string stmt = "UPDATE users set email = @email, username = @username, " +
+                "password = @password, role = @role, status = @status " +
+                "WHERE id = @id";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@email", user.Email);
+                cmd.Parameters.AddWithValue("@username", user.Username);
+                cmd.Parameters.AddWithValue("@password", user.Password);
+                cmd.Parameters.AddWithValue("@role", user.Role);
+                cmd.Parameters.AddWithValue("@status", user.Status);
+                cmd.Parameters.AddWithValue("@id", userId);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        }
+
+
     }
 }

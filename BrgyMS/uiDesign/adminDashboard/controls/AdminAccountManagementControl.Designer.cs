@@ -31,30 +31,30 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
             ctxmenuAccManagement = new ContextMenuStrip(components);
             actionsToolStripMenuItem = new ToolStripMenuItem();
             tsmShowInformation = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
-            dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
+            txtSearch = new Krypton.Toolkit.KryptonTextBox();
+            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
+            colusername = new DataGridViewTextBoxColumn();
             colrole = new DataGridViewTextBoxColumn();
             colfullname = new DataGridViewTextBoxColumn();
             colgender = new DataGridViewTextBoxColumn();
             colbday = new DataGridViewTextBoxColumn();
             colage = new DataGridViewTextBoxColumn();
             colcontact = new DataGridViewTextBoxColumn();
-            colrtype = new DataGridViewTextBoxColumn();
-            txtSearch = new Krypton.Toolkit.KryptonTextBox();
-            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            ctxmenuAccManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
+            ctxmenuAccManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -105,7 +105,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonPanel1
             // 
             kryptonPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            kryptonPanel1.ContextMenuStrip = ctxmenuAccManagement;
             kryptonPanel1.Controls.Add(dataGridAdminDashboard);
             kryptonPanel1.Controls.Add(txtSearch);
             kryptonPanel1.Controls.Add(nudLimit);
@@ -116,39 +115,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.Size = new Size(1125, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
-            kryptonPanel1.MouseDown += kryptonPanel1_MouseDown;
-            // 
-            // ctxmenuAccManagement
-            // 
-            ctxmenuAccManagement.Font = new Font("Segoe UI", 9F);
-            ctxmenuAccManagement.Items.AddRange(new ToolStripItem[] { actionsToolStripMenuItem });
-            ctxmenuAccManagement.Name = "contextMenuStrip1";
-            ctxmenuAccManagement.Size = new Size(115, 26);
-            // 
-            // actionsToolStripMenuItem
-            // 
-            actionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmShowInformation, toolStripMenuItem2, toolStripMenuItem3 });
-            actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            actionsToolStripMenuItem.Size = new Size(114, 22);
-            actionsToolStripMenuItem.Text = "Actions";
-            // 
-            // tsmShowInformation
-            // 
-            tsmShowInformation.Name = "tsmShowInformation";
-            tsmShowInformation.Size = new Size(204, 22);
-            tsmShowInformation.Text = "Show User Information";
-            // 
-            // toolStripMenuItem2
-            // 
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(204, 22);
-            toolStripMenuItem2.Text = "Update User Information";
-            // 
-            // toolStripMenuItem3
-            // 
-            toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(204, 22);
-            toolStripMenuItem3.Text = "Delete User Information";
             // 
             // dataGridAdminDashboard
             // 
@@ -166,7 +132,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridAdminDashboard.BorderStyle = BorderStyle.None;
             dataGridAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colrole, colfullname, colgender, colbday, colage, colcontact, colrtype });
+            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colusername, colrole, colfullname, colgender, colbday, colage, colcontact });
+            dataGridAdminDashboard.ContextMenuStrip = ctxmenuAccManagement;
             dataGridAdminDashboard.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridAdminDashboard.Location = new Point(26, 98);
             dataGridAdminDashboard.MultiSelect = false;
@@ -195,60 +162,40 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.TabIndex = 18;
             dataGridAdminDashboard.ToolTipShadow = false;
             dataGridAdminDashboard.VirtualMode = true;
+            dataGridAdminDashboard.MouseDown += dataGridAdminDashboard_MouseDown;
             // 
-            // id
+            // ctxmenuAccManagement
             // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
+            ctxmenuAccManagement.Font = new Font("Segoe UI", 9F);
+            ctxmenuAccManagement.Items.AddRange(new ToolStripItem[] { actionsToolStripMenuItem });
+            ctxmenuAccManagement.Name = "contextMenuStrip1";
+            ctxmenuAccManagement.Size = new Size(115, 26);
             // 
-            // colemail
+            // actionsToolStripMenuItem
             // 
-            colemail.HeaderText = "Email";
-            colemail.Name = "colemail";
-            colemail.ReadOnly = true;
+            actionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tsmShowInformation, toolStripMenuItem2, toolStripMenuItem3 });
+            actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+            actionsToolStripMenuItem.Size = new Size(114, 22);
+            actionsToolStripMenuItem.Text = "Actions";
             // 
-            // colrole
+            // tsmShowInformation
             // 
-            colrole.HeaderText = "Role";
-            colrole.Name = "colrole";
-            colrole.ReadOnly = true;
+            tsmShowInformation.Name = "tsmShowInformation";
+            tsmShowInformation.Size = new Size(204, 22);
+            tsmShowInformation.Text = "Show User Information";
+            tsmShowInformation.Click += tsmShowInformation_Click;
             // 
-            // colfullname
+            // toolStripMenuItem2
             // 
-            colfullname.HeaderText = "Fullname";
-            colfullname.Name = "colfullname";
-            colfullname.ReadOnly = true;
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(204, 22);
+            toolStripMenuItem2.Text = "Update User Information";
             // 
-            // colgender
+            // toolStripMenuItem3
             // 
-            colgender.HeaderText = "Gender";
-            colgender.Name = "colgender";
-            colgender.ReadOnly = true;
-            // 
-            // colbday
-            // 
-            colbday.HeaderText = "Birthday";
-            colbday.Name = "colbday";
-            colbday.ReadOnly = true;
-            // 
-            // colage
-            // 
-            colage.HeaderText = "Age";
-            colage.Name = "colage";
-            colage.ReadOnly = true;
-            // 
-            // colcontact
-            // 
-            colcontact.HeaderText = "Contact No.";
-            colcontact.Name = "colcontact";
-            colcontact.ReadOnly = true;
-            // 
-            // colrtype
-            // 
-            colrtype.HeaderText = "Resident Type";
-            colrtype.Name = "colrtype";
-            colrtype.ReadOnly = true;
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(204, 22);
+            toolStripMenuItem3.Text = "Delete User Information";
             // 
             // txtSearch
             // 
@@ -295,6 +242,60 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Account Management";
             // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // colemail
+            // 
+            colemail.HeaderText = "Email";
+            colemail.Name = "colemail";
+            colemail.ReadOnly = true;
+            // 
+            // colusername
+            // 
+            colusername.HeaderText = "Username";
+            colusername.Name = "colusername";
+            colusername.ReadOnly = true;
+            // 
+            // colrole
+            // 
+            colrole.HeaderText = "Role";
+            colrole.Name = "colrole";
+            colrole.ReadOnly = true;
+            // 
+            // colfullname
+            // 
+            colfullname.HeaderText = "Fullname";
+            colfullname.Name = "colfullname";
+            colfullname.ReadOnly = true;
+            // 
+            // colgender
+            // 
+            colgender.HeaderText = "Gender";
+            colgender.Name = "colgender";
+            colgender.ReadOnly = true;
+            // 
+            // colbday
+            // 
+            colbday.HeaderText = "Birthday";
+            colbday.Name = "colbday";
+            colbday.ReadOnly = true;
+            // 
+            // colage
+            // 
+            colage.HeaderText = "Age";
+            colage.Name = "colage";
+            colage.ReadOnly = true;
+            // 
+            // colcontact
+            // 
+            colcontact.HeaderText = "Contact No.";
+            colcontact.Name = "colcontact";
+            colcontact.ReadOnly = true;
+            // 
             // AdminAccountManagementControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -307,8 +308,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
-            ctxmenuAccManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).EndInit();
+            ctxmenuAccManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
@@ -328,20 +329,20 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn colemail;
-        private DataGridViewTextBoxColumn colrole;
-        private DataGridViewTextBoxColumn colfullname;
-        private DataGridViewTextBoxColumn colgender;
-        private DataGridViewTextBoxColumn colbday;
-        private DataGridViewTextBoxColumn colage;
-        private DataGridViewTextBoxColumn colcontact;
-        private DataGridViewTextBoxColumn colrtype;
         private Krypton.Toolkit.KryptonTextBox txtSearch;
         private ContextMenuStrip ctxmenuAccManagement;
         private ToolStripMenuItem actionsToolStripMenuItem;
         private ToolStripMenuItem tsmShowInformation;
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem toolStripMenuItem3;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn colemail;
+        private DataGridViewTextBoxColumn colusername;
+        private DataGridViewTextBoxColumn colrole;
+        private DataGridViewTextBoxColumn colfullname;
+        private DataGridViewTextBoxColumn colgender;
+        private DataGridViewTextBoxColumn colbday;
+        private DataGridViewTextBoxColumn colage;
+        private DataGridViewTextBoxColumn colcontact;
     }
 }

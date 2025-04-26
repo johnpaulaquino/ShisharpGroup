@@ -23,6 +23,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
@@ -31,19 +32,22 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
-            txtSearch = new Krypton.Toolkit.KryptonTextBox();
-            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
             colfullname = new DataGridViewTextBoxColumn();
             colgender = new DataGridViewTextBoxColumn();
             colcaddress = new DataGridViewTextBoxColumn();
+            ctxAccountVerification = new ContextMenuStrip(components);
+            atsVerfiyAccount = new ToolStripMenuItem();
+            txtSearch = new Krypton.Toolkit.KryptonTextBox();
+            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
+            ctxAccountVerification.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -122,6 +126,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.BorderStyle = BorderStyle.None;
             dataGridAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colfullname, colgender, colcaddress });
+            dataGridAdminDashboard.ContextMenuStrip = ctxAccountVerification;
             dataGridAdminDashboard.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridAdminDashboard.Location = new Point(26, 98);
             dataGridAdminDashboard.MultiSelect = false;
@@ -150,6 +155,54 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.TabIndex = 18;
             dataGridAdminDashboard.ToolTipShadow = false;
             dataGridAdminDashboard.VirtualMode = true;
+            dataGridAdminDashboard.MouseDown += dataGridAdminDashboard_MouseDown;
+            // 
+            // id
+            // 
+            id.FillWeight = 50F;
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // colemail
+            // 
+            colemail.HeaderText = "Email";
+            colemail.Name = "colemail";
+            colemail.ReadOnly = true;
+            // 
+            // colfullname
+            // 
+            colfullname.HeaderText = "Fullname";
+            colfullname.Name = "colfullname";
+            colfullname.ReadOnly = true;
+            // 
+            // colgender
+            // 
+            colgender.HeaderText = "Gender";
+            colgender.Name = "colgender";
+            colgender.ReadOnly = true;
+            // 
+            // colcaddress
+            // 
+            colcaddress.FillWeight = 200F;
+            colcaddress.HeaderText = "Address";
+            colcaddress.Name = "colcaddress";
+            colcaddress.ReadOnly = true;
+            // 
+            // ctxAccountVerification
+            // 
+            ctxAccountVerification.Font = new Font("Segoe UI", 9F);
+            ctxAccountVerification.Items.AddRange(new ToolStripItem[] { atsVerfiyAccount });
+            ctxAccountVerification.Name = "ctxAccountVerification";
+            ctxAccountVerification.Size = new Size(202, 34);
+            // 
+            // atsVerfiyAccount
+            // 
+            atsVerfiyAccount.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            atsVerfiyAccount.Name = "atsVerfiyAccount";
+            atsVerfiyAccount.Size = new Size(201, 30);
+            atsVerfiyAccount.Text = "Verify Account";
+            atsVerfiyAccount.Click += atsVerfiyAccount_Click;
             // 
             // txtSearch
             // 
@@ -196,38 +249,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Account Management";
             // 
-            // id
-            // 
-            id.FillWeight = 50F;
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            // 
-            // colemail
-            // 
-            colemail.HeaderText = "Email";
-            colemail.Name = "colemail";
-            colemail.ReadOnly = true;
-            // 
-            // colfullname
-            // 
-            colfullname.HeaderText = "Fullname";
-            colfullname.Name = "colfullname";
-            colfullname.ReadOnly = true;
-            // 
-            // colgender
-            // 
-            colgender.HeaderText = "Gender";
-            colgender.Name = "colgender";
-            colgender.ReadOnly = true;
-            // 
-            // colcaddress
-            // 
-            colcaddress.FillWeight = 200F;
-            colcaddress.HeaderText = "Address";
-            colcaddress.Name = "colcaddress";
-            colcaddress.ReadOnly = true;
-            // 
             // AdminAccountVerification
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -241,6 +262,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).EndInit();
+            ctxAccountVerification.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
@@ -266,5 +288,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private DataGridViewTextBoxColumn colfullname;
         private DataGridViewTextBoxColumn colgender;
         private DataGridViewTextBoxColumn colcaddress;
+        private ContextMenuStrip ctxAccountVerification;
+        private ToolStripMenuItem atsVerfiyAccount;
     }
 }

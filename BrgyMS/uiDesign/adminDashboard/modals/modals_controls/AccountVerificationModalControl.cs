@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.adminDashboard.controls {
-    public partial class UserInformationModal : Form {
-        public UserInformationModal() {
+namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
+    public partial class AccountVerificationModalControl : UserControl {
+        public AccountVerificationModalControl() {
             InitializeComponent();
         }
     }

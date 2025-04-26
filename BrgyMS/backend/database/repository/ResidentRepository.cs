@@ -11,6 +11,7 @@ using BrgyMs.backend.models.residents_model;
 
 using BrgyMs.backend.utils;
 using System.Data;
+using System.Data.Common;
 
 
 namespace BrgyMs.backend.database.repositories {
@@ -137,24 +138,8 @@ namespace BrgyMs.backend.database.repositories {
                 return id;
             }
         }
-        // public async Task<DbDataReader> GetResidentNotVerified(int Status) {
-        //     string stmt = "Select p.display_id, p.firstname, p.middlename, p.lastname "
-        //     + "From users u "
-        //     + "Left JOIN personal_info p "
-        //     + "on u.id = p.user_id "
-        //     + "where status = ? ";
-        //     try {
-        //         var cmd = new MySqlCommand(stmt, conn);
-        //         cmd.Parameters.AddWithValue("status", Status);
-        //         var reader = await cmd.ExecuteReaderAsync();
-        //         return reader;
-        //     }
-        //     catch (System.Exception) {
 
-        //         throw;
-        //     }
-        // }
-
+     
 
         public async Task<Dictionary<string, string>> GetElectionHistories() {
             string stmt = "SELECT * FROM officials";

@@ -50,10 +50,11 @@ namespace BrgyMs.uiDesign {
                     isCLicked = true;
                 }
             }
-          
+
         }
 
         private void cbShowPass_CheckedChanged(object sender, EventArgs e) {
+
             if (cbShowPass.Checked) {
                 txtPassword.PasswordChar = (char)0;
                 cbShowPass.Text = "Hide Password";
@@ -66,9 +67,12 @@ namespace BrgyMs.uiDesign {
 
         private void btnSignup_Click(object sender, EventArgs e) {
             SignUpForm signupForm = new SignUpForm();
-            Hide();
-            signupForm.Show();
-            signupForm.StartPosition = FormStartPosition.CenterScreen;
+            if (isCLicked) {
+                isCLicked = false;
+                Hide();
+                signupForm.Show();
+                signupForm.StartPosition = FormStartPosition.CenterScreen;
+            }
         }
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e) {
