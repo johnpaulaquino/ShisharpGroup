@@ -27,7 +27,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals {
             if (option == DialogResult.Yes) {
                 utils.DeleteUserIdAfterCloseTheModal();
                 return;
-
             }
             e.Cancel = true;
 

@@ -5,15 +5,18 @@ using System.Threading.Tasks;
 using BrgyMs.backend.utils;
 using BrgyMs.backend.database.repositories;
 using BrgyMS.backend.models;
+using BrgyMS.backend.services;
 
 
 namespace BrgyMs.backend.services {
 
-    public class AuthServices {
+    public class AuthServices : BaseServices {
         private readonly AuthUtils _AuthUtils = new AuthUtils();
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
+        
         private string Status = "users";
         public AuthServices() {
+
         }
         public async Task<bool> AuthenticateUser(string Email, string Password) {
 
@@ -52,7 +55,7 @@ namespace BrgyMs.backend.services {
                 var logs = new Logs(id, data["userId"], "Login") { DatePerformed = DateTime.Now};
 
                 //log actions
-                await _ResidentRepo.LogUserActions(logs);
+                await LogUserActions(logs);
 
                 return true;
             }

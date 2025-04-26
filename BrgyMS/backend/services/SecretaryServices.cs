@@ -7,11 +7,11 @@ using BrgyMs.backend.data_validation;
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.bo_model;
-
+using BrgyMS.backend.services;
 using MySql.Data.MySqlClient;
 
 namespace BrgyMs.backend.services {
-    public class SecretaryServices {
+    public class SecretaryServices : BaseServices {
         ResidentRepository _ResidentRepo = new ResidentRepository();
         UserInfoValidation _Validation = new UserInfoValidation();
 
@@ -47,6 +47,6 @@ namespace BrgyMs.backend.services {
             }
         }//End of function
 
-       
+
     }
 }

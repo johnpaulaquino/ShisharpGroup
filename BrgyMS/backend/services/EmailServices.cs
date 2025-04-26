@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using BrgyMS.backend.services;
 using MailKit.Net.Smtp;
 using MimeKit;
 
 namespace BrgyMs.backend.utils {
-    public class EmailServices {
+    public class EmailServices : BaseServices {
         private readonly Settings settings;
         public EmailServices() {
             settings = new Settings(); // this is the settings who holds the 
-            //environment variables
+            //environment variables or the .env
 
         }
 

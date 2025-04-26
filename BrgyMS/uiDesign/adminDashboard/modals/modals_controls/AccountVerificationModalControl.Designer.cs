@@ -39,11 +39,13 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             picAvProfilePicture = new Krypton.Toolkit.KryptonPictureBox();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            btnAvDecline = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).BeginInit();
             pnlMainContentHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).BeginInit();
+            kryptonPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAvProofOfResidency).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picAvProfilePicture).BeginInit();
             SuspendLayout();
@@ -61,7 +63,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // pnlMainContentHolder
             // 
             pnlMainContentHolder.AutoScroll = true;
-            pnlMainContentHolder.Controls.Add(btnAvVerify);
             pnlMainContentHolder.Controls.Add(kryptonPanel3);
             pnlMainContentHolder.Controls.Add(kryptonLabel6);
             pnlMainContentHolder.Controls.Add(txtAvAge);
@@ -83,7 +84,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // btnAvVerify
             // 
-            btnAvVerify.Location = new Point(132, 722);
+            btnAvVerify.Location = new Point(250, 14);
             btnAvVerify.Margin = new Padding(4, 3, 4, 3);
             btnAvVerify.Name = "btnAvVerify";
             btnAvVerify.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -140,9 +141,12 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             btnAvVerify.TabIndex = 39;
             btnAvVerify.Values.DropDownArrowColor = Color.Empty;
             btnAvVerify.Values.Text = "Verify Account";
+            btnAvVerify.Click += btnAvVerify_Click;
             // 
             // kryptonPanel3
             // 
+            kryptonPanel3.Controls.Add(btnAvDecline);
+            kryptonPanel3.Controls.Add(btnAvVerify);
             kryptonPanel3.Location = new Point(0, 705);
             kryptonPanel3.Name = "kryptonPanel3";
             kryptonPanel3.Size = new Size(449, 82);
@@ -252,6 +256,66 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             kryptonLabel1.TabIndex = 0;
             kryptonLabel1.Values.Text = "Fullname";
             // 
+            // btnAvDecline
+            // 
+            btnAvDecline.Location = new Point(1, 14);
+            btnAvDecline.Margin = new Padding(4, 3, 4, 3);
+            btnAvDecline.Name = "btnAvDecline";
+            btnAvDecline.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.OverrideDefault.Back.ColorAngle = 45F;
+            btnAvDecline.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnAvDecline.OverrideDefault.Border.Rounding = 5F;
+            btnAvDecline.OverrideDefault.Border.Width = 1;
+            btnAvDecline.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnAvDecline.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnAvDecline.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnAvDecline.Size = new Size(187, 51);
+            btnAvDecline.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateCommon.Back.ColorAngle = 45F;
+            btnAvDecline.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnAvDecline.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnAvDecline.StateCommon.Border.ColorAngle = 45F;
+            btnAvDecline.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnAvDecline.StateCommon.Border.Rounding = 5F;
+            btnAvDecline.StateCommon.Border.Width = 1;
+            btnAvDecline.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnAvDecline.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnAvDecline.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAvDecline.StateDisabled.Border.Rounding = 5F;
+            btnAvDecline.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateNormal.Border.Rounding = 5F;
+            btnAvDecline.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnAvDecline.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnAvDecline.StatePressed.Back.Color1 = Color.White;
+            btnAvDecline.StatePressed.Back.Color2 = Color.White;
+            btnAvDecline.StatePressed.Back.ColorAngle = 130F;
+            btnAvDecline.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnAvDecline.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnAvDecline.StatePressed.Border.ColorAngle = 130F;
+            btnAvDecline.StatePressed.Border.Rounding = 5F;
+            btnAvDecline.StatePressed.Border.Width = 1;
+            btnAvDecline.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnAvDecline.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnAvDecline.StateTracking.Back.ColorAngle = 45F;
+            btnAvDecline.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnAvDecline.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateTracking.Border.ColorAngle = 45F;
+            btnAvDecline.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnAvDecline.StateTracking.Border.Rounding = 5F;
+            btnAvDecline.StateTracking.Border.Width = 1;
+            btnAvDecline.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnAvDecline.TabIndex = 40;
+            btnAvDecline.Values.DropDownArrowColor = Color.Empty;
+            btnAvDecline.Values.Text = "Decline Account";
+            // 
             // AccountVerificationModalControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -265,6 +329,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             pnlMainContentHolder.ResumeLayout(false);
             pnlMainContentHolder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).EndInit();
+            kryptonPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picAvProofOfResidency).EndInit();
             ((System.ComponentModel.ISupportInitialize)picAvProfilePicture).EndInit();
             ResumeLayout(false);
@@ -288,5 +353,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         protected internal Krypton.Toolkit.KryptonPictureBox picAvProfilePicture;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonButton btnAvDecline;
     }
 }

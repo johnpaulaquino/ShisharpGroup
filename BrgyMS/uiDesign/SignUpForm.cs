@@ -36,9 +36,10 @@ namespace BrgyMs.uiDesign {
         private string filePathProofOfR = "";
         private string filePathProfilePic = "";
         private ResidentServices _ResidentServices = new ResidentServices();
+        private AuthUtils auth;
         public SignUpForm() {
             InitializeComponent();
-
+            auth = new AuthUtils();
             //This is the method below in this program
             AfterInitComponent();
 
@@ -46,7 +47,10 @@ namespace BrgyMs.uiDesign {
         }
 
         private void Personal_Info_Load(object sender, EventArgs e) {
-
+            string code = auth.GenerateOTP();
+            MessageBox.Show(code);
+            System.Diagnostics.Debug.WriteLine(code);
+           
         }
 
         private void btnSLogin_Click(object sender, EventArgs e) {
@@ -75,7 +79,7 @@ namespace BrgyMs.uiDesign {
                 string password = txtSPassword.Text;
                 string Username = txtSUsername.Text;
                 string confirmPassword = txtSConfirmPass.Text;
-                _Users = new User(email, password, Username);
+                _Users = new User(email, Username, password);
 
                 //Data from 2nd page
                 string firstname = txtSFName.Text;
@@ -146,7 +150,7 @@ namespace BrgyMs.uiDesign {
                 string villagename = txtSSubdivision.Text;
                 string lotNo = txtSLotNo.Text;
                 string blockNo = txtSBlockNo.Text;
-              
+
 
                 _Address = new Address(
                     street,
@@ -182,7 +186,7 @@ namespace BrgyMs.uiDesign {
 
                     case 4:
                         _UserValidation.ValidateAddress(_Address);
-                 
+
                         break;
 
                 }
@@ -214,7 +218,7 @@ namespace BrgyMs.uiDesign {
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
-       
+
         }
         private void btnSPrevious_Click(object sender, EventArgs e) {
             pnlPage--;
@@ -305,7 +309,7 @@ namespace BrgyMs.uiDesign {
         }
 
         private async void btnSCreateAccount_Click_1(object sender, EventArgs e) {
-       
+
             try {
                 await _ResidentServices.CreateResidentInformation(_Users, _PersonalInfo, _AddlInfo, _Address);
                 MessageBox.Show("Successfully created account. Please be patient for your account verification!");
@@ -328,7 +332,16 @@ namespace BrgyMs.uiDesign {
         }
 
         private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e) {
-            
+
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e) {
+           
+            if (auth.VerifyTOTP(txtSOtpCode.Text)) {
+                MessageBox.Show("Correct");
+            }else {
+                MessageBox.Show("Wrong");
+            }
         }
     }
 

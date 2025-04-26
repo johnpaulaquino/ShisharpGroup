@@ -6,12 +6,13 @@ using BrgyMs.backend.data_validation;
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_model;
+using BrgyMS.backend.services;
 
 
 
 namespace BrgyMs.backend.services {
 
-    public class ResidentServices {
+    public class ResidentServices : BaseServices {
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         private readonly UserInfoValidation _Validation = new UserInfoValidation();
 

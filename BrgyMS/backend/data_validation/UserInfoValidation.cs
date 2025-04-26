@@ -36,8 +36,6 @@ namespace BrgyMs.backend.data_validation {
                     }
                 }
 
-
-
                 if (string.IsNullOrEmpty(_User.Username)) {
                     throw new Exception("Username should not be empty!");
                 }
@@ -71,6 +69,10 @@ namespace BrgyMs.backend.data_validation {
                 throw new Exception("Invalid Email address!");
             }
 
+            if (string.IsNullOrEmpty(_User.Username)) {
+                throw new Exception("Username should not be empty!");
+            }
+
             if (_User.Password.Length < 0) {
                 throw new Exception("Password should not be empty!");
             }
@@ -98,23 +100,22 @@ namespace BrgyMs.backend.data_validation {
             if (string.Equals(_Personalinfo.Gender, "--Select--")) {
                 throw new Exception("Please specify your gender!");
             }
-
-
         }
 
         public void ValidateAddInfo(AdditionalInfo _AdditionalInfo) {
             bool IsPhoneValid = Regex.IsMatch(_AdditionalInfo.ContactNo, PhonePattern);
+
             if (string.Equals(_AdditionalInfo.CivilStatus, "--Select--")) {
                 throw new Exception("Please specify your Civil status!");
             }
             if (string.Equals(_AdditionalInfo.EducAttain, "--Select--")) {
                 throw new Exception("Please specify your Educational Attaintment!");
             }
+            if (string.Equals(_AdditionalInfo.ResidentType, "--Select--")) {
+                throw new Exception("Please specify your Resident type!");
+            }
             if (string.IsNullOrEmpty(_AdditionalInfo.Religion)) {
                 throw new Exception("Religion should not be empty!");
-            }
-            if (string.Equals(_AdditionalInfo.ResidentType, "--Select--")) {
-                throw new Exception("PLease specify your Resident type!");
             }
             if (string.IsNullOrEmpty(_AdditionalInfo.ContactNo)) {
                 throw new Exception("Contact No. should not be empty!");
@@ -122,9 +123,8 @@ namespace BrgyMs.backend.data_validation {
             if (!IsPhoneValid) {
                 throw new Exception("Invalid Phone number!");
             }
-
             if (_AdditionalInfo.ProofOfResidency == null) {
-                throw new Exception("Proof of Residency should not be empty!");
+                throw new Exception("Please upload your proof of residency!");
             }
 
         }

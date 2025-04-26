@@ -4,10 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BrgyMs.backend.database.repositories;
+using BrgyMs.backend.services;
 using BrgyMs.database.connector;
+using BrgyMS.backend.services;
 using MySql.Data.MySqlClient;
 
 namespace BrgyMs.backend.utils {
+
     public class Utils {
         private string fileDirectory = "";
         private string filename = "/tempId.tmp";
@@ -32,6 +36,7 @@ namespace BrgyMs.backend.utils {
 
         }// End of calculateAge funtion
 
+        //to format the name in a fullname
         public string FormatFullname(string fName,
             string mName, string lName, string suffix) {
 
@@ -52,6 +57,7 @@ namespace BrgyMs.backend.utils {
             return fullname;
         }
 
+        //to format roles as Capital First
         public String FormatRoles(string role) {
             string formattedRole = "";
             if (string.IsNullOrEmpty(formattedRole)) {
@@ -66,15 +72,15 @@ namespace BrgyMs.backend.utils {
             if (string.IsNullOrEmpty(date.ToString())) {
                 return formattedDate;
             }
-            formattedDate = date.ToString("MMMM, dd, yyyy");
+            formattedDate = date.ToString("MMMM, dd, yyyy"); // format the date
 
             return formattedDate;
         }
 
-
+        //to write the id on the file
         public void PutIdOnFile(String UserId) {
             //get the curr directory and add info directory
-            fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../tempid");
+            fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../../tempid");
 
 
             //check if not exist, then create
@@ -83,9 +89,9 @@ namespace BrgyMs.backend.utils {
 
             }
             //// check if not exist, then create
-            String filepath = fileDirectory +  filename;
-            FileStream fileWriter = File.Create(filepath);
-            fileWriter.Close();
+            String filepath = fileDirectory +  filename; // location of the file the file
+            FileStream fileWriter = File.Create(filepath); // generate the file
+            fileWriter.Close(); //close the current file
 
             using (FileStream fs = new FileStream(filepath, FileMode.Create, FileAccess.Write, FileShare.Write)) {
                 using (StreamWriter writer = new StreamWriter(fs)) {
@@ -94,17 +100,14 @@ namespace BrgyMs.backend.utils {
                 }
             }
 
-        }
+        }//end of function
 
-        //Read temporary file to get the user ids
+        //Read temporary file to get the user id
         public string ReadUserIdInFile() {
             string UserId = "";
-            fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../tempid");
-            string fileLocation = fileDirectory +  filename;
-
-
+            fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempid"); // location of the folder
+            string fileLocation = fileDirectory +  filename; // the location of the file to read
             //then read
-
             if (File.Exists(fileLocation)) {
                 using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.None)) {
                     using (var reader = new StreamReader(fs)) {
@@ -120,13 +123,14 @@ namespace BrgyMs.backend.utils {
 
         //Delete temporary file
         public void DeleteUserIdAfterCloseTheModal() {
-            fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../tempid");
+            fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempid");
             string fileLocation = fileDirectory + filename;
             if (File.Exists(fileLocation)) {
                 using var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Delete);
                 File.Delete(fileLocation);
 
             }
-        }
+        } // End of function
+
     }
 }

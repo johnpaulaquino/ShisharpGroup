@@ -27,6 +27,7 @@
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.8.0" />
     <PackageReference Include="Mysql.Data" Version="9.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Otp.NET" Version="1.4.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.8.0" />
   </ItemGroup>
 

@@ -3,6 +3,7 @@ using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMS.backend.database.connection.models;
+using BrgyMS.backend.models;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.adminDashboard.modals.modals_controls;
 using Google.Protobuf.Compiler;
@@ -20,6 +21,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
     class UIAdminUtils {
@@ -27,6 +29,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         private AdminServices _AdminServices = new AdminServices();
         private readonly AdminRepository _admin = new AdminRepository();
         private readonly Utils utils = new Utils();
+
         public UIAdminUtils() {
 
 
@@ -52,14 +55,10 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             KryptonLabel lblusername) {
             string token = _AuthUtils.ReadTokenInFile();
             var principal = _AuthUtils.ValidateToken(token);
-            if (principal != null) {
-                string? username = principal.FindFirst("username")?.Value;
-                string? userId = principal.FindFirst("userId")?.Value;
-                string? role = principal.FindFirst(ClaimTypes.Role)?.Value;
-                string? roleInit = role?.ToUpper();
-                lblRole.Text = roleInit?[0] + role?.Substring(1);
-                lblusername.Text = "Hi, " + username;
-            }
+            User user = _AuthUtils.ValidateToken(token);
+            string role = utils.FormatRoles(user.Role);
+            lblRole.Text = role;
+            lblusername.Text = "Hi, " + user.Username;
         }
         public async Task SetUserAndSecInfo(DataGridView table, int limit) {
 
@@ -218,15 +217,15 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
                 System.Diagnostics.Debug.WriteLine(ex.StackTrace);
-            } 
+            }
 
         }// end of function
 
 
-        //User Information Modal Control. It will use in the button which save cahnges
+        //User Information Modal Control. It will use in the button which save changes
         public async Task UpdateAccountInfo(KryptonTextBox txtMUsername,
             KryptonTextBox txtEmail,
-            KryptonTextBox txtPassword, 
+            KryptonTextBox txtPassword,
             KryptonCheckBox cbMStatus,
             KryptonCheckBox cbUSecretary,
             string userId,
@@ -264,11 +263,22 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
             // create the user
             var userModel = new User(
-                email, password, username)
-            { Role = role, Status = isActivated };
+                email, username)
+            { Password = password, Role = role, Status = isActivated };
 
             try {
-                await _AdminServices.UpdateAccountInfo(userModel, userId);
+                await _AdminServices.UpdateAccountInfo(userModel, userId); // Update info
+
+                string Logsid = await _AdminServices.GenerateLogsId(); // id for logs
+                
+                string token = _AuthUtils.ReadTokenInFile(); // token, which credentials of the user who logged in
+                
+                var user = _AuthUtils.ValidateToken(token); // Decrypt generated token and get the data.
+                
+                await _admin.LogUserActions(new Logs( // log user Action
+                    Logsid, user.UserId, "Update")
+                {DatePerformed = DateTime.Now, Details = $"Update account info with the user id of {userId}." });
+
                 MessageBox.Show("Successfully updated account info!");
             }
             catch (Exception ex) {
@@ -278,5 +288,16 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         } // End of the function
 
 
+        //To activate the account 
+        public async Task ActivateUserAccount(string userId, bool isValidated) {
+            try {
+
+                await _AdminServices.ActivateUserAccount(userId, isValidated);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }

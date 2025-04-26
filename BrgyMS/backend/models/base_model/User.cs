@@ -13,13 +13,15 @@ namespace BrgyMs.backend.models.base_model {
         public string Username { get; set; }
         public string Role { get; set; }
         public bool Status { get; set; }
+        public string UserId { get; set; }
 
-        public User(string email, string password,string Username, string role = "users", bool Status = false) {
+        public User(string email, string Username, string password ="", string role = "users", bool Status = false, string UserId = "") {
             this.Role = role;
             this.Username = Username;
             this.Email = email;
             this.Password = password;
             this.Status = Status;
+            this.UserId = UserId;
         }
     }
 }

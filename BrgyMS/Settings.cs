@@ -13,6 +13,7 @@ namespace BrgyMs.backend {
         public readonly string DB_PASSWORD;
         public readonly string DB_PORT;
         public readonly string DB_SERVER;
+        public readonly string OPT_SECRET_KEY;
 
         //token
         public readonly string TOKEN_SECRET_KEY;
@@ -35,6 +36,7 @@ namespace BrgyMs.backend {
             DB_PORT = Env.GetString("DB_PORT");
             DB_SERVER = Env.GetString("DB_SERVER");
 
+
             //token 
             TOKEN_SECRET_KEY = Env.GetString("TOKEN_SECRET_KEY");
             ISSUER = Env.GetString("ISSUER");
@@ -46,6 +48,9 @@ namespace BrgyMs.backend {
             EMAIL_SERVER = Env.GetString("EMAIL_SERVER");
             EMAIL_PORT = Env.GetInt("EMAIL_PORT");
             EMAIL_USERNAME = Env.GetString("EMAIL_USERNAME");
+
+            //OTP SecretKey
+            OPT_SECRET_KEY = Env.GetString("OPT_SECRET_KEY");
         }
 
     }

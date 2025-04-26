@@ -13,9 +13,11 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using BrgyMS.backend.services;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BrgyMs.backend.services {
-    public class AdminServices {
+    public class AdminServices : BaseServices {
         private readonly AdminRepository _AdminRepository = new AdminRepository();
         private readonly UserInfoValidation uservalidation = new();
 
@@ -68,10 +70,14 @@ namespace BrgyMs.backend.services {
                     }
 
                     user.Add(new User(reader.GetString("email"),
-                    reader.GetString("password"),
+
                     reader.GetString("username"))
 
-                    { Status = status }
+                    {
+                        Status = status,
+                        Password = reader.GetString("password"),
+                    }
+
                    );
 
                 }
@@ -98,7 +104,27 @@ namespace BrgyMs.backend.services {
             catch (Exception) {
                 throw;
             }
-        }
+        }// end of function
+
+        public async Task ActivateUserAccount(string userId, bool isValidated) {
+            try {
+                //check if the user is approved by admin, if approved then activate user
+                if (isValidated) {
+                    await _AdminRepository.ActivateUserAccount(userId);
+                    //Will notify the user via email. will implement soon
+
+                }else {
+                    //otherwise Delete the user account
+                    await _AdminRepository.DeleteUserPermanently(userId);
+                    //Will notify the user via email. will implement soon
+                }
+
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        }// end of funttion
 
     }
 

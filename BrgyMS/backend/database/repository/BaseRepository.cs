@@ -101,6 +101,7 @@ namespace BrgyMs.backend.database.repositories {
             }
         }// End of Add ResidentAddInformation function
 
+        //log user actions
         public async Task LogUserActions(Logs logs) {
             string stmt = "INSERT INTO action_logs(id, user_id, date_performed, " +
                 "actions_made, details) " +
@@ -150,9 +151,11 @@ namespace BrgyMs.backend.database.repositories {
             }
             catch (Exception) {
                 throw;
-            } // end of this function
-
+            } // end of function
         }
+
+
+        //Generate Id that are base on the id of logs.
         public async Task<string> GenerateLogsId() {
             string id = "";
             string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as nextId from action_logs";
@@ -165,7 +168,7 @@ namespace BrgyMs.backend.database.repositories {
                 }
                 return id;
             }
-        }
+        } //End of funciton
 
         //Update account info, only admin can do this
         public async Task UpdateAccountInfo(User user, string userId) {
@@ -190,7 +193,45 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
 
-        }
+        }//end of function
+
+        //Activate user account by setting the the status to 1 or equal to true
+        public async Task ActivateUserAccount(string userId) {
+            string stmt = "UPDATE users set status = @status WHERE id = @id";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@status", true);
+                cmd.Parameters.AddWithValue("@id", userId);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        }// end of function
+
+
+        //Delete the user permanently
+        public async Task DeleteUserPermanently(string userId) {
+            string stmt = "DELETE users WHERE id = @id";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@id", userId);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        }// end of function
 
 
     }

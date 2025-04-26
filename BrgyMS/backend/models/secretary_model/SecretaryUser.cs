@@ -10,7 +10,8 @@ namespace BrgyMs.backend.models.secretary_model
     public class SecretaryUser : User
     {
         public string Id = Guid.NewGuid().ToString();
-        public SecretaryUser(string Email, string Password, string Username, string Role = "secretary", bool Status = true) : base(Email, Password,Username, Role, Status)
+        public SecretaryUser(string Email,  string Username, string Password, string Role = "secretary", bool Status = true) :
+            base(Email,Username, Password, Role, Status)
         {
 
         }
