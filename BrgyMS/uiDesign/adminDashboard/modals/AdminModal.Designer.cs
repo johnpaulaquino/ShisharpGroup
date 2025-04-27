@@ -45,8 +45,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals {
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AdminModal";
-            SizeGripStyle = SizeGripStyle.Hide;
-            FormClosing += AdminModal_FormClosing;
+            StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)pnlModalMainContent).EndInit();
             ResumeLayout(false);
         }

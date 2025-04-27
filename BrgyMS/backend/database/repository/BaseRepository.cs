@@ -154,6 +154,36 @@ namespace BrgyMs.backend.database.repositories {
             } // end of function
         }
 
+        public async Task<DbDataReader> GetInactiveUserInformation(String UserId) {
+            string stmt = "SELECT u.id, u.email, u.username, u.password, u.role, u.status, " +
+                "p.firstname, p.middlename, p.lastname, p.suffix, p.gender," +
+                "ai.is_voter, ai.civil_status, ai.educational_attaintment, ai.employment_status, " +
+                "ai.resident_type, ai.religion, ai.birth_day, ai.age, ai.contact_number, " +
+                "ai.profile_image, ai.proof_of_residency, " +
+                "a.house_number, a.street, a.subdivision, a.block_number, a.lot_number " +
+                "FROM users u " +
+                "LEFT JOIN personal_info p " +
+                "ON u.id = p.user_id " +
+                "LEFT JOIN additional_info ai " +
+                "ON u.id = ai.user_id " +
+                "LEFT JOIN address a " +
+                "ON u.id = a.user_id " +
+                "Where u.id = @userid AND u.status = @status ";
+            try {
+                var connection = await conn.getConnection();
+                var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@userid", UserId);
+                cmd.Parameters.AddWithValue("@status", "0");
+                var reader = await cmd.ExecuteReaderAsync();
+
+                return reader;
+
+            }
+            catch (Exception) {
+                throw;
+            } // end of function
+        }
+
 
         //Generate Id that are base on the id of logs.
         public async Task<string> GenerateLogsId() {
@@ -198,15 +228,21 @@ namespace BrgyMs.backend.database.repositories {
         //Activate user account by setting the the status to 1 or equal to true
         public async Task ActivateUserAccount(string userId) {
             string stmt = "UPDATE users set status = @status WHERE id = @id";
+            string stmt1 = "UPDATE additional_info set proof_of_residency = @proof_of_residency WHERE id = @id1";
 
             try {
                 using var connection = await conn.getConnection();
                 using var cmd = new MySqlCommand(stmt, connection);
+                using var cmd1 = new MySqlCommand(stmt1, connection);
 
                 cmd.Parameters.AddWithValue("@status", true);
                 cmd.Parameters.AddWithValue("@id", userId);
 
+                cmd1.Parameters.AddWithValue("@proof_of_residency", true);
+                cmd1.Parameters.AddWithValue("@id1", userId);
+
                 await cmd.ExecuteNonQueryAsync();
+                await cmd1.ExecuteNonQueryAsync();
             }
             catch (Exception) {
                 throw;
@@ -217,7 +253,7 @@ namespace BrgyMs.backend.database.repositories {
 
         //Delete the user permanently
         public async Task DeleteUserPermanently(string userId) {
-            string stmt = "DELETE users WHERE id = @id";
+            string stmt = "DELETE FROM users WHERE id = @id";
 
             try {
                 using var connection = await conn.getConnection();

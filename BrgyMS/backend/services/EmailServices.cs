@@ -16,7 +16,7 @@ namespace BrgyMs.backend.utils {
 
         }
 
-        public async Task SendEmail(string EmailRecipient,
+        public async Task SendEmailWithAttachment(string EmailRecipient,
         string EmailSubject,
         string EmailMessages, string EmailAttachmentFilePath,
         string EMailFileName) {
@@ -29,13 +29,15 @@ namespace BrgyMs.backend.utils {
 
             _MimeMessage.Subject = EmailSubject;
 
-            var _Body = new TextPart("plain") {
+            var _Body = new TextPart("plain")
+            {
                 Text = EmailMessages
             };
 
 
             // to attach a file in the email
-            var _Attachment = new MimePart("application", "pdf") {
+            var _Attachment = new MimePart("application", "pdf")
+            {
 
                 Content = new MimeContent(File.OpenRead(EmailAttachmentFilePath)),
                 ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
@@ -59,6 +61,36 @@ namespace BrgyMs.backend.utils {
                 await client.SendAsync(_MimeMessage);
                 await client.DisconnectAsync(true);
             }
-        }
+        }//end of function
+
+        public async Task SendPlainEmail(
+                string EmailRecipient,
+                string EmailSubject,
+                string EmailMessages) {
+
+
+            // this is the plain message text
+            var _MimeMessage = new MimeMessage();
+            _MimeMessage.From.Add(new MailboxAddress(settings.EMAIL_USERNAME, settings.EMAIL));
+            _MimeMessage.To.Add(new MailboxAddress(EmailRecipient, EmailRecipient));
+
+            _MimeMessage.Subject = EmailSubject; // subject of the email
+
+            var _Body = new TextPart("plain") // The message 
+            {
+                Text = EmailMessages
+            };
+
+
+            _MimeMessage.Body = _Body; // pass the message into the body
+
+            // setup the email connection
+            using (var client = new SmtpClient()) {
+                await client.ConnectAsync(settings.EMAIL_SERVER, settings.EMAIL_PORT, MailKit.Security.SecureSocketOptions.StartTls);
+                await client.AuthenticateAsync(settings.EMAIL, settings.EMAIL_PASSWORD);
+                await client.SendAsync(_MimeMessage);
+                await client.DisconnectAsync(true);
+            }
+        } //end of function
     }
 }

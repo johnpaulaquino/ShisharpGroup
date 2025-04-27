@@ -26,12 +26,12 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
+            nudAvLimit = new Krypton.Toolkit.KryptonNumericUpDown();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
+            dataGridAmTable = new Krypton.Toolkit.KryptonDataGridView();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
             colfullname = new DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridAmTable).BeginInit();
             ctxAccountVerification.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
@@ -54,18 +54,18 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel2.SuspendLayout();
             SuspendLayout();
             // 
-            // nudLimit
+            // nudAvLimit
             // 
-            nudLimit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            nudLimit.Increment = new decimal(new int[] { 1, 0, 0, 0 });
-            nudLimit.Location = new Point(86, 33);
-            nudLimit.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
-            nudLimit.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
-            nudLimit.Name = "nudLimit";
-            nudLimit.Size = new Size(55, 22);
-            nudLimit.TabIndex = 13;
-            nudLimit.Value = new decimal(new int[] { 10, 0, 0, 0 });
-            nudLimit.ValueChanged += nudLimit_ValueChanged;
+            nudAvLimit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            nudAvLimit.Increment = new decimal(new int[] { 1, 0, 0, 0 });
+            nudAvLimit.Location = new Point(86, 33);
+            nudAvLimit.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
+            nudAvLimit.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+            nudAvLimit.Name = "nudAvLimit";
+            nudAvLimit.Size = new Size(55, 22);
+            nudAvLimit.TabIndex = 13;
+            nudAvLimit.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            nudAvLimit.ValueChanged += nudLimit_ValueChanged;
             // 
             // kryptonLabel3
             // 
@@ -98,9 +98,9 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonPanel1
             // 
             kryptonPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            kryptonPanel1.Controls.Add(dataGridAdminDashboard);
+            kryptonPanel1.Controls.Add(dataGridAmTable);
             kryptonPanel1.Controls.Add(txtSearch);
-            kryptonPanel1.Controls.Add(nudLimit);
+            kryptonPanel1.Controls.Add(nudAvLimit);
             kryptonPanel1.Controls.Add(kryptonLabel3);
             kryptonPanel1.Controls.Add(kryptonLabel4);
             kryptonPanel1.Location = new Point(0, 83);
@@ -109,53 +109,53 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
-            // dataGridAdminDashboard
+            // dataGridAmTable
             // 
-            dataGridAdminDashboard.AccessibleRole = AccessibleRole.None;
-            dataGridAdminDashboard.AllowDrop = true;
-            dataGridAdminDashboard.AllowUserToAddRows = false;
-            dataGridAdminDashboard.AllowUserToDeleteRows = false;
-            dataGridAdminDashboard.AllowUserToResizeColumns = false;
-            dataGridAdminDashboard.AllowUserToResizeRows = false;
+            dataGridAmTable.AccessibleRole = AccessibleRole.None;
+            dataGridAmTable.AllowDrop = true;
+            dataGridAmTable.AllowUserToAddRows = false;
+            dataGridAmTable.AllowUserToDeleteRows = false;
+            dataGridAmTable.AllowUserToResizeColumns = false;
+            dataGridAmTable.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridAdminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
-            dataGridAdminDashboard.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridAdminDashboard.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridAdminDashboard.BorderStyle = BorderStyle.None;
-            dataGridAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colfullname, colgender, colcaddress });
-            dataGridAdminDashboard.ContextMenuStrip = ctxAccountVerification;
-            dataGridAdminDashboard.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridAdminDashboard.Location = new Point(26, 98);
-            dataGridAdminDashboard.MultiSelect = false;
-            dataGridAdminDashboard.Name = "dataGridAdminDashboard";
-            dataGridAdminDashboard.RowHeadersVisible = false;
-            dataGridAdminDashboard.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            dataGridAmTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridAmTable.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridAmTable.AutoGenerateKryptonColumns = false;
+            dataGridAmTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridAmTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridAmTable.BorderStyle = BorderStyle.None;
+            dataGridAmTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridAmTable.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colfullname, colgender, colcaddress });
+            dataGridAmTable.ContextMenuStrip = ctxAccountVerification;
+            dataGridAmTable.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dataGridAmTable.Location = new Point(26, 98);
+            dataGridAmTable.MultiSelect = false;
+            dataGridAmTable.Name = "dataGridAmTable";
+            dataGridAmTable.RowHeadersVisible = false;
+            dataGridAmTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridAdminDashboard.ScrollBars = ScrollBars.Vertical;
-            dataGridAdminDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAdminDashboard.Size = new Size(1073, 480);
-            dataGridAdminDashboard.StateCommon.Background.Color1 = Color.White;
-            dataGridAdminDashboard.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            dataGridAdminDashboard.StateCommon.DataCell.Border.Color1 = Color.DimGray;
-            dataGridAdminDashboard.StateCommon.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            dataGridAdminDashboard.StateCommon.DataCell.Content.Padding = new Padding(10);
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Back.Color1 = Color.White;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Back.Color2 = Color.White;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Border.Color1 = Color.DimGray;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Border.Width = 2;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.Color1 = Color.DimGray;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            dataGridAdminDashboard.TabIndex = 18;
-            dataGridAdminDashboard.ToolTipShadow = false;
-            dataGridAdminDashboard.VirtualMode = true;
-            dataGridAdminDashboard.MouseDown += dataGridAdminDashboard_MouseDown;
+            dataGridAmTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridAmTable.ScrollBars = ScrollBars.Vertical;
+            dataGridAmTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridAmTable.Size = new Size(1073, 480);
+            dataGridAmTable.StateCommon.Background.Color1 = Color.White;
+            dataGridAmTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            dataGridAmTable.StateCommon.DataCell.Border.Color1 = Color.DimGray;
+            dataGridAmTable.StateCommon.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            dataGridAmTable.StateCommon.DataCell.Content.Padding = new Padding(10);
+            dataGridAmTable.StateCommon.HeaderColumn.Back.Color1 = Color.White;
+            dataGridAmTable.StateCommon.HeaderColumn.Back.Color2 = Color.White;
+            dataGridAmTable.StateCommon.HeaderColumn.Border.Color1 = Color.DimGray;
+            dataGridAmTable.StateCommon.HeaderColumn.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            dataGridAmTable.StateCommon.HeaderColumn.Border.Width = 2;
+            dataGridAmTable.StateCommon.HeaderColumn.Content.Color1 = Color.DimGray;
+            dataGridAmTable.StateCommon.HeaderColumn.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridAmTable.StateCommon.HeaderColumn.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            dataGridAmTable.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            dataGridAmTable.TabIndex = 18;
+            dataGridAmTable.ToolTipShadow = false;
+            dataGridAmTable.VirtualMode = true;
+            dataGridAmTable.MouseDown += dataGridAdminDashboard_MouseDown;
             // 
             // id
             // 
@@ -256,12 +256,12 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             Controls.Add(pnlMainContentControler);
             Name = "AdminAccountVerification";
             Size = new Size(1125, 677);
-            Load += AdminAccountManagementControl_Load;
+            Load += AdminAccountVerification_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridAmTable).EndInit();
             ctxAccountVerification.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
@@ -272,8 +272,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonNumericUpDown nudLimit;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private Krypton.Toolkit.KryptonSeparator kryptonSeparator1;
@@ -281,7 +279,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel pnlMainContentControler;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
         private Krypton.Toolkit.KryptonTextBox txtSearch;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn colemail;
@@ -290,5 +287,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private DataGridViewTextBoxColumn colcaddress;
         private ContextMenuStrip ctxAccountVerification;
         private ToolStripMenuItem atsVerfiyAccount;
+        protected internal Krypton.Toolkit.KryptonDataGridView dataGridAmTable;
+        protected internal Krypton.Toolkit.KryptonNumericUpDown nudAvLimit;
     }
 }

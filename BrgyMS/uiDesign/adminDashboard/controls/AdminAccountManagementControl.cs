@@ -16,43 +16,74 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
     public partial class AdminAccountManagementControl : UserControl {
         private UIAdminUtils uiAdmin = new UIAdminUtils();
         private Utils utils = new Utils();
+        private AdminModal modal = new AdminModal();
+        public bool isUpdated = false;
         public AdminAccountManagementControl() {
             InitializeComponent();
 
         }
 
         private async void nudLimit_ValueChanged(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
+            int limit = (int)nudAmLimit.Value + 1;
             Cursor = Cursors.WaitCursor;
             SuspendLayout();
-            await uiAdmin.SetUserAndSecInfo(dataGridAdminDashboard, limit);
+            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
             ResumeLayout();
             Cursor = Cursors.Default;
         }
 
         private async void txtSearch_TextChanged(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
+            int limit = (int)nudAmLimit.Value + 1;
             string keyword = txtSearch.Text;
             Cursor = Cursors.WaitCursor;
 
             SuspendLayout();
-            await uiAdmin.SetUserAndSecInfo(dataGridAdminDashboard, limit);
+            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
             ResumeLayout();
             Cursor = Cursors.Default;
         }
 
         private async void AdminAccountManagementControl_Load(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
+            Refresh();
+            dataGridAmTableAdmin.Refresh();
+            int limit = (int)nudAmLimit.Value + 1;
             Cursor = Cursors.WaitCursor;
             SuspendLayout();
-            await uiAdmin.SetUserAndSecInfo(dataGridAdminDashboard, limit);
+            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
             ResumeLayout();
             Cursor = Cursors.Default;
         }
 
 
         private async void tsmShowInformation_Click(object sender, EventArgs e) {
-            AdminModal modal = new AdminModal();
+
+
+        }
+
+        private void dataGridAdminDashboard_MouseDown(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right) {
+                var hit = dataGridAmTableAdmin.HitTest(e.X, e.Y); // get the location where clicked
+                if (hit.RowIndex >= 0) {
+
+
+                    dataGridAmTableAdmin.ClearSelection();
+                    dataGridAmTableAdmin.Rows[hit.RowIndex].Selected = true; // set selection where the mouse clicked
+
+                    string? userId = dataGridAmTableAdmin.Rows[hit.RowIndex].Cells[0].Value?.ToString();
+                    try {
+                        utils.PutIdOnFile(userId);
+
+                        //show the context
+                        ctxmenuAccManagement.Show(this, dataGridAmTableAdmin.PointToScreen(e.Location));
+                    }
+                    catch (Exception ex) {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private async void actionsToolStripMenuItem_Click(object sender, EventArgs e) {
             UserInformationModalControl control = new();
             modal.StartPosition = FormStartPosition.CenterScreen;
 
@@ -65,32 +96,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                 control.txtMcPassword,
                 control.txtMcUsername);
 
-            modal.ShowDialog(this);
-
-
-        }
-
-        private void dataGridAdminDashboard_MouseDown(object sender, MouseEventArgs e) {
-            if (e.Button == MouseButtons.Right) {
-                var hit = dataGridAdminDashboard.HitTest(e.X, e.Y); // get the location where clicked
-                if (hit.RowIndex >= 0) {
-
-
-                    dataGridAdminDashboard.ClearSelection();
-                    dataGridAdminDashboard.Rows[hit.RowIndex].Selected = true; // set selection where the mouse clicked
-
-                    string? userId = dataGridAdminDashboard.Rows[hit.RowIndex].Cells[0].Value?.ToString();
-                    try {
-                        utils.PutIdOnFile(userId);
-
-                        //show the context
-                        ctxmenuAccManagement.Show(this, dataGridAdminDashboard.PointToScreen(e.Location));
-                    }
-                    catch (Exception ex) {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-            }
+            DialogResult result = modal.ShowDialog(this);
         }
     }
 }

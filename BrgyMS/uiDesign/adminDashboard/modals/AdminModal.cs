@@ -20,16 +20,18 @@ namespace BrgyMS.uiDesign.adminDashboard.modals {
             InitializeComponent();
         }
 
-        private void AdminModal_FormClosing(object sender, FormClosingEventArgs e) {
-            var option = MessageBox.Show("Are you sure you want to close this?",
-               "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //private void AdminModal_FormClosing(object sender, FormClosingEventArgs e) {
+        //    var option = MessageBox.Show("Are you sure you want to close this?",
+        //       "Close", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (option == DialogResult.Yes) {
-                utils.DeleteUserIdAfterCloseTheModal();
-                return;
-            }
-            e.Cancel = true;
+        //    if (option == DialogResult.Yes) {
+        //        utils.DeleteUserIdAfterCloseTheModal();
+        //        return;
+        //    }
+        //    e.Cancel = true;
 
-        }
+        //}
+
+  
     }
 }

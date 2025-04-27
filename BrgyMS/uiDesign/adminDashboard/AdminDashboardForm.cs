@@ -78,7 +78,7 @@ namespace BrgyMS.uiDesign {
         private void picLogout_Click(object sender, EventArgs e) {
             DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
                 MessageBoxButtons.YesNo , MessageBoxIcon.Question);
-            if (option == DialogResult.OK) {
+            if (option == DialogResult.Yes) {
                 this.Hide();
                 _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
                 LoginForm login = new LoginForm();

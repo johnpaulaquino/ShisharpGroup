@@ -25,6 +25,8 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         private void InitializeComponent() {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
+            txtAvEmail = new Krypton.Toolkit.KryptonTextBox();
+            kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
             txtxAvaddress = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
@@ -65,6 +67,8 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // pnlMainContentHolder
             // 
             pnlMainContentHolder.AutoScroll = true;
+            pnlMainContentHolder.Controls.Add(txtAvEmail);
+            pnlMainContentHolder.Controls.Add(kryptonLabel8);
             pnlMainContentHolder.Controls.Add(txtxAvaddress);
             pnlMainContentHolder.Controls.Add(kryptonLabel7);
             pnlMainContentHolder.Controls.Add(kryptonPanel3);
@@ -86,9 +90,27 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             pnlMainContentHolder.StateCommon.Color1 = Color.White;
             pnlMainContentHolder.TabIndex = 12;
             // 
+            // txtAvEmail
+            // 
+            txtAvEmail.Location = new Point(12, 267);
+            txtAvEmail.Multiline = true;
+            txtAvEmail.Name = "txtAvEmail";
+            txtAvEmail.ReadOnly = true;
+            txtAvEmail.Size = new Size(428, 45);
+            txtAvEmail.TabIndex = 16;
+            // 
+            // kryptonLabel8
+            // 
+            kryptonLabel8.Location = new Point(12, 235);
+            kryptonLabel8.Name = "kryptonLabel8";
+            kryptonLabel8.Size = new Size(62, 26);
+            kryptonLabel8.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel8.TabIndex = 15;
+            kryptonLabel8.Values.Text = "Email";
+            // 
             // txtxAvaddress
             // 
-            txtxAvaddress.Location = new Point(12, 381);
+            txtxAvaddress.Location = new Point(12, 464);
             txtxAvaddress.Multiline = true;
             txtxAvaddress.Name = "txtxAvaddress";
             txtxAvaddress.ReadOnly = true;
@@ -97,7 +119,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // kryptonLabel7
             // 
-            kryptonLabel7.Location = new Point(12, 349);
+            kryptonLabel7.Location = new Point(12, 432);
             kryptonLabel7.Name = "kryptonLabel7";
             kryptonLabel7.Size = new Size(85, 26);
             kryptonLabel7.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -108,9 +130,9 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             kryptonPanel3.Controls.Add(btnAvDecline);
             kryptonPanel3.Controls.Add(btnAvVerify);
-            kryptonPanel3.Location = new Point(0, 891);
+            kryptonPanel3.Location = new Point(0, 983);
             kryptonPanel3.Name = "kryptonPanel3";
-            kryptonPanel3.Size = new Size(449, 92);
+            kryptonPanel3.Size = new Size(449, 89);
             kryptonPanel3.StateCommon.Color1 = Color.White;
             kryptonPanel3.TabIndex = 12;
             // 
@@ -173,6 +195,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             btnAvDecline.TabIndex = 40;
             btnAvDecline.Values.DropDownArrowColor = Color.Empty;
             btnAvDecline.Values.Text = "Decline Account";
+            btnAvDecline.Click += btnAvDecline_Click;
             // 
             // btnAvVerify
             // 
@@ -237,7 +260,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // kryptonLabel6
             // 
-            kryptonLabel6.Location = new Point(12, 632);
+            kryptonLabel6.Location = new Point(12, 715);
             kryptonLabel6.Name = "kryptonLabel6";
             kryptonLabel6.Size = new Size(182, 26);
             kryptonLabel6.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -246,7 +269,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // txtAvAge
             // 
-            txtAvAge.Location = new Point(237, 572);
+            txtAvAge.Location = new Point(237, 655);
             txtAvAge.Multiline = true;
             txtAvAge.Name = "txtAvAge";
             txtAvAge.ReadOnly = true;
@@ -255,7 +278,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // picAvProofOfResidency
             // 
-            picAvProofOfResidency.Location = new Point(12, 664);
+            picAvProofOfResidency.Location = new Point(12, 747);
             picAvProofOfResidency.Name = "picAvProofOfResidency";
             picAvProofOfResidency.Size = new Size(425, 221);
             picAvProofOfResidency.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -264,7 +287,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // kryptonLabel5
             // 
-            kryptonLabel5.Location = new Point(237, 540);
+            kryptonLabel5.Location = new Point(237, 623);
             kryptonLabel5.Name = "kryptonLabel5";
             kryptonLabel5.Size = new Size(48, 26);
             kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -273,7 +296,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // txtAvGender
             // 
-            txtAvGender.Location = new Point(12, 572);
+            txtAvGender.Location = new Point(12, 655);
             txtAvGender.Multiline = true;
             txtAvGender.Name = "txtAvGender";
             txtAvGender.ReadOnly = true;
@@ -282,7 +305,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(12, 540);
+            kryptonLabel4.Location = new Point(12, 623);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(78, 26);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -291,7 +314,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // txtAvBday
             // 
-            txtAvBday.Location = new Point(12, 480);
+            txtAvBday.Location = new Point(12, 563);
             txtAvBday.Multiline = true;
             txtAvBday.Name = "txtAvBday";
             txtAvBday.ReadOnly = true;
@@ -300,7 +323,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(12, 448);
+            kryptonLabel3.Location = new Point(12, 531);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(85, 26);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -309,7 +332,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // txtAvFname
             // 
-            txtAvFname.Location = new Point(12, 283);
+            txtAvFname.Location = new Point(12, 366);
             txtAvFname.Multiline = true;
             txtAvFname.Name = "txtAvFname";
             txtAvFname.ReadOnly = true;
@@ -319,7 +342,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // picAvProfilePicture
             // 
             picAvProfilePicture.BorderStyle = BorderStyle.FixedSingle;
-            picAvProfilePicture.Location = new Point(148, 68);
+            picAvProfilePicture.Location = new Point(151, 47);
             picAvProfilePicture.Name = "picAvProfilePicture";
             picAvProfilePicture.Size = new Size(150, 150);
             picAvProfilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -337,7 +360,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(12, 251);
+            kryptonLabel1.Location = new Point(12, 334);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(94, 26);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -385,5 +408,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         private Krypton.Toolkit.KryptonButton btnAvDecline;
         protected internal Krypton.Toolkit.KryptonTextBox txtxAvaddress;
         private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        protected internal Krypton.Toolkit.KryptonTextBox txtAvEmail;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
     }
 }

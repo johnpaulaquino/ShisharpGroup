@@ -15,11 +15,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using BrgyMS.backend.services;
 using System.Security.Cryptography.X509Certificates;
+using BrgyMs.backend.utils;
 
 namespace BrgyMs.backend.services {
     public class AdminServices : BaseServices {
         private readonly AdminRepository _AdminRepository = new AdminRepository();
         private readonly UserInfoValidation uservalidation = new();
+        private readonly EmailServices _EmailServices = new();
 
         public AdminServices() { }
 
@@ -58,6 +60,8 @@ namespace BrgyMs.backend.services {
             var dataAdapter = await _AdminRepository.GetInActiveResidentUser();
             return dataAdapter;
         }
+
+
         public async Task<List<User>> GetUserBasicInfo(string UserId) {
             try {
                 using var reader = await _AdminRepository.GetUserAllInformation(UserId);
@@ -106,19 +110,17 @@ namespace BrgyMs.backend.services {
             }
         }// end of function
 
-        public async Task ActivateUserAccount(string userId, bool isValidated) {
+        public async Task ActivateUserAccount(string userId, bool isValidated, string email) {
             try {
-                //check if the user is approved by admin, if approved then activate user
-                if (isValidated) {
-                    await _AdminRepository.ActivateUserAccount(userId);
-                    //Will notify the user via email. will implement soon
+                //check if the user is not approved by admin, then delete the user
+                if (!isValidated) {
 
-                }
-                else {
-                    //otherwise Delete the user account
                     await _AdminRepository.DeleteUserPermanently(userId);
                     //Will notify the user via email. will implement soon
+                    return;
                 }
+                await _AdminRepository.ActivateUserAccount(userId);
+                //Will notify the user via email. will implement soon
 
             }
             catch (Exception) {

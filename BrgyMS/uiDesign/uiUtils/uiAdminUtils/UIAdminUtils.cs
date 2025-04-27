@@ -4,6 +4,7 @@ using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMS.backend.database.connection.models;
 using BrgyMS.backend.models;
+using BrgyMS.backend.services;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.adminDashboard.modals.modals_controls;
 using Google.Protobuf.Compiler;
@@ -12,6 +13,7 @@ using Microsoft.VisualBasic.Devices;
 using Mysqlx.Resultset;
 using MySqlX.XDevAPI.Relational;
 using Org.BouncyCastle.Asn1.Cmp;
+using Org.BouncyCastle.Bcpg.Sig;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,6 +29,8 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
     class UIAdminUtils {
         private readonly AuthUtils _AuthUtils = new AuthUtils();
         private AdminServices _AdminServices = new AdminServices();
+        private BaseServices _BaseServices = new();
+        private EmailServices _EmailServices = new();
         private readonly AdminRepository _admin = new AdminRepository();
         private readonly Utils utils = new Utils();
 
@@ -60,11 +64,11 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             lblRole.Text = role;
             lblusername.Text = "Hi, " + user.Username;
         }
-        public async Task SetUserAndSecInfo(DataGridView table, int limit) {
+        public async Task SetInfoInAdminAccountTable(DataGridView table, int limit) {
 
 
             try {
-                table.SuspendLayout();
+           
 
                 var dt = new DataTable();
                 using var userInfo = await _AdminServices.GetUserInformation(limit);
@@ -81,7 +85,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 MessageBox.Show(e.Message);
             }
             finally {
-                table.ResumeLayout();
+              
             }
 
         }
@@ -90,11 +94,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         public async Task SearchRecords(DataGridView table, int limit, string keyword) {
 
             try {
-                table.SuspendLayout();
-                using var userIno = await _AdminServices.GetUserInformation(limit, keyword);
-
+            
                 var dt = new DataTable();
-
+                using var userIno = await _AdminServices.GetUserInformation(limit, keyword);
 
                 userIno.Fill(dt);
 
@@ -110,7 +112,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 MessageBox.Show(e.Message);
             }
             finally {
-                table.ResumeLayout();
+              
             }
 
         }// End 
@@ -129,12 +131,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         //users logs
         public async Task SetUserLogsToTable(DataGridView table, int limit) {
             try {
-                using var adapter = await _AdminServices.GetAllLogs(limit);
-
-
-                table.SuspendLayout();
-
+          
                 var dt = new DataTable();
+                using var adapter = await _AdminServices.GetAllLogs(limit);
 
                 adapter.Fill(dt);
 
@@ -152,7 +151,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 System.Diagnostics.Debug.WriteLine(ex.StackTrace);
             }
             finally {
-                table.ResumeLayout();
+         
             }
         }
         //for users Account verification table
@@ -166,10 +165,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         }
         public async Task SetInActiveUsersInTable(DataGridView table) {
             try {
-                using var adapter = await _AdminServices.GetInActiveResidentUser();
-                table.SuspendLayout();
-
+                table.Refresh();
                 var dt = new DataTable();
+                using var adapter = await _AdminServices.GetInActiveResidentUser();
 
                 adapter.Fill(dt);
 
@@ -186,7 +184,6 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 System.Diagnostics.Debug.WriteLine(ex.StackTrace);
             }
             finally {
-                table.ResumeLayout();
             }
         } // end of function 
 
@@ -289,9 +286,33 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
 
         //To activate the account 
-        public async Task ActivateUserAccount(string userId, bool isValidated) {
+        public async Task ActivateUserAccount(string userId,
+            bool isValidated,
+            string Emailrecipient,
+            string Fullname,
+            string Reason = "") {
             try {
-                await _AdminServices.ActivateUserAccount(userId, isValidated);
+                await _AdminServices.ActivateUserAccount(userId, isValidated, Emailrecipient);
+                string message = "";
+                string subject = "";
+                if (!isValidated) {
+                    subject = "Update on Your Account";
+                    message = $"Dear {Fullname},\r\n\r\nThank you for your " +
+                        $" interest in creating an account.\r\n\r\nAfter" +
+                        $" careful review, we regret to inform you that your account " +
+                        $"application has been declined at this time.\r\n\r\nDue to the {Reason}." +
+                        $"\r\n\r\nWe appreciate your understanding and once again thank you so much. " +
+                        $"Best regards,\nnBarangayShisharp";
+                }
+                else {
+                    subject = "Update on Your Account";
+                    message = $"Dear {Fullname},\r\n\r\nCongratulations! " +
+                        $"Your account has been successfully created." +
+                        $"You can now log in.\n" +
+                        $"Best regards,\nBarangayShisharp";
+                }
+                await _EmailServices.SendPlainEmail(
+                    Emailrecipient, subject, message);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -302,6 +323,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         public async Task SetuserInformationToVerificationControl(
             KryptonPictureBox picprofilePic,
             KryptonTextBox txtFullname,
+            KryptonTextBox txtEmail,
             KryptonTextBox txtFulAddress,
             KryptonTextBox txtBirthday,
             KryptonTextBox txtGender,
@@ -309,38 +331,42 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             KryptonPictureBox picproofOfResidency
             ) {
 
-
-
             try {
-                string userId = utils.ReadUserIdInFile();
+                string userId = utils.ReadUserIdInFile(); // read the user id from file
 
-                List<object> userInfo = await _AdminServices.GetAllUserInformations(userId);
+                List<object> userInfo = await _AdminServices.GetAllUserInformations(userId); //retrieve the account informations
 
+                //check if the list is not null, 
                 if (userInfo != null) {
+                    //then cast the objects
                     User user = (User)userInfo[0];
                     PersonalInformation pInfo = (PersonalInformation)userInfo[1];
                     AdditionalInfo addInfo = (AdditionalInfo)userInfo[2];
                     Address address = (Address)userInfo[3];
 
-
+                    //format the fullname
                     string fullname = utils.FormatFullname(pInfo.Firstname, pInfo.Middlename,
                         pInfo.Lastname, pInfo.Suffix);
 
+                    //format the bday
                     string bday = utils.FormatDate(addInfo.BirthDate);
-                    int age = addInfo.Age;
+                    int age = addInfo.Age; // get the age
 
+                    // get the image in the additional info that can hold null 
                     byte[]? profileImg = addInfo.ProfileImage;
                     byte[]? proof = addInfo.ProofOfResidency;
-                    string blk = address.BlockNumber;
-                    string lotno = address.LotNo;
-                    string subdivision = address.SubdivisionName;
+                    string blk = address.BlockNumber; // blk number
+                    string lotno = address.LotNo; // lot number
+                    string subdivision = address.SubdivisionName; // subdivision name 
 
+                    //format the address
                     String fulladdress = $"{address.HouseNumber}, {address.Street}," +
                         $" {(string.IsNullOrEmpty(blk) ? "" : blk + ", ")} " +
                         $"{(string.IsNullOrEmpty(lotno) ? "" : lotno + ", ")}" +
                         $"{(string.IsNullOrEmpty(subdivision) ? "" : subdivision)}";
 
 
+                    //check if the images is not null, then set to the picture box
                     if (profileImg != null) {
                         using MemoryStream memoryStream = new MemoryStream(profileImg);
                         picprofilePic.Image = new Bitmap(memoryStream);
@@ -352,11 +378,13 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                     }
 
+                    //set the data from the specified fields
                     txtFullname.Text = fullname;
                     txtFulAddress.Text = fulladdress;
                     txtBirthday.Text = bday;
                     txtAge.Text = age.ToString();
                     txtGender.Text = pInfo.Gender;
+                    txtEmail.Text = user.Email;
 
                 }
 
@@ -364,10 +392,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             catch (Exception) {
                 throw;
             }
-
-
-
-        }
+        }// end of function
 
     }
 }

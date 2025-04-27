@@ -102,7 +102,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             cbMcSecretary.TabIndex = 42;
             cbMcSecretary.ThreeState = true;
             cbMcSecretary.Values.Text = "Secretary";
-
             // 
             // kryptonLabel7
             // 
@@ -301,7 +300,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             Controls.Add(kryptonPanel1);
             Name = "UserInformationModalControl";
             Size = new Size(480, 700);
-
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();

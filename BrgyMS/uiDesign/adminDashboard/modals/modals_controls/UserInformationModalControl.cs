@@ -22,7 +22,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         }
 
         private async void btnMcLogin_Click(object sender, EventArgs e) {
-           
+
             string userId = txtMcUserId.Text;
             // call the function
             await uiadmin.UpdateAccountInfo(
@@ -34,6 +34,8 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
                 userId,
                 userModals
                 );
-        } 
+        }
+
+        
     }
 }
