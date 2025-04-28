@@ -20,6 +20,8 @@ namespace BrgyMS.uiDesign.residentDashboard {
     {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();
+        private BaseRepository _BaseRepo = new BaseRepository();
+        private List<object> userInfo;
 
         public ResidentPageForm()
         {
@@ -38,11 +40,14 @@ namespace BrgyMS.uiDesign.residentDashboard {
 
         private void ResidentPageForm_Load(object sender, EventArgs e)
         {
-           
+
             uiadmin.SetUserLabel(
-                lblRole,lblUsername);
+                lblRole, lblUsername);
 
         }
 
+        public async void AfterInitializeComponent(){
+
+            }
     }
 }

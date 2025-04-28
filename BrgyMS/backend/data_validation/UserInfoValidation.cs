@@ -13,7 +13,7 @@ namespace BrgyMs.backend.data_validation {
     public class UserInfoValidation {
         private readonly string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         private readonly string PhonePattern = @"^(09|\+639)\d{9}$";
-        private readonly string ImagePattern = @"^.+\.(jpg|jpeg|png|webp)$";
+        private readonly string ImagePattern = @"^.+\.(jpg|jpeg|png|bmp|gif|tiff)$";
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         public UserInfoValidation() { }
         public async Task ValidateUser(User _User, string ConfirmPassword) {
@@ -165,7 +165,7 @@ namespace BrgyMs.backend.data_validation {
             bool IsExtensionValid = Regex.IsMatch(_FilePath, ImagePattern);
 
             if (!IsExtensionValid) {
-                throw new Exception("File Extension should [.jpg, .jpeg, .png, .webp]!");
+                throw new Exception("File Extension should [jpg, jpeg, png, bmp, gif, tiff]!");
             }
         }
         public void SetEmptyStringThatCanAcceptNull(PersonalInformation _PersonalInfo) {

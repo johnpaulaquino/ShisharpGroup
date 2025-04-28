@@ -1071,7 +1071,7 @@
             // 
             cboAEducAttain.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAEducAttain.DropDownWidth = 416;
-            cboAEducAttain.Items.AddRange(new object[] { "Elementary Graduate", "Junior High Graduate", "Senior High Graduate", "Undergraduate", "College Graduate" });
+            cboAEducAttain.Items.AddRange(new object[] { "Elementary Graduate", "Junior High Graduate", "Senior High Graduate", "College Graduate", "Undergraduate" });
             cboAEducAttain.Location = new Point(28, 276);
             cboAEducAttain.Name = "cboAEducAttain";
             cboAEducAttain.Size = new Size(416, 25);

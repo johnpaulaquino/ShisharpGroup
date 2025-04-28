@@ -55,7 +55,7 @@
 		<Compile Update="uiDesign\adminDashboard\controls\AdminDashboardControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
-		<Compile Update="uiDesign\residentDashboard\controls\ResidentAccountSetting.cs">
+		<Compile Update="uiDesign\residentDashboard\controls\controls_navigator\AddressAccountInformationControl.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
 		<Compile Update="uiDesign\residentDashboard\ResidentPageForm.cs">

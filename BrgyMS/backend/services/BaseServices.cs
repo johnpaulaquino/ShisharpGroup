@@ -55,9 +55,6 @@ namespace BrgyMS.backend.services {
                 if (dataReader.Read()) {
                     int status = dataReader.GetInt32("status");
 
-
-                    
-
                     //user info
                     user = new User(
                         dataReader.GetString("email"),

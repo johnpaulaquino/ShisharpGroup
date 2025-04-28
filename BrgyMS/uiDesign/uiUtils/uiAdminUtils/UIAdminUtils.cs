@@ -331,6 +331,8 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         } // end of the function
+
+
         //set the data to the Account Verification control
         public async Task SetUserLabelToVerificationControl(
             KryptonPictureBox picprofilePic,
@@ -365,8 +367,8 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                     int age = addInfo.Age; // get the age
 
                     // get the image in the additional info that can hold null 
-                    byte[]? profileImg = addInfo.ProfileImage;
-                    byte[]? proof = addInfo.ProofOfResidency;
+                    byte[] profileImg = addInfo.ProfileImage;
+                    byte[] proof = addInfo.ProofOfResidency;
                     string blk = address.BlockNumber; // blk number
                     string lotno = address.LotNo; // lot number
                     string subdivision = address.SubdivisionName; // subdivision name 
@@ -382,6 +384,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                     if (profileImg != null) {
                         using MemoryStream memoryStream = new MemoryStream(profileImg);
                         picprofilePic.Image = new Bitmap(memoryStream);
+                        memoryStream.Close();
                     }
 
                     if (proof != null) {

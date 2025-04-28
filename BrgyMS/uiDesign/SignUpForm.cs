@@ -145,22 +145,7 @@ namespace BrgyMs.uiDesign {
                 { ProfileImage = bytesProfilePic };
 
 
-                // This is the 5th page for address
-                string houseNo = txtSHouseNo.Text;
-                string street = txtSStreet.Text;
-                string villagename = txtSSubdivision.Text;
-                string lotNo = txtSLotNo.Text;
-                string blockNo = txtSBlockNo.Text;
-
-
-                _Address = new Address(
-                    street,
-                    houseNo)
-                {
-                    SubdivisionName = villagename,
-                    LotNo = lotNo,
-                    BlockNumber = blockNo,
-                };
+              
 
                 //set empty strings to the not required fields if not set.
                 _UserValidation.SetEmptyStringThatCanAcceptNull(_PersonalInfo);
@@ -320,13 +305,35 @@ namespace BrgyMs.uiDesign {
         private async void btnSCreateAccount_Click_1(object sender, EventArgs e) {
 
             try {
+                // This is the 5th page for address
+                string houseNo = txtSHouseNo.Text;
+                string street = txtSStreet.Text;
+                string villagename = txtSSubdivision.Text;
+                string lotNo = txtSLotNo.Text;
+                string blockNo = txtSBlockNo.Text;
+
+
+                _Address = new Address(
+                    street,
+                    houseNo)
+                {
+                    SubdivisionName = villagename,
+                    LotNo = lotNo,
+                    BlockNumber = blockNo,
+                };
+                Cursor = Cursors.WaitCursor;
                 await _ResidentServices.CreateResidentInformation(_Users, _PersonalInfo, _AddlInfo, _Address);
+               
                 MessageBox.Show("Successfully created account. Please be patient for your account verification!");
                 this.Hide();
                 new LoginForm().Show();
             }
             catch (Exception ex) {
                 MessageBox.Show("An error occured when try to submit " + ex.Message);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
             }
         }
 
