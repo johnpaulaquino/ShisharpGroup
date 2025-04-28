@@ -9,9 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.residentDashboard.controls {
-    public partial class AdditionalAccountInformationControl : UserControl {
-        public AdditionalAccountInformationControl() {
+    public partial class AdditionalAccountInformationControl : UserControl
+    {
+        public AdditionalAccountInformationControl()
+        {
             InitializeComponent();
+        }
+
+        private void kryptonPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
