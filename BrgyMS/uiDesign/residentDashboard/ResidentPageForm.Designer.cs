@@ -22,7 +22,8 @@ namespace BrgyMS.uiDesign.residentDashboard {
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResidentPageForm));
             pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
@@ -73,8 +74,9 @@ namespace BrgyMS.uiDesign.residentDashboard {
             pnlMainContainer.Controls.Add(pnlSidebar);
             pnlMainContainer.Dock = DockStyle.Fill;
             pnlMainContainer.Location = new Point(0, 0);
+            pnlMainContainer.Margin = new Padding(4, 5, 4, 5);
             pnlMainContainer.Name = "pnlMainContainer";
-            pnlMainContainer.Size = new Size(1224, 711);
+            pnlMainContainer.Size = new Size(1749, 1050);
             pnlMainContainer.StateCommon.Color1 = SystemColors.AppWorkspace;
             pnlMainContainer.TabIndex = 0;
             // 
@@ -86,27 +88,30 @@ namespace BrgyMS.uiDesign.residentDashboard {
             kryptonPanel2.Controls.Add(pnlRightSeperator);
             kryptonPanel2.Controls.Add(pnlFilterValueHolder);
             kryptonPanel2.Dock = DockStyle.Fill;
-            kryptonPanel2.Location = new Point(49, 49);
+            kryptonPanel2.Location = new Point(70, 82);
+            kryptonPanel2.Margin = new Padding(4, 5, 4, 5);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1175, 662);
+            kryptonPanel2.Size = new Size(1679, 968);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 6;
             // 
             // pnlMainContentHolder1
             // 
             pnlMainContentHolder1.Dock = DockStyle.Fill;
-            pnlMainContentHolder1.Location = new Point(25, 25);
+            pnlMainContentHolder1.Location = new Point(36, 42);
+            pnlMainContentHolder1.Margin = new Padding(4, 5, 4, 5);
             pnlMainContentHolder1.Name = "pnlMainContentHolder1";
-            pnlMainContentHolder1.Size = new Size(1125, 637);
+            pnlMainContentHolder1.Size = new Size(1607, 926);
             pnlMainContentHolder1.StateCommon.Color1 = Color.White;
             pnlMainContentHolder1.TabIndex = 5;
             // 
             // kryptonPanel1
             // 
             kryptonPanel1.Dock = DockStyle.Top;
-            kryptonPanel1.Location = new Point(25, 0);
+            kryptonPanel1.Location = new Point(36, 0);
+            kryptonPanel1.Margin = new Padding(4, 5, 4, 5);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1125, 25);
+            kryptonPanel1.Size = new Size(1607, 42);
             kryptonPanel1.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel1.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             kryptonPanel1.TabIndex = 5;
@@ -115,26 +120,29 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             pnlRighSeperator.Dock = DockStyle.Left;
             pnlRighSeperator.Location = new Point(0, 0);
+            pnlRighSeperator.Margin = new Padding(4, 5, 4, 5);
             pnlRighSeperator.Name = "pnlRighSeperator";
-            pnlRighSeperator.Size = new Size(25, 662);
+            pnlRighSeperator.Size = new Size(36, 968);
             pnlRighSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             pnlRighSeperator.TabIndex = 11;
             // 
             // pnlRightSeperator
             // 
             pnlRightSeperator.Dock = DockStyle.Right;
-            pnlRightSeperator.Location = new Point(1150, 0);
+            pnlRightSeperator.Location = new Point(1643, 0);
+            pnlRightSeperator.Margin = new Padding(4, 5, 4, 5);
             pnlRightSeperator.Name = "pnlRightSeperator";
-            pnlRightSeperator.Size = new Size(25, 662);
+            pnlRightSeperator.Size = new Size(36, 968);
             pnlRightSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             pnlRightSeperator.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlRightSeperator.TabIndex = 4;
             // 
             // pnlFilterValueHolder
             // 
-            pnlFilterValueHolder.Location = new Point(859, 107);
+            pnlFilterValueHolder.Location = new Point(1227, 178);
+            pnlFilterValueHolder.Margin = new Padding(4, 5, 4, 5);
             pnlFilterValueHolder.Name = "pnlFilterValueHolder";
-            pnlFilterValueHolder.Size = new Size(267, 145);
+            pnlFilterValueHolder.Size = new Size(381, 242);
             pnlFilterValueHolder.TabIndex = 0;
             // 
             // pnlTopSeperator
@@ -143,9 +151,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             pnlTopSeperator.Controls.Add(picProfilePic);
             pnlTopSeperator.Controls.Add(lblUsername);
             pnlTopSeperator.Dock = DockStyle.Top;
-            pnlTopSeperator.Location = new Point(49, 0);
+            pnlTopSeperator.Location = new Point(70, 0);
+            pnlTopSeperator.Margin = new Padding(4, 5, 4, 5);
             pnlTopSeperator.Name = "pnlTopSeperator";
-            pnlTopSeperator.Size = new Size(1175, 49);
+            pnlTopSeperator.Size = new Size(1679, 82);
             pnlTopSeperator.StateCommon.Color1 = Color.White;
             pnlTopSeperator.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlTopSeperator.TabIndex = 4;
@@ -153,9 +162,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // lblRole
             // 
             lblRole.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblRole.Location = new Point(31, 12);
+            lblRole.Location = new Point(44, 25);
+            lblRole.Margin = new Padding(4, 5, 4, 5);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(48, 23);
+            lblRole.Size = new Size(69, 33);
             lblRole.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
             lblRole.TabIndex = 2;
             lblRole.Values.Text = "User";
@@ -164,9 +174,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             picProfilePic.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             picProfilePic.Image = (Image)resources.GetObject("picProfilePic.Image");
-            picProfilePic.Location = new Point(1104, 0);
+            picProfilePic.Location = new Point(1577, 0);
+            picProfilePic.Margin = new Padding(4, 5, 4, 5);
             picProfilePic.Name = "picProfilePic";
-            picProfilePic.Size = new Size(50, 43);
+            picProfilePic.Size = new Size(71, 72);
             picProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
             picProfilePic.TabIndex = 1;
             picProfilePic.TabStop = false;
@@ -174,9 +185,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // lblUsername
             // 
             lblUsername.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lblUsername.Location = new Point(982, 12);
+            lblUsername.Location = new Point(1397, 25);
+            lblUsername.Margin = new Padding(4, 5, 4, 5);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(116, 23);
+            lblUsername.Size = new Size(171, 33);
             lblUsername.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblUsername.TabIndex = 0;
             lblUsername.Values.Text = "Hi, Username";
@@ -191,9 +203,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             pnlSidebar.Controls.Add(picMenuButton);
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
+            pnlSidebar.Margin = new Padding(4, 5, 4, 5);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.RightToLeft = RightToLeft.No;
-            pnlSidebar.Size = new Size(49, 711);
+            pnlSidebar.Size = new Size(70, 1050);
             pnlSidebar.StateCommon.Color1 = Color.IndianRed;
             pnlSidebar.StateCommon.Color2 = Color.IndianRed;
             pnlSidebar.StateCommon.ColorAngle = 100F;
@@ -208,9 +221,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             picLogout.Cursor = Cursors.Hand;
             picLogout.Image = (Image)resources.GetObject("picLogout.Image");
-            picLogout.Location = new Point(12, 646);
+            picLogout.Location = new Point(17, 1077);
+            picLogout.Margin = new Padding(4, 5, 4, 5);
             picLogout.Name = "picLogout";
-            picLogout.Size = new Size(25, 25);
+            picLogout.Size = new Size(36, 42);
             picLogout.SizeMode = PictureBoxSizeMode.Zoom;
             picLogout.TabIndex = 8;
             picLogout.TabStop = false;
@@ -219,9 +233,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             picLogs.Cursor = Cursors.Hand;
             picLogs.Image = (Image)resources.GetObject("picLogs.Image");
-            picLogs.Location = new Point(12, 276);
+            picLogs.Location = new Point(17, 460);
+            picLogs.Margin = new Padding(4, 5, 4, 5);
             picLogs.Name = "picLogs";
-            picLogs.Size = new Size(25, 25);
+            picLogs.Size = new Size(36, 42);
             picLogs.SizeMode = PictureBoxSizeMode.Zoom;
             picLogs.TabIndex = 5;
             picLogs.TabStop = false;
@@ -230,9 +245,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             picDashboardIcon.Cursor = Cursors.Hand;
             picDashboardIcon.Image = (Image)resources.GetObject("picDashboardIcon.Image");
-            picDashboardIcon.Location = new Point(12, 156);
+            picDashboardIcon.Location = new Point(17, 260);
+            picDashboardIcon.Margin = new Padding(4, 5, 4, 5);
             picDashboardIcon.Name = "picDashboardIcon";
-            picDashboardIcon.Size = new Size(25, 25);
+            picDashboardIcon.Size = new Size(36, 42);
             picDashboardIcon.SizeMode = PictureBoxSizeMode.Zoom;
             picDashboardIcon.TabIndex = 4;
             picDashboardIcon.TabStop = false;
@@ -241,9 +257,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             picAccountManagement.Cursor = Cursors.Hand;
             picAccountManagement.Image = (Image)resources.GetObject("picAccountManagement.Image");
-            picAccountManagement.Location = new Point(12, 215);
+            picAccountManagement.Location = new Point(17, 358);
+            picAccountManagement.Margin = new Padding(4, 5, 4, 5);
             picAccountManagement.Name = "picAccountManagement";
-            picAccountManagement.Size = new Size(25, 25);
+            picAccountManagement.Size = new Size(36, 42);
             picAccountManagement.SizeMode = PictureBoxSizeMode.Zoom;
             picAccountManagement.TabIndex = 3;
             picAccountManagement.TabStop = false;
@@ -252,9 +269,10 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // kryptonPanel6
             // 
             kryptonPanel6.Dock = DockStyle.Right;
-            kryptonPanel6.Location = new Point(48, 0);
+            kryptonPanel6.Location = new Point(69, 0);
+            kryptonPanel6.Margin = new Padding(4, 5, 4, 5);
             kryptonPanel6.Name = "kryptonPanel6";
-            kryptonPanel6.Size = new Size(1, 711);
+            kryptonPanel6.Size = new Size(1, 1050);
             kryptonPanel6.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel6.TabIndex = 2;
             // 
@@ -262,22 +280,25 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             picMenuButton.Image = (Image)resources.GetObject("picMenuButton.Image");
             picMenuButton.InitialImage = null;
-            picMenuButton.Location = new Point(12, 24);
+            picMenuButton.Location = new Point(17, 40);
+            picMenuButton.Margin = new Padding(4, 5, 4, 5);
             picMenuButton.Name = "picMenuButton";
-            picMenuButton.Size = new Size(25, 25);
+            picMenuButton.Size = new Size(36, 42);
             picMenuButton.SizeMode = PictureBoxSizeMode.Zoom;
             picMenuButton.TabIndex = 1;
             picMenuButton.TabStop = false;
             // 
             // ResidentPageForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1224, 711);
+            ClientSize = new Size(1749, 1050);
             Controls.Add(pnlMainContainer);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "ResidentPageForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminForm";
+            Load += ResidentPageForm_Load;
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).EndInit();
             pnlMainContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();

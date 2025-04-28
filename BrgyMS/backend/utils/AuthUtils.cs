@@ -109,6 +109,7 @@ namespace BrgyMs.backend.utils {
                     string? userId = principal.FindFirst("userId")?.Value;
                     string? role = principal.FindFirst(ClaimTypes.Role)?.Value;
 
+                
                     string? email = principal.FindFirst("email")?.Value;
                     User user = new User(email, username)
                     { Role = role, UserId = userId };

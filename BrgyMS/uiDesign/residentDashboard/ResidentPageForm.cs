@@ -15,25 +15,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace BrgyMS.uiDesign.residentDashboard {
-    public partial class ResidentPageForm : Form {
+    public partial class ResidentPageForm : Form
+    {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();
 
-        public ResidentPageForm() {
+        public ResidentPageForm()
+        {
             InitializeComponent();
 
 
         }
 
-        private void picAccountManagement_Click(object sender, EventArgs e) {
+        private void picAccountManagement_Click(object sender, EventArgs e)
+        {
             ResidentAccountSetting accountcontrol = new ResidentAccountSetting();
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(accountcontrol);
             accountcontrol.Dock = DockStyle.Fill;
         }
 
+        private void ResidentPageForm_Load(object sender, EventArgs e)
+        {
+           
+            uiadmin.SetUserLabel(
+                lblRole,lblUsername);
+
+        }
 
     }
 }

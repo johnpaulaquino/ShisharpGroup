@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             kryptonCustomPaletteBase1 = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
@@ -77,11 +78,11 @@
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(720, 298);
-            kryptonLabel1.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel1.Location = new Point(1029, 497);
+            kryptonLabel1.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.PaletteMode = Krypton.Toolkit.PaletteMode.Office2007White;
-            kryptonLabel1.Size = new Size(99, 26);
+            kryptonLabel1.Size = new Size(145, 38);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             kryptonLabel1.TabIndex = 0;
             kryptonLabel1.Values.Text = "Password";
@@ -89,22 +90,22 @@
             // kryptonLabel2
             // 
             kryptonLabel2.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
-            kryptonLabel2.Location = new Point(720, 190);
-            kryptonLabel2.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel2.Location = new Point(1029, 317);
+            kryptonLabel2.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.PaletteMode = Krypton.Toolkit.PaletteMode.Office2007White;
-            kryptonLabel2.Size = new Size(112, 26);
+            kryptonLabel2.Size = new Size(164, 38);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             kryptonLabel2.TabIndex = 1;
             kryptonLabel2.Values.Text = "User Name";
             // 
             // kryptonLabel3
             // 
-            kryptonLabel3.Location = new Point(867, 74);
-            kryptonLabel3.Margin = new Padding(4, 3, 4, 3);
+            kryptonLabel3.Location = new Point(1239, 123);
+            kryptonLabel3.Margin = new Padding(6, 5, 6, 5);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            kryptonLabel3.Size = new Size(128, 33);
+            kryptonLabel3.Size = new Size(189, 48);
             kryptonLabel3.StateCommon.LongText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kryptonLabel3.TabIndex = 2;
@@ -113,30 +114,30 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(28, 128);
-            pictureBox1.Margin = new Padding(4, 3, 4, 3);
+            pictureBox1.Location = new Point(40, 213);
+            pictureBox1.Margin = new Padding(6, 5, 6, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(662, 433);
+            pictureBox1.Size = new Size(946, 722);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
             // kryptonLinkLabel1
             // 
-            kryptonLinkLabel1.Location = new Point(866, 542);
-            kryptonLinkLabel1.Margin = new Padding(4, 3, 4, 3);
+            kryptonLinkLabel1.Location = new Point(1237, 903);
+            kryptonLinkLabel1.Margin = new Padding(6, 5, 6, 5);
             kryptonLinkLabel1.Name = "kryptonLinkLabel1";
-            kryptonLinkLabel1.Size = new Size(107, 20);
+            kryptonLinkLabel1.Size = new Size(157, 29);
             kryptonLinkLabel1.TabIndex = 8;
             kryptonLinkLabel1.Values.Text = "Forgot Password?";
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(720, 227);
-            txtUsername.Margin = new Padding(4, 3, 4, 3);
+            txtUsername.Location = new Point(1029, 378);
+            txtUsername.Margin = new Padding(6, 5, 6, 5);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(416, 40);
+            txtUsername.Size = new Size(594, 67);
             txtUsername.StateCommon.Back.Color1 = Color.White;
             txtUsername.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
             txtUsername.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
@@ -150,12 +151,12 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(720, 335);
-            txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.Location = new Point(1029, 558);
+            txtPassword.Margin = new Padding(6, 5, 6, 5);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '●';
-            txtPassword.Size = new Size(416, 40);
+            txtPassword.Size = new Size(594, 67);
             txtPassword.StateCommon.Back.Color1 = Color.White;
             txtPassword.StateCommon.Border.Color1 = Color.FromArgb(224, 224, 224);
             txtPassword.StateCommon.Border.Color2 = Color.FromArgb(224, 224, 224);
@@ -169,8 +170,8 @@
             // 
             // btnSignup
             // 
-            btnSignup.Location = new Point(949, 449);
-            btnSignup.Margin = new Padding(4, 3, 4, 3);
+            btnSignup.Location = new Point(1356, 748);
+            btnSignup.Margin = new Padding(6, 5, 6, 5);
             btnSignup.Name = "btnSignup";
             btnSignup.OverrideDefault.Back.Color1 = Color.FromArgb(250, 252, 252);
             btnSignup.OverrideDefault.Back.Color2 = Color.FromArgb(250, 252, 252);
@@ -181,7 +182,7 @@
             btnSignup.OverrideDefault.Border.Rounding = 18F;
             btnSignup.OverrideDefault.Border.Width = 1;
             btnSignup.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnSignup.Size = new Size(187, 51);
+            btnSignup.Size = new Size(267, 85);
             btnSignup.StateCommon.Back.Color1 = Color.FromArgb(250, 252, 252);
             btnSignup.StateCommon.Back.Color2 = Color.FromArgb(250, 252, 252);
             btnSignup.StateCommon.Back.ColorAngle = 45F;
@@ -221,8 +222,8 @@
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(719, 449);
-            btnLogin.Margin = new Padding(4, 3, 4, 3);
+            btnLogin.Location = new Point(1027, 748);
+            btnLogin.Margin = new Padding(6, 5, 6, 5);
             btnLogin.Name = "btnLogin";
             btnLogin.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
             btnLogin.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
@@ -235,7 +236,7 @@
             btnLogin.OverrideDefault.Content.ShortText.Color1 = Color.White;
             btnLogin.OverrideDefault.Content.ShortText.Color2 = Color.White;
             btnLogin.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnLogin.Size = new Size(187, 51);
+            btnLogin.Size = new Size(267, 85);
             btnLogin.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
             btnLogin.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
             btnLogin.StateCommon.Back.ColorAngle = 45F;
@@ -282,10 +283,10 @@
             // 
             // cbShowPass
             // 
-            cbShowPass.Location = new Point(993, 395);
-            cbShowPass.Margin = new Padding(4, 3, 4, 3);
+            cbShowPass.Location = new Point(1419, 658);
+            cbShowPass.Margin = new Padding(6, 5, 6, 5);
             cbShowPass.Name = "cbShowPass";
-            cbShowPass.Size = new Size(143, 23);
+            cbShowPass.Size = new Size(210, 33);
             cbShowPass.StateNormal.DrawFocus = Krypton.Toolkit.InheritBool.True;
             cbShowPass.StateNormal.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbShowPass.TabIndex = 38;
@@ -294,10 +295,10 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1224, 684);
+            ClientSize = new Size(1749, 1050);
             Controls.Add(cbShowPass);
             Controls.Add(btnLogin);
             Controls.Add(btnSignup);
@@ -308,7 +309,7 @@
             Controls.Add(kryptonLabel3);
             Controls.Add(kryptonLabel2);
             Controls.Add(kryptonLabel1);
-            Margin = new Padding(4, 3, 4, 3);
+            Margin = new Padding(6, 5, 6, 5);
             Name = "LoginForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -317,7 +318,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
-
         }
 
         #endregion

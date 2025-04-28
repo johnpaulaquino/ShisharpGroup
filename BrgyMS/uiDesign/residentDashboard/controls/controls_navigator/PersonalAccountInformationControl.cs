@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.residentDashboard.controls {
-    public partial class AccountInformationControls : UserControl {
-        public AccountInformationControls() {
+    public partial class PersonalAccountInformationControl : UserControl {
+        public PersonalAccountInformationControl() {
             InitializeComponent();
         }
     }

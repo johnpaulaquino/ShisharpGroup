@@ -109,8 +109,9 @@ namespace BrgyMs.backend.database.repositories {
                                 data.Add("email", reader.GetString(reader.GetOrdinal("email")));
                                 data.Add("password", reader.GetString(reader.GetOrdinal("password")));
                                 data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
-                                data.Add("role", reader.GetString(reader.GetOrdinal("role")));
+                                data.Add("role", reader.GetString("role"));
                                 data.Add("username", reader.GetString(reader.GetOrdinal("username")));
+                               
                                 return data;
                             }
                         }

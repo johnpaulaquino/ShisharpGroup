@@ -55,7 +55,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         } // end of the function
 
         private async void AccountVerificationModalControl_Load(object sender, EventArgs e) {
-            await uiadmin.SetuserInformationToVerificationControl(
+            await uiadmin.SetUserLabelToVerificationControl(
                 picAvProfilePicture,
                 txtAvFname,
                 txtAvEmail,

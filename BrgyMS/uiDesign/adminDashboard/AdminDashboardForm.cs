@@ -55,7 +55,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
 
         private void AdminDashboardForm_Load(object sender, EventArgs e) {
             AdminDashboardControl dashcontrol = new AdminDashboardControl();
-            uiadmin.SetUserInformation(lblRole, lblUsername);
+            uiadmin.SetUserLabel(lblRole, lblUsername);
             pnlMainContentHolder1.Controls.Clear();
 
             pnlMainContentHolder1.Controls.Add(dashcontrol);

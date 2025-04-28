@@ -60,7 +60,7 @@ namespace BrgyMs.backend.utils {
         //to format roles as Capital First
         public String FormatRoles(string role) {
             string formattedRole = "";
-            if (string.IsNullOrEmpty(formattedRole)) {
+            if (string.IsNullOrEmpty(role)) {
                 return formattedRole;
             }
             formattedRole = string.Concat(role[0].ToString().ToUpper(), role.Substring(1));

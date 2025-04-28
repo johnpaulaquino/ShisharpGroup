@@ -55,12 +55,15 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
 
         //for main form
-        public void SetUserInformation(KryptonLabel lblRole,
+        public void SetUserLabel(KryptonLabel lblRole,
             KryptonLabel lblusername) {
             string token = _AuthUtils.ReadTokenInFile();
             var principal = _AuthUtils.ValidateToken(token);
             User user = _AuthUtils.ValidateToken(token);
+
+  
             string role = utils.FormatRoles(user.Role);
+
             lblRole.Text = role;
             lblusername.Text = "Hi, " + user.Username;
         }
@@ -329,7 +332,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             }
         } // end of the function
         //set the data to the Account Verification control
-        public async Task SetuserInformationToVerificationControl(
+        public async Task SetUserLabelToVerificationControl(
             KryptonPictureBox picprofilePic,
             KryptonTextBox txtFullname,
             KryptonTextBox txtEmail,

@@ -13,15 +13,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.residentDashboard.controls {
-    public partial class ResidentAccountSetting : UserControl {
+    public partial class ResidentAccountSetting : UserControl
+    {
         private UIAdminUtils uiAdmin = new UIAdminUtils();
         private Utils utils = new Utils();
         private AdminModal modal = new AdminModal();
         public bool isUpdated = false;
-        public ResidentAccountSetting() {
+        public ResidentAccountSetting()
+        {
             InitializeComponent();
 
         }
 
+        private void ResidentAccountSetting_Load(object sender, EventArgs e)
+        {
+            PersonalAccountInformationControl info = new();
+            pnlAsControlHolder.Controls.Clear();
+            pnlAsControlHolder.Controls.Add(info);
+            info.Dock = DockStyle.Fill;
+        }
     }
 }
