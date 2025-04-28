@@ -31,7 +31,7 @@ namespace BrgyMs.uiDesign {
                 string username = txtUsername.Text.ToString();
                 string password = txtPassword.Text.ToString();
                 try {
-
+                    SuspendLayout();
                     bool isLoggedIn = await _Authervices.AuthenticateUser(username, password);
 
 
@@ -48,6 +48,7 @@ namespace BrgyMs.uiDesign {
                 }
                 finally {
                     isCLicked = true;
+                    ResumeLayout();
                 }
             }
 

@@ -22,14 +22,15 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            kryptonTableLayoutPanel1 = new Krypton.Toolkit.KryptonTableLayoutPanel();
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            kryptonTableLayoutPanel1 = new Krypton.Toolkit.KryptonTableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -58,12 +59,27 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
+            // kryptonTableLayoutPanel1
+            // 
+            kryptonTableLayoutPanel1.ColumnCount = 3;
+            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            kryptonTableLayoutPanel1.Dock = DockStyle.Fill;
+            kryptonTableLayoutPanel1.Location = new Point(0, 0);
+            kryptonTableLayoutPanel1.Name = "kryptonTableLayoutPanel1";
+            kryptonTableLayoutPanel1.RowCount = 1;
+            kryptonTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            kryptonTableLayoutPanel1.Size = new Size(1125, 594);
+            kryptonTableLayoutPanel1.StateCommon.Color1 = Color.White;
+            kryptonTableLayoutPanel1.TabIndex = 0;
+            // 
             // pnlMainContentControler
             // 
             pnlMainContentControler.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pnlMainContentControler.Controls.Add(kryptonPanel2);
             pnlMainContentControler.Controls.Add(kryptonPanel1);
-            pnlMainContentControler.Location = new Point(0, 0);
+            pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
             pnlMainContentControler.Size = new Size(1125, 677);
             pnlMainContentControler.TabIndex = 2;
@@ -92,35 +108,20 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonLabel2
             // 
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel2.Location = new Point(36, 30);
+            kryptonLabel2.Location = new Point(36, 48);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(119, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Dashboard";
             // 
-            // kryptonTableLayoutPanel1
-            // 
-            kryptonTableLayoutPanel1.ColumnCount = 3;
-            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            kryptonTableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            kryptonTableLayoutPanel1.Dock = DockStyle.Fill;
-            kryptonTableLayoutPanel1.Location = new Point(0, 0);
-            kryptonTableLayoutPanel1.Name = "kryptonTableLayoutPanel1";
-            kryptonTableLayoutPanel1.RowCount = 1;
-            kryptonTableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            kryptonTableLayoutPanel1.Size = new Size(1125, 594);
-            kryptonTableLayoutPanel1.StateCommon.Color1 = Color.White;
-            kryptonTableLayoutPanel1.TabIndex = 0;
-            // 
-            // AdminUserLogsControl
+            // AdminDashboardControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
-            Name = "AdminUserLogsControl";
-            Size = new Size(1125, 677);
+            Name = "AdminDashboardControl";
+            Size = new Size(1125, 607);
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

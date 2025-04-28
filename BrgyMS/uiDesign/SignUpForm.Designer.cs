@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
@@ -174,7 +175,7 @@
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1224, 684);
+            kryptonPanel1.Size = new Size(1224, 681);
             kryptonPanel1.TabIndex = 39;
             // 
             // btnSPrevious
@@ -1722,7 +1723,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1224, 684);
+            ClientSize = new Size(1224, 681);
             Controls.Add(kryptonPanel1);
             Margin = new Padding(4, 3, 4, 3);
             Name = "SignUpForm";

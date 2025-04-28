@@ -22,14 +22,19 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+        private void InitializeComponent()
+        {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
+            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
@@ -43,10 +48,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
-            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -114,6 +115,42 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
+            // kryptonLabel5
+            // 
+            kryptonLabel5.Location = new Point(731, 26);
+            kryptonLabel5.Name = "kryptonLabel5";
+            kryptonLabel5.Size = new Size(101, 26);
+            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel5.TabIndex = 22;
+            kryptonLabel5.Values.Text = "Start Date";
+            // 
+            // kryptonDateTimePicker1
+            // 
+            kryptonDateTimePicker1.Location = new Point(848, 26);
+            kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
+            kryptonDateTimePicker1.Size = new Size(251, 29);
+            kryptonDateTimePicker1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonDateTimePicker1.TabIndex = 21;
+            kryptonDateTimePicker1.ValueNullable = new DateTime(2025, 4, 28, 8, 54, 50, 0);
+            // 
+            // kryptonLabel1
+            // 
+            kryptonLabel1.Location = new Point(731, 85);
+            kryptonLabel1.Name = "kryptonLabel1";
+            kryptonLabel1.Size = new Size(94, 26);
+            kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel1.TabIndex = 20;
+            kryptonLabel1.Values.Text = "End Date";
+            // 
+            // dtpkStartDate
+            // 
+            dtpkStartDate.Location = new Point(848, 85);
+            dtpkStartDate.Name = "dtpkStartDate";
+            dtpkStartDate.Size = new Size(251, 29);
+            dtpkStartDate.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpkStartDate.TabIndex = 19;
+            dtpkStartDate.ValueNullable = new DateTime(2025, 4, 28, 0, 0, 0, 0);
+            // 
             // dataGridAdminDashboard
             // 
             dataGridAdminDashboard.AccessibleRole = AccessibleRole.None;
@@ -122,8 +159,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.AllowUserToDeleteRows = false;
             dataGridAdminDashboard.AllowUserToResizeColumns = false;
             dataGridAdminDashboard.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridAdminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
             dataGridAdminDashboard.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -137,8 +174,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             dataGridAdminDashboard.RowHeadersVisible = false;
             dataGridAdminDashboard.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridAdminDashboard.ScrollBars = ScrollBars.Vertical;
             dataGridAdminDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAdminDashboard.Size = new Size(1073, 428);
@@ -218,7 +255,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pnlMainContentControler.Controls.Add(kryptonPanel2);
             pnlMainContentControler.Controls.Add(kryptonPanel1);
-            pnlMainContentControler.Location = new Point(0, 0);
+            pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
             pnlMainContentControler.Size = new Size(1125, 677);
             pnlMainContentControler.TabIndex = 2;
@@ -238,48 +275,12 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonLabel2
             // 
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel2.Location = new Point(36, 30);
+            kryptonLabel2.Location = new Point(36, 43);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(291, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Announcement Management";
-            // 
-            // dtpkStartDate
-            // 
-            dtpkStartDate.Location = new Point(848, 85);
-            dtpkStartDate.Name = "dtpkStartDate";
-            dtpkStartDate.Size = new Size(251, 29);
-            dtpkStartDate.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpkStartDate.TabIndex = 19;
-            dtpkStartDate.ValueNullable = new DateTime(2025, 4, 28, 0, 0, 0, 0);
-            // 
-            // kryptonLabel1
-            // 
-            kryptonLabel1.Location = new Point(731, 85);
-            kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.Size = new Size(94, 26);
-            kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel1.TabIndex = 20;
-            kryptonLabel1.Values.Text = "End Date";
-            // 
-            // kryptonLabel5
-            // 
-            kryptonLabel5.Location = new Point(731, 26);
-            kryptonLabel5.Name = "kryptonLabel5";
-            kryptonLabel5.Size = new Size(101, 26);
-            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel5.TabIndex = 22;
-            kryptonLabel5.Values.Text = "Start Date";
-            // 
-            // kryptonDateTimePicker1
-            // 
-            kryptonDateTimePicker1.Location = new Point(848, 26);
-            kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            kryptonDateTimePicker1.Size = new Size(251, 29);
-            kryptonDateTimePicker1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonDateTimePicker1.TabIndex = 21;
-            kryptonDateTimePicker1.ValueNullable = new DateTime(2025, 4, 28, 8, 54, 50, 0);
             // 
             // AdminAnnouncementsControl
             // 
@@ -287,7 +288,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
             Name = "AdminAnnouncementsControl";
-            Size = new Size(1125, 677);
+            Size = new Size(1125, 607);
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

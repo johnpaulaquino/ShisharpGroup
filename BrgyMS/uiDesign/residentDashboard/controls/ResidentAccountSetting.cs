@@ -32,5 +32,10 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             pnlAsControlHolder.Controls.Add(info);
             info.Dock = DockStyle.Fill;
         }
+
+        private void pnlAsControlHolder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

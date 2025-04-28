@@ -22,7 +22,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboardForm));
             pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
@@ -78,7 +79,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlMainContainer.Dock = DockStyle.Fill;
             pnlMainContainer.Location = new Point(0, 0);
             pnlMainContainer.Name = "pnlMainContainer";
-            pnlMainContainer.Size = new Size(1224, 711);
+            pnlMainContainer.Size = new Size(1224, 681);
             pnlMainContainer.StateCommon.Color1 = SystemColors.AppWorkspace;
             pnlMainContainer.TabIndex = 0;
             // 
@@ -92,7 +93,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             kryptonPanel2.Dock = DockStyle.Fill;
             kryptonPanel2.Location = new Point(49, 49);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1175, 662);
+            kryptonPanel2.Size = new Size(1175, 632);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 6;
             // 
@@ -102,7 +103,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlMainContentHolder1.Dock = DockStyle.Fill;
             pnlMainContentHolder1.Location = new Point(25, 25);
             pnlMainContentHolder1.Name = "pnlMainContentHolder1";
-            pnlMainContentHolder1.Size = new Size(1125, 637);
+            pnlMainContentHolder1.Size = new Size(1125, 607);
             pnlMainContentHolder1.StateCommon.Color1 = Color.White;
             pnlMainContentHolder1.TabIndex = 5;
             // 
@@ -121,7 +122,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlRighSeperator.Dock = DockStyle.Left;
             pnlRighSeperator.Location = new Point(0, 0);
             pnlRighSeperator.Name = "pnlRighSeperator";
-            pnlRighSeperator.Size = new Size(25, 662);
+            pnlRighSeperator.Size = new Size(25, 632);
             pnlRighSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             pnlRighSeperator.TabIndex = 11;
             // 
@@ -130,7 +131,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlRightSeperator.Dock = DockStyle.Right;
             pnlRightSeperator.Location = new Point(1150, 0);
             pnlRightSeperator.Name = "pnlRightSeperator";
-            pnlRightSeperator.Size = new Size(25, 662);
+            pnlRightSeperator.Size = new Size(25, 632);
             pnlRightSeperator.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             pnlRightSeperator.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlRightSeperator.TabIndex = 4;
@@ -200,7 +201,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.RightToLeft = RightToLeft.No;
-            pnlSidebar.Size = new Size(49, 711);
+            pnlSidebar.Size = new Size(49, 681);
             pnlSidebar.StateCommon.Color1 = Color.IndianRed;
             pnlSidebar.StateCommon.Color2 = Color.IndianRed;
             pnlSidebar.StateCommon.ColorAngle = 100F;
@@ -288,7 +289,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             kryptonPanel6.Dock = DockStyle.Right;
             kryptonPanel6.Location = new Point(48, 0);
             kryptonPanel6.Name = "kryptonPanel6";
-            kryptonPanel6.Size = new Size(1, 711);
+            kryptonPanel6.Size = new Size(1, 681);
             kryptonPanel6.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel6.TabIndex = 2;
             // 
@@ -307,7 +308,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1224, 711);
+            ClientSize = new Size(1224, 681);
             Controls.Add(pnlMainContainer);
             Name = "AdminDashboardForm";
             StartPosition = FormStartPosition.CenterScreen;

@@ -22,7 +22,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -248,7 +249,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pnlMainContentControler.Controls.Add(kryptonPanel2);
             pnlMainContentControler.Controls.Add(kryptonPanel1);
-            pnlMainContentControler.Location = new Point(0, 0);
+            pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
             pnlMainContentControler.Size = new Size(1125, 677);
             pnlMainContentControler.TabIndex = 2;
@@ -268,20 +269,20 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonLabel2
             // 
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel2.Location = new Point(36, 30);
+            kryptonLabel2.Location = new Point(36, 43);
             kryptonLabel2.Name = "kryptonLabel2";
             kryptonLabel2.Size = new Size(224, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Account Management";
             // 
-            // AdminAccountManagementControl
+            // ResidentAccountSetting
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
-            Name = "AdminAccountManagementControl";
-            Size = new Size(1125, 677);
+            Name = "ResidentAccountSetting";
+            Size = new Size(1125, 607);
             Load += AdminAccountManagementControl_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();

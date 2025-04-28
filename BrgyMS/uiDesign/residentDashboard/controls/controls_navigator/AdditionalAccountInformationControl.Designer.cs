@@ -1,5 +1,6 @@
 ﻿namespace BrgyMS.uiDesign.residentDashboard.controls {
-    partial class PersonalAccountInformationControl {
+    partial class AdditionalAccountInformationControl
+    {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
