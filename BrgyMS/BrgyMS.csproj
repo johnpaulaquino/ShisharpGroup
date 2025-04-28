@@ -21,8 +21,10 @@
 	<ItemGroup>
 		<PackageReference Include="DotnetEnv" Version="3.1.1" />
 		<PackageReference Include="Isopoh.Cryptography.Argon2" Version="2.0.0" />
-		<PackageReference Include="Krypton.Docking" Version="90.25.2.55" />
-		<PackageReference Include="Krypton.Toolkit" Version="90.25.2.55" />
+		<PackageReference Include="Krypton.Docking" Version="95.25.4.111" />
+		<PackageReference Include="Krypton.Navigator" Version="95.25.4.111" />
+		<PackageReference Include="Krypton.Toolkit" Version="95.25.4.111" />
+		<PackageReference Include="Krypton.Workspace" Version="95.25.4.111" />
 		<PackageReference Include="Mailkit" Version="4.11.0" />
 		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.8.0" />
 		<PackageReference Include="Mysql.Data" Version="9.2.0" />

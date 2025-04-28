@@ -32,5 +32,20 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             pnlAsControlHolder.Controls.Add(info);
             info.Dock = DockStyle.Fill;
         }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kryptonButton4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

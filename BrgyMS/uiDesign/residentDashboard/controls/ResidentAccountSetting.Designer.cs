@@ -28,31 +28,22 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             pnlAsMainContentHolder = new Krypton.Toolkit.KryptonPanel();
             pnlAsControlHolder = new Krypton.Toolkit.KryptonPanel();
-            pnlNavAdditionalInfoHolder = new Krypton.Toolkit.KryptonPanel();
-            lblAdditionalInfo = new Krypton.Toolkit.KryptonLabel();
-            pnlNavPersonalInfoHolder = new Krypton.Toolkit.KryptonPanel();
-            lbbPersonalInfo = new Krypton.Toolkit.KryptonLabel();
             pnlAsNavigator = new Krypton.Toolkit.KryptonPanel();
-            pnlNavAddressInfoHolder = new Krypton.Toolkit.KryptonPanel();
-            lblAddressInfo = new Krypton.Toolkit.KryptonLabel();
             ctxmenuAccManagement = new ContextMenuStrip(components);
             actionsToolStripMenuItem = new ToolStripMenuItem();
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            btnLogin = new Krypton.Toolkit.KryptonButton();
+            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
+            kryptonButton5 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlAsMainContentHolder).BeginInit();
             pnlAsMainContentHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlAsControlHolder).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pnlNavAdditionalInfoHolder).BeginInit();
-            pnlNavAdditionalInfoHolder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pnlNavPersonalInfoHolder).BeginInit();
-            pnlNavPersonalInfoHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlAsNavigator).BeginInit();
             pnlAsNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pnlNavAddressInfoHolder).BeginInit();
-            pnlNavAddressInfoHolder.SuspendLayout();
             ctxmenuAccManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
@@ -92,82 +83,17 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             pnlAsControlHolder.Size = new Size(800, 750);
             pnlAsControlHolder.TabIndex = 0;
             // 
-            // pnlNavAdditionalInfoHolder
-            // 
-            pnlNavAdditionalInfoHolder.Controls.Add(lblAdditionalInfo);
-            pnlNavAdditionalInfoHolder.Cursor = Cursors.Hand;
-            pnlNavAdditionalInfoHolder.Location = new Point(315, 0);
-            pnlNavAdditionalInfoHolder.Margin = new Padding(4, 5, 4, 5);
-            pnlNavAdditionalInfoHolder.Name = "pnlNavAdditionalInfoHolder";
-            pnlNavAdditionalInfoHolder.Size = new Size(286, 83);
-            pnlNavAdditionalInfoHolder.StateCommon.Color1 = Color.White;
-            pnlNavAdditionalInfoHolder.TabIndex = 3;
-            // 
-            // lblAdditionalInfo
-            // 
-            lblAdditionalInfo.Cursor = Cursors.Hand;
-            lblAdditionalInfo.Location = new Point(20, 23);
-            lblAdditionalInfo.Margin = new Padding(4, 5, 4, 5);
-            lblAdditionalInfo.Name = "lblAdditionalInfo";
-            lblAdditionalInfo.Size = new Size(254, 33);
-            lblAdditionalInfo.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAdditionalInfo.TabIndex = 1;
-            lblAdditionalInfo.Values.Text = "Additional Information";
-            // 
-            // pnlNavPersonalInfoHolder
-            // 
-            pnlNavPersonalInfoHolder.Controls.Add(lbbPersonalInfo);
-            pnlNavPersonalInfoHolder.Cursor = Cursors.Hand;
-            pnlNavPersonalInfoHolder.Location = new Point(21, 0);
-            pnlNavPersonalInfoHolder.Margin = new Padding(4, 5, 4, 5);
-            pnlNavPersonalInfoHolder.Name = "pnlNavPersonalInfoHolder";
-            pnlNavPersonalInfoHolder.Size = new Size(286, 83);
-            pnlNavPersonalInfoHolder.StateCommon.Color1 = Color.FromArgb(8, 142, 254);
-            pnlNavPersonalInfoHolder.TabIndex = 2;
-            // 
-            // lbbPersonalInfo
-            // 
-            lbbPersonalInfo.Location = new Point(21, 23);
-            lbbPersonalInfo.Margin = new Padding(4, 5, 4, 5);
-            lbbPersonalInfo.Name = "lbbPersonalInfo";
-            lbbPersonalInfo.Size = new Size(243, 33);
-            lbbPersonalInfo.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbbPersonalInfo.TabIndex = 1;
-            lbbPersonalInfo.Values.Text = "Personal Information";
-            // 
             // pnlAsNavigator
             // 
-            pnlAsNavigator.Controls.Add(pnlNavAddressInfoHolder);
-            pnlAsNavigator.Controls.Add(pnlNavAdditionalInfoHolder);
-            pnlAsNavigator.Controls.Add(pnlNavPersonalInfoHolder);
+            pnlAsNavigator.Controls.Add(kryptonButton5);
+            pnlAsNavigator.Controls.Add(btnLogin);
+            pnlAsNavigator.Controls.Add(kryptonButton4);
             pnlAsNavigator.Location = new Point(4, 10);
             pnlAsNavigator.Margin = new Padding(4, 5, 4, 5);
             pnlAsNavigator.Name = "pnlAsNavigator";
             pnlAsNavigator.Size = new Size(1599, 83);
             pnlAsNavigator.StateCommon.Color1 = Color.White;
             pnlAsNavigator.TabIndex = 0;
-            // 
-            // pnlNavAddressInfoHolder
-            // 
-            pnlNavAddressInfoHolder.Controls.Add(lblAddressInfo);
-            pnlNavAddressInfoHolder.Cursor = Cursors.Hand;
-            pnlNavAddressInfoHolder.Location = new Point(609, 0);
-            pnlNavAddressInfoHolder.Margin = new Padding(4, 5, 4, 5);
-            pnlNavAddressInfoHolder.Name = "pnlNavAddressInfoHolder";
-            pnlNavAddressInfoHolder.Size = new Size(286, 83);
-            pnlNavAddressInfoHolder.StateCommon.Color1 = Color.White;
-            pnlNavAddressInfoHolder.TabIndex = 4;
-            // 
-            // lblAddressInfo
-            // 
-            lblAddressInfo.Cursor = Cursors.Hand;
-            lblAddressInfo.Location = new Point(31, 23);
-            lblAddressInfo.Margin = new Padding(4, 5, 4, 5);
-            lblAddressInfo.Name = "lblAddressInfo";
-            lblAddressInfo.Size = new Size(236, 33);
-            lblAddressInfo.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAddressInfo.TabIndex = 1;
-            lblAddressInfo.Values.Text = "Address Information";
             // 
             // ctxmenuAccManagement
             // 
@@ -216,6 +142,187 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Account Settings";
             // 
+            // btnLogin
+            // 
+            btnLogin.Location = new Point(25, 5);
+            btnLogin.Margin = new Padding(6, 5, 6, 5);
+            btnLogin.Name = "btnLogin";
+            btnLogin.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Back.ColorAngle = 45F;
+            btnLogin.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnLogin.OverrideDefault.Border.Rounding = 5F;
+            btnLogin.OverrideDefault.Border.Width = 1;
+            btnLogin.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnLogin.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnLogin.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnLogin.Size = new Size(284, 73);
+            btnLogin.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateCommon.Back.ColorAngle = 45F;
+            btnLogin.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnLogin.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnLogin.StateCommon.Border.ColorAngle = 45F;
+            btnLogin.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnLogin.StateCommon.Border.Rounding = 5F;
+            btnLogin.StateCommon.Border.Width = 1;
+            btnLogin.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnLogin.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnLogin.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.StateDisabled.Border.Rounding = 5F;
+            btnLogin.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateNormal.Border.Rounding = 5F;
+            btnLogin.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnLogin.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnLogin.StatePressed.Back.Color1 = Color.White;
+            btnLogin.StatePressed.Back.Color2 = Color.White;
+            btnLogin.StatePressed.Back.ColorAngle = 130F;
+            btnLogin.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnLogin.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnLogin.StatePressed.Border.ColorAngle = 130F;
+            btnLogin.StatePressed.Border.Rounding = 5F;
+            btnLogin.StatePressed.Border.Width = 1;
+            btnLogin.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnLogin.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnLogin.StateTracking.Back.ColorAngle = 45F;
+            btnLogin.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnLogin.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateTracking.Border.ColorAngle = 45F;
+            btnLogin.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnLogin.StateTracking.Border.Rounding = 5F;
+            btnLogin.StateTracking.Border.Width = 1;
+            btnLogin.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.TabIndex = 38;
+            btnLogin.Values.DropDownArrowColor = Color.Empty;
+            btnLogin.Values.Text = "Personal Information";
+            // 
+            // kryptonButton4
+            // 
+            kryptonButton4.Location = new Point(357, 5);
+            kryptonButton4.Margin = new Padding(6, 5, 6, 5);
+            kryptonButton4.Name = "kryptonButton4";
+            kryptonButton4.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.OverrideDefault.Back.ColorAngle = 45F;
+            kryptonButton4.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton4.OverrideDefault.Border.Rounding = 5F;
+            kryptonButton4.OverrideDefault.Border.Width = 1;
+            kryptonButton4.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            kryptonButton4.Size = new Size(284, 73);
+            kryptonButton4.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateCommon.Back.ColorAngle = 45F;
+            kryptonButton4.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            kryptonButton4.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            kryptonButton4.StateCommon.Border.ColorAngle = 45F;
+            kryptonButton4.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton4.StateCommon.Border.Rounding = 5F;
+            kryptonButton4.StateCommon.Border.Width = 1;
+            kryptonButton4.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton4.StateDisabled.Border.Rounding = 5F;
+            kryptonButton4.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateNormal.Border.Rounding = 5F;
+            kryptonButton4.StateNormal.Content.ShortText.Color1 = Color.White;
+            kryptonButton4.StateNormal.Content.ShortText.Color2 = Color.White;
+            kryptonButton4.StatePressed.Back.Color1 = Color.White;
+            kryptonButton4.StatePressed.Back.Color2 = Color.White;
+            kryptonButton4.StatePressed.Back.ColorAngle = 130F;
+            kryptonButton4.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            kryptonButton4.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            kryptonButton4.StatePressed.Border.ColorAngle = 130F;
+            kryptonButton4.StatePressed.Border.Rounding = 5F;
+            kryptonButton4.StatePressed.Border.Width = 1;
+            kryptonButton4.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            kryptonButton4.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            kryptonButton4.StateTracking.Back.ColorAngle = 45F;
+            kryptonButton4.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            kryptonButton4.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateTracking.Border.ColorAngle = 45F;
+            kryptonButton4.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton4.StateTracking.Border.Rounding = 5F;
+            kryptonButton4.StateTracking.Border.Width = 1;
+            kryptonButton4.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton4.TabIndex = 39;
+            kryptonButton4.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton4.Values.Text = "Additional Information";
+            kryptonButton4.Click += kryptonButton4_Click;
+            // 
+            // kryptonButton5
+            // 
+            kryptonButton5.Location = new Point(687, 5);
+            kryptonButton5.Margin = new Padding(6, 5, 6, 5);
+            kryptonButton5.Name = "kryptonButton5";
+            kryptonButton5.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.OverrideDefault.Back.ColorAngle = 45F;
+            kryptonButton5.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton5.OverrideDefault.Border.Rounding = 5F;
+            kryptonButton5.OverrideDefault.Border.Width = 1;
+            kryptonButton5.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            kryptonButton5.Size = new Size(284, 73);
+            kryptonButton5.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateCommon.Back.ColorAngle = 45F;
+            kryptonButton5.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            kryptonButton5.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            kryptonButton5.StateCommon.Border.ColorAngle = 45F;
+            kryptonButton5.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton5.StateCommon.Border.Rounding = 5F;
+            kryptonButton5.StateCommon.Border.Width = 1;
+            kryptonButton5.StateCommon.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateCommon.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton5.StateDisabled.Border.Rounding = 5F;
+            kryptonButton5.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateNormal.Border.Rounding = 5F;
+            kryptonButton5.StateNormal.Content.ShortText.Color1 = Color.White;
+            kryptonButton5.StateNormal.Content.ShortText.Color2 = Color.White;
+            kryptonButton5.StatePressed.Back.Color1 = Color.White;
+            kryptonButton5.StatePressed.Back.Color2 = Color.White;
+            kryptonButton5.StatePressed.Back.ColorAngle = 130F;
+            kryptonButton5.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            kryptonButton5.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            kryptonButton5.StatePressed.Border.ColorAngle = 130F;
+            kryptonButton5.StatePressed.Border.Rounding = 5F;
+            kryptonButton5.StatePressed.Border.Width = 1;
+            kryptonButton5.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            kryptonButton5.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            kryptonButton5.StateTracking.Back.ColorAngle = 45F;
+            kryptonButton5.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            kryptonButton5.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateTracking.Border.ColorAngle = 45F;
+            kryptonButton5.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            kryptonButton5.StateTracking.Border.Rounding = 5F;
+            kryptonButton5.StateTracking.Border.Width = 1;
+            kryptonButton5.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            kryptonButton5.TabIndex = 40;
+            kryptonButton5.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton5.Values.Text = "Address Information";
+            // 
             // ResidentAccountSetting
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -230,17 +337,8 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)pnlAsMainContentHolder).EndInit();
             pnlAsMainContentHolder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlAsControlHolder).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pnlNavAdditionalInfoHolder).EndInit();
-            pnlNavAdditionalInfoHolder.ResumeLayout(false);
-            pnlNavAdditionalInfoHolder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pnlNavPersonalInfoHolder).EndInit();
-            pnlNavPersonalInfoHolder.ResumeLayout(false);
-            pnlNavPersonalInfoHolder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pnlAsNavigator).EndInit();
             pnlAsNavigator.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pnlNavAddressInfoHolder).EndInit();
-            pnlNavAddressInfoHolder.ResumeLayout(false);
-            pnlNavAddressInfoHolder.PerformLayout();
             ctxmenuAccManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
@@ -258,13 +356,10 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
         private ContextMenuStrip ctxmenuAccManagement;
         private ToolStripMenuItem actionsToolStripMenuItem;
         private Krypton.Toolkit.KryptonPanel pnlAsNavigator;
-        private Krypton.Toolkit.KryptonPanel pnlNavAdditionalInfoHolder;
-        private Krypton.Toolkit.KryptonLabel lblAdditionalInfo;
-        private Krypton.Toolkit.KryptonPanel pnlNavPersonalInfoHolder;
-        private Krypton.Toolkit.KryptonLabel lbbPersonalInfo;
-        private Krypton.Toolkit.KryptonPanel pnlNavAddressInfoHolder;
-        private Krypton.Toolkit.KryptonLabel lblAddressInfo;
         private Krypton.Toolkit.KryptonPanel pnlAsMainContentHolder;
         private Krypton.Toolkit.KryptonPanel pnlAsControlHolder;
+        private Krypton.Toolkit.KryptonButton btnLogin;
+        private Krypton.Toolkit.KryptonButton kryptonButton5;
+        private Krypton.Toolkit.KryptonButton kryptonButton4;
     }
 }
