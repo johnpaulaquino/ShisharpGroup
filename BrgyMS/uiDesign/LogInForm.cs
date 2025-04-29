@@ -26,20 +26,27 @@ namespace BrgyMs.uiDesign {
 
         private async void btnLogin_Click(object sender, EventArgs e) {
 
+
             if (isCLicked) {
                 isCLicked = false;
                 string username = txtUsername.Text.ToString();
                 string password = txtPassword.Text.ToString();
+                SuspendLayout();
+
+
                 try {
-                    SuspendLayout();
-                    bool isLoggedIn = await _Authervices.AuthenticateUser(username, password);
+
+                    bool isLoggedIn = await Task.Run(() =>
+                    {
+                        return _Authervices.AuthenticateUser(username, password);
+                    });
 
 
                     if (isLoggedIn) {
 
                         MessageBox.Show("Successfully Login!");
-                        logUtils.Homepage(this, _Authervices.GetStatus());
 
+                        logUtils.Homepage(this, _Authervices.GetStatus());
                     }
                 }
                 catch (Exception ex) {
@@ -50,9 +57,11 @@ namespace BrgyMs.uiDesign {
                     isCLicked = true;
                     ResumeLayout();
                 }
+
             }
 
         }
+
 
         private void cbShowPass_CheckedChanged(object sender, EventArgs e) {
 

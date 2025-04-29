@@ -26,12 +26,13 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel23 = new Krypton.Toolkit.KryptonLabel();
             kryptonPanel7 = new Krypton.Toolkit.KryptonPanel();
+            cbVoterStatus = new Krypton.Toolkit.KryptonCheckBox();
+            kryptonLabel24 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel15 = new Krypton.Toolkit.KryptonLabel();
             txtAsReligion = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel16 = new Krypton.Toolkit.KryptonLabel();
@@ -151,6 +152,8 @@
             // 
             kryptonPanel7.AutoScroll = true;
             kryptonPanel7.AutoSize = true;
+            kryptonPanel7.Controls.Add(cbVoterStatus);
+            kryptonPanel7.Controls.Add(kryptonLabel24);
             kryptonPanel7.Controls.Add(kryptonLabel15);
             kryptonPanel7.Controls.Add(txtAsReligion);
             kryptonPanel7.Controls.Add(kryptonLabel16);
@@ -173,6 +176,26 @@
             kryptonPanel7.Size = new Size(1015, 380);
             kryptonPanel7.StateCommon.Color1 = Color.White;
             kryptonPanel7.TabIndex = 65;
+            // 
+            // cbVoterStatus
+            // 
+            cbVoterStatus.AutoSize = false;
+            cbVoterStatus.Location = new Point(594, 342);
+            cbVoterStatus.Name = "cbVoterStatus";
+            cbVoterStatus.Size = new Size(379, 28);
+            cbVoterStatus.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbVoterStatus.TabIndex = 64;
+            cbVoterStatus.Values.Text = "Eligible";
+            // 
+            // kryptonLabel24
+            // 
+            kryptonLabel24.Location = new Point(595, 308);
+            kryptonLabel24.Margin = new Padding(2);
+            kryptonLabel24.Name = "kryptonLabel24";
+            kryptonLabel24.Size = new Size(134, 29);
+            kryptonLabel24.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel24.TabIndex = 63;
+            kryptonLabel24.Values.Text = "Voter Status";
             // 
             // kryptonLabel15
             // 
@@ -251,39 +274,39 @@
             // 
             cboAsCivilStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsCivilStatus.DropDownWidth = 159;
-            cboAsCivilStatus.Items.AddRange(new object[] { "Single", "Married", "Seperated", "Widowed" });
+            cboAsCivilStatus.Items.AddRange(new object[] { "--Select--", "Single", "Married", "Seperated", "Widowed" });
             cboAsCivilStatus.Location = new Point(10, 256);
             cboAsCivilStatus.Name = "cboAsCivilStatus";
-            cboAsCivilStatus.Size = new Size(388, 28);
-            cboAsCivilStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsCivilStatus.Size = new Size(388, 25);
+            cboAsCivilStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsCivilStatus.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            cboAsCivilStatus.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsCivilStatus.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsCivilStatus.TabIndex = 54;
             // 
             // cboAsEducAttain
             // 
             cboAsEducAttain.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsEducAttain.DropDownWidth = 159;
-            cboAsEducAttain.Items.AddRange(new object[] { "Elementary Graduate", "Junior High Graduate", "Senior High Graduate", "College Graduate", "Undergraduate" });
+            cboAsEducAttain.Items.AddRange(new object[] { "--Select--", "Elementary Graduate", "Junior High Graduate", "Senior High Graduate", "College Graduate", "Undergraduate" });
             cboAsEducAttain.Location = new Point(10, 167);
             cboAsEducAttain.Name = "cboAsEducAttain";
-            cboAsEducAttain.Size = new Size(388, 28);
-            cboAsEducAttain.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsEducAttain.Size = new Size(388, 25);
+            cboAsEducAttain.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsEducAttain.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            cboAsEducAttain.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsEducAttain.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsEducAttain.TabIndex = 53;
             // 
             // cboAsResidentType
             // 
             cboAsResidentType.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsResidentType.DropDownWidth = 159;
-            cboAsResidentType.Items.AddRange(new object[] { "Normal", "PWD", "Senior Citizen" });
+            cboAsResidentType.Items.AddRange(new object[] { "--Select--", "Normal", "PWD", "Senior Citizen" });
             cboAsResidentType.Location = new Point(10, 342);
             cboAsResidentType.Name = "cboAsResidentType";
-            cboAsResidentType.Size = new Size(386, 28);
-            cboAsResidentType.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsResidentType.Size = new Size(386, 25);
+            cboAsResidentType.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsResidentType.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            cboAsResidentType.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsResidentType.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsResidentType.TabIndex = 49;
             // 
             // kryptonLabel19
@@ -300,13 +323,13 @@
             // 
             cboAsEmploymentStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsEmploymentStatus.DropDownWidth = 159;
-            cboAsEmploymentStatus.Items.AddRange(new object[] { "Employed", "Self-Employed", "Unemployed", "Student" });
+            cboAsEmploymentStatus.Items.AddRange(new object[] { "--Select--", "Employed", "Self-Employed", "Unemployed", "Student" });
             cboAsEmploymentStatus.Location = new Point(594, 256);
             cboAsEmploymentStatus.Name = "cboAsEmploymentStatus";
-            cboAsEmploymentStatus.Size = new Size(388, 28);
-            cboAsEmploymentStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsEmploymentStatus.Size = new Size(388, 25);
+            cboAsEmploymentStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsEmploymentStatus.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            cboAsEmploymentStatus.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F);
+            cboAsEmploymentStatus.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAsEmploymentStatus.TabIndex = 46;
             // 
             // kryptonLabel20
@@ -377,7 +400,7 @@
             // 
             // kryptonButton1
             // 
-            kryptonButton1.Location = new Point(49, 18);
+            kryptonButton1.Location = new Point(49, 3);
             kryptonButton1.Margin = new Padding(4, 3, 4, 3);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -434,6 +457,7 @@
             kryptonButton1.TabIndex = 39;
             kryptonButton1.Values.DropDownArrowColor = Color.Empty;
             kryptonButton1.Values.Text = "Save Changes";
+            kryptonButton1.Click += kryptonButton1_Click;
             // 
             // kryptonPanel6
             // 
@@ -457,7 +481,7 @@
             // 
             cboAsGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsGender.DropDownWidth = 159;
-            cboAsGender.Items.AddRange(new object[] { "Male", "Female", "Others" });
+            cboAsGender.Items.AddRange(new object[] { "--Select--", "Male", "Female", "Others" });
             cboAsGender.Location = new Point(10, 429);
             cboAsGender.Name = "cboAsGender";
             cboAsGender.Size = new Size(412, 22);
@@ -552,7 +576,7 @@
             // 
             cboAsSuffix.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsSuffix.DropDownWidth = 159;
-            cboAsSuffix.Items.AddRange(new object[] { "Jr. ", "Sr.", "III", "II" });
+            cboAsSuffix.Items.AddRange(new object[] { "--Select--", "Jr. ", "Sr.", "III", "II" });
             cboAsSuffix.Location = new Point(10, 333);
             cboAsSuffix.Name = "cboAsSuffix";
             cboAsSuffix.Size = new Size(411, 22);
@@ -826,6 +850,7 @@
             btnAsUpload.TabIndex = 54;
             btnAsUpload.Values.DropDownArrowColor = Color.Empty;
             btnAsUpload.Values.Text = "Upload";
+            btnAsUpload.Click += btnAsUpload_Click;
             // 
             // picAsProfilePicture
             // 
@@ -843,7 +868,6 @@
             Controls.Add(kryptonPanel1);
             Name = "AccountSettingsDataHolderController";
             Size = new Size(1125, 594);
-            Load += AccountSettingsDataHolderController_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
@@ -927,5 +951,7 @@
         private Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel23;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonCheckBox cbVoterStatus;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel24;
     }
 }

@@ -1,5 +1,5 @@
 namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
-    partial class AccountVerificationModalControl {
+    partial class RequestDocumentsModalCotntrol {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

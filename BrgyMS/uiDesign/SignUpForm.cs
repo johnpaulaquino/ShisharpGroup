@@ -148,7 +148,7 @@ namespace BrgyMs.uiDesign {
               
 
                 //set empty strings to the not required fields if not set.
-                _UserValidation.SetEmptyStringThatCanAcceptNull(_PersonalInfo);
+                _UserValidation.SetEmptyStringThatCanAcceptNullForPInfo(_PersonalInfo);
 
                 //validate per page
                 switch (pnlPage) {
@@ -166,7 +166,7 @@ namespace BrgyMs.uiDesign {
                         break;
 
                     case 4:
-                        _UserValidation.ValidateAddInfo(_AddlInfo);
+                        _UserValidation.ValidateAddInfoForSignup(_AddlInfo);
 
                         _UserValidation.ValidateFileType(filePathProofOfR);
 
@@ -174,11 +174,6 @@ namespace BrgyMs.uiDesign {
                             _UserValidation.ValidateFileType(filePathProfilePic);
                         }
                         break;
-
-                    case 5:
-                        _UserValidation.ValidateAddress(_Address);
-                        break;
-
                 }
                 //increment the index for accessing the list
                 lblPgNumber++;
@@ -321,6 +316,10 @@ namespace BrgyMs.uiDesign {
                     LotNo = lotNo,
                     BlockNumber = blockNo,
                 };
+                //validate fields
+                _UserValidation.ValidateAddress(_Address);
+
+                _UserValidation.SetEmptyStringThatCanAcceptNullForAddress(_Address);
                 Cursor = Cursors.WaitCursor;
                 await _ResidentServices.CreateResidentInformation(_Users, _PersonalInfo, _AddlInfo, _Address);
                

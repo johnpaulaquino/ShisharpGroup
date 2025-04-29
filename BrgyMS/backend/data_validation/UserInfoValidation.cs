@@ -16,6 +16,8 @@ namespace BrgyMs.backend.data_validation {
         private readonly string ImagePattern = @"^.+\.(jpg|jpeg|png|bmp|gif|tiff)$";
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         public UserInfoValidation() { }
+
+        //validate the User info with the confrim passsword, usually used in the signup
         public async Task ValidateUser(User _User, string ConfirmPassword) {
             bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
 
@@ -58,6 +60,7 @@ namespace BrgyMs.backend.data_validation {
 
         } // end of first validation
 
+        //validate the User info
         public void ValidateUser(User _User) {
             bool IsValid = Regex.IsMatch(_User.Email, EmailPattern);
 
@@ -83,6 +86,8 @@ namespace BrgyMs.backend.data_validation {
 
         } // end of first validation
 
+
+        //validate personal information
         public void ValidatePersonalInfo(PersonalInformation _Personalinfo) {
 
             if (string.IsNullOrEmpty(_Personalinfo.Firstname)) {
@@ -101,8 +106,9 @@ namespace BrgyMs.backend.data_validation {
                 throw new Exception("Please specify your gender!");
             }
         }
+        //validate the additional info
 
-        public void ValidateAddInfo(AdditionalInfo _AdditionalInfo) {
+        public void ValidateAddInfoForSignup(AdditionalInfo _AdditionalInfo) {
             bool IsPhoneValid = Regex.IsMatch(_AdditionalInfo.ContactNo, PhonePattern);
 
             if (string.Equals(_AdditionalInfo.CivilStatus, "--Select--")) {
@@ -128,6 +134,30 @@ namespace BrgyMs.backend.data_validation {
             }
 
         }
+        public void ValidateAddInfoForUpdate(AdditionalInfo _AdditionalInfo) {
+            bool IsPhoneValid = Regex.IsMatch(_AdditionalInfo.ContactNo, PhonePattern);
+
+            if (string.Equals(_AdditionalInfo.CivilStatus, "--Select--")) {
+                throw new Exception("Please specify your Civil status!");
+            }
+            if (string.Equals(_AdditionalInfo.EducAttain, "--Select--")) {
+                throw new Exception("Please specify your Educational Attaintment!");
+            }
+            if (string.Equals(_AdditionalInfo.ResidentType, "--Select--")) {
+                throw new Exception("Please specify your Resident type!");
+            }
+            if (string.IsNullOrEmpty(_AdditionalInfo.Religion)) {
+                throw new Exception("Religion should not be empty!");
+            }
+            if (string.IsNullOrEmpty(_AdditionalInfo.ContactNo)) {
+                throw new Exception("Contact No. should not be empty!");
+            }
+            if (!IsPhoneValid) {
+                throw new Exception("Invalid Phone number!");
+            }
+        }
+
+        // validate the address
         public void ValidateAddress(Address _Address) {
             bool IsHouseNoDigits = Regex.IsMatch(_Address.HouseNumber, @"\d");
             bool IsLotNoDigits = Regex.IsMatch(_Address.LotNo, @"\d");
@@ -153,14 +183,18 @@ namespace BrgyMs.backend.data_validation {
             }
         }
 
+
+        //validate request documents
         public void ValdiateRequestDocs(ResidentDocumentRequest _RequestDocs) {
             if (string.IsNullOrEmpty(_RequestDocs.DocumentType)) {
-                throw new Exception("Document Type should not be empty!");
+                throw new Exception("Please specify the document you are requesting!");
             }
             if (string.IsNullOrEmpty(_RequestDocs.Purpose)) {
-                throw new Exception("Pupose of requesting document should not be empty!");
+                throw new Exception("Please specify the purpose!");
             }
         }
+
+        //validate the file extension of a file
         public void ValidateFileType(string _FilePath) {
             bool IsExtensionValid = Regex.IsMatch(_FilePath, ImagePattern);
 
@@ -168,13 +202,29 @@ namespace BrgyMs.backend.data_validation {
                 throw new Exception("File Extension should [jpg, jpeg, png, bmp, gif, tiff]!");
             }
         }
-        public void SetEmptyStringThatCanAcceptNull(PersonalInformation _PersonalInfo) {
+
+        //this will set as empty string to all data that can be null in personal information
+        public void SetEmptyStringThatCanAcceptNullForPInfo(PersonalInformation _PersonalInfo) {
             if (string.IsNullOrEmpty(_PersonalInfo.Middlename)) {
                 _PersonalInfo.Middlename = "";
             }
             if (string.Equals(_PersonalInfo.Suffix, "--Select--")) {
                 _PersonalInfo.Suffix = "";
             }
-        }
+        } //end of function
+
+        //this will set as empty string to all data that can be null in address
+        public void SetEmptyStringThatCanAcceptNullForAddress(Address address) {
+
+            if (string.IsNullOrEmpty(address.SubdivisionName)) {
+                address.SubdivisionName = "";
+            }
+            if (string.IsNullOrEmpty(address.LotNo)) {
+                address.LotNo = "";
+            }
+            if (string.IsNullOrEmpty(address.BlockNumber)) {
+                address.BlockNumber = "";
+            }
+        } //end of function
     }
 }

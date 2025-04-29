@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace BrgyMS.backend.services {
     public class BaseServices {
-        private readonly AdminRepository _AdminRepo = new();
-        private readonly BaseRepository _BaseRepo = new();
-        private readonly ResidentRepository _ResidentRepo = new();
-        private readonly SecretaryRepository _SecretaryRepo = new();
+        private AdminRepository _AdminRepo = new();
+        private BaseRepository _BaseRepo = new();
+        private ResidentRepository _ResidentRepo = new();
+        private SecretaryRepository _SecretaryRepo = new();
 
         public BaseServices() {
 
@@ -23,7 +23,11 @@ namespace BrgyMS.backend.services {
         public async Task LogUserActions(Logs logs) {
 
             try {
-                await _BaseRepo.LogUserActions(logs);
+                await Task.Run(() =>
+                {
+                    return _BaseRepo.LogUserActions(logs);
+                });
+
             }
             catch (Exception) {
                 throw;
@@ -35,7 +39,8 @@ namespace BrgyMS.backend.services {
         public async Task<string> GenerateLogsId() {
 
             try {
-                return await _BaseRepo.GenerateLogsId();
+                var generateLogs = await _BaseRepo.GenerateLogsId();
+                return generateLogs;
             }
             catch (Exception) {
                 throw;
@@ -43,16 +48,18 @@ namespace BrgyMS.backend.services {
         } // end of the line
 
         public async Task<List<object>> GetAllUserInformations(string userId) {
+            _BaseRepo = new BaseRepository();
+            List<object> usersInfo = new List<object>();
             try {
-                List<object> usersInfo = new List<object>();
 
                 using var dataReader = await _BaseRepo.GetUserAllInformation(userId);
-                User user;
-                PersonalInformation personalInfo;
-                AdditionalInfo addInfo;
-                Address address;
-              
+
                 if (dataReader.Read()) {
+                    User user;
+                    PersonalInformation personalInfo;
+                    AdditionalInfo addInfo;
+                    Address address;
+
                     int status = dataReader.GetInt32("status");
 
                     //user info
@@ -77,8 +84,6 @@ namespace BrgyMS.backend.services {
 
                     //Additional Information
 
-
-                    
                     byte[]? proofOfResidency = null;
                     byte[]? profileImg = null;
                     if (!dataReader.IsDBNull(dataReader.GetOrdinal("proof_of_residency"))) {
@@ -88,7 +93,7 @@ namespace BrgyMS.backend.services {
                         profileImg = (byte[]?)dataReader["profile_image"];
                     }
 
-                    
+
                     addInfo = new AdditionalInfo(dataReader.GetBoolean("is_voter"),
                         dataReader.GetDateTime("birth_day"),
                         dataReader.GetString("employment_status"),
@@ -98,15 +103,18 @@ namespace BrgyMS.backend.services {
                         dataReader.GetString("contact_number"),
                         dataReader.GetString("religion"),
                         proofOfResidency)
-                    { ProfileImage = profileImg, 
-                    Age = dataReader.GetInt32("age")};
+                    {
+                        ProfileImage = profileImg,
+                        Age = dataReader.GetInt32("age")
+                    };
 
                     //Address
                     address = new Address(dataReader.GetString("street"),
-                        dataReader.GetString("house_number")){ 
-                    BlockNumber = dataReader.GetString("block_number"),
-                    LotNo = dataReader.GetString("lot_number"),
-                    SubdivisionName = dataReader.GetString("subdivision")
+                        dataReader.GetString("house_number"))
+                    {
+                        BlockNumber = dataReader.GetString("block_number"),
+                        LotNo = dataReader.GetString("lot_number"),
+                        SubdivisionName = dataReader.GetString("subdivision")
                     };
 
 
@@ -115,13 +123,31 @@ namespace BrgyMS.backend.services {
                     usersInfo.Add(personalInfo);
                     usersInfo.Add(addInfo);
                     usersInfo.Add(address);
+                    // lastly return the list taht contains the info
+
+                    await dataReader.CloseAsync();
                 }
-                // lastly return the list taht contains the info
+
                 return usersInfo;
             }
             catch (Exception) {
                 throw;
             }
+
+        } // end of the funtion
+
+        //Update User Information 
+        public async Task UpdateUserInformations(string userId,
+            PersonalInformation pInfo, AdditionalInfo addInfo,
+            Address address
+            ) {
+            try {
+                await _BaseRepo.UpdateUserInformations(pInfo, addInfo, address, userId);
+            }
+            catch (Exception) {
+                throw;
+            }
+
         }
     }
 

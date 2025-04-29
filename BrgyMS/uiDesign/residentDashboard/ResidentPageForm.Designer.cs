@@ -22,8 +22,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResidentPageForm));
             pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
@@ -37,6 +36,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             picProfilePic = new Krypton.Toolkit.KryptonPictureBox();
             lblUsername = new Krypton.Toolkit.KryptonLabel();
             pnlSidebar = new Krypton.Toolkit.KryptonPanel();
+            picRequestDocs = new Krypton.Toolkit.KryptonPictureBox();
             picLogout = new Krypton.Toolkit.KryptonPictureBox();
             picLogs = new Krypton.Toolkit.KryptonPictureBox();
             picDashboardIcon = new Krypton.Toolkit.KryptonPictureBox();
@@ -57,6 +57,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             ((System.ComponentModel.ISupportInitialize)picProfilePic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).BeginInit();
             pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picRequestDocs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picDashboardIcon).BeginInit();
@@ -184,6 +185,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             // pnlSidebar
             // 
+            pnlSidebar.Controls.Add(picRequestDocs);
             pnlSidebar.Controls.Add(picLogout);
             pnlSidebar.Controls.Add(picLogs);
             pnlSidebar.Controls.Add(picDashboardIcon);
@@ -204,6 +206,19 @@ namespace BrgyMS.uiDesign.residentDashboard {
             pnlSidebar.StateNormal.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             pnlSidebar.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.TopMiddle;
             pnlSidebar.TabIndex = 0;
+            pnlSidebar.Paint += pnlSidebar_Paint;
+            // 
+            // picRequestDocs
+            // 
+            picRequestDocs.Cursor = Cursors.Hand;
+            picRequestDocs.Image = (Image)resources.GetObject("picRequestDocs.Image");
+            picRequestDocs.Location = new Point(12, 334);
+            picRequestDocs.Name = "picRequestDocs";
+            picRequestDocs.Size = new Size(25, 25);
+            picRequestDocs.SizeMode = PictureBoxSizeMode.Zoom;
+            picRequestDocs.TabIndex = 9;
+            picRequestDocs.TabStop = false;
+            picRequestDocs.Click += picRequestDocs_Click;
             // 
             // picLogout
             // 
@@ -215,6 +230,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             picLogout.SizeMode = PictureBoxSizeMode.Zoom;
             picLogout.TabIndex = 8;
             picLogout.TabStop = false;
+            picLogout.Click += picLogout_Click;
             // 
             // picLogs
             // 
@@ -226,6 +242,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             picLogs.SizeMode = PictureBoxSizeMode.Zoom;
             picLogs.TabIndex = 5;
             picLogs.TabStop = false;
+            picLogs.Click += picLogs_Click;
             // 
             // picDashboardIcon
             // 
@@ -278,7 +295,6 @@ namespace BrgyMS.uiDesign.residentDashboard {
             Controls.Add(pnlMainContainer);
             Name = "ResidentPageForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AdminForm";
             Load += ResidentPageForm_Load;
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).EndInit();
             pnlMainContainer.ResumeLayout(false);
@@ -295,6 +311,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             ((System.ComponentModel.ISupportInitialize)picProfilePic).EndInit();
             ((System.ComponentModel.ISupportInitialize)pnlSidebar).EndInit();
             pnlSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picRequestDocs).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogout).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogs).EndInit();
             ((System.ComponentModel.ISupportInitialize)picDashboardIcon).EndInit();
@@ -327,5 +344,6 @@ namespace BrgyMS.uiDesign.residentDashboard {
         private Krypton.Toolkit.KryptonPanel pnlFilterValueHolder;
         private Krypton.Toolkit.KryptonPictureBox picAccountVerification;
         private Krypton.Toolkit.KryptonPictureBox picLogout;
+        private Krypton.Toolkit.KryptonPictureBox picRequestDocs;
     }
 }

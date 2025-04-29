@@ -32,7 +32,7 @@ namespace BrgyMs.backend.services {
                 }
                 _Validation.ValidateUser(_User);
                 _Validation.ValidatePersonalInfo(_PersonalInfo);
-                _Validation.ValidateAddInfo(_AdditionalInfo);
+                _Validation.ValidateAddInfoForSignup(_AdditionalInfo);
 
 
                 string Id = await _ResidentRepo.GenerateId();

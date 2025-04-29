@@ -20,7 +20,8 @@ namespace BrgyMs.uiDesign.IndexUtils {
 
         }
         public void Homepage(Form form, string Status) {
-            ResidentPageForm homepage = new ResidentPageForm();
+            ResidentPageForm homepage = new();
+
             if (string.Equals(Status, "admin")) {
                 form.Hide();
                 AdminDashboardForm admin = new AdminDashboardForm();

@@ -16,38 +16,75 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.residentDashboard {
-    public partial class ResidentPageForm : Form
-    {
+    public partial class ResidentPageForm : Form {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();
         private BaseRepository _BaseRepo = new BaseRepository();
-        private List<object> userInfo;
+        private ResidentAccountSetting accountcontrol;
 
-        public ResidentPageForm()
-        {
+        public ResidentPageForm() {
             InitializeComponent();
 
 
         }
 
-        private void picAccountManagement_Click(object sender, EventArgs e)
-        {
-            ResidentAccountSetting accountcontrol = new ResidentAccountSetting();
+        private void picAccountManagement_Click(object sender, EventArgs e) {
+
+            if (accountcontrol == null) {
+                accountcontrol = new ResidentAccountSetting();
+            }
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(accountcontrol);
             accountcontrol.Dock = DockStyle.Fill;
         }
 
-        private void ResidentPageForm_Load(object sender, EventArgs e)
-        {
+        private void ResidentPageForm_Load(object sender, EventArgs e) {
 
             uiadmin.SetUserLabel(
                 lblRole, lblUsername);
 
         }
 
-        public async void AfterInitializeComponent(){
+        public async void AfterInitializeComponent() {
 
+        }
+
+        private void picLogs_Click(object sender, EventArgs e) {
+            ResidentUserLogsControl control = new();
+
+            Cursor = Cursors.WaitCursor;
+
+            pnlMainContentHolder1.Controls.Clear();
+            pnlMainContentHolder1.Controls.Add(control);
+            control.Dock = DockStyle.Fill;
+
+            Cursor = Cursors.Default;
+
+        }
+
+        private void picLogout_Click(object sender, EventArgs e) {
+            DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (option == DialogResult.Yes) {
+                this.Hide();
+                _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
+                LoginForm login = new LoginForm();
+                login.Owner = this;
+                login.Show();
             }
+        }
+
+        private void picRequestDocs_Click(object sender, EventArgs e) {
+            RequestDocumentsControls control = new();
+            pnlMainContentHolder1.Controls.Clear();
+            pnlMainContentHolder1.Controls.Add(control);
+
+            control.Dock = DockStyle.Fill;
+
+        }
+
+        private void pnlSidebar_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

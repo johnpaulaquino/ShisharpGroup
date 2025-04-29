@@ -1,5 +1,5 @@
-namespace BrgyMS.uiDesign.adminDashboard.modals {
-    partial class AdminModal {
+﻿namespace BrgyMS.uiDesign.residentDashboard.modals {
+    partial class RequestDocsModal {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,36 +23,36 @@ namespace BrgyMS.uiDesign.adminDashboard.modals {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            pnlModalMainContent = new Krypton.Toolkit.KryptonPanel();
-            ((System.ComponentModel.ISupportInitialize)pnlModalMainContent).BeginInit();
+            pnlContainer = new Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)pnlContainer).BeginInit();
             SuspendLayout();
             // 
-            // pnlModalMainContent
+            // pnlContainer
             // 
-            pnlModalMainContent.Dock = DockStyle.Fill;
-            pnlModalMainContent.Location = new Point(0, 0);
-            pnlModalMainContent.Name = "pnlModalMainContent";
-            pnlModalMainContent.Size = new Size(464, 691);
-            pnlModalMainContent.StateCommon.Color1 = Color.White;
-            pnlModalMainContent.TabIndex = 0;
+            pnlContainer.Dock = DockStyle.Fill;
+            pnlContainer.Location = new Point(0, 0);
+            pnlContainer.Name = "pnlContainer";
+            pnlContainer.Size = new Size(370, 535);
+            pnlContainer.StateCommon.Color1 = Color.White;
+            pnlContainer.TabIndex = 0;
             // 
-            // AdminModal
+            // RequestDocsModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(464, 691);
-            Controls.Add(pnlModalMainContent);
+            ClientSize = new Size(370, 535);
+            Controls.Add(pnlContainer);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "AdminModal";
+            Name = "RequestDocsModal";
             StartPosition = FormStartPosition.CenterScreen;
-            Load += AdminModal_Load;
-            ((System.ComponentModel.ISupportInitialize)pnlModalMainContent).EndInit();
+            Load += RequestDocsModal_Load;
+            ((System.ComponentModel.ISupportInitialize)pnlContainer).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        protected internal Krypton.Toolkit.KryptonPanel pnlModalMainContent;
+        private Krypton.Toolkit.KryptonPanel pnlContainer;
     }
 }

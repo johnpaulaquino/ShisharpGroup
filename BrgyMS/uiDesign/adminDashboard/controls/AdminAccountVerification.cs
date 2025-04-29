@@ -72,7 +72,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         private void atsVerfiyAccount_Click(object sender, EventArgs e) {
 
-            AccountVerificationModalControl control = new();
+            RequestDocumentsModalCotntrol control = new();
             modal.StartPosition = FormStartPosition.CenterScreen;
             modal.pnlModalMainContent.Controls.Add(control);
             control.Dock = DockStyle.Fill;

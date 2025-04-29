@@ -57,6 +57,7 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             // 
             pnlAsMainContentHolder.Dock = DockStyle.Bottom;
             pnlAsMainContentHolder.Location = new Point(0, 3);
+            pnlAsMainContentHolder.MaximumSize = new Size(1500, 2500);
             pnlAsMainContentHolder.Name = "pnlAsMainContentHolder";
             pnlAsMainContentHolder.Size = new Size(1125, 591);
             pnlAsMainContentHolder.StateCommon.Color1 = Color.White;

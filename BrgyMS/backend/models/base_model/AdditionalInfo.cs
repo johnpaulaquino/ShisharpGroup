@@ -8,7 +8,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace BrgyMs.backend.models.base_model {
     public class AdditionalInfo {
 
-        public Utils utils = new Utils();
+      
         public string Id = Guid.NewGuid().ToString();
         public byte[] ProfileImage { get; set; }
         public bool IsVoter { get; set; }
@@ -31,8 +31,8 @@ namespace BrgyMs.backend.models.base_model {
                              string ResidentType,
                             string ContactNo,
                              string Religion,
-                             byte[] ProofOfResidency,
-        byte[] ProfileImage = null, int Age = 0) {
+
+         byte[] ProofOfResidency = null, byte[] ProfileImage = null, int Age = 1) {
 
             this.ProofOfResidency = ProofOfResidency;
             this.Age = Age;

@@ -16,34 +16,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BrgyMS.uiDesign.residentDashboard.controls {
-    public partial class ResidentAccountSetting : UserControl
-    {
+    public partial class ResidentAccountSetting : UserControl {
         string userId = "";
         private Utils utils = new Utils();
-        public ResidentAccountSetting()
-        {
+        private AccountSettingsDataHolderController data;
+        public ResidentAccountSetting() {
             InitializeComponent();
             userId = utils.ReadUserIdInFile();
 
 
         }
 
-        private void ResidentAccountSetting_Load(object sender, EventArgs e)
-        {
-          
-            //to avoid invalid operation exception
-            if (InvokeRequired)
-            {
-                //to not block the UI
-                Invoke(new Action(() => {
-                    //update the UI
-                    AccountSettingsDataHolderController data = new();
-                    pnlAsMainContentHolder.Controls.Clear();
-                    pnlAsMainContentHolder.Controls.Add(data);
-                }));
+        private async void ResidentAccountSetting_Load(object sender, EventArgs e) {
+            try {
+                if (data == null) // check if the object is not null then create
+                {
+                    data = new();
+                }
+
+
+                // clear first
+                pnlAsMainContentHolder.Controls.Clear();
+                //then add
+                pnlAsMainContentHolder.Controls.Add(data);
+                //Dock
+                data.Dock = DockStyle.Fill;
+                await data.LoadContents();
             }
-        }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }// end of the funtion
+
+
     }
 }

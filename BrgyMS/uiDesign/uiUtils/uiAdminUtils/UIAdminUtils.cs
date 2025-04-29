@@ -61,7 +61,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             var principal = _AuthUtils.ValidateToken(token);
             User user = _AuthUtils.ValidateToken(token);
 
-  
+
             string role = utils.FormatRoles(user.Role);
 
             lblRole.Text = role;
@@ -75,7 +75,11 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 table.Update();
                 table.Refresh();
                 var dt = new DataTable();
-                using var userInfo = await _AdminServices.GetUserInformation(limit);
+                using var userInfo = await Task.Run(() =>
+                {
+                    return _AdminServices.GetUserInformation(limit);
+                });
+
                 userInfo.Fill(dt);
 
                 table.Columns.Clear();
@@ -103,7 +107,10 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 table.Refresh();
 
                 var dt = new DataTable();
-                using var userIno = await _AdminServices.GetUserInformation(limit, keyword);
+                using var userIno = await Task.Run(() =>
+                {
+                    return _AdminServices.GetUserInformation(limit, keyword);
+                });
 
                 userIno.Fill(dt);
 
@@ -142,7 +149,11 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 table.Update();
                 table.Refresh();
                 var dt = new DataTable();
-                using var adapter = await _AdminServices.GetAllLogs(limit);
+                using var adapter = await Task.Run(() =>
+                {
+                    return _AdminServices.GetAllLogs(limit);
+                });
+
 
                 adapter.Fill(dt);
 
@@ -177,9 +188,10 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                 table.Update();
                 table.Refresh();
-            
+
                 var dt = new DataTable();
-                using var adapter = await _AdminServices.GetInActiveResidentUser();
+
+                using var adapter = await Task.Run(_AdminServices.GetInActiveResidentUser);
 
                 adapter.Fill(dt);
 
@@ -215,7 +227,12 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
             // Get the user 
             try {
-                List<User> user = await _AdminServices.GetUserBasicInfo(UserIdInFile);
+                List<User> user = await Task.Run(() =>
+                {
+                    return _AdminServices.GetUserBasicInfo(UserIdInFile);
+                });
+
+
                 userinfoControl.userModals = user;
                 foreach (var item in user) {
                     txtUserId.Text = UserIdInFile;

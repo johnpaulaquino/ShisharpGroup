@@ -13,7 +13,7 @@ namespace BrgyMs.backend.services {
     public class AuthServices : BaseServices {
         private readonly AuthUtils _AuthUtils = new AuthUtils();
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
-        
+
         private string Status = "users";
         public AuthServices() {
 
@@ -50,11 +50,14 @@ namespace BrgyMs.backend.services {
 
                 _AuthUtils.GenerateToken(data); // Generate Token after login
 
-               
-                string id = await _ResidentRepo.GenerateLogsId(); // id generated
-                var logs = new Logs(id, data["userId"], "Login") { DatePerformed = DateTime.Now};
+
+                string id = await Task.Run(_ResidentRepo.GenerateLogsId);
+
+                var logs = new Logs(id, data["userId"], "Login") { DatePerformed = DateTime.Now };
+
 
                 //log actions
+
                 await LogUserActions(logs);
 
                 return true;

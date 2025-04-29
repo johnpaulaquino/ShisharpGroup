@@ -125,7 +125,7 @@ namespace BrgyMs.backend.database.repositories {
         }
 
         //Get all the information of the specific user 
-        public async Task<DbDataReader> GetUserAllInformation(String UserId) {
+        public async Task<DbDataReader> GetUserAllInformation(string UserId) {
             string stmt = "SELECT u.id, u.email, u.username, u.password, u.role, u.status, " +
                 "p.firstname, p.middlename, p.lastname, p.suffix, p.gender," +
                 "ai.is_voter, ai.civil_status, ai.educational_attaintment, ai.employment_status, " +
@@ -231,9 +231,9 @@ namespace BrgyMs.backend.database.repositories {
             string stmt1 = "UPDATE additional_info set proof_of_residency = @proof WHERE user_id = @pid";
 
             try {
-               
+
                 using var connection = await conn.getConnection();
-              
+
                 using var cmd = new MySqlCommand(stmt, connection);
                 using var cmd1 = new MySqlCommand(stmt1, connection);
 
@@ -273,5 +273,83 @@ namespace BrgyMs.backend.database.repositories {
         }// end of function
 
 
+
+        //To update Perosnal Information of specific user
+        public async Task UpdateUserInformations(PersonalInformation pInfo,
+            AdditionalInfo addInfo,
+             Address address, string userId) {
+            using var connection = await conn.getConnection();
+            using MySqlTransaction transaction = connection.BeginTransaction();
+            try {
+
+                //Query for personal info
+                string stmt = "UPDATE personal_info SET firstname = @firstname, middlename = @middlename," +
+                    "lastname = @lastname, suffix = @suffix, gender = @gender where user_id = @puser_id ";
+                //Query reader for Personal Info
+                using var cmd1 = new MySqlCommand(stmt, connection);
+
+                //Parameters
+                cmd1.Parameters.AddWithValue("@firstname", pInfo.Firstname);
+                cmd1.Parameters.AddWithValue("@middlename", pInfo.Middlename);
+                cmd1.Parameters.AddWithValue("@lastname", pInfo.Lastname);
+                cmd1.Parameters.AddWithValue("@gender", pInfo.Gender);
+                cmd1.Parameters.AddWithValue("@puser_id", userId);
+                cmd1.Parameters.AddWithValue("@suffix", pInfo.Suffix);
+
+
+                //Query for additional info
+                string stmt1 = "UPDATE additional_info SET is_voter = @is_voter, civil_status = @civil_status, " +
+                   "educational_attaintment = @educational_attaintment, employment_status = @employment_status, " +
+                   " resident_type = @resident_type, religion = @religion, birth_day = @birth_day, age = @age, " +
+                   "contact_number = @contact_number, profile_image = @profile_image " +
+                   "where user_id = @aiuser_id ";
+
+                //Query reader for Additional Info
+                using var cmd2 = new MySqlCommand(stmt1, connection);
+
+                //Parameters
+                cmd2.Parameters.AddWithValue("@is_voter", addInfo.IsVoter);
+                cmd2.Parameters.AddWithValue("@civil_status", addInfo.CivilStatus);
+                cmd2.Parameters.AddWithValue("@educational_attaintment", addInfo.EducAttain);
+                cmd2.Parameters.AddWithValue("@employment_status", addInfo.EmpStatus);
+                cmd2.Parameters.AddWithValue("@resident_type", addInfo.ResidentType);
+                cmd2.Parameters.AddWithValue("@religion", addInfo.Religion);
+                cmd2.Parameters.AddWithValue("@birth_day", addInfo.BirthDate);
+                cmd2.Parameters.AddWithValue("@age", addInfo.Age);
+                cmd2.Parameters.AddWithValue("@contact_number", addInfo.ContactNo);
+                cmd2.Parameters.AddWithValue("@profile_image", addInfo.ProfileImage);
+                cmd2.Parameters.AddWithValue("@aiuser_id", userId);
+
+
+                //query for address
+                string stmt2 = "UPDATE address SET street = @street, house_number = @house_number, " +
+                   "subdivision = @subdivision, block_number = @block_number, lot_number = @lot_no " +
+                   "where user_id = @auser_id ";
+
+                //Query reader for address
+                using var cmd3 = new MySqlCommand(stmt2, connection);
+
+                //Parameters
+                cmd3.Parameters.AddWithValue("@street", address.Street);
+                cmd3.Parameters.AddWithValue("@house_number", address.HouseNumber);
+                cmd3.Parameters.AddWithValue("@subdivision", address.SubdivisionName);
+                cmd3.Parameters.AddWithValue("@block_number", address.BlockNumber);
+                cmd3.Parameters.AddWithValue("@lot_no", address.LotNo);
+                cmd3.Parameters.AddWithValue("@auser_id", userId);
+
+                //Execute queries
+                await cmd1.ExecuteNonQueryAsync();
+                await cmd2.ExecuteNonQueryAsync();
+                await cmd3.ExecuteNonQueryAsync();
+
+                //commit the transactions
+                await transaction.CommitAsync();
+
+            }
+            catch (Exception) {
+                await transaction.RollbackAsync(); // Rollback the transaction, if there is an eror 
+                throw;
+            }
+        }
     }
 }

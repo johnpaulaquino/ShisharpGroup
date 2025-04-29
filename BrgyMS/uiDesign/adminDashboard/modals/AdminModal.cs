@@ -15,9 +15,13 @@ namespace BrgyMS.uiDesign.adminDashboard.modals {
     public partial class AdminModal : Form {
         private readonly Utils utils = new Utils();
         private bool status = true; // default true, beracuse acc is activated or verified
-        
+
         public AdminModal() {
             InitializeComponent();
+        }
+
+        private void AdminModal_Load(object sender, EventArgs e) {
+
         }
 
         //private void AdminModal_FormClosing(object sender, FormClosingEventArgs e) {
@@ -32,6 +36,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals {
 
         //}
 
-  
+
     }
 }

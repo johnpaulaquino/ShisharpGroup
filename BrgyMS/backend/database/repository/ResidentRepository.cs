@@ -90,8 +90,8 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
-        // ----------------------------------------------------------//
-        //This section is for getters
+
+        //GEt the email of the user
         public async Task<Dictionary<string, string>> GetEmail(string email) {
             string stmt = "Select id, email, password,username, role, status from users "
             + "Where email = ?";
@@ -111,7 +111,7 @@ namespace BrgyMs.backend.database.repositories {
                                 data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
                                 data.Add("role", reader.GetString("role"));
                                 data.Add("username", reader.GetString(reader.GetOrdinal("username")));
-                               
+
                                 return data;
                             }
                         }
@@ -123,8 +123,6 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         }// End of FindByEmail
-
-
 
         public async Task<string> GenerateId() {
             string id = "";
@@ -140,7 +138,31 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
-     
+        //get the records of the request documents
+        public async Task<MySqlDataAdapter> GetRequestedDocs(string userId, int limit) {
+            string stmt = "Select id as 'Transaction Id', document_type as 'Document Type', " +
+                "status as Status, request_date as 'Request Date', purpose as 'Purpose'" +
+                "FROM request_document " +
+                "Where user_id = @userid LIMIT @limit" ;
+
+            try {
+                var connection = await conn.getConnection();
+                var adapter = new MySqlDataAdapter(stmt, connection);
+
+                adapter.SelectCommand.Parameters.AddWithValue("@userid", userId);
+                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
+
+                return adapter;
+            }
+            catch (Exception) {
+                throw;
+            }
+
+
+
+        }
+
+
 
         public async Task<Dictionary<string, string>> GetElectionHistories() {
             string stmt = "SELECT * FROM officials";
@@ -157,6 +179,30 @@ namespace BrgyMs.backend.database.repositories {
                     return data;
                 }
             }
+        } // end of the function
+
+
+        public async Task<MySqlDataAdapter> GetUserLogs(int limit) {
+            string stmt = "SELECT la.id as 'ID', la.user_id as 'User ID', u.username as 'Username', CONCAT(UPPER(LEFT(u.role, 1)),LOWER(SUBSTRING(u.role FROM 2))) as 'Role', " +
+                 "la.actions_made as 'Actions Made' ,la.details as 'Description', DATE_FORMAT(la.date_performed, '%W, %M %d, %Y %r' ) as 'Date Performed' " +
+                 "FROM users u " +
+                 "Right join action_logs la " +
+                 "ON u.id = la.user_id " +
+                 "WHERE u.role = @role" +
+                 "ORDER by la.date_performed ASC LIMIT @limit ";
+
+            try {
+                var connection = await conn.getConnection();
+                var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@role", "users");
+                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
+                return adapter;
+
+            }
+            catch (Exception) {
+                throw;
+            }
+
         }
 
     }

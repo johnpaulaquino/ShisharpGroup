@@ -32,6 +32,10 @@ namespace BrgyMs.backend.utils {
             if (monthToday < monthBday && dayToday < dayBday) {
                 age -= 1;
             }
+
+            if (age <= 0) {
+                age = 1;
+            }
             return age;
 
         }// End of calculateAge funtion
@@ -89,7 +93,7 @@ namespace BrgyMs.backend.utils {
 
             }
             //// check if not exist, then create
-            String filepath = fileDirectory +  filename; // location of the file the file
+            String filepath = fileDirectory + filename; // location of the file the file
             FileStream fileWriter = File.Create(filepath); // generate the file
             fileWriter.Close(); //close the current file
 
@@ -106,7 +110,7 @@ namespace BrgyMs.backend.utils {
         public string ReadUserIdInFile() {
             string UserId = "";
             fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempid"); // location of the folder
-            string fileLocation = fileDirectory +  filename; // the location of the file to read
+            string fileLocation = fileDirectory + filename; // the location of the file to read
             //then read
             if (File.Exists(fileLocation)) {
                 using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.None)) {

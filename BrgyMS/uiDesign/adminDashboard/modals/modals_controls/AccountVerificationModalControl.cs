@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
-    public partial class AccountVerificationModalControl : UserControl {
+    public partial class RequestDocumentsModalCotntrol : UserControl {
         private readonly UIAdminUtils uiadmin = new();
         private readonly Utils utils = new();
         private bool isActivted = false;
         private AdminAccountVerification accverifyControl = new();
 
-        public AccountVerificationModalControl() {
+        public RequestDocumentsModalCotntrol() {
             InitializeComponent();
         }
 

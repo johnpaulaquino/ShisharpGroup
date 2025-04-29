@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using BrgyMs.backend.data_validation;
@@ -7,6 +8,7 @@ using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_model;
 using BrgyMS.backend.services;
+using MySql.Data.MySqlClient;
 
 
 
@@ -22,7 +24,7 @@ namespace BrgyMs.backend.services {
             Address _ResidentAddress
             ) {
             try {
-               
+
                 string Id = await _ResidentRepo.GenerateId();
 
                 await _ResidentRepo.AddUser(_User);
@@ -40,6 +42,7 @@ namespace BrgyMs.backend.services {
 
                 //Validate fields first before insertion.
                 _Validation.ValdiateRequestDocs(_RequestDocs);
+         
                 // Insert data on database
                 await _ResidentRepo.AddRequestDocuments(_RequestDocs);
 
@@ -47,7 +50,29 @@ namespace BrgyMs.backend.services {
             catch (Exception e) {
                 throw new Exception(e.Message);
             }
+        } // end of the function
+
+        public async Task<MySqlDataAdapter> GetUsersLogs(int limit) {
+            try {
+                return await _ResidentRepo.GetUserLogs(limit);
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end of function
+    
+
+        //Get the request documnts
+
+        public async Task<MySqlDataAdapter> GetRequestDocuments(string userId, int limit) {
+            try {
+                return await _ResidentRepo.GetRequestedDocs(userId, limit);
+            }
+            catch (Exception) {
+                throw;
+            }
         }
+
     }
 
 

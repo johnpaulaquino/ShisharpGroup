@@ -49,13 +49,22 @@
 		<Compile Update="uiDesign\adminDashboard\controls\AdminAccountManagementControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
+		<Compile Update="uiDesign\residentDashboard\controls\ResidentDashboardControls.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
 		<Compile Update="uiDesign\adminDashboard\controls\AdminUserLogsControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
 		<Compile Update="uiDesign\adminDashboard\controls\AdminDashboardControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
-		<Compile Update="uiDesign\residentDashboard\controls\controls_navigator\AddressAccountInformationControl.cs">
+		<Compile Update="uiDesign\residentDashboard\controls\RequestDocumentsControls.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\residentDashboard\controls\ResidentUserLogsControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\residentDashboard\modals\modals_controls\RequestDocumentsModalCotntrol.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
 		<Compile Update="uiDesign\residentDashboard\ResidentPageForm.cs">

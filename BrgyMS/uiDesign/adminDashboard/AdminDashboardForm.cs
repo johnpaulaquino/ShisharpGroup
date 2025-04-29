@@ -22,13 +22,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
         private AuthUtils _AuthUtils = new AuthUtils();
 
 
-
-
-
-
         public AdminDashboardForm() {
             InitializeComponent();
-
 
         }
 
