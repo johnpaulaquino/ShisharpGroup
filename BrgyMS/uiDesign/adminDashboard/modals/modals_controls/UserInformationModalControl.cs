@@ -1,4 +1,5 @@
 using BrgyMs.backend.models.base_model;
+using BrgyMS.backend.services;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using Krypton.Toolkit;
 using System;
@@ -15,7 +16,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
     public partial class UserInformationModalControl : UserControl {
         public List<User> userModals = new List<User>();
         private readonly UIAdminUtils uiadmin = new();
-
+       
 
         public UserInformationModalControl() {
             InitializeComponent();

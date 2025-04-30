@@ -80,6 +80,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private async void AdminAccountVerification_Load(object sender, EventArgs e) {
+
             Refresh();
             dataGridAmTable.Refresh();
             int limit = (int)nudAvLimit.Value + 1;
@@ -104,7 +105,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private void kryptonPanel2_Paint(object sender, PaintEventArgs e) {
-
+           
         }
     }
 }

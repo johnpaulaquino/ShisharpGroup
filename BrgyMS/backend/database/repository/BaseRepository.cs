@@ -14,6 +14,7 @@ namespace BrgyMs.backend.database.repositories {
     public class BaseRepository {
         private Connector conn;
         private readonly Utils util;
+        private readonly AuthUtils _AuthUtils = new();
         public BaseRepository() {
             conn = new Connector();
             util = new Utils();
@@ -101,11 +102,32 @@ namespace BrgyMs.backend.database.repositories {
             }
         }// End of Add ResidentAddInformation function
 
+        public async Task AddUser(User user) {
+            string stmt = "Insert into users (id, email, password,username, role, status) "
+            + "Values(?,?,?,?,?,?)";
+            string Id = await this.GenerateUsersId();
+            try {
+                using (var cmd = new MySqlCommand(stmt, await conn.getConnection())) {
+                    cmd.Parameters.AddWithValue("id", Id);
+                    cmd.Parameters.AddWithValue("email", user.Email);
+                    cmd.Parameters.AddWithValue("password", _AuthUtils.hashedPassword(user.Password));
+                    cmd.Parameters.AddWithValue("username", user.Username);
+                    cmd.Parameters.AddWithValue("role", user.Role);
+                    cmd.Parameters.AddWithValue("status", user.Status);
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+            catch (Exception e) {
+
+                throw new Exception(e.Message);
+            }
+        }
+
         //log user actions
         public async Task LogUserActions(Logs logs) {
             string stmt = "INSERT INTO action_logs(id, user_id, date_performed, " +
                 "actions_made, details) " +
-                "VALUES(@id, @userId, @dateperformed, @actionmade,@details ) ";
+                "VALUES(@id, @userId, @dateperformed, @actionmade, @details ) ";
 
             try {
                 using var connection = await conn.getConnection();
@@ -185,6 +207,21 @@ namespace BrgyMs.backend.database.repositories {
         }
 
 
+        //Generate id for users
+        public async Task<string> GenerateUsersId() {
+            string id = "";
+            string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as nextId from users";
+            using var connection = await conn.getConnection();
+            using (var cmd = new MySqlCommand(stmt, connection)) {
+                using (var reader = await cmd.ExecuteReaderAsync()) {
+                    if (reader.Read()) {
+                        id = reader.GetString("nextId");
+                    }
+                }
+                return id;
+            }
+        }
+
         //Generate Id that are base on the id of logs.
         public async Task<string> GenerateLogsId() {
             string id = "";
@@ -199,6 +236,7 @@ namespace BrgyMs.backend.database.repositories {
                 return id;
             }
         } //End of funciton
+
 
         //Update account info, only admin can do this
         public async Task UpdateAccountInfo(User user, string userId) {
@@ -224,6 +262,40 @@ namespace BrgyMs.backend.database.repositories {
             }
 
         }//end of function
+
+
+        //GEt the email of the user
+        public async Task<Dictionary<string, string>> GetEmail(string email) {
+            string stmt = "Select id, email, password,username, role, status from users "
+            + "Where email = ?";
+
+            try {
+                Dictionary<string, string> data = new Dictionary<string, string>();
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("email", email);
+
+                        using (var reader = await cmd.ExecuteReaderAsync()) {
+                            if (await reader.ReadAsync()) {
+
+                                data.Add("userId", reader.GetString(reader.GetOrdinal("id")));
+                                data.Add("email", reader.GetString(reader.GetOrdinal("email")));
+                                data.Add("password", reader.GetString(reader.GetOrdinal("password")));
+                                data.Add("status", Convert.ToString(reader.GetInt32(reader.GetOrdinal("status"))));
+                                data.Add("role", reader.GetString("role"));
+                                data.Add("username", reader.GetString(reader.GetOrdinal("username")));
+
+                                return data;
+                            }
+                        }
+                    }
+                    return null;
+                }
+            }
+            catch (System.Exception) {
+                throw;
+            }
+        }// End of FindByEmail
 
         //Activate user account by setting the the status to 1 or equal to true
         public async Task ActivateUserAccount(string userId) {

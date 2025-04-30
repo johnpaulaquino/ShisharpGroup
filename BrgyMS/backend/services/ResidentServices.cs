@@ -25,7 +25,7 @@ namespace BrgyMs.backend.services {
             ) {
             try {
 
-                string Id = await _ResidentRepo.GenerateId();
+                string Id = await _ResidentRepo.GenerateUsersId();
 
                 await _ResidentRepo.AddUser(_User);
                 await _ResidentRepo.InsertUserPersonalInformation(_ResidentInfo, Id);

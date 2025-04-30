@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace BrgyMS.uiDesign.residentDashboard.controls {
     public partial class ResidentAccountSetting : UserControl {

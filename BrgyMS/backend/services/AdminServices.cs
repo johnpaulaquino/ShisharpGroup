@@ -129,6 +129,19 @@ namespace BrgyMs.backend.services {
 
         }// end of funttion
 
+        public async Task CreateUser(User user) {
+            try {
+                //check if the user is Exist
+                await _AdminRepository.GetEmail(user.Email);
+
+                uservalidation.ValidateUser(user); // validate user
+
+                await _AdminRepository.AddUser(user); // then add if no encounter error
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
     }
 
 }

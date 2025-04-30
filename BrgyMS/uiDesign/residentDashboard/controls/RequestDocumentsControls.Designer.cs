@@ -36,14 +36,14 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
-            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             id = new DataGridViewTextBoxColumn();
             colusername = new DataGridViewTextBoxColumn();
             colrole = new DataGridViewTextBoxColumn();
             colactions = new DataGridViewTextBoxColumn();
             colaffectedtable = new DataGridViewTextBoxColumn();
+            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -202,6 +202,7 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             // 
             // dtpkStartDate
             // 
+            dtpkStartDate.Format = DateTimePickerFormat.Custom;
             dtpkStartDate.Location = new Point(858, 135);
             dtpkStartDate.Name = "dtpkStartDate";
             dtpkStartDate.Size = new Size(251, 25);
@@ -254,6 +255,36 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             dataGridAdminDashboard.TabIndex = 18;
             dataGridAdminDashboard.ToolTipShadow = false;
             // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // colusername
+            // 
+            colusername.HeaderText = "Document Type";
+            colusername.Name = "colusername";
+            colusername.ReadOnly = true;
+            // 
+            // colrole
+            // 
+            colrole.HeaderText = "Status";
+            colrole.Name = "colrole";
+            colrole.ReadOnly = true;
+            // 
+            // colactions
+            // 
+            colactions.HeaderText = "Request Date";
+            colactions.Name = "colactions";
+            colactions.ReadOnly = true;
+            // 
+            // colaffectedtable
+            // 
+            colaffectedtable.HeaderText = "Purpose";
+            colaffectedtable.Name = "colaffectedtable";
+            colaffectedtable.ReadOnly = true;
+            // 
             // pnlMainContentControler
             // 
             pnlMainContentControler.Anchor = AnchorStyles.Left | AnchorStyles.Right;
@@ -284,36 +315,6 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Request Documents";
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.ReadOnly = true;
-            // 
-            // colusername
-            // 
-            colusername.HeaderText = "Document Type";
-            colusername.Name = "colusername";
-            colusername.ReadOnly = true;
-            // 
-            // colrole
-            // 
-            colrole.HeaderText = "Status";
-            colrole.Name = "colrole";
-            colrole.ReadOnly = true;
-            // 
-            // colactions
-            // 
-            colactions.HeaderText = "Request Date";
-            colactions.Name = "colactions";
-            colactions.ReadOnly = true;
-            // 
-            // colaffectedtable
-            // 
-            colaffectedtable.HeaderText = "Purpose";
-            colaffectedtable.Name = "colaffectedtable";
-            colaffectedtable.ReadOnly = true;
             // 
             // RequestDocumentsControls
             // 

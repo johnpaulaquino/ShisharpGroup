@@ -49,6 +49,9 @@
 		<Compile Update="uiDesign\adminDashboard\controls\AdminAccountManagementControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
+		<Compile Update="uiDesign\adminDashboard\modals\modals_controls\CreateUsersModalControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
 		<Compile Update="uiDesign\residentDashboard\controls\ResidentDashboardControls.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>

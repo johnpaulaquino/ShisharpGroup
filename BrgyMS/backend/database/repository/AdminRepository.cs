@@ -12,6 +12,7 @@ using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
 using BrgyMS.backend.database.connection.models;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using MySqlX.XDevAPI.Relational;
 
 

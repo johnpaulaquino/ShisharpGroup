@@ -86,7 +86,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             pnlMainContentHolder.Controls.Add(kryptonLabel1);
             pnlMainContentHolder.Location = new Point(3, 3);
             pnlMainContentHolder.Name = "pnlMainContentHolder";
-            pnlMainContentHolder.Size = new Size(464, 691);
+            pnlMainContentHolder.Size = new Size(474, 691);
             pnlMainContentHolder.StateCommon.Color1 = Color.White;
             pnlMainContentHolder.TabIndex = 12;
             // 
@@ -138,7 +138,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // btnAvDecline
             // 
-            btnAvDecline.Location = new Point(1, 14);
+            btnAvDecline.Location = new Point(12, 14);
             btnAvDecline.Margin = new Padding(4, 3, 4, 3);
             btnAvDecline.Name = "btnAvDecline";
             btnAvDecline.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -367,12 +367,12 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             kryptonLabel1.TabIndex = 0;
             kryptonLabel1.Values.Text = "Fullname";
             // 
-            // AccountVerificationModalControl
+            // RequestDocumentsModalCotntrol
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(kryptonPanel1);
-            Name = "AccountVerificationModalControl";
+            Name = "RequestDocumentsModalCotntrol";
             Size = new Size(480, 700);
             Load += AccountVerificationModalControl_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();

@@ -22,8 +22,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -246,10 +245,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             kryptonLabel2.Location = new Point(36, 43);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(224, 29);
+            kryptonLabel2.Size = new Size(205, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
-            kryptonLabel2.Values.Text = "Account Management";
+            kryptonLabel2.Values.Text = "Account Verification";
             // 
             // AdminAccountVerification
             // 

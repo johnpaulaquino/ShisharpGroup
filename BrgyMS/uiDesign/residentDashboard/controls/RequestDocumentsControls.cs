@@ -27,7 +27,7 @@ namespace BrgyMS.uiDesign.residentDashboard.controls {
             docs.ShowDialog(this);
         }
 
-        private async void RequestDocumentsControls_Load(object sender, EventArgs e) {
+        private void RequestDocumentsControls_Load(object sender, EventArgs e) {
             string userid = utils.ReadUserIdInFile();
             int limit = (int)nudLimit.Value;
             Invoke(new Action(async () =>

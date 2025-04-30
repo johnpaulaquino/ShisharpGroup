@@ -18,6 +18,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Utils utils = new Utils();
         private AdminModal modal = new AdminModal();
         public bool isUpdated = false;
+        public bool isCliked = false;
         public ResidentAccountSetting() {
             InitializeComponent();
             AfterInit();
@@ -79,19 +80,32 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private async void actionsToolStripMenuItem_Click(object sender, EventArgs e) {
-            UserInformationModalControl control = new();
-            modal.StartPosition = FormStartPosition.CenterScreen;
+            isCliked = true;// to avoid multiple clicked and avoid error in showing modals
+            try {
+                if (isCliked) {
+                    UserInformationModalControl control = new();
+                    modal.StartPosition = FormStartPosition.CenterScreen;
 
-            modal.pnlModalMainContent.Controls.Add(control);
-            control.Dock = DockStyle.Fill;
+                    modal.pnlModalMainContent.Controls.Add(control);
+                    control.Dock = DockStyle.Fill;
 
-            await uiAdmin.SetUserInfoInuserInfromationModal(control,
-                control.txtMcUserId,
-                control.txtMcEmail,
-                control.txtMcPassword,
-                control.txtMcUsername);
+                    await uiAdmin.SetUserInfoInuserInfromationModal(control,
+                        control.txtMcUserId,
+                        control.txtMcEmail,
+                        control.txtMcPassword,
+                        control.txtMcUsername);
 
-            DialogResult result = modal.ShowDialog(this);
+                    modal.ShowDialog(this);
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                isCliked = false;
+            }
+            
+           
         }
 
         public async void AfterInit() {
@@ -108,6 +122,26 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         private void kryptonPanel2_Paint(object sender, PaintEventArgs e) {
 
+        }
+
+        private void btnCreateSec_Click(object sender, EventArgs e) {
+            try {
+                isCliked = true; // to avoid multiple clicked and avoid error in showing modals
+                if (isCliked) {
+                    CreateUsersModalControl control = new();
+                    modal.pnlModalMainContent.Controls.Clear();
+                    modal.pnlModalMainContent.Controls.Add(control);
+
+                    control.Dock = DockStyle.Fill;
+                    modal.ShowDialog(this);
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                isCliked = false;
+            }
         }
     }
 }

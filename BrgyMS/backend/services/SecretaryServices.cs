@@ -35,7 +35,7 @@ namespace BrgyMs.backend.services {
                 _Validation.ValidateAddInfoForSignup(_AdditionalInfo);
 
 
-                string Id = await _ResidentRepo.GenerateId();
+                string Id = await _ResidentRepo.GenerateUsersId();
                 await _ResidentRepo.AddUser(_User);
                 await _ResidentRepo.InsertUserPersonalInformation(_PersonalInfo, Id);
                 await _ResidentRepo.InsertUserAddinfo(_AdditionalInfo, Id);

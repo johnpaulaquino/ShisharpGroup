@@ -45,12 +45,9 @@ namespace BrgyMs.uiDesign {
             //This is the method below in this program
             AfterInitComponent();
 
-
         }
 
         private void Personal_Info_Load(object sender, EventArgs e) {
-
-
 
         }
 

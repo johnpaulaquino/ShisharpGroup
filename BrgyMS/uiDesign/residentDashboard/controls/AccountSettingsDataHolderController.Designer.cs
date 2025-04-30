@@ -400,7 +400,7 @@
             // 
             // kryptonButton1
             // 
-            kryptonButton1.Location = new Point(49, 3);
+            kryptonButton1.Location = new Point(49, 0);
             kryptonButton1.Margin = new Padding(4, 3, 4, 3);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
