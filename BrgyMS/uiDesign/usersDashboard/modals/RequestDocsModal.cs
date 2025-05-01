@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.residentDashboard.modals {
+namespace BrgyMS.uiDesign.usersDashboard.modals {
     public partial class RequestDocsModal : Form {
         public RequestDocsModal() {
             InitializeComponent();

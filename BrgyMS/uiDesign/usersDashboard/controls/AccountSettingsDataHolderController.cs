@@ -17,7 +17,7 @@ using BrgyMs.backend.data_validation;
 using MySqlX.XDevAPI.Common;
 using BrgyMS.backend.models;
 
-namespace BrgyMS.uiDesign.residentDashboard.controls {
+namespace BrgyMS.uiDesign.usersDashboard.controls {
     public partial class AccountSettingsDataHolderController : UserControl {
 
 

@@ -1,4 +1,4 @@
-﻿namespace BrgyMS.uiDesign.residentDashboard.modals {
+﻿namespace BrgyMS.uiDesign.usersDashboard.modals {
     partial class RequestDocsModal {
         /// <summary>
         /// Required designer variable.

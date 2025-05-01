@@ -1,4 +1,4 @@
-namespace BrgyMS.uiDesign.residentDashboard {
+namespace BrgyMS.uiDesign.usersDashboard {
     partial class ResidentPageForm {
         /// <summary>
         /// Required designer variable.
@@ -278,6 +278,7 @@ namespace BrgyMS.uiDesign.residentDashboard {
             // 
             // picMenuButton
             // 
+            picMenuButton.Cursor = Cursors.Hand;
             picMenuButton.Image = (Image)resources.GetObject("picMenuButton.Image");
             picMenuButton.InitialImage = null;
             picMenuButton.Location = new Point(12, 24);

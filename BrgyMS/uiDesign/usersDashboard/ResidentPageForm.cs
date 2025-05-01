@@ -1,7 +1,7 @@
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.utils;
 using BrgyMs.uiDesign;
-using BrgyMS.uiDesign.residentDashboard.controls;
+using BrgyMS.uiDesign.usersDashboard.controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using Google.Protobuf.Reflection;
 using Mysqlx.Crud;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.residentDashboard {
+namespace BrgyMS.uiDesign.usersDashboard {
     public partial class ResidentPageForm : Form {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();

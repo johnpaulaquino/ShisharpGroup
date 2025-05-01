@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.residentDashboard.modals {
+namespace BrgyMS.uiDesign.usersDashboard.modals {
     public partial class RequestDocumentsModalCotntrol : UserControl {
         private readonly UIAdminUtils uiadmin = new();
         private readonly Utils utils = new();
@@ -39,7 +39,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
         "Legal Aid",
         "Burial or Funeral Assistance","Livelihood Programs",
         "Social Pension Application",
-        "Identity Verification"};
+        "Identity Verification", "Others"};
 
         private UserInfoValidation validation = new();
 

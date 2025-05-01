@@ -2,7 +2,7 @@
 using BrgyMS.uiDesign;
 using BrgyMS.uiDesign.adminDashboard;
 using BrgyMS.uiDesign.adminDashboard.controls;
-using BrgyMS.uiDesign.residentDashboard;
+using BrgyMS.uiDesign.usersDashboard;
 using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;

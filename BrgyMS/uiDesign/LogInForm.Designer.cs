@@ -123,6 +123,7 @@
             // 
             // kryptonLinkLabel1
             // 
+            kryptonLinkLabel1.Cursor = Cursors.Hand;
             kryptonLinkLabel1.Location = new Point(866, 542);
             kryptonLinkLabel1.Margin = new Padding(4, 3, 4, 3);
             kryptonLinkLabel1.Name = "kryptonLinkLabel1";
@@ -169,6 +170,7 @@
             // 
             // btnSignup
             // 
+            btnSignup.Cursor = Cursors.Hand;
             btnSignup.Location = new Point(949, 449);
             btnSignup.Margin = new Padding(4, 3, 4, 3);
             btnSignup.Name = "btnSignup";
@@ -221,6 +223,7 @@
             // 
             // btnLogin
             // 
+            btnLogin.Cursor = Cursors.Hand;
             btnLogin.Location = new Point(719, 449);
             btnLogin.Margin = new Padding(4, 3, 4, 3);
             btnLogin.Name = "btnLogin";

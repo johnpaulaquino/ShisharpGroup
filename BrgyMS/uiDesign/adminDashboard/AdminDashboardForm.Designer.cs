@@ -294,6 +294,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             // 
             // picMenuButton
             // 
+            picMenuButton.Cursor = Cursors.Hand;
             picMenuButton.Image = (Image)resources.GetObject("picMenuButton.Image");
             picMenuButton.InitialImage = null;
             picMenuButton.Location = new Point(12, 24);

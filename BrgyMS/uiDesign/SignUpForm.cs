@@ -142,7 +142,7 @@ namespace BrgyMs.uiDesign {
                 { ProfileImage = bytesProfilePic };
 
 
-              
+
 
                 //set empty strings to the not required fields if not set.
                 _UserValidation.SetEmptyStringThatCanAcceptNullForPInfo(_PersonalInfo);
@@ -154,12 +154,12 @@ namespace BrgyMs.uiDesign {
                         // validate first the field before go to another page.
                         break;
                     case 1:
-                      
+
                         break;
 
                     case 2:
                         _UserValidation.ValidatePersonalInfo(_PersonalInfo);
-                       
+
                         break;
 
                     case 4:
@@ -271,7 +271,6 @@ namespace BrgyMs.uiDesign {
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == DialogResult.OK) {
                 filePathProofOfR = fileDialog.FileName;
-                Console.WriteLine(fileDialog.FileName);
                 txtAPoRFilePath.Text = filePathProofOfR;
             }
 
@@ -319,7 +318,7 @@ namespace BrgyMs.uiDesign {
                 _UserValidation.SetEmptyStringThatCanAcceptNullForAddress(_Address);
                 Cursor = Cursors.WaitCursor;
                 await _ResidentServices.CreateResidentInformation(_Users, _PersonalInfo, _AddlInfo, _Address);
-               
+
                 MessageBox.Show("Successfully created account. Please be patient for your account verification!");
                 this.Hide();
                 new LoginForm().Show();
@@ -327,8 +326,7 @@ namespace BrgyMs.uiDesign {
             catch (Exception ex) {
                 MessageBox.Show("An error occured when try to submit " + ex.Message);
             }
-            finally
-            {
+            finally {
                 Cursor = Cursors.Default;
             }
         }
@@ -347,6 +345,128 @@ namespace BrgyMs.uiDesign {
 
         }
 
+        private void txtSOtpCode_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && c !=
+                (char)Keys.Back && c != (char)Keys.Delete) {
+                e.Handled = true;
+            }
+
+        }
+
+
+
+        private void txtSFName_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (char.IsDigit(c) && c !=
+                (char)Keys.Delete
+                && c != (char)Keys.Back) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSMName_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (char.IsDigit(c) && c !=
+                (char)Keys.Delete
+                && c != (char)Keys.Back) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtAReligion_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (char.IsDigit(c) && c !=
+                (char)Keys.Delete
+                && c != (char)Keys.Back) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtAContactNo_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtAContactNo_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && c !=
+                (char)Keys.Back && c != (char)Keys.Delete) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSHouseNo_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && c !=
+                (char)Keys.Back && c != (char)Keys.Delete) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSSubdivision_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtSSubdivision_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (char.IsDigit(c) && c !=
+                (char)Keys.Delete
+                && c != (char)Keys.Back) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSLotNo_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && c !=
+                (char)Keys.Back && c != (char)Keys.Delete) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSBlockNo_KeyPress(object sender, KeyPressEventArgs e) {
+            char c = e.KeyChar;
+            if (!char.IsDigit(c) && c !=
+                (char)Keys.Back && c != (char)Keys.Delete) {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtSUsername_KeyPress(object sender, KeyPressEventArgs e) {
+
+        }
+
+        private void btnAAddProfilePic_Click(object sender, EventArgs e) {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() == DialogResult.OK) {
+                filePathProfilePic = fileDialog.FileName;
+                txtAProfilePicFilePath.Text = filePathProfilePic;
+            }
+        }
+
+        private void txtAPoRFilePath_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void txtAProfilePicFilePath_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void pnlSAddress_MouseClick(object sender, MouseEventArgs e) {
+
+        }
+
+        private void pnlSAddress_MouseDoubleClick(object sender, MouseEventArgs e) {
+
+        }
     }
 
 }

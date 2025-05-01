@@ -1,7 +1,7 @@
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
-using BrgyMS.uiDesign.residentDashboard.modals;
+using BrgyMS.uiDesign.usersDashboard.modals;
 using BrgyMS.uiDesign.uiUtils.ui_residents_utils;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using System;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.residentDashboard.controls {
+namespace BrgyMS.uiDesign.usersDashboard.controls {
     public partial class RequestDocumentsControls : UserControl {
         private UIResidentUtils uioResident = new UIResidentUtils();
         private Utils utils = new Utils();

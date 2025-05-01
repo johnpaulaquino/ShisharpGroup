@@ -1,4 +1,4 @@
-namespace BrgyMS.uiDesign.residentDashboard.modals {
+namespace BrgyMS.uiDesign.usersDashboard.modals {
     partial class RequestDocumentsModalCotntrol {
         /// <summary> 
         /// Required designer variable.
@@ -34,6 +34,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             btnSubmitRequest = new Krypton.Toolkit.KryptonButton();
             btnSaveChanges = new Krypton.Toolkit.KryptonButton();
+            kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).BeginInit();
@@ -48,13 +49,14 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(370, 535);
+            kryptonPanel1.Size = new Size(370, 670);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
             // pnlMainContentHolder
             // 
             pnlMainContentHolder.AutoScroll = true;
+            pnlMainContentHolder.Controls.Add(kryptonTextBox1);
             pnlMainContentHolder.Controls.Add(cbFirstTimeJobSeeker);
             pnlMainContentHolder.Controls.Add(kryptonLabel4);
             pnlMainContentHolder.Controls.Add(cboPurposes);
@@ -66,7 +68,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             pnlMainContentHolder.Controls.Add(btnSaveChanges);
             pnlMainContentHolder.Location = new Point(3, 0);
             pnlMainContentHolder.Name = "pnlMainContentHolder";
-            pnlMainContentHolder.Size = new Size(367, 535);
+            pnlMainContentHolder.Size = new Size(367, 670);
             pnlMainContentHolder.StateCommon.Color1 = Color.White;
             pnlMainContentHolder.TabIndex = 12;
             // 
@@ -74,7 +76,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             // 
             cbFirstTimeJobSeeker.AutoSize = false;
             cbFirstTimeJobSeeker.Enabled = false;
-            cbFirstTimeJobSeeker.Location = new Point(6, 352);
+            cbFirstTimeJobSeeker.Location = new Point(0, 541);
             cbFirstTimeJobSeeker.Name = "cbFirstTimeJobSeeker";
             cbFirstTimeJobSeeker.Size = new Size(349, 38);
             cbFirstTimeJobSeeker.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -83,7 +85,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(6, 301);
+            kryptonLabel4.Location = new Point(0, 490);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(256, 33);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -148,7 +150,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             // 
             // btnSubmitRequest
             // 
-            btnSubmitRequest.Location = new Point(89, 460);
+            btnSubmitRequest.Location = new Point(89, 616);
             btnSubmitRequest.Margin = new Padding(4, 3, 4, 3);
             btnSubmitRequest.Name = "btnSubmitRequest";
             btnSubmitRequest.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -209,7 +211,7 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             // 
             // btnSaveChanges
             // 
-            btnSaveChanges.Location = new Point(89, 460);
+            btnSaveChanges.Location = new Point(89, 616);
             btnSaveChanges.Margin = new Padding(4, 3, 4, 3);
             btnSaveChanges.Name = "btnSaveChanges";
             btnSaveChanges.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -267,13 +269,21 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
             btnSaveChanges.Values.DropDownArrowColor = Color.Empty;
             btnSaveChanges.Values.Text = "Save Changes";
             // 
+            // kryptonTextBox1
+            // 
+            kryptonTextBox1.Location = new Point(13, 310);
+            kryptonTextBox1.Name = "kryptonTextBox1";
+            kryptonTextBox1.Size = new Size(100, 23);
+            kryptonTextBox1.TabIndex = 43;
+            kryptonTextBox1.Text = "kryptonTextBox1";
+            // 
             // RequestDocumentsModalCotntrol
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(kryptonPanel1);
             Name = "RequestDocumentsModalCotntrol";
-            Size = new Size(370, 535);
+            Size = new Size(370, 670);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).EndInit();
@@ -297,5 +307,6 @@ namespace BrgyMS.uiDesign.residentDashboard.modals {
         private Krypton.Toolkit.KryptonComboBox cboPurposes;
         private Krypton.Toolkit.KryptonCheckBox cbFirstTimeJobSeeker;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BrgyMS.uiDesign.residentDashboard.controls
+﻿namespace BrgyMS.uiDesign.usersDashboard.controls
 {
     partial class AccountSettingsDataHolderController
     {

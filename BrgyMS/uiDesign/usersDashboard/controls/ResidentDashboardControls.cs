@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.residentDashboard.controls {
+namespace BrgyMS.uiDesign.usersDashboard.controls {
     public partial class ResidentDashboardControls : UserControl {
         public ResidentDashboardControls() {
             InitializeComponent();
