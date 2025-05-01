@@ -8,7 +8,6 @@ using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.bo_model;
 using System.Data.Common;
 using BrgyMs.backend.data_validation;
-using BrgyMS.backend.database.connection.models;
 using MySql.Data.MySqlClient;
 using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -20,6 +19,7 @@ using BrgyMs.backend.utils;
 namespace BrgyMs.backend.services {
     public class AdminServices : BaseServices {
         private readonly AdminRepository _AdminRepository = new AdminRepository();
+        private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         private readonly UserInfoValidation uservalidation = new();
         private readonly EmailServices _EmailServices = new();
 
@@ -141,7 +141,61 @@ namespace BrgyMs.backend.services {
             catch (Exception) {
                 throw;
             }
-        }
+        }// end of function
+
+        //Total population
+        public async Task<string> GetTotalPouplation() {
+
+            try {
+                var total = await _AdminRepository.TotalResidentPopulation();
+
+                if (await total.ReadAsync()) {
+
+                    int totalPop = total.GetInt32("total");
+                    return totalPop.ToString();
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+            return "";
+        }// end
+
+        //Total households
+        public async Task<string> GetTotalHouseholds() {
+
+            try {
+                var total = await _AdminRepository.TotalHouseHolds();
+
+                if (await total.ReadAsync()) {
+
+                    int totalPop = total.GetInt32("total");
+                    return totalPop.ToString();
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+            return "";
+        } // end of function
+
+        //Total households
+        public async Task<string> GetTotalBlotters() {
+
+            try {
+                var total = await _AdminRepository.TotalBlotter();
+
+                if (await total.ReadAsync()) {
+
+                    int totalPop = total.GetInt32("total");
+                    return totalPop.ToString();
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+            return "";
+        } // end of function
     }
 
 }

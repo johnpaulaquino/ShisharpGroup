@@ -2,7 +2,6 @@ using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
-using BrgyMS.backend.database.connection.models;
 using BrgyMS.backend.models;
 using BrgyMS.backend.services;
 using BrgyMS.uiDesign.adminDashboard.modals;
@@ -98,7 +97,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
         }
 
-
+        //search records in User management
         public async Task SearchRecords(DataGridView table, int limit, string keyword) {
 
             try {
@@ -425,6 +424,31 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 throw;
             }
         }// end of function
+
+
+        public async Task SetTotalsInLabels(KryptonLabel lblTotalpop,
+            KryptonLabel lblTotalHouseholds,
+            KryptonLabel lblTotalBlotter) {
+
+            try {
+
+
+                await Task.Run(async () =>
+
+                 {
+                     string totalPopulation = await _AdminServices.GetTotalPouplation();
+                     string totalHouseholds = await _AdminServices.GetTotalHouseholds();
+                     string totalBlotter = await _AdminServices.GetTotalBlotters();
+                     lblTotalpop.Text = totalPopulation;
+                     lblTotalHouseholds.Text = totalHouseholds;
+                     lblTotalBlotter.Text = totalBlotter;
+                 });
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
     }
 }

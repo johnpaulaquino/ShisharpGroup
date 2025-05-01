@@ -222,6 +222,22 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
+
+        //Generate id for users
+        public async Task<string> GenerateBlotterId() {
+            string id = "";
+            string stmt = "SELECT LPAD(IFNULL(MAX(id), 0) + 1, 4, '0') as nextId from blotters";
+            using var connection = await conn.getConnection();
+            using (var cmd = new MySqlCommand(stmt, connection)) {
+                using (var reader = await cmd.ExecuteReaderAsync()) {
+                    if (reader.Read()) {
+                        id = reader.GetString("nextId");
+                    }
+                }
+                return id;
+            }
+        }
+
         //Generate Id that are base on the id of logs.
         public async Task<string> GenerateLogsId() {
             string id = "";

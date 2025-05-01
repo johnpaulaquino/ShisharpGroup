@@ -10,7 +10,6 @@ using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.secretary_model;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
-using BrgyMS.backend.database.connection.models;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using MySqlX.XDevAPI.Relational;
@@ -213,6 +212,56 @@ namespace BrgyMs.backend.database.repositories {
 
             return adapter;
         }
+
+        //Get the total resident of the barangay
+        public async Task<DbDataReader> TotalResidentPopulation() {
+            string stmt = "Select count(id) as total From users WHERE role = @role ";
+            try {
+                var connection = await conn.getConnection();
+                var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@role", "users");
+                return await cmd.ExecuteReaderAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end of function
+
+
+        //Get the total households
+        public async Task<DbDataReader> TotalHouseHolds() {
+            string stmt = "Select count(u.id) as total " +
+                "From users u " +
+                "INNER JOIN address a " +
+                "ON u.id = a.user_id " +
+                "WHERE u.role = @role AND u.status = @status " +
+                "GROUP BY a.house_number";
+            try {
+                var connection = await conn.getConnection();
+                var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@role", "users");
+                cmd.Parameters.AddWithValue("@status", "1");
+                return await cmd.ExecuteReaderAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end of function
+
+
+        //Get the total blotter in brangay
+        public async Task<DbDataReader> TotalBlotter() {
+            string stmt = "Select count(id) as total " +
+                "From blotters";
+            try {
+                var connection = await conn.getConnection();
+                var cmd = new MySqlCommand(stmt, connection);
+                return await cmd.ExecuteReaderAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end of function
 
     }
 }
