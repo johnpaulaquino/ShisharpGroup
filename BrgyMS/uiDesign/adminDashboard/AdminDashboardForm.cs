@@ -56,6 +56,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlMainContentHolder1.Controls.Add(dashcontrol);
             dashcontrol.Dock = DockStyle.Fill;
 
+
         }
 
         private void picAccountManagement_Click(object sender, EventArgs e) {

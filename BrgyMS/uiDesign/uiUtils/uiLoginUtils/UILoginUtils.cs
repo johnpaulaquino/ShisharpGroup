@@ -27,7 +27,9 @@ namespace BrgyMs.uiDesign.IndexUtils {
                 AdminDashboardForm admin = new AdminDashboardForm();
                 admin.Owner = form;
                 admin.Show();
-            }else if (string.Equals(Status, "secretary")) {
+            }
+
+            else if (string.Equals(Status, "secretary")) {
                 form.Hide();
                 homepage.Owner = form;
                 homepage.Show();
