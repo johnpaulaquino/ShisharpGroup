@@ -61,9 +61,13 @@
 		<Compile Update="uiDesign\adminDashboard\controls\AdminDashboardControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
+		<Compile Update="uiDesign\usersDashboard\modals\modals_controls\AnnouncementsModalControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
 		<Compile Update="uiDesign\usersDashboard\modals\modals_controls\BlotterResidentModalCotntrol.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
+		<Compile Update="uiDesign\usersDashboard\secretary_controls\AnnouncementsControl.cs" />
 		<Compile Update="uiDesign\usersDashboard\secretary_controls\SecretaryOfficialsControl.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>

@@ -1,7 +1,5 @@
-﻿namespace BrgyMs.uiDesign
-{
-    partial class SignUpForm
-    {
+﻿namespace BrgyMs.uiDesign {
+    partial class SignUpForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -37,6 +33,8 @@
             btnSNext = new Krypton.Toolkit.KryptonButton();
             btnSCreateAccount = new Krypton.Toolkit.KryptonButton();
             pnlSEmailVerification = new Krypton.Toolkit.KryptonPanel();
+            btnResend = new Krypton.Toolkit.KryptonButton();
+            lblTimer = new Krypton.Toolkit.KryptonLabel();
             lblPageNum2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel50 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel51 = new Krypton.Toolkit.KryptonLabel();
@@ -132,6 +130,7 @@
             txtSConfirmPass = new Krypton.Toolkit.KryptonTextBox();
             btnAAddPOR = new Krypton.Toolkit.KryptonCustomPaletteBase(components);
             kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -163,12 +162,12 @@
             kryptonPanel1.Controls.Add(kryptonLabel3);
             kryptonPanel1.Controls.Add(btnSNext);
             kryptonPanel1.Controls.Add(btnSCreateAccount);
-            kryptonPanel1.Controls.Add(pnlSAddInfo2);
-            kryptonPanel1.Controls.Add(pnlSAddress);
             kryptonPanel1.Controls.Add(pnlSLogCredentials);
             kryptonPanel1.Controls.Add(pnlSEmailVerification);
             kryptonPanel1.Controls.Add(pnlSPinfo1);
             kryptonPanel1.Controls.Add(pnlSAddInfo1);
+            kryptonPanel1.Controls.Add(pnlSAddInfo2);
+            kryptonPanel1.Controls.Add(pnlSAddress);
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
@@ -413,6 +412,8 @@
             // 
             // pnlSEmailVerification
             // 
+            pnlSEmailVerification.Controls.Add(btnResend);
+            pnlSEmailVerification.Controls.Add(lblTimer);
             pnlSEmailVerification.Controls.Add(lblPageNum2);
             pnlSEmailVerification.Controls.Add(kryptonLabel50);
             pnlSEmailVerification.Controls.Add(kryptonLabel51);
@@ -424,6 +425,68 @@
             pnlSEmailVerification.StateCommon.Color1 = Color.White;
             pnlSEmailVerification.StateCommon.Color2 = Color.White;
             pnlSEmailVerification.TabIndex = 66;
+            // 
+            // btnResend
+            // 
+            btnResend.Cursor = Cursors.Hand;
+            btnResend.Enabled = false;
+            btnResend.Location = new Point(336, 195);
+            btnResend.Margin = new Padding(4, 3, 4, 3);
+            btnResend.Name = "btnResend";
+            btnResend.OverrideDefault.Back.Color1 = Color.FromArgb(6, 174, 244);
+            btnResend.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnResend.OverrideDefault.Back.ColorAngle = 45F;
+            btnResend.OverrideDefault.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnResend.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnResend.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnResend.OverrideDefault.Border.Rounding = 18F;
+            btnResend.OverrideDefault.Border.Width = 1;
+            btnResend.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnResend.Size = new Size(108, 33);
+            btnResend.StateCommon.Back.Color1 = Color.FromArgb(6, 174, 244);
+            btnResend.StateCommon.Back.Color2 = Color.FromArgb(6, 174, 244);
+            btnResend.StateCommon.Back.ColorAngle = 45F;
+            btnResend.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnResend.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnResend.StateCommon.Border.ColorAngle = 45F;
+            btnResend.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnResend.StateCommon.Border.Rounding = 5F;
+            btnResend.StateCommon.Border.Width = 1;
+            btnResend.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnResend.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnResend.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResend.StateNormal.Border.Rounding = 5F;
+            btnResend.StatePressed.Back.Color1 = Color.White;
+            btnResend.StatePressed.Back.Color2 = Color.White;
+            btnResend.StatePressed.Back.ColorAngle = 130F;
+            btnResend.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnResend.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnResend.StatePressed.Border.ColorAngle = 130F;
+            btnResend.StatePressed.Border.Rounding = 5F;
+            btnResend.StatePressed.Border.Width = 1;
+            btnResend.StatePressed.Content.ShortText.Color1 = Color.FromArgb(6, 174, 244);
+            btnResend.StatePressed.Content.ShortText.Color2 = Color.FromArgb(6, 174, 244);
+            btnResend.StateTracking.Back.Color1 = Color.FromArgb(128, 128, 255);
+            btnResend.StateTracking.Back.Color2 = Color.FromArgb(128, 128, 255);
+            btnResend.StateTracking.Back.ColorAngle = 45F;
+            btnResend.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnResend.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnResend.StateTracking.Border.ColorAngle = 45F;
+            btnResend.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnResend.StateTracking.Border.Rounding = 5F;
+            btnResend.StateTracking.Border.Width = 1;
+            btnResend.TabIndex = 67;
+            btnResend.Values.DropDownArrowColor = Color.Empty;
+            btnResend.Values.Text = "Re-Send OTP";
+            btnResend.Click += kryptonButton1_Click;
+            // 
+            // lblTimer
+            // 
+            lblTimer.Location = new Point(334, 163);
+            lblTimer.Name = "lblTimer";
+            lblTimer.Size = new Size(110, 20);
+            lblTimer.TabIndex = 66;
+            lblTimer.Values.Text = "OTP expires in 60s";
             // 
             // lblPageNum2
             // 
@@ -1057,7 +1120,6 @@
             txtAPoRFilePath.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtAPoRFilePath.TabIndex = 54;
             txtAPoRFilePath.Text = "File Path";
-            txtAPoRFilePath.TextChanged += txtAPoRFilePath_TextChanged;
             // 
             // btnAProofOfresidency
             // 
@@ -1122,7 +1184,6 @@
             txtAProfilePicFilePath.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtAProfilePicFilePath.TabIndex = 51;
             txtAProfilePicFilePath.Text = "File Path";
-            txtAProfilePicFilePath.TextChanged += txtAProfilePicFilePath_TextChanged;
             // 
             // txtAReligion
             // 
@@ -1256,8 +1317,6 @@
             pnlSAddress.StateCommon.Color1 = Color.White;
             pnlSAddress.StateCommon.Color2 = Color.White;
             pnlSAddress.TabIndex = 57;
-            pnlSAddress.MouseClick += pnlSAddress_MouseClick;
-            pnlSAddress.MouseDoubleClick += pnlSAddress_MouseDoubleClick;
             // 
             // lblBlockNoAs
             // 
@@ -1588,7 +1647,6 @@
             txtSUsername.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             txtSUsername.StateNormal.Content.Padding = new Padding(10, 10, 0, 0);
             txtSUsername.TabIndex = 35;
-            txtSUsername.KeyPress += txtSUsername_KeyPress;
             // 
             // cbSShowPass
             // 
@@ -1711,6 +1769,11 @@
             kryptonTextBox1.Size = new Size(416, 40);
             kryptonTextBox1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             kryptonTextBox1.TabIndex = 59;
+            // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // SignUpForm
             // 
@@ -1868,5 +1931,8 @@
         private Krypton.Toolkit.KryptonComboBox cboResidentType;
         private Krypton.Toolkit.KryptonLabel kryptonLabel22;
         private Krypton.Toolkit.KryptonLabel kryptonLabel35;
+        private Krypton.Toolkit.KryptonButton btnResend;
+        private Krypton.Toolkit.KryptonLabel lblTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

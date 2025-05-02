@@ -252,6 +252,8 @@ namespace BrgyMs.backend.data_validation {
 			if (string.IsNullOrEmpty(blotter.Statements)) {
 				throw new Exception("Please spcify the statements!");
 			}
-		}
+		} // end
+
+
 	}
 }

@@ -5,6 +5,7 @@ using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
 using Krypton.Toolkit;
 using MySql.Data.MySqlClient;
+using OtpNet;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace BrgyMs.uiDesign {
@@ -36,15 +38,18 @@ namespace BrgyMs.uiDesign {
         private string filePathProofOfR = "";
         private string filePathProfilePic = "";
         private ResidentServices _ResidentServices = new ResidentServices();
+        private EmailServices _EmailServices = new();
         private AuthUtils auth;
         private DateTime startTime;
         private DateTime endTime;
+        private int timeer = 60; // limit of the otp
+        private bool isEmailValidated = false;
+        private string tempEmail = ""; // use to check if the user is change email in the signup form
         public SignUpForm() {
             InitializeComponent();
             auth = new AuthUtils();
             //This is the method below in this program
             AfterInitComponent();
-
         }
 
         private void Personal_Info_Load(object sender, EventArgs e) {
@@ -150,11 +155,51 @@ namespace BrgyMs.uiDesign {
                 //validate per page
                 switch (pnlPage) {
                     case 0:
-                        await _UserValidation.ValidateUser(_Users, confirmPassword);
+
                         // validate first the field before go to another page.
+                        await _UserValidation.ValidateUser(_Users, confirmPassword);
+
+                        if (!string.Equals(tempEmail, txtSEmail.Text)) {
+                            auth = new AuthUtils();
+                        }
+
+                        var option = MessageBox.Show("PLease press 'ok' button if you are sure to your email, " +
+                            "because you can't change it once you 'ok'.",
+
+                            "Email Verification", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        if (option == DialogResult.OK) {
+
+                            Cursor = Cursors.WaitCursor;
+
+                            await Task.Run(async () =>
+                            {
+                                string otp = auth.GenerateOTP();
+                                await _EmailServices.SendPlainEmail(
+                              txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
+                            });
+                            StartOtpCountdown();
+                        }
+                        else {
+                            return;
+                        }
                         break;
                     case 1:
 
+                        if (!isEmailValidated) { // check first if the email is validated or not
+                            if (timeer > 0) { // then check the timer 
+                                if (auth.VerifyTOTP(txtSOtpCode.Text)) { // then check if the user inputed the correct otp
+                                    isEmailValidated = true; //then set to true
+                                    //store the email if verified
+                                    tempEmail = txtSEmail.Text;
+                                }
+                                else {
+                                    throw new Exception("Incorrect OTP"); // otehrwise Incorrect otp
+                                }
+                            }
+                            else {
+                                throw new Exception("OTP is Eexpired!"); // otherwise expired
+                            }
+                        } // otherwise next the page
                         break;
 
                     case 2:
@@ -194,27 +239,39 @@ namespace BrgyMs.uiDesign {
                     btnSCreateAccount.BringToFront();
 
                 }
-
-
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
 
+            finally {
+                Cursor = Cursors.Default;
+            }
+
         }
         private void btnSPrevious_Click(object sender, EventArgs e) {
-            pnlPage--;
-            lblPgNumber -= 1;
+            try {
+                if (pnlPage == 2) {
+                    throw new Exception("You can't change your login credentials!");
+                }
+                pnlPage--;
+                lblPgNumber -= 1;
 
-            if (pnlPage >= 0) {
-                kryptonpanels[pnlPage].BringToFront();
-                pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
+                if (pnlPage >= 0) {
+                    kryptonpanels[pnlPage].BringToFront();
+                    pageNumberlabel[pnlPage].Text = $"{lblPgNumber} out of {kryptonpanels.Count}";
+                }
+                if (pnlPage == 0) {
+                    btnSPrevious.Visible = false;
+                }
+
+                btnSNext.BringToFront();
             }
-            if (pnlPage == 0) {
-                btnSPrevious.Visible = false;
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
 
-            btnSNext.BringToFront();
+
         }
 
         //after the components intialize
@@ -440,10 +497,6 @@ namespace BrgyMs.uiDesign {
 
         }
 
-        private void txtSUsername_KeyPress(object sender, KeyPressEventArgs e) {
-
-        }
-
         private void btnAAddProfilePic_Click(object sender, EventArgs e) {
             OpenFileDialog fileDialog = new OpenFileDialog();
             if (fileDialog.ShowDialog() == DialogResult.OK) {
@@ -452,20 +505,48 @@ namespace BrgyMs.uiDesign {
             }
         }
 
-        private void txtAPoRFilePath_TextChanged(object sender, EventArgs e) {
+        private void kryptonButton1_Click(object sender, EventArgs e) {
 
+            try {
+                Task.Run(async () =>
+                {
+                    string otp = auth.GenerateOTP();
+                    await _EmailServices.SendPlainEmail(
+                  txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
+                    StartOtpCountdown();
+                });
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            btnResend.Enabled = false;
+        }// 
+
+        //Timer
+        private void StartOtpCountdown() {
+            timeer = 60;
+            lblTimer.Text = $"OTP expires in: {timeer}s";
+
+            if (timer1 == null) {
+                timer1 = new System.Windows.Forms.Timer();
+                timer1.Interval = 1000;
+                timer1.Tick += timer1_Tick;
+            }
+
+            timer1.Start();
         }
+        private void timer1_Tick(object sender, EventArgs e) {
+            timeer--;
 
-        private void txtAProfilePicFilePath_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void pnlSAddress_MouseClick(object sender, MouseEventArgs e) {
-
-        }
-
-        private void pnlSAddress_MouseDoubleClick(object sender, MouseEventArgs e) {
-
+            if (timeer > 0) {
+                lblTimer.Text = $"OTP expires in: {timeer}s";
+            }
+            else {
+                timer1.Stop();
+                lblTimer.Text = "OTP expired!";
+                btnResend.Enabled = true;
+            }
         }
     }
 
