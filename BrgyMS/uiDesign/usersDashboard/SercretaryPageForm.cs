@@ -110,9 +110,9 @@ namespace BrgyMS.uiDesign.usersDashboard {
         }
 
         private void picApprovalDocs_Click(object sender, EventArgs e) {
-            if (blotter == null) {
-                blotter = new();
-            }
+
+            blotter = new();
+
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
             pnlMainContentHolder.Controls.Add(blotter);

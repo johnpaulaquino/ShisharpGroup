@@ -23,6 +23,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
@@ -35,20 +36,24 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
-            dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
-            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            dataGridBlotterTable = new Krypton.Toolkit.KryptonDataGridView();
             id = new DataGridViewTextBoxColumn();
             col1 = new DataGridViewTextBoxColumn();
             col2 = new DataGridViewTextBoxColumn();
             col3 = new DataGridViewTextBoxColumn();
             col4 = new DataGridViewTextBoxColumn();
             col5 = new DataGridViewTextBoxColumn();
+            ctxBlotter = new ContextMenuStrip(components);
+            updateBlotterToolStripMenuItem = new ToolStripMenuItem();
+            deleteBlotterToolStripMenuItem = new ToolStripMenuItem();
+            pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridBlotterTable).BeginInit();
+            ctxBlotter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -103,7 +108,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             kryptonPanel1.Controls.Add(kryptonDateTimePicker1);
             kryptonPanel1.Controls.Add(kryptonLabel1);
             kryptonPanel1.Controls.Add(dtpkStartDate);
-            kryptonPanel1.Controls.Add(dataGridAdminDashboard);
+            kryptonPanel1.Controls.Add(dataGridBlotterTable);
             kryptonPanel1.Controls.Add(nudLimit);
             kryptonPanel1.Controls.Add(kryptonLabel3);
             kryptonPanel1.Controls.Add(kryptonLabel4);
@@ -211,81 +216,52 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             dtpkStartDate.TabIndex = 23;
             dtpkStartDate.ValueNullable = new DateTime(2025, 4, 28, 0, 0, 0, 0);
             // 
-            // dataGridAdminDashboard
+            // dataGridBlotterTable
             // 
-            dataGridAdminDashboard.AccessibleRole = AccessibleRole.None;
-            dataGridAdminDashboard.AllowDrop = true;
-            dataGridAdminDashboard.AllowUserToAddRows = false;
-            dataGridAdminDashboard.AllowUserToDeleteRows = false;
-            dataGridAdminDashboard.AllowUserToResizeColumns = false;
-            dataGridAdminDashboard.AllowUserToResizeRows = false;
+            dataGridBlotterTable.AccessibleRole = AccessibleRole.None;
+            dataGridBlotterTable.AllowDrop = true;
+            dataGridBlotterTable.AllowUserToAddRows = false;
+            dataGridBlotterTable.AllowUserToDeleteRows = false;
+            dataGridBlotterTable.AllowUserToResizeColumns = false;
+            dataGridBlotterTable.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridAdminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
-            dataGridAdminDashboard.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridAdminDashboard.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridAdminDashboard.BorderStyle = BorderStyle.None;
-            dataGridAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, col1, col2, col3, col4, col5 });
-            dataGridAdminDashboard.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridAdminDashboard.Location = new Point(36, 184);
-            dataGridAdminDashboard.MultiSelect = false;
-            dataGridAdminDashboard.Name = "dataGridAdminDashboard";
-            dataGridAdminDashboard.RowHeadersVisible = false;
-            dataGridAdminDashboard.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            dataGridBlotterTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridBlotterTable.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridBlotterTable.AutoGenerateKryptonColumns = false;
+            dataGridBlotterTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridBlotterTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridBlotterTable.BorderStyle = BorderStyle.None;
+            dataGridBlotterTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridBlotterTable.Columns.AddRange(new DataGridViewColumn[] { id, col1, col2, col3, col4, col5 });
+            dataGridBlotterTable.ContextMenuStrip = ctxBlotter;
+            dataGridBlotterTable.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dataGridBlotterTable.Location = new Point(36, 184);
+            dataGridBlotterTable.MultiSelect = false;
+            dataGridBlotterTable.Name = "dataGridBlotterTable";
+            dataGridBlotterTable.RowHeadersVisible = false;
+            dataGridBlotterTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridAdminDashboard.ScrollBars = ScrollBars.Vertical;
-            dataGridAdminDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAdminDashboard.Size = new Size(892, 375);
-            dataGridAdminDashboard.StateCommon.Background.Color1 = Color.White;
-            dataGridAdminDashboard.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            dataGridAdminDashboard.StateCommon.DataCell.Border.Color1 = Color.DimGray;
-            dataGridAdminDashboard.StateCommon.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            dataGridAdminDashboard.StateCommon.DataCell.Content.Padding = new Padding(10);
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Back.Color1 = Color.White;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Back.Color2 = Color.White;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Border.Color1 = Color.DimGray;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Border.Width = 2;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.Color1 = Color.DimGray;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            dataGridAdminDashboard.TabIndex = 18;
-            dataGridAdminDashboard.ToolTipShadow = false;
-            // 
-            // pnlMainContentControler
-            // 
-            pnlMainContentControler.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            pnlMainContentControler.Controls.Add(kryptonPanel2);
-            pnlMainContentControler.Controls.Add(kryptonPanel1);
-            pnlMainContentControler.Location = new Point(0, -35);
-            pnlMainContentControler.Name = "pnlMainContentControler";
-            pnlMainContentControler.Size = new Size(944, 677);
-            pnlMainContentControler.TabIndex = 2;
-            // 
-            // kryptonPanel2
-            // 
-            kryptonPanel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            kryptonPanel2.Controls.Add(kryptonSeparator1);
-            kryptonPanel2.Controls.Add(kryptonLabel2);
-            kryptonPanel2.Location = new Point(0, 0);
-            kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(944, 80);
-            kryptonPanel2.StateCommon.Color1 = Color.White;
-            kryptonPanel2.TabIndex = 2;
-            // 
-            // kryptonLabel2
-            // 
-            kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel2.Location = new Point(36, 48);
-            kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(209, 29);
-            kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
-            kryptonLabel2.TabIndex = 4;
-            kryptonLabel2.Values.Text = "Request Documents";
+            dataGridBlotterTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridBlotterTable.ScrollBars = ScrollBars.Vertical;
+            dataGridBlotterTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridBlotterTable.Size = new Size(892, 375);
+            dataGridBlotterTable.StateCommon.Background.Color1 = Color.White;
+            dataGridBlotterTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            dataGridBlotterTable.StateCommon.DataCell.Border.Color1 = Color.DimGray;
+            dataGridBlotterTable.StateCommon.DataCell.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            dataGridBlotterTable.StateCommon.DataCell.Content.Padding = new Padding(10);
+            dataGridBlotterTable.StateCommon.HeaderColumn.Back.Color1 = Color.White;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Back.Color2 = Color.White;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Border.Color1 = Color.DimGray;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Border.DrawBorders = Krypton.Toolkit.PaletteDrawBorders.Bottom;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Border.Width = 2;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Content.Color1 = Color.DimGray;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Content.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridBlotterTable.StateCommon.HeaderColumn.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            dataGridBlotterTable.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            dataGridBlotterTable.TabIndex = 18;
+            dataGridBlotterTable.ToolTipShadow = false;
+            dataGridBlotterTable.MouseDown += dataGridBlotterTable_MouseDown;
             // 
             // id
             // 
@@ -323,6 +299,58 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             col5.Name = "col5";
             col5.ReadOnly = true;
             // 
+            // ctxBlotter
+            // 
+            ctxBlotter.Font = new Font("Segoe UI", 9F);
+            ctxBlotter.Items.AddRange(new ToolStripItem[] { updateBlotterToolStripMenuItem, deleteBlotterToolStripMenuItem });
+            ctxBlotter.Name = "ctxBlotter";
+            ctxBlotter.Size = new Size(151, 48);
+            // 
+            // updateBlotterToolStripMenuItem
+            // 
+            updateBlotterToolStripMenuItem.Name = "updateBlotterToolStripMenuItem";
+            updateBlotterToolStripMenuItem.Size = new Size(150, 22);
+            updateBlotterToolStripMenuItem.Text = "Update Blotter";
+            updateBlotterToolStripMenuItem.Click += updateBlotterToolStripMenuItem_Click;
+            // 
+            // deleteBlotterToolStripMenuItem
+            // 
+            deleteBlotterToolStripMenuItem.Name = "deleteBlotterToolStripMenuItem";
+            deleteBlotterToolStripMenuItem.Size = new Size(150, 22);
+            deleteBlotterToolStripMenuItem.Text = "Delete Blotter";
+            deleteBlotterToolStripMenuItem.Click += deleteBlotterToolStripMenuItem_Click;
+            // 
+            // pnlMainContentControler
+            // 
+            pnlMainContentControler.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            pnlMainContentControler.Controls.Add(kryptonPanel2);
+            pnlMainContentControler.Controls.Add(kryptonPanel1);
+            pnlMainContentControler.Location = new Point(0, -35);
+            pnlMainContentControler.Name = "pnlMainContentControler";
+            pnlMainContentControler.Size = new Size(944, 677);
+            pnlMainContentControler.TabIndex = 2;
+            // 
+            // kryptonPanel2
+            // 
+            kryptonPanel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            kryptonPanel2.Controls.Add(kryptonSeparator1);
+            kryptonPanel2.Controls.Add(kryptonLabel2);
+            kryptonPanel2.Location = new Point(0, 0);
+            kryptonPanel2.Name = "kryptonPanel2";
+            kryptonPanel2.Size = new Size(944, 80);
+            kryptonPanel2.StateCommon.Color1 = Color.White;
+            kryptonPanel2.TabIndex = 2;
+            // 
+            // kryptonLabel2
+            // 
+            kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            kryptonLabel2.Location = new Point(36, 48);
+            kryptonLabel2.Name = "kryptonLabel2";
+            kryptonLabel2.Size = new Size(209, 29);
+            kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
+            kryptonLabel2.TabIndex = 4;
+            kryptonLabel2.Values.Text = "Request Documents";
+            // 
             // SecretaryBlotterControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -330,11 +358,13 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             Controls.Add(pnlMainContentControler);
             Name = "SecretaryBlotterControl";
             Size = new Size(944, 607);
+            Load += SecretaryBlotterControl_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridAdminDashboard).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridBlotterTable).EndInit();
+            ctxBlotter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
@@ -353,7 +383,6 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private Krypton.Toolkit.KryptonPanel pnlMainContentControler;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
@@ -365,5 +394,9 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private DataGridViewTextBoxColumn col3;
         private DataGridViewTextBoxColumn col4;
         private DataGridViewTextBoxColumn col5;
+        protected internal Krypton.Toolkit.KryptonDataGridView dataGridBlotterTable;
+        private ContextMenuStrip ctxBlotter;
+        private ToolStripMenuItem updateBlotterToolStripMenuItem;
+        private ToolStripMenuItem deleteBlotterToolStripMenuItem;
     }
 }

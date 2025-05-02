@@ -230,7 +230,7 @@ namespace BrgyMs.backend.data_validation {
 
 		public void ValidateBlotter(BlotterInformation blotter) {
 
-			if (string.Equals(blotter.ComplainantId, blotter.ComplainantId)) {
+			if (string.Equals(blotter.ComplainantId, blotter.RespondentId)) {
 				throw new Exception("Invalid Blotter, can't blotter itself!");
 			}
 
@@ -238,8 +238,15 @@ namespace BrgyMs.backend.data_validation {
 				throw new Exception("Please specify the Complainant name");
 			}
 
+			if (string.IsNullOrEmpty(blotter.ComplainantId)) {
+				throw new Exception("Please specify the Respondent name");
+			}
+
 
 			if (string.Equals(blotter.RespondentId, "--Select--")) {
+				throw new Exception("Please specify the Respondent name");
+			}
+			if (string.IsNullOrEmpty(blotter.RespondentId)) {
 				throw new Exception("Please specify the Respondent name");
 			}
 			if (string.IsNullOrEmpty(blotter.Statements)) {

@@ -43,17 +43,14 @@ namespace BrgyMs.backend.services {
         }
 
         //Show all blotters from table
-        public async Task FillBlotterTable(DataGridView table, int limit) {
+        public async Task FillBlotterTable(DataGridView table, int limit = 10) {
             try {
-
-                var dt = await Task.Run(() => _SedcretaryRepo.GetBlotters(limit));
-
+                var dt = await _SedcretaryRepo.GetBlotters(limit);
                 table.Columns.Clear();
                 table.DataSource = dt;
-
             }
             catch (Exception) {
-
+                throw;
             }
         } //end
 

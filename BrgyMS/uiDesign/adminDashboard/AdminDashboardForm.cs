@@ -3,6 +3,8 @@ using BrgyMs.backend.utils;
 using BrgyMs.uiDesign;
 using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using BrgyMS.uiDesign.usersDashboard.modals;
+using BrgyMS.uiDesign.usersDashboard.secretary_controls;
 using BrgyMS.uiDesign.usersDashboard.user_controls;
 using Google.Protobuf.Reflection;
 using Mysqlx.Crud;
@@ -84,6 +86,16 @@ namespace BrgyMS.uiDesign.adminDashboard {
                 login.Owner = this;
                 login.Show();
             }
+        }
+
+        private void kryptonPictureBox1_Click(object sender, EventArgs e) {
+            SecretaryBlotterControl control = new();
+
+            pnlMainContentHolder1.Controls.Clear();
+            pnlMainContentHolder1.Controls.Add(control);
+
+            control.Dock = DockStyle.Fill;
+
         }
     }
 }

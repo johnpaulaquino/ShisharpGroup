@@ -83,13 +83,13 @@ namespace BrgyMs.backend.database.repositories {
 
 
 
-        //To blotter resident or insert a blotter in db
+        //To blotter resident or insert a blotter in db. for secretary
         public async Task BlotterResident(BlotterInformation blotter) {
             using var connecetion = await conn.getConnection();
             var transact = await connecetion.BeginTransactionAsync();
             try {
-                string stmt = "INSERT INTO blotters (id, complainant_id, respondent_id, statements, status, date_filed) " +
-                    "VALUES(@id, @complainant_id, @respondent_id, @statements, @status, @date_filed)";
+                string stmt = "INSERT INTO blotters (id, complainant_id, respondent_id, statements, status, date_filed, complainant_name, respondent_name) " +
+                    "VALUES(@id, @complainant_id, @respondent_id, @statements, @status, @date_filed, @complainant_id, @respondent_id)";
 
 
                 using var cmd = new MySqlCommand(stmt, connecetion);
@@ -100,6 +100,9 @@ namespace BrgyMs.backend.database.repositories {
                 cmd.Parameters.AddWithValue("@statements", blotter.Statements);
                 cmd.Parameters.AddWithValue("@status", blotter.Status);
                 cmd.Parameters.AddWithValue("@date_filed", blotter.DateFiled);
+                cmd.Parameters.AddWithValue("@complainant_name", blotter.ComplainantName);
+                cmd.Parameters.AddWithValue("@respondent_name", blotter.RespondentName);
+
 
                 await cmd.ExecuteNonQueryAsync();
                 await transact.CommitAsync();
@@ -113,8 +116,10 @@ namespace BrgyMs.backend.database.repositories {
 
         //get the blotter with a limit
         public async Task<DataTable> GetBlotters(int limit) {
-            string stmt = "Select is as ID,complainant_id as 'Complainant ID', respondent_id as 'Respondent ID' " +
-                "statements as Statement, DATE_FORMAT(date_filed, '%W, %M %d, %Y %r') as 'Date Filed'  limit @limit ";
+            string stmt = "Select id as ID,complainant_id as 'Complainant ID', respondent_id as 'Respondent ID', " +
+                "status as Status, statements as Statement, DATE_FORMAT(date_filed, '%W, %M %d, %Y %r') as 'Date Filed' " +
+                "From blotters " +
+                " limit @limit ";
 
             try {
                 DataTable table = new DataTable();

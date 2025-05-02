@@ -12,8 +12,10 @@ namespace BrgyMS.backend.models.base_model {
         public string Statements { get; set; }
         public string Status { get; set; } //Unsettled, Settled, Dismissed
         public DateTime DateFiled { get; set; }
+        public string ComplainantName { get; set; }
+        public string RespondentName { get; set; }
 
-        public BlotterInformation(string Status = "unsettled") {
+        public BlotterInformation(string Status = "Unsettled") {
             this.Status = Status;
         }
     }

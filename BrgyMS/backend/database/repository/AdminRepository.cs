@@ -269,8 +269,8 @@ namespace BrgyMs.backend.database.repositories {
                 var reader = await cmd.ExecuteReaderAsync();
                 if (await reader.ReadAsync()) {
                     data.Add(reader.GetInt32("totalPopulation").ToString());
-                    data.Add(reader.GetInt32("totalRequestDocs").ToString());
                     data.Add(reader.GetInt32("totalBlotter").ToString());
+                    data.Add(reader.GetInt32("totalRequestUser").ToString());
 
                     return data;
                 }
@@ -284,17 +284,15 @@ namespace BrgyMs.backend.database.repositories {
 
         //update blotter
         public async Task UpdateBlotter(string blotterId,
-             BlotterInformation blotter) {
+             string status) {
             using var conenction = await conn.getConnection();
             try {
-                string stmt = "Update blotters set status = @status, complainant_id  = @comid, respondent_id  = @resid " +
+                string stmt = "Update blotters set status = @status " +
                     "WHere id = @id ";
 
                 using var cmd = new MySqlCommand(stmt, conenction);
                 cmd.Parameters.AddWithValue("@id", blotterId);
-                cmd.Parameters.AddWithValue("@status", blotter.Status);
-                cmd.Parameters.AddWithValue("@comid", blotter.ComplainantId);
-                cmd.Parameters.AddWithValue("@resid", blotter.RespondentId);
+                cmd.Parameters.AddWithValue("@status", status);
 
                 await cmd.ExecuteNonQueryAsync();
 
@@ -312,11 +310,68 @@ namespace BrgyMs.backend.database.repositories {
             try {
                 using var cmd = new MySqlCommand(stmt, conenction);
                 cmd.Parameters.AddWithValue("@id", id);
+                await cmd.ExecuteNonQueryAsync();
             }
             catch (Exception) {
-
+                throw;
             }
         }// ends
 
+
+        //Get blotter that returns BLotter object, will use in update blotter for admin
+        public async Task<BlotterInformation> GetBlotter(string id) {
+            string stmt = "Select id, complainant_id, respondent_id , " +
+                "statements , date_filed " +
+                "From blotters " +
+                "Where id = @id ";
+
+            try {
+                DataTable table = new DataTable();
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlCommand(stmt, connection);
+                adapter.Parameters.AddWithValue("@id", id);
+                using var reader = await adapter.ExecuteReaderAsync();
+                BlotterInformation blotter;
+                if (await reader.ReadAsync()) {
+                    blotter = new BlotterInformation()
+                    {
+                        Id = reader.GetString("id"),
+                        ComplainantId = reader.GetString("complainant_id"),
+                        RespondentId = reader.GetString("respondent_id"),
+                        Statements = reader.GetString("statements"),
+                        DateFiled = reader.GetDateTime("date_filed"),
+                    };
+
+                    return blotter;
+                }
+                return null;
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        } // end
+
+        public async Task<DataTable> GetBlotterForUpdate(string id) {
+            string stmt = "SELECT b.id as ID, " +
+                "b.complainant_id as Complainant, b.respondent_id as Respondent, b.statements as Statements, " +
+                "b.status as Status, b.date_filed as 'Date Filed', b.complainant_name as 'Complainant Name',  b.respondent_name as 'Respondent Name' " +
+                "FROM blotters b " +
+                "WHERE b.id = @id";
+
+            try {
+                DataTable table = new DataTable();
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@id", id);
+                DataTable dt = new DataTable();
+
+                await adapter.FillAsync(dt);
+                return dt;
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
     }
 }

@@ -25,12 +25,12 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
             if (totalPopulation != null) {
                 lblTotalPopulation.Text = totalPopulation[0];
-                lblTotalHouseHolds.Text = totalPopulation[1];
+                lblTotalBlotters.Text = totalPopulation[1];
                 lblTotalUserRequest.Text = totalPopulation[2];
             }
             else {
                 lblTotalPopulation.Text = "0";
-                lblTotalHouseHolds.Text = "0";
+                lblTotalBlotters.Text = "0";
                 lblTotalUserRequest.Text = "0";
             }
         }

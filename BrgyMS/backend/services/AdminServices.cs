@@ -188,12 +188,11 @@ namespace BrgyMs.backend.services {
             }
         } // end
 
-        //validate before update the blotter info
-        public async Task UpdateBlotter(string id, BlotterInformation blotter) {
+        // update the blotter info
+        public async Task UpdateBlotter(string id, string status) {
             try {
-                validation.ValidateBlotter(blotter);
 
-                await Task.Run(async () => { await _AdminRepository.UpdateBlotter(id, blotter); });
+                await _AdminRepository.UpdateBlotter(id, status);
 
             }
             catch (Exception) {
@@ -201,17 +200,66 @@ namespace BrgyMs.backend.services {
             }
         } // end
 
+        //dedelte blotter
         public async Task DeleteBlotter(string id) {
             try {
-                await Task.Run(async() =>
-                {
-                    await _AdminRepository.DeleteBlotter(id);
-                });
+
+                await _AdminRepository.DeleteBlotter(id);
             }
             catch (Exception) {
                 throw;
             }
+        } // 
+        public async Task<BlotterInformation> GetBlotter(string id) {
+            try {
+                BlotterInformation blotterObject = await _AdminRepository.GetBlotter(id);
+                if (blotterObject != null) {
+                    return blotterObject;
+                }
+
+                throw new Exception("No records found!");
+            }
+
+            catch (Exception) {
+                throw;
+            }
         }
+
+        //Get the personal Blotter information
+        public async Task<List<BlotterInformation>> GetBlotterAndPersonalInfo(string id) {
+            try {
+                List<BlotterInformation> data = new List<BlotterInformation>();
+                DataTable dt = await _AdminRepository.GetBlotterForUpdate(id);
+
+                await Task.Run(() =>
+                {
+                    foreach (DataRow item in dt.Rows) {
+
+                        BlotterInformation blotterObject = new BlotterInformation()
+                        {
+                            Id = (string)item["ID"],
+                            ComplainantId = (string)item["Complainant"],
+                            RespondentId = (string)item["Respondent"],
+                            DateFiled = (DateTime)item["Date Filed"],
+                            Statements = (string)item["Statements"],
+                            Status = (string)item["Status"],
+                            ComplainantName = (string)item["Complainant Name"],
+                            RespondentName = (string)item["Respondent Name"]
+                        };
+
+                        data.Add(blotterObject);
+                    }
+                });
+                return data;
+
+            }
+
+            catch (Exception) {
+                throw;
+            }
+        } //
+
+
 
     }
 
