@@ -14,19 +14,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BrgyMS.uiDesign.usersDashboard.user_controls;
+using BrgyMS.uiDesign.adminDashboard.controls;
+using BrgyMS.uiDesign.usersDashboard.secretary_controls;
 
 namespace BrgyMS.uiDesign.usersDashboard {
-    public partial class ResidentPageForm : Form {
+    public partial class SercretaryPageForm : Form {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();
         private BaseRepository _BaseRepo = new BaseRepository();
+        private ResidentAccountSetting accountcontrol;
         private ResidentDashboardControls dashboard;
-        private RequestDocumentsControls docs;
+        private SecretaryApprovalDocumentsControls docs;
         private ResidentUserLogsControl logsControl;
-        private AccountSettingsDataHolderController dataHolder;
-
-        public ResidentPageForm() {
+        private SecretaryBlotterControl blotter;
+        private SecretaryOfficialsControl officialsControl;
+        public SercretaryPageForm() {
             InitializeComponent();
 
         }
@@ -34,12 +36,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
 
             uiadmin.SetUserLabel(
                 lblRole, lblUsername);
-
-            ResidentDashboardControls controls = new();
-
-            pnlMainContentHolder.Controls.Clear();
-            pnlMainContentHolder.Controls.Add(controls);
-            controls.Dock = DockStyle.Fill;
 
         }
 
@@ -59,13 +55,13 @@ namespace BrgyMS.uiDesign.usersDashboard {
         }
 
         private void picUserAccountManagement_Click(object sender, EventArgs e) {
-            if (dataHolder == null) {
-                dataHolder = new();
+            if (accountcontrol == null) {
+                accountcontrol = new();
             }
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
-            pnlMainContentHolder.Controls.Add(dataHolder);
-            dataHolder.Dock = DockStyle.Fill;
+            pnlMainContentHolder.Controls.Add(accountcontrol);
+            accountcontrol.Dock = DockStyle.Fill;
             Cursor = Cursors.Default;
         }
 
@@ -101,5 +97,28 @@ namespace BrgyMS.uiDesign.usersDashboard {
             docs.Dock = DockStyle.Fill;
             Cursor = Cursors.Default;
         }
+
+        private void picOfficials_Click(object sender, EventArgs e) {
+            if (officialsControl == null) {
+                officialsControl = new();
+            }
+            Cursor = Cursors.WaitCursor;
+            pnlMainContentHolder.Controls.Clear();
+            pnlMainContentHolder.Controls.Add(officialsControl);
+            officialsControl.Dock = DockStyle.Fill;
+            Cursor = Cursors.Default;
+        }
+
+        private void picApprovalDocs_Click(object sender, EventArgs e) {
+            if (blotter == null) {
+                blotter = new();
+            }
+            Cursor = Cursors.WaitCursor;
+            pnlMainContentHolder.Controls.Clear();
+            pnlMainContentHolder.Controls.Add(blotter);
+            blotter.Dock = DockStyle.Fill;
+            Cursor = Cursors.Default;
+        }
     }
 }
+

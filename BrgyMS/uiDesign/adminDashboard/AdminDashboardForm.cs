@@ -3,6 +3,7 @@ using BrgyMs.backend.utils;
 using BrgyMs.uiDesign;
 using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using BrgyMS.uiDesign.usersDashboard.user_controls;
 using Google.Protobuf.Reflection;
 using Mysqlx.Crud;
 using System;
@@ -60,7 +61,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
         }
 
         private void picAccountManagement_Click(object sender, EventArgs e) {
-            ResidentAccountSetting accountcontrol = new ResidentAccountSetting();
+            AdminAccountManagementControl accountcontrol = new AdminAccountManagementControl();
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(accountcontrol);
             accountcontrol.Dock = DockStyle.Fill;

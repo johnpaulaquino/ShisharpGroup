@@ -1,5 +1,5 @@
 using BrgyMs.backend.data_validation;
-using BrgyMs.backend.models.residents_model;
+using BrgyMs.backend.models.residents_docs;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMS.backend.models;
@@ -78,14 +78,27 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
             try {
                 string userId = utils.ReadUserIdInFile();
+
+                string purpose = cboPurposes.SelectedItem.ToString();
+
+                //Check if purpose is others
+                if (string.Equals(purpose, "Others")) {
+                    if (string.IsNullOrEmpty(txtOtherPurpose.Text)) {
+                        throw new Exception("Please state your purpose");
+                    }
+                    purpose = txtOtherPurpose.Text; // set the purpose based on the user input
+                }
+
+
+
                 ResidentDocumentRequest requestDocs = new ResidentDocumentRequest(userId,
                     cboDocsType.SelectedItem.ToString(),
-                    cboPurposes.SelectedItem.ToString());
+                   purpose);
 
 
                 validation.ValdiateRequestDocs(requestDocs); // validate the request
                 string docsType = cboDocsType.SelectedItem.ToString();
-              
+
                 var option = MessageBox.Show("Are you sure you want to request this document?",
                "Personal Information", MessageBoxButtons.YesNo,
                MessageBoxIcon.Question);
@@ -103,12 +116,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                     await _BaseServices.LogUserActions(logs);
                 });
 
-
-                Invoke(new Action(() =>
-                {
-                    MessageBox.Show("Successfully requested documents, we will notify you once it is processed.");
-                }));
-
+                MessageBox.Show("Successfully requested documents, we will notify you once it is processed.");
 
             }
             catch (Exception ex) {
@@ -124,6 +132,13 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             else {
                 cbFirstTimeJobSeeker.Enabled = false;
                 cbFirstTimeJobSeeker.Checked = false;
+            }
+
+            if (string.Equals(cboPurposes.SelectedItem.ToString(), "Others")) {
+                txtOtherPurpose.ReadOnly = false;
+            }
+            else {
+                txtOtherPurpose.ReadOnly = true;
             }
         } // end of the function
 

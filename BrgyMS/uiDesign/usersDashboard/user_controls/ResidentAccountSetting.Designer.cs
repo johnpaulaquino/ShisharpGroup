@@ -1,4 +1,4 @@
-namespace BrgyMS.uiDesign.usersDashboard.controls {
+namespace BrgyMS.uiDesign.usersDashboard.user_controls {
     partial class ResidentAccountSetting {
         /// <summary> 
         /// Required designer variable.
@@ -22,8 +22,7 @@ namespace BrgyMS.uiDesign.usersDashboard.controls {
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             pnlAsMainContentHolder = new Krypton.Toolkit.KryptonPanel();
@@ -49,17 +48,17 @@ namespace BrgyMS.uiDesign.usersDashboard.controls {
             kryptonPanel1.Controls.Add(pnlAsMainContentHolder);
             kryptonPanel1.Location = new Point(0, 83);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1125, 594);
+            kryptonPanel1.Size = new Size(944, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
             // pnlAsMainContentHolder
             // 
-            pnlAsMainContentHolder.Dock = DockStyle.Bottom;
+            pnlAsMainContentHolder.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlAsMainContentHolder.Location = new Point(0, 3);
             pnlAsMainContentHolder.MaximumSize = new Size(1500, 2500);
             pnlAsMainContentHolder.Name = "pnlAsMainContentHolder";
-            pnlAsMainContentHolder.Size = new Size(1125, 591);
+            pnlAsMainContentHolder.Size = new Size(944, 591);
             pnlAsMainContentHolder.StateCommon.Color1 = Color.White;
             pnlAsMainContentHolder.TabIndex = 4;
             // 
@@ -84,7 +83,7 @@ namespace BrgyMS.uiDesign.usersDashboard.controls {
             pnlMainContentControler.Controls.Add(kryptonPanel1);
             pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
-            pnlMainContentControler.Size = new Size(1125, 677);
+            pnlMainContentControler.Size = new Size(944, 677);
             pnlMainContentControler.TabIndex = 2;
             // 
             // kryptonPanel2
@@ -93,7 +92,7 @@ namespace BrgyMS.uiDesign.usersDashboard.controls {
             kryptonPanel2.Controls.Add(kryptonLabel2);
             kryptonPanel2.Location = new Point(0, 0);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1125, 80);
+            kryptonPanel2.Size = new Size(944, 80);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 2;
             // 
@@ -113,7 +112,7 @@ namespace BrgyMS.uiDesign.usersDashboard.controls {
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
             Name = "ResidentAccountSetting";
-            Size = new Size(1125, 607);
+            Size = new Size(944, 607);
             Load += ResidentAccountSetting_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

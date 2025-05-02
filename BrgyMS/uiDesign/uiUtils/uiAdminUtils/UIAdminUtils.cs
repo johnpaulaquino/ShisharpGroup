@@ -73,17 +73,9 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                 table.Update();
                 table.Refresh();
-                var dt = new DataTable();
-                using var userInfo = await Task.Run(() =>
-                {
-                    return _AdminServices.GetUserInformation(limit);
-                });
-
-                userInfo.Fill(dt);
-
+                using var userInfo = await _AdminServices.GetUserInformation(limit);
                 table.Columns.Clear();
-                table.DataSource = dt;
-
+                table.DataSource = userInfo;
                 SetWidthToAccountManagementTable(table);
 
 
@@ -424,31 +416,6 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 throw;
             }
         }// end of function
-
-
-        public async Task SetTotalsInLabels(KryptonLabel lblTotalpop,
-            KryptonLabel lblTotalHouseholds,
-            KryptonLabel lblTotalBlotter) {
-
-            try {
-
-
-                await Task.Run(async () =>
-
-                 {
-                     string totalPopulation = await _AdminServices.GetTotalPouplation();
-                     string totalHouseholds = await _AdminServices.GetTotalHouseholds();
-                     string totalBlotter = await _AdminServices.GetTotalBlotters();
-                     lblTotalpop.Text = totalPopulation;
-                     lblTotalHouseholds.Text = totalHouseholds;
-                     lblTotalBlotter.Text = totalBlotter;
-                 });
-
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
     }
 }

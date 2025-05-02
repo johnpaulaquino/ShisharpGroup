@@ -1,5 +1,5 @@
 ﻿namespace BrgyMS.uiDesign.usersDashboard.modals {
-    partial class RequestDocsModal {
+    partial class UsersModal {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,6 +29,7 @@
             // 
             // pnlContainer
             // 
+            pnlContainer.AutoScroll = true;
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
@@ -36,7 +37,7 @@
             pnlContainer.StateCommon.Color1 = Color.White;
             pnlContainer.TabIndex = 0;
             // 
-            // RequestDocsModal
+            // UsersModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -44,7 +45,7 @@
             Controls.Add(pnlContainer);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "RequestDocsModal";
+            Name = "UsersModal";
             StartPosition = FormStartPosition.CenterScreen;
             Load += RequestDocsModal_Load;
             ((System.ComponentModel.ISupportInitialize)pnlContainer).EndInit();
@@ -53,6 +54,6 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonPanel pnlContainer;
+        protected internal Krypton.Toolkit.KryptonPanel pnlContainer;
     }
 }

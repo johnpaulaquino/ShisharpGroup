@@ -7,11 +7,13 @@ using Newtonsoft.Json;
 using BrgyMs.database.connector;
 using BrgyMs.backend.models.bo_model;
 using BrgyMs.backend.models.base_model;
-using BrgyMs.backend.models.residents_model;
+
 
 using BrgyMs.backend.utils;
 using System.Data;
 using System.Data.Common;
+using BrgyMs.backend.models.residents_docs;
+
 
 
 namespace BrgyMs.backend.database.repositories {

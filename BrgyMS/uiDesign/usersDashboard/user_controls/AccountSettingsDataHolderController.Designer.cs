@@ -1,7 +1,5 @@
-﻿namespace BrgyMS.uiDesign.usersDashboard.controls
-{
-    partial class AccountSettingsDataHolderController
-    {
+﻿namespace BrgyMS.uiDesign.usersDashboard.user_controls {
+    partial class AccountSettingsDataHolderController {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -110,7 +106,7 @@
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1125, 594);
+            kryptonPanel1.Size = new Size(944, 607);
             kryptonPanel1.TabIndex = 0;
             // 
             // kryptonPanel2
@@ -134,13 +130,13 @@
             kryptonPanel2.Location = new Point(0, 0);
             kryptonPanel2.Margin = new Padding(2);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1125, 594);
+            kryptonPanel2.Size = new Size(944, 607);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 1;
             // 
             // kryptonLabel23
             // 
-            kryptonLabel23.Location = new Point(459, 796);
+            kryptonLabel23.Location = new Point(420, 796);
             kryptonLabel23.Margin = new Padding(2);
             kryptonLabel23.Name = "kryptonLabel23";
             kryptonLabel23.Size = new Size(226, 29);
@@ -170,17 +166,17 @@
             kryptonPanel7.Controls.Add(kryptonLabel20);
             kryptonPanel7.Controls.Add(kryptonLabel21);
             kryptonPanel7.Controls.Add(kryptonLabel22);
-            kryptonPanel7.Location = new Point(48, 848);
+            kryptonPanel7.Location = new Point(23, 848);
             kryptonPanel7.Margin = new Padding(2);
             kryptonPanel7.Name = "kryptonPanel7";
-            kryptonPanel7.Size = new Size(1015, 380);
+            kryptonPanel7.Size = new Size(1066, 380);
             kryptonPanel7.StateCommon.Color1 = Color.White;
             kryptonPanel7.TabIndex = 65;
             // 
             // cbVoterStatus
             // 
             cbVoterStatus.AutoSize = false;
-            cbVoterStatus.Location = new Point(594, 342);
+            cbVoterStatus.Location = new Point(666, 340);
             cbVoterStatus.Name = "cbVoterStatus";
             cbVoterStatus.Size = new Size(379, 28);
             cbVoterStatus.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -189,7 +185,7 @@
             // 
             // kryptonLabel24
             // 
-            kryptonLabel24.Location = new Point(595, 308);
+            kryptonLabel24.Location = new Point(667, 306);
             kryptonLabel24.Margin = new Padding(2);
             kryptonLabel24.Name = "kryptonLabel24";
             kryptonLabel24.Size = new Size(134, 29);
@@ -199,7 +195,7 @@
             // 
             // kryptonLabel15
             // 
-            kryptonLabel15.Location = new Point(594, 121);
+            kryptonLabel15.Location = new Point(666, 119);
             kryptonLabel15.Margin = new Padding(2);
             kryptonLabel15.Name = "kryptonLabel15";
             kryptonLabel15.Size = new Size(93, 29);
@@ -209,7 +205,7 @@
             // 
             // txtAsReligion
             // 
-            txtAsReligion.Location = new Point(594, 155);
+            txtAsReligion.Location = new Point(666, 153);
             txtAsReligion.Multiline = true;
             txtAsReligion.Name = "txtAsReligion";
             txtAsReligion.Size = new Size(378, 45);
@@ -217,7 +213,7 @@
             // 
             // kryptonLabel16
             // 
-            kryptonLabel16.Location = new Point(599, 19);
+            kryptonLabel16.Location = new Point(671, 17);
             kryptonLabel16.Margin = new Padding(2);
             kryptonLabel16.Name = "kryptonLabel16";
             kryptonLabel16.Size = new Size(129, 29);
@@ -227,7 +223,7 @@
             // 
             // txtAsContactNo
             // 
-            txtAsContactNo.Location = new Point(594, 53);
+            txtAsContactNo.Location = new Point(666, 51);
             txtAsContactNo.Multiline = true;
             txtAsContactNo.Name = "txtAsContactNo";
             txtAsContactNo.Size = new Size(378, 45);
@@ -324,7 +320,7 @@
             cboAsEmploymentStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAsEmploymentStatus.DropDownWidth = 159;
             cboAsEmploymentStatus.Items.AddRange(new object[] { "--Select--", "Employed", "Self-Employed", "Unemployed", "Student" });
-            cboAsEmploymentStatus.Location = new Point(594, 256);
+            cboAsEmploymentStatus.Location = new Point(666, 254);
             cboAsEmploymentStatus.Name = "cboAsEmploymentStatus";
             cboAsEmploymentStatus.Size = new Size(388, 25);
             cboAsEmploymentStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
@@ -334,7 +330,7 @@
             // 
             // kryptonLabel20
             // 
-            kryptonLabel20.Location = new Point(594, 222);
+            kryptonLabel20.Location = new Point(666, 220);
             kryptonLabel20.Margin = new Padding(2);
             kryptonLabel20.Name = "kryptonLabel20";
             kryptonLabel20.Size = new Size(204, 29);
@@ -381,7 +377,7 @@
             // 
             // kryptonLabel13
             // 
-            kryptonLabel13.Location = new Point(525, 18);
+            kryptonLabel13.Location = new Point(476, 18);
             kryptonLabel13.Margin = new Padding(2);
             kryptonLabel13.Name = "kryptonLabel13";
             kryptonLabel13.Size = new Size(150, 29);
@@ -400,7 +396,7 @@
             // 
             // kryptonButton1
             // 
-            kryptonButton1.Location = new Point(49, 0);
+            kryptonButton1.Location = new Point(19, 0);
             kryptonButton1.Margin = new Padding(4, 3, 4, 3);
             kryptonButton1.Name = "kryptonButton1";
             kryptonButton1.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -471,7 +467,7 @@
             kryptonPanel6.Controls.Add(cboAsSuffix);
             kryptonPanel6.Controls.Add(kryptonLabel4);
             kryptonPanel6.Controls.Add(kryptonLabel5);
-            kryptonPanel6.Location = new Point(48, 287);
+            kryptonPanel6.Location = new Point(13, 287);
             kryptonPanel6.Name = "kryptonPanel6";
             kryptonPanel6.Size = new Size(420, 526);
             kryptonPanel6.StateCommon.Color1 = Color.White;
@@ -617,7 +613,7 @@
             kryptonPanel4.Controls.Add(kryptonLabel11);
             kryptonPanel4.Controls.Add(txtAsHouseNo);
             kryptonPanel4.Controls.Add(kryptonLabel12);
-            kryptonPanel4.Location = new Point(643, 287);
+            kryptonPanel4.Location = new Point(694, 287);
             kryptonPanel4.Margin = new Padding(2);
             kryptonPanel4.Name = "kryptonPanel4";
             kryptonPanel4.Size = new Size(420, 501);
@@ -766,7 +762,7 @@
             // 
             // kryptonLabel7
             // 
-            kryptonLabel7.Location = new Point(802, 243);
+            kryptonLabel7.Location = new Point(784, 243);
             kryptonLabel7.Margin = new Padding(2);
             kryptonLabel7.Name = "kryptonLabel7";
             kryptonLabel7.Size = new Size(216, 29);
@@ -783,7 +779,7 @@
             // 
             // kryptonLabel6
             // 
-            kryptonLabel6.Location = new Point(161, 243);
+            kryptonLabel6.Location = new Point(88, 243);
             kryptonLabel6.Margin = new Padding(2);
             kryptonLabel6.Name = "kryptonLabel6";
             kryptonLabel6.Size = new Size(216, 29);
@@ -793,7 +789,7 @@
             // 
             // btnAsUpload
             // 
-            btnAsUpload.Location = new Point(525, 211);
+            btnAsUpload.Location = new Point(476, 211);
             btnAsUpload.Margin = new Padding(4, 3, 4, 3);
             btnAsUpload.Name = "btnAsUpload";
             btnAsUpload.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -854,7 +850,7 @@
             // 
             // picAsProfilePicture
             // 
-            picAsProfilePicture.Location = new Point(525, 62);
+            picAsProfilePicture.Location = new Point(476, 62);
             picAsProfilePicture.Name = "picAsProfilePicture";
             picAsProfilePicture.Size = new Size(150, 143);
             picAsProfilePicture.SizeMode = PictureBoxSizeMode.Zoom;
@@ -867,7 +863,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(kryptonPanel1);
             Name = "AccountSettingsDataHolderController";
-            Size = new Size(1125, 594);
+            Size = new Size(944, 607);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();

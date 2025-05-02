@@ -34,11 +34,11 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel10 = new Krypton.Toolkit.KryptonPanel();
             kryptonTableLayoutPanel1 = new Krypton.Toolkit.KryptonTableLayoutPanel();
             pnlMaleHolder = new Krypton.Toolkit.KryptonPanel();
-            lblTotalBlotter = new Krypton.Toolkit.KryptonLabel();
-            kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
-            pnlFemaleHolder = new Krypton.Toolkit.KryptonPanel();
-            lblTotalHouseholds = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            lblTotalUserRequest = new Krypton.Toolkit.KryptonLabel();
+            pnlFemaleHolder = new Krypton.Toolkit.KryptonPanel();
+            lblTotalHouseHolds = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             PopulationHolder = new Krypton.Toolkit.KryptonPanel();
             lblTotalPopulation = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
@@ -46,6 +46,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            kryptonPanel9 = new Krypton.Toolkit.KryptonPanel();
+            kryptonPanel8 = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -60,6 +62,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel7).BeginInit();
             kryptonPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel10).BeginInit();
+            kryptonPanel10.SuspendLayout();
             kryptonTableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMaleHolder).BeginInit();
             pnlMaleHolder.SuspendLayout();
@@ -72,6 +75,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel8).BeginInit();
             SuspendLayout();
             // 
             // kryptonSeparator1
@@ -112,6 +117,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel5.Size = new Size(1125, 433);
             kryptonPanel5.StateCommon.Color1 = Color.White;
             kryptonPanel5.TabIndex = 3;
+            kryptonPanel5.Paint += kryptonPanel5_Paint;
             // 
             // kryptonTableLayoutPanel2
             // 
@@ -120,13 +126,14 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonTableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             kryptonTableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             kryptonTableLayoutPanel2.Controls.Add(kryptonPanel6, 2, 0);
+            kryptonTableLayoutPanel2.Controls.Add(kryptonPanel10, 0, 0);
             kryptonTableLayoutPanel2.Controls.Add(kryptonPanel7, 1, 0);
             kryptonTableLayoutPanel2.Dock = DockStyle.Top;
             kryptonTableLayoutPanel2.Location = new Point(0, 0);
             kryptonTableLayoutPanel2.Name = "kryptonTableLayoutPanel2";
             kryptonTableLayoutPanel2.RowCount = 1;
             kryptonTableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            kryptonTableLayoutPanel2.Size = new Size(1125, 150);
+            kryptonTableLayoutPanel2.Size = new Size(1125, 257);
             kryptonTableLayoutPanel2.StateCommon.Color1 = Color.White;
             kryptonTableLayoutPanel2.TabIndex = 0;
             // 
@@ -137,13 +144,13 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel6.Location = new Point(755, 5);
             kryptonPanel6.Margin = new Padding(5);
             kryptonPanel6.Name = "kryptonPanel6";
-            kryptonPanel6.Size = new Size(365, 140);
+            kryptonPanel6.Size = new Size(365, 247);
             kryptonPanel6.StateCommon.Color1 = Color.FromArgb(89, 11, 224);
             kryptonPanel6.TabIndex = 2;
             // 
             // kryptonPanel11
             // 
-            kryptonPanel11.Location = new Point(47, 10);
+            kryptonPanel11.Location = new Point(48, 20);
             kryptonPanel11.Margin = new Padding(5);
             kryptonPanel11.Name = "kryptonPanel11";
             kryptonPanel11.Size = new Size(271, 204);
@@ -152,21 +159,23 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel7
             // 
-            kryptonPanel7.Controls.Add(kryptonPanel10);
+            kryptonPanel7.Controls.Add(kryptonPanel9);
             kryptonPanel7.Dock = DockStyle.Fill;
             kryptonPanel7.Location = new Point(380, 5);
             kryptonPanel7.Margin = new Padding(5);
             kryptonPanel7.Name = "kryptonPanel7";
-            kryptonPanel7.Size = new Size(365, 140);
+            kryptonPanel7.Size = new Size(365, 247);
             kryptonPanel7.StateCommon.Color1 = Color.FromArgb(232, 145, 39);
             kryptonPanel7.TabIndex = 1;
             // 
             // kryptonPanel10
             // 
-            kryptonPanel10.Location = new Point(42, 10);
+            kryptonPanel10.Controls.Add(kryptonPanel8);
+            kryptonPanel10.Dock = DockStyle.Fill;
+            kryptonPanel10.Location = new Point(5, 5);
             kryptonPanel10.Margin = new Padding(5);
             kryptonPanel10.Name = "kryptonPanel10";
-            kryptonPanel10.Size = new Size(271, 204);
+            kryptonPanel10.Size = new Size(365, 247);
             kryptonPanel10.StateCommon.Color1 = Color.FromArgb(66, 135, 245);
             kryptonPanel10.TabIndex = 2;
             // 
@@ -190,8 +199,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // pnlMaleHolder
             // 
-            pnlMaleHolder.Controls.Add(lblTotalBlotter);
-            pnlMaleHolder.Controls.Add(kryptonLabel7);
+            pnlMaleHolder.Controls.Add(kryptonLabel5);
+            pnlMaleHolder.Controls.Add(lblTotalUserRequest);
             pnlMaleHolder.Dock = DockStyle.Fill;
             pnlMaleHolder.Location = new Point(755, 5);
             pnlMaleHolder.Margin = new Padding(5);
@@ -200,30 +209,30 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMaleHolder.StateCommon.Color1 = Color.FromArgb(89, 11, 224);
             pnlMaleHolder.TabIndex = 2;
             // 
-            // lblTotalBlotter
+            // kryptonLabel5
             // 
-            lblTotalBlotter.Location = new Point(224, 60);
-            lblTotalBlotter.Name = "lblTotalBlotter";
-            lblTotalBlotter.Size = new Size(24, 26);
-            lblTotalBlotter.StateCommon.ShortText.Color1 = Color.White;
-            lblTotalBlotter.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
-            lblTotalBlotter.TabIndex = 5;
-            lblTotalBlotter.Values.Text = "0";
+            kryptonLabel5.Location = new Point(152, 19);
+            kryptonLabel5.Name = "kryptonLabel5";
+            kryptonLabel5.Size = new Size(185, 26);
+            kryptonLabel5.StateCommon.ShortText.Color1 = Color.White;
+            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            kryptonLabel5.TabIndex = 2;
+            kryptonLabel5.Values.Text = "REQUEST USERS";
             // 
-            // kryptonLabel7
+            // lblTotalUserRequest
             // 
-            kryptonLabel7.Location = new Point(224, 19);
-            kryptonLabel7.Name = "kryptonLabel7";
-            kryptonLabel7.Size = new Size(119, 26);
-            kryptonLabel7.StateCommon.ShortText.Color1 = Color.White;
-            kryptonLabel7.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
-            kryptonLabel7.TabIndex = 4;
-            kryptonLabel7.Values.Text = "BLOTTERS";
+            lblTotalUserRequest.Location = new Point(152, 60);
+            lblTotalUserRequest.Name = "lblTotalUserRequest";
+            lblTotalUserRequest.Size = new Size(24, 26);
+            lblTotalUserRequest.StateCommon.ShortText.Color1 = Color.White;
+            lblTotalUserRequest.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            lblTotalUserRequest.TabIndex = 3;
+            lblTotalUserRequest.Values.Text = "0";
             // 
             // pnlFemaleHolder
             // 
-            pnlFemaleHolder.Controls.Add(lblTotalHouseholds);
-            pnlFemaleHolder.Controls.Add(kryptonLabel5);
+            pnlFemaleHolder.Controls.Add(lblTotalHouseHolds);
+            pnlFemaleHolder.Controls.Add(kryptonLabel7);
             pnlFemaleHolder.Dock = DockStyle.Fill;
             pnlFemaleHolder.Location = new Point(380, 5);
             pnlFemaleHolder.Margin = new Padding(5);
@@ -232,25 +241,25 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlFemaleHolder.StateCommon.Color1 = Color.FromArgb(232, 145, 39);
             pnlFemaleHolder.TabIndex = 1;
             // 
-            // lblTotalHouseholds
+            // lblTotalHouseHolds
             // 
-            lblTotalHouseholds.Location = new Point(192, 60);
-            lblTotalHouseholds.Name = "lblTotalHouseholds";
-            lblTotalHouseholds.Size = new Size(24, 26);
-            lblTotalHouseholds.StateCommon.ShortText.Color1 = Color.White;
-            lblTotalHouseholds.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
-            lblTotalHouseholds.TabIndex = 3;
-            lblTotalHouseholds.Values.Text = "0";
+            lblTotalHouseHolds.Location = new Point(117, 60);
+            lblTotalHouseHolds.Name = "lblTotalHouseHolds";
+            lblTotalHouseHolds.Size = new Size(24, 26);
+            lblTotalHouseHolds.StateCommon.ShortText.Color1 = Color.White;
+            lblTotalHouseHolds.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            lblTotalHouseHolds.TabIndex = 5;
+            lblTotalHouseHolds.Values.Text = "0";
             // 
-            // kryptonLabel5
+            // kryptonLabel7
             // 
-            kryptonLabel5.Location = new Point(192, 19);
-            kryptonLabel5.Name = "kryptonLabel5";
-            kryptonLabel5.Size = new Size(154, 26);
-            kryptonLabel5.StateCommon.ShortText.Color1 = Color.White;
-            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
-            kryptonLabel5.TabIndex = 2;
-            kryptonLabel5.Values.Text = "HOUSEHOLDS";
+            kryptonLabel7.Location = new Point(117, 19);
+            kryptonLabel7.Name = "kryptonLabel7";
+            kryptonLabel7.Size = new Size(224, 26);
+            kryptonLabel7.StateCommon.ShortText.Color1 = Color.White;
+            kryptonLabel7.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            kryptonLabel7.TabIndex = 4;
+            kryptonLabel7.Values.Text = "TOTAL HOUSEHOLDS";
             // 
             // PopulationHolder
             // 
@@ -325,6 +334,24 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Dashboard";
             // 
+            // kryptonPanel9
+            // 
+            kryptonPanel9.Location = new Point(46, 20);
+            kryptonPanel9.Margin = new Padding(5);
+            kryptonPanel9.Name = "kryptonPanel9";
+            kryptonPanel9.Size = new Size(271, 204);
+            kryptonPanel9.StateCommon.Color1 = Color.FromArgb(66, 135, 245);
+            kryptonPanel9.TabIndex = 2;
+            // 
+            // kryptonPanel8
+            // 
+            kryptonPanel8.Location = new Point(48, 20);
+            kryptonPanel8.Margin = new Padding(5);
+            kryptonPanel8.Name = "kryptonPanel8";
+            kryptonPanel8.Size = new Size(271, 204);
+            kryptonPanel8.StateCommon.Color1 = Color.FromArgb(255, 128, 128);
+            kryptonPanel8.TabIndex = 3;
+            // 
             // AdminDashboardControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -347,6 +374,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel7).EndInit();
             kryptonPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel10).EndInit();
+            kryptonPanel10.ResumeLayout(false);
             kryptonTableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMaleHolder).EndInit();
             pnlMaleHolder.ResumeLayout(false);
@@ -363,6 +391,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel2.ResumeLayout(false);
             kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel8).EndInit();
             ResumeLayout(false);
         }
 
@@ -381,8 +411,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonLabel lblTotalPopulation;
         private Krypton.Toolkit.KryptonLabel lblTotalBlotter;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private Krypton.Toolkit.KryptonLabel lblTotalHouseholds;
+        private Krypton.Toolkit.KryptonLabel lblTotalUserRequest;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonPanel kryptonPanel5;
         private Krypton.Toolkit.KryptonTableLayoutPanel kryptonTableLayoutPanel2;
@@ -390,5 +419,9 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel11;
         private Krypton.Toolkit.KryptonPanel kryptonPanel7;
         private Krypton.Toolkit.KryptonPanel kryptonPanel10;
+        private Krypton.Toolkit.KryptonLabel lblTotalHouseHolds;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel8;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel9;
     }
 }

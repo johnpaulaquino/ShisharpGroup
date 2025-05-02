@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,45 +8,68 @@ using BrgyMs.backend.data_validation;
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.bo_model;
+using BrgyMS.backend.models.base_model;
 using BrgyMS.backend.services;
 using MySql.Data.MySqlClient;
 
 namespace BrgyMs.backend.services {
     public class SecretaryServices : BaseServices {
-        ResidentRepository _ResidentRepo = new ResidentRepository();
-        UserInfoValidation _Validation = new UserInfoValidation();
+        private ResidentRepository _ResidentRepo = new ResidentRepository();
+        private UserInfoValidation _Validation = new UserInfoValidation();
+        private SecretaryRepository _SedcretaryRepo = new();
+        private UserInfoValidation validation = new();
 
         public SecretaryServices() {
 
         }
 
-        public async Task CreateResidentInfo(User _User,
-            PersonalInformation _PersonalInfo,
-            AdditionalInfo _AdditionalInfo,
-            Address _ResidentAddress
-            ) {
+        // to set the data in table for approval documents in the secretary approval documents
+        public async Task SetDataForApproveDocumentsTable(DataGridView table) {
 
+            if (_SedcretaryRepo == null) {
+                _SedcretaryRepo = new();
+            }
             try {
-                Dictionary<string, string> IsExist = await _ResidentRepo.GetEmail(_User.Email);
-                if (IsExist.Count > 0) {
-                    throw new Exception("Email is already exist, Email must be unique!");
-                }
-                _Validation.ValidateUser(_User);
-                _Validation.ValidatePersonalInfo(_PersonalInfo);
-                _Validation.ValidateAddInfoForSignup(_AdditionalInfo);
 
 
-                string Id = await _ResidentRepo.GenerateUsersId();
-                await _ResidentRepo.AddUser(_User);
-                await _ResidentRepo.InsertUserPersonalInformation(_PersonalInfo, Id);
-                await _ResidentRepo.InsertUserAddinfo(_AdditionalInfo, Id);
-                await _ResidentRepo.InsertUserAddress(_ResidentAddress, Id);
+                DataTable dt = await _SedcretaryRepo.GetResidentRequestDocs();
+                table.Columns.Clear();
+
+                table.DataSource = dt;
             }
-            catch (System.Exception e) {
-
-                throw e;
+            catch (Exception) {
+                throw;
             }
-        }//End of function
+        }
+
+        //Show all blotters from table
+        public async Task FillBlotterTable(DataGridView table, int limit) {
+            try {
+
+                var dt = await Task.Run(() => _SedcretaryRepo.GetBlotters(limit));
+
+                table.Columns.Clear();
+                table.DataSource = dt;
+
+            }
+            catch (Exception) {
+
+            }
+        } //end
+
+        public async Task BlotterResident(BlotterInformation blotter) {
+            try {
+                validation.ValidateBlotter(blotter); // validate First before insert
+                await Task.Run(async () =>
+                 {
+                     await _SedcretaryRepo.BlotterResident(blotter);
+                 });
+
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
 
 
     }

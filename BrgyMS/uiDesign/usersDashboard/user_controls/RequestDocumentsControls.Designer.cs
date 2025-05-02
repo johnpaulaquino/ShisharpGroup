@@ -1,5 +1,5 @@
-namespace BrgyMS.uiDesign.adminDashboard.controls {
-    partial class AdminAnnouncementsControl {
+namespace BrgyMS.uiDesign.usersDashboard.user_controls {
+    partial class RequestDocumentsControls {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -30,20 +30,17 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            btnLogin = new Krypton.Toolkit.KryptonButton();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
             dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
             id = new DataGridViewTextBoxColumn();
-            colemail = new DataGridViewTextBoxColumn();
+            colusername = new DataGridViewTextBoxColumn();
             colrole = new DataGridViewTextBoxColumn();
-            colfullname = new DataGridViewTextBoxColumn();
-            colgender = new DataGridViewTextBoxColumn();
-            colbday = new DataGridViewTextBoxColumn();
-            colage = new DataGridViewTextBoxColumn();
-            colcontact = new DataGridViewTextBoxColumn();
-            colrtype = new DataGridViewTextBoxColumn();
+            colactions = new DataGridViewTextBoxColumn();
+            colaffectedtable = new DataGridViewTextBoxColumn();
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
@@ -61,7 +58,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             nudLimit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             nudLimit.Increment = new decimal(new int[] { 1, 0, 0, 0 });
-            nudLimit.Location = new Point(86, 33);
+            nudLimit.Location = new Point(82, 139);
             nudLimit.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             nudLimit.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             nudLimit.Name = "nudLimit";
@@ -72,7 +69,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonLabel3
             // 
             kryptonLabel3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel3.Location = new Point(36, 35);
+            kryptonLabel3.Location = new Point(32, 141);
             kryptonLabel3.Name = "kryptonLabel3";
             kryptonLabel3.Size = new Size(44, 19);
             kryptonLabel3.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 9.75F);
@@ -82,7 +79,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonLabel4
             // 
             kryptonLabel4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel4.Location = new Point(147, 35);
+            kryptonLabel4.Location = new Point(143, 141);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(53, 19);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 9.75F);
@@ -94,12 +91,13 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonSeparator1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             kryptonSeparator1.Location = new Point(-3, 78);
             kryptonSeparator1.Name = "kryptonSeparator1";
-            kryptonSeparator1.Size = new Size(1125, 5);
+            kryptonSeparator1.Size = new Size(944, 5);
             kryptonSeparator1.TabIndex = 3;
             // 
             // kryptonPanel1
             // 
             kryptonPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            kryptonPanel1.Controls.Add(btnLogin);
             kryptonPanel1.Controls.Add(kryptonLabel5);
             kryptonPanel1.Controls.Add(kryptonDateTimePicker1);
             kryptonPanel1.Controls.Add(kryptonLabel1);
@@ -110,45 +108,106 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.Controls.Add(kryptonLabel4);
             kryptonPanel1.Location = new Point(0, 83);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1125, 594);
+            kryptonPanel1.Size = new Size(944, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
+            // btnLogin
+            // 
+            btnLogin.Location = new Point(32, 45);
+            btnLogin.Margin = new Padding(4, 3, 4, 3);
+            btnLogin.Name = "btnLogin";
+            btnLogin.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Back.ColorAngle = 45F;
+            btnLogin.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnLogin.OverrideDefault.Border.Rounding = 5F;
+            btnLogin.OverrideDefault.Border.Width = 1;
+            btnLogin.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnLogin.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnLogin.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnLogin.Size = new Size(164, 45);
+            btnLogin.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateCommon.Back.ColorAngle = 45F;
+            btnLogin.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnLogin.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnLogin.StateCommon.Border.ColorAngle = 45F;
+            btnLogin.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnLogin.StateCommon.Border.Rounding = 5F;
+            btnLogin.StateCommon.Border.Width = 1;
+            btnLogin.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnLogin.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnLogin.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.StateDisabled.Border.Rounding = 5F;
+            btnLogin.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateNormal.Border.Rounding = 5F;
+            btnLogin.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnLogin.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnLogin.StatePressed.Back.Color1 = Color.White;
+            btnLogin.StatePressed.Back.Color2 = Color.White;
+            btnLogin.StatePressed.Back.ColorAngle = 130F;
+            btnLogin.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnLogin.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnLogin.StatePressed.Border.ColorAngle = 130F;
+            btnLogin.StatePressed.Border.Rounding = 5F;
+            btnLogin.StatePressed.Border.Width = 1;
+            btnLogin.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnLogin.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnLogin.StateTracking.Back.ColorAngle = 45F;
+            btnLogin.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnLogin.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateTracking.Border.ColorAngle = 45F;
+            btnLogin.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnLogin.StateTracking.Border.Rounding = 5F;
+            btnLogin.StateTracking.Border.Width = 1;
+            btnLogin.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnLogin.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnLogin.TabIndex = 38;
+            btnLogin.Values.DropDownArrowColor = Color.Empty;
+            btnLogin.Values.Text = "Request";
+            btnLogin.Click += btnLogin_Click;
+            // 
             // kryptonLabel5
             // 
-            kryptonLabel5.Location = new Point(731, 26);
+            kryptonLabel5.Location = new Point(560, 65);
             kryptonLabel5.Name = "kryptonLabel5";
             kryptonLabel5.Size = new Size(101, 26);
             kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel5.TabIndex = 22;
+            kryptonLabel5.TabIndex = 26;
             kryptonLabel5.Values.Text = "Start Date";
             // 
             // kryptonDateTimePicker1
             // 
-            kryptonDateTimePicker1.Location = new Point(848, 26);
+            kryptonDateTimePicker1.Location = new Point(677, 65);
             kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            kryptonDateTimePicker1.Size = new Size(251, 29);
-            kryptonDateTimePicker1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonDateTimePicker1.TabIndex = 21;
+            kryptonDateTimePicker1.Size = new Size(251, 25);
+            kryptonDateTimePicker1.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F);
+            kryptonDateTimePicker1.TabIndex = 25;
             kryptonDateTimePicker1.ValueNullable = new DateTime(2025, 4, 28, 8, 54, 50, 0);
             // 
             // kryptonLabel1
             // 
-            kryptonLabel1.Location = new Point(731, 85);
+            kryptonLabel1.Location = new Point(560, 135);
             kryptonLabel1.Name = "kryptonLabel1";
             kryptonLabel1.Size = new Size(94, 26);
             kryptonLabel1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonLabel1.TabIndex = 20;
+            kryptonLabel1.TabIndex = 24;
             kryptonLabel1.Values.Text = "End Date";
             // 
             // dtpkStartDate
             // 
             dtpkStartDate.Format = DateTimePickerFormat.Custom;
-            dtpkStartDate.Location = new Point(848, 85);
+            dtpkStartDate.Location = new Point(677, 135);
             dtpkStartDate.Name = "dtpkStartDate";
-            dtpkStartDate.Size = new Size(251, 29);
-            dtpkStartDate.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpkStartDate.TabIndex = 19;
+            dtpkStartDate.Size = new Size(251, 25);
+            dtpkStartDate.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F);
+            dtpkStartDate.TabIndex = 23;
             dtpkStartDate.ValueNullable = new DateTime(2025, 4, 28, 0, 0, 0, 0);
             // 
             // dataGridAdminDashboard
@@ -167,9 +226,9 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridAdminDashboard.BorderStyle = BorderStyle.None;
             dataGridAdminDashboard.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colrole, colfullname, colgender, colbday, colage, colcontact, colrtype });
+            dataGridAdminDashboard.Columns.AddRange(new DataGridViewColumn[] { id, colusername, colrole, colactions, colaffectedtable });
             dataGridAdminDashboard.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridAdminDashboard.Location = new Point(26, 150);
+            dataGridAdminDashboard.Location = new Point(36, 184);
             dataGridAdminDashboard.MultiSelect = false;
             dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             dataGridAdminDashboard.RowHeadersVisible = false;
@@ -178,7 +237,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridAdminDashboard.ScrollBars = ScrollBars.Vertical;
             dataGridAdminDashboard.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAdminDashboard.Size = new Size(1073, 428);
+            dataGridAdminDashboard.Size = new Size(892, 375);
             dataGridAdminDashboard.StateCommon.Background.Color1 = Color.White;
             dataGridAdminDashboard.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             dataGridAdminDashboard.StateCommon.DataCell.Border.Color1 = Color.DimGray;
@@ -202,53 +261,29 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             id.Name = "id";
             id.ReadOnly = true;
             // 
-            // colemail
+            // colusername
             // 
-            colemail.HeaderText = "Email";
-            colemail.Name = "colemail";
-            colemail.ReadOnly = true;
+            colusername.HeaderText = "Document Type";
+            colusername.Name = "colusername";
+            colusername.ReadOnly = true;
             // 
             // colrole
             // 
-            colrole.HeaderText = "Role";
+            colrole.HeaderText = "Status";
             colrole.Name = "colrole";
             colrole.ReadOnly = true;
             // 
-            // colfullname
+            // colactions
             // 
-            colfullname.HeaderText = "Fullname";
-            colfullname.Name = "colfullname";
-            colfullname.ReadOnly = true;
+            colactions.HeaderText = "Request Date";
+            colactions.Name = "colactions";
+            colactions.ReadOnly = true;
             // 
-            // colgender
+            // colaffectedtable
             // 
-            colgender.HeaderText = "Gender";
-            colgender.Name = "colgender";
-            colgender.ReadOnly = true;
-            // 
-            // colbday
-            // 
-            colbday.HeaderText = "Birthday";
-            colbday.Name = "colbday";
-            colbday.ReadOnly = true;
-            // 
-            // colage
-            // 
-            colage.HeaderText = "Age";
-            colage.Name = "colage";
-            colage.ReadOnly = true;
-            // 
-            // colcontact
-            // 
-            colcontact.HeaderText = "Contact No.";
-            colcontact.Name = "colcontact";
-            colcontact.ReadOnly = true;
-            // 
-            // colrtype
-            // 
-            colrtype.HeaderText = "Resident Type";
-            colrtype.Name = "colrtype";
-            colrtype.ReadOnly = true;
+            colaffectedtable.HeaderText = "Purpose";
+            colaffectedtable.Name = "colaffectedtable";
+            colaffectedtable.ReadOnly = true;
             // 
             // pnlMainContentControler
             // 
@@ -257,7 +292,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler.Controls.Add(kryptonPanel1);
             pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
-            pnlMainContentControler.Size = new Size(1125, 677);
+            pnlMainContentControler.Size = new Size(944, 677);
             pnlMainContentControler.TabIndex = 2;
             // 
             // kryptonPanel2
@@ -267,28 +302,28 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel2.Controls.Add(kryptonLabel2);
             kryptonPanel2.Location = new Point(0, 0);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1125, 80);
+            kryptonPanel2.Size = new Size(944, 80);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 2;
-            kryptonPanel2.Paint += kryptonPanel2_Paint;
             // 
             // kryptonLabel2
             // 
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            kryptonLabel2.Location = new Point(36, 43);
+            kryptonLabel2.Location = new Point(36, 48);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(291, 29);
+            kryptonLabel2.Size = new Size(209, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
-            kryptonLabel2.Values.Text = "Announcement Management";
+            kryptonLabel2.Values.Text = "Request Documents";
             // 
-            // AdminAnnouncementsControl
+            // RequestDocumentsControls
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
-            Name = "AdminAnnouncementsControl";
-            Size = new Size(1125, 607);
+            Name = "RequestDocumentsControls";
+            Size = new Size(944, 607);
+            Load += RequestDocumentsControls_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
@@ -313,18 +348,15 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn colemail;
-        private DataGridViewTextBoxColumn colrole;
-        private DataGridViewTextBoxColumn colfullname;
-        private DataGridViewTextBoxColumn colgender;
-        private DataGridViewTextBoxColumn colbday;
-        private DataGridViewTextBoxColumn colage;
-        private DataGridViewTextBoxColumn colcontact;
-        private DataGridViewTextBoxColumn colrtype;
-        private Krypton.Toolkit.KryptonDateTimePicker dtpkStartDate;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonDateTimePicker dtpkStartDate;
+        private Krypton.Toolkit.KryptonButton btnLogin;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn colusername;
+        private DataGridViewTextBoxColumn colrole;
+        private DataGridViewTextBoxColumn colactions;
+        private DataGridViewTextBoxColumn colaffectedtable;
     }
 }

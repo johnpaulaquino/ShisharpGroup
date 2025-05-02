@@ -18,9 +18,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace BrgyMS.uiDesign.usersDashboard.controls {
+namespace BrgyMS.uiDesign.usersDashboard.user_controls {
     public partial class ResidentAccountSetting : UserControl {
-        string userId = "";
+        private string userId = "";
         private Utils utils = new Utils();
         private AccountSettingsDataHolderController data;
         public ResidentAccountSetting() {

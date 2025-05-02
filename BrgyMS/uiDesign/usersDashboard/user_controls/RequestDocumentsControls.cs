@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.usersDashboard.controls {
+namespace BrgyMS.uiDesign.usersDashboard.user_controls {
     public partial class RequestDocumentsControls : UserControl {
         private UIResidentUtils uioResident = new UIResidentUtils();
         private Utils utils = new Utils();
@@ -23,7 +23,14 @@ namespace BrgyMS.uiDesign.usersDashboard.controls {
         }
 
         private void btnLogin_Click(object sender, EventArgs e) {
-            RequestDocsModal docs = new RequestDocsModal();
+            UsersModal docs = new UsersModal();
+            RequestDocumentsModalCotntrol control = new();
+
+
+            docs.pnlContainer.Controls.Clear();
+            docs.pnlContainer.Controls.Add(control);
+            control.Dock = DockStyle.Fill;
+
             docs.ShowDialog(this);
         }
 

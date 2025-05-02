@@ -15,6 +15,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using BrgyMS.backend.services;
 using System.Security.Cryptography.X509Certificates;
 using BrgyMs.backend.utils;
+using OtpNet;
+using BrgyMS.backend.models.base_model;
+using MySqlX.XDevAPI.Common;
 
 namespace BrgyMs.backend.services {
     public class AdminServices : BaseServices {
@@ -22,14 +25,31 @@ namespace BrgyMs.backend.services {
         private readonly ResidentRepository _ResidentRepo = new ResidentRepository();
         private readonly UserInfoValidation uservalidation = new();
         private readonly EmailServices _EmailServices = new();
+        private readonly UserInfoValidation validation = new();
 
         public AdminServices() { }
 
         //for limiting records and when start the app
-        public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
-            var userInfo = await _AdminRepository.GetUserInformation(limit);
+        public async Task<DataTable> GetUserInformation(int limit) {
 
-            return userInfo;
+            var userInfo = Task.Run(() =>
+            {
+                return _AdminRepository.GetUserInformation(limit);
+
+            });
+            return await userInfo;
+
+        }
+
+        //for blotter Resident
+        public async Task<DataTable> GetUserInformation() {
+
+            try {
+                return await _AdminRepository.GetUserInformation();
+            }
+            catch (Exception) {
+                throw;
+            }
 
         }
 
@@ -132,11 +152,22 @@ namespace BrgyMs.backend.services {
         public async Task CreateUser(User user) {
             try {
                 //check if the user is Exist
-                await _AdminRepository.GetEmail(user.Email);
+                await Task.Run(async () =>
+                {
+                    Dictionary<string, string> data = await _AdminRepository.GetEmail(user.Email);
+                    if (data != null) {
+                        throw new Exception("Email is already Exist!");
+                    }
+
+                });
 
                 uservalidation.ValidateUser(user); // validate user
 
-                await _AdminRepository.AddUser(user); // then add if no encounter error
+                await Task.Run(async () =>
+                {
+                    await _AdminRepository.AddUser(user); // then add if no encounter error
+                });
+
             }
             catch (Exception) {
                 throw;
@@ -144,58 +175,44 @@ namespace BrgyMs.backend.services {
         }// end of function
 
         //Total population
-        public async Task<string> GetTotalPouplation() {
-
+        public async Task<List<string>> GetTotalBlotterPopHouseholds() {
             try {
-                var total = await _AdminRepository.TotalResidentPopulation();
-
-                if (await total.ReadAsync()) {
-
-                    int totalPop = total.GetInt32("total");
-                    return totalPop.ToString();
+                List<string> data = await _AdminRepository.GetTotalBlotterPopHouseholds();
+                if (data != null) {
+                    return data;
                 }
+                return null;
             }
             catch (Exception) {
                 throw;
             }
-            return "";
-        }// end
+        } // end
 
-        //Total households
-        public async Task<string> GetTotalHouseholds() {
-
+        //validate before update the blotter info
+        public async Task UpdateBlotter(string id, BlotterInformation blotter) {
             try {
-                var total = await _AdminRepository.TotalHouseHolds();
+                validation.ValidateBlotter(blotter);
 
-                if (await total.ReadAsync()) {
+                await Task.Run(async () => { await _AdminRepository.UpdateBlotter(id, blotter); });
 
-                    int totalPop = total.GetInt32("total");
-                    return totalPop.ToString();
-                }
             }
             catch (Exception) {
                 throw;
             }
-            return "";
-        } // end of function
+        } // end
 
-        //Total households
-        public async Task<string> GetTotalBlotters() {
-
+        public async Task DeleteBlotter(string id) {
             try {
-                var total = await _AdminRepository.TotalBlotter();
-
-                if (await total.ReadAsync()) {
-
-                    int totalPop = total.GetInt32("total");
-                    return totalPop.ToString();
-                }
+                await Task.Run(async() =>
+                {
+                    await _AdminRepository.DeleteBlotter(id);
+                });
             }
             catch (Exception) {
                 throw;
             }
-            return "";
-        } // end of function
+        }
+
     }
 
 }

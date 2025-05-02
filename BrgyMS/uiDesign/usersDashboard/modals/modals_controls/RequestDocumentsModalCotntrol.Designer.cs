@@ -25,6 +25,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private void InitializeComponent() {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
+            kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            txtOtherPurpose = new Krypton.Toolkit.KryptonTextBox();
             cbFirstTimeJobSeeker = new Krypton.Toolkit.KryptonCheckBox();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             cboPurposes = new Krypton.Toolkit.KryptonComboBox();
@@ -34,7 +36,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             btnSubmitRequest = new Krypton.Toolkit.KryptonButton();
             btnSaveChanges = new Krypton.Toolkit.KryptonButton();
-            kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).BeginInit();
@@ -56,7 +57,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // pnlMainContentHolder
             // 
             pnlMainContentHolder.AutoScroll = true;
-            pnlMainContentHolder.Controls.Add(kryptonTextBox1);
+            pnlMainContentHolder.Controls.Add(kryptonLabel5);
+            pnlMainContentHolder.Controls.Add(txtOtherPurpose);
             pnlMainContentHolder.Controls.Add(cbFirstTimeJobSeeker);
             pnlMainContentHolder.Controls.Add(kryptonLabel4);
             pnlMainContentHolder.Controls.Add(cboPurposes);
@@ -71,6 +73,24 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             pnlMainContentHolder.Size = new Size(367, 670);
             pnlMainContentHolder.StateCommon.Color1 = Color.White;
             pnlMainContentHolder.TabIndex = 12;
+            // 
+            // kryptonLabel5
+            // 
+            kryptonLabel5.Location = new Point(6, 298);
+            kryptonLabel5.Name = "kryptonLabel5";
+            kryptonLabel5.Size = new Size(175, 33);
+            kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel5.TabIndex = 44;
+            kryptonLabel5.Values.Text = "Other Purpose";
+            // 
+            // txtOtherPurpose
+            // 
+            txtOtherPurpose.Location = new Point(6, 337);
+            txtOtherPurpose.Multiline = true;
+            txtOtherPurpose.Name = "txtOtherPurpose";
+            txtOtherPurpose.ReadOnly = true;
+            txtOtherPurpose.Size = new Size(349, 137);
+            txtOtherPurpose.TabIndex = 43;
             // 
             // cbFirstTimeJobSeeker
             // 
@@ -94,6 +114,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // cboPurposes
             // 
+            cboPurposes.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cboPurposes.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboPurposes.DropDownWidth = 428;
             cboPurposes.Enabled = false;
             cboPurposes.Items.AddRange(new object[] { "--Select--" });
@@ -109,6 +131,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // cboDocsType
             // 
+            cboDocsType.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cboDocsType.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboDocsType.DropDownWidth = 428;
             cboDocsType.Items.AddRange(new object[] { "Barangay Certificate of Indigency", "Barangay Clearance" });
             cboDocsType.Location = new Point(6, 150);
@@ -269,14 +293,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             btnSaveChanges.Values.DropDownArrowColor = Color.Empty;
             btnSaveChanges.Values.Text = "Save Changes";
             // 
-            // kryptonTextBox1
-            // 
-            kryptonTextBox1.Location = new Point(13, 310);
-            kryptonTextBox1.Name = "kryptonTextBox1";
-            kryptonTextBox1.Size = new Size(100, 23);
-            kryptonTextBox1.TabIndex = 43;
-            kryptonTextBox1.Text = "kryptonTextBox1";
-            // 
             // RequestDocumentsModalCotntrol
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -307,6 +323,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private Krypton.Toolkit.KryptonComboBox cboPurposes;
         private Krypton.Toolkit.KryptonCheckBox cbFirstTimeJobSeeker;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private Krypton.Toolkit.KryptonTextBox txtOtherPurpose;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
     }
 }

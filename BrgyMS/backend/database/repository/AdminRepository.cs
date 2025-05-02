@@ -10,6 +10,7 @@ using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.secretary_model;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
+using BrgyMS.backend.models.base_model;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using MySqlX.XDevAPI.Relational;
@@ -74,7 +75,7 @@ namespace BrgyMs.backend.database.repositories {
 
 
         // to set data in table in admin dashboard
-        public async Task<MySqlDataAdapter> GetUserInformation(int limit) {
+        public async Task<DataTable> GetUserInformation(int limit) {
 
             string stmt = @"Select u.id as 'ID', u.email as 'Email', u.username as 'Username', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
             + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
@@ -88,13 +89,45 @@ namespace BrgyMs.backend.database.repositories {
             + "Where u.role IN(@role1, @role2) AND u.status = @status " +
             "Limit @limit";
             try {
-                var connection = await conn.getConnection();
-                var adapter = new MySqlDataAdapter(stmt, connection);
+                DataTable dt = new DataTable();
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
                 adapter.SelectCommand.Parameters.AddWithValue("@role1", "secretary");
                 adapter.SelectCommand.Parameters.AddWithValue("@role2", "users");
                 adapter.SelectCommand.Parameters.AddWithValue("@status", "1");
                 adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
-                return adapter;
+
+                await adapter.FillAsync(dt);
+                return dt;
+
+            }
+            catch (System.Exception e) {
+
+                throw;
+            }
+        } // End of getUserInformation
+
+        // to set data in table in blotterDashboard but wihtout limit
+        public async Task<DataTable> GetUserInformation() {
+            string stmt = @"Select u.id as 'ID', u.email as 'Email', u.username as 'Username', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
+            + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
+            ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
+            "ai.birth_day as 'Birthday', ai.age as 'Age', ai.contact_number as 'Contact No' "
+            + "From users u "
+            + "Left Join personal_info p "
+            + "On u.id = p.user_id "
+            + "Left join additional_info ai " +
+            "ON u.id = ai.user_id "
+            + "Where u.role = @role2 AND u.status = @status ";
+            try {
+                DataTable dt = new DataTable();
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@role2", "users");
+                adapter.SelectCommand.Parameters.AddWithValue("@status", "1");
+
+                await adapter.FillAsync(dt);
+                return dt;
 
             }
             catch (System.Exception e) {
@@ -213,35 +246,35 @@ namespace BrgyMs.backend.database.repositories {
             return adapter;
         }
 
-        //Get the total resident of the barangay
-        public async Task<DbDataReader> TotalResidentPopulation() {
-            string stmt = "Select count(id) as total From users WHERE role = @role ";
-            try {
-                var connection = await conn.getConnection();
-                var cmd = new MySqlCommand(stmt, connection);
-                cmd.Parameters.AddWithValue("@role", "users");
-                return await cmd.ExecuteReaderAsync();
-            }
-            catch (Exception) {
-                throw;
-            }
-        }// end of function
 
+        //Get the total blotter, population and households
+        public async Task<List<string>> GetTotalBlotterPopHouseholds() {
+            string stmt = @"Select " +
+                "(Select count(id) As totalBlotter From blotters) As totalBlotter, " +
 
-        //Get the total households
-        public async Task<DbDataReader> TotalHouseHolds() {
-            string stmt = "Select count(u.id) as total " +
-                "From users u " +
-                "INNER JOIN address a " +
-                "ON u.id = a.user_id " +
-                "WHERE u.role = @role AND u.status = @status " +
-                "GROUP BY a.house_number";
+                "(SELect count(id) as  totalRequestUser FROM users " +
+                "Where status = @userstatus ) as totalRequestUser, " +
+
+                "(Select count(id) From users WHERE role = @role and status = @status ) as totalPopulation;";
             try {
-                var connection = await conn.getConnection();
-                var cmd = new MySqlCommand(stmt, connection);
+                List<string> data = new List<string>();
+                using var connection = await conn.getConnection();
+
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@userstatus", "0");
                 cmd.Parameters.AddWithValue("@role", "users");
                 cmd.Parameters.AddWithValue("@status", "1");
-                return await cmd.ExecuteReaderAsync();
+
+                var reader = await cmd.ExecuteReaderAsync();
+                if (await reader.ReadAsync()) {
+                    data.Add(reader.GetInt32("totalPopulation").ToString());
+                    data.Add(reader.GetInt32("totalRequestDocs").ToString());
+                    data.Add(reader.GetInt32("totalBlotter").ToString());
+
+                    return data;
+                }
+                return null;
             }
             catch (Exception) {
                 throw;
@@ -249,19 +282,41 @@ namespace BrgyMs.backend.database.repositories {
         }// end of function
 
 
-        //Get the total blotter in brangay
-        public async Task<DbDataReader> TotalBlotter() {
-            string stmt = "Select count(id) as total " +
-                "From blotters";
+        //update blotter
+        public async Task UpdateBlotter(string blotterId,
+             BlotterInformation blotter) {
+            using var conenction = await conn.getConnection();
             try {
-                var connection = await conn.getConnection();
-                var cmd = new MySqlCommand(stmt, connection);
-                return await cmd.ExecuteReaderAsync();
+                string stmt = "Update blotters set status = @status, complainant_id  = @comid, respondent_id  = @resid " +
+                    "WHere id = @id ";
+
+                using var cmd = new MySqlCommand(stmt, conenction);
+                cmd.Parameters.AddWithValue("@id", blotterId);
+                cmd.Parameters.AddWithValue("@status", blotter.Status);
+                cmd.Parameters.AddWithValue("@comid", blotter.ComplainantId);
+                cmd.Parameters.AddWithValue("@resid", blotter.RespondentId);
+
+                await cmd.ExecuteNonQueryAsync();
+
             }
             catch (Exception) {
                 throw;
             }
-        }// end of function
+        }
+
+        //Delete specific blotter
+        public async Task DeleteBlotter(string id) {
+            using var conenction = await conn.getConnection();
+            string stmt = "Delete From blotters WHere id = @id ";
+
+            try {
+                using var cmd = new MySqlCommand(stmt, conenction);
+                cmd.Parameters.AddWithValue("@id", id);
+            }
+            catch (Exception) {
+
+            }
+        }// ends
 
     }
 }

@@ -7,6 +7,10 @@ using BrgyMs.backend.utils;
 using BrgyMs.backend.models.admin_model;
 using MySql.Data.MySqlClient;
 using BrgyMs.backend.models.secretary_model;
+using System.Data;
+using BrgyMS.backend.models.base_model;
+using System.Reflection.Metadata;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BrgyMs.backend.database.repositories {
     public class SecretaryRepository : BaseRepository {
@@ -27,7 +31,7 @@ namespace BrgyMs.backend.database.repositories {
             + "Values (?,?,?,?,?)";
             try {
                 using var connection = await conn.getConnection();
-                using (var cmd = new MySqlCommand(stmt,await conn.getConnection())) {
+                using (var cmd = new MySqlCommand(stmt, await conn.getConnection())) {
                     cmd.Parameters.AddWithValue("id", _Secretary.Id);
                     cmd.Parameters.AddWithValue("email", _Secretary.Email);
                     cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(_Secretary.Password));
@@ -51,25 +55,85 @@ namespace BrgyMs.backend.database.repositories {
         } // End of the funtion insert admin
 
 
-        public async Task UpdateSecretaryInfo(Dictionary<string, string> Id, SecretaryUser _Secretary) {
-            string updateStmt = "Update users "
-            + "set password = ?, email = ? "
-            + "Where id = ?";
+        //Retrieve the requestDocuments of residents
+        public async Task<DataTable> GetResidentRequestDocs() {
+
+            string stmt = "Select id as 'Transaction Id', document_type as 'Document Type', " +
+               "status as Status, request_date as 'Request Date', purpose as 'Purpose'" +
+               "FROM request_document " +
+               "Where status = @status";
+
+            DataTable dt = new DataTable();
+
             try {
-                using (var cmd = new MySqlCommand(updateStmt, await conn.getConnection())) {
-                    cmd.Parameters.AddWithValue("password", authUtils.hashedPassword(_Secretary.Password));
-                    cmd.Parameters.AddWithValue("email", _Secretary.Email);
-                    cmd.Parameters.AddWithValue("id", Id["id"]);
-                    await cmd.ExecuteNonQueryAsync();
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
 
-                    Console.WriteLine("Successfully update information!");
-                }
+                adapter.SelectCommand.Parameters.AddWithValue("@status", "pending");
+
+                await adapter.FillAsync(dt);
+
+                return dt;
             }
-            catch (System.Exception e) {
-                throw;
+            catch (Exception) {
 
+            }
+            return null;
+        } //end of function
+
+
+
+        //To blotter resident or insert a blotter in db
+        public async Task BlotterResident(BlotterInformation blotter) {
+            using var connecetion = await conn.getConnection();
+            var transact = await connecetion.BeginTransactionAsync();
+            try {
+                string stmt = "INSERT INTO blotters (id, complainant_id, respondent_id, statements, status, date_filed) " +
+                    "VALUES(@id, @complainant_id, @respondent_id, @statements, @status, @date_filed)";
+
+
+                using var cmd = new MySqlCommand(stmt, connecetion);
+
+                cmd.Parameters.AddWithValue("@id", blotter.Id);
+                cmd.Parameters.AddWithValue("@complainant_id", blotter.ComplainantId);
+                cmd.Parameters.AddWithValue("@respondent_id", blotter.RespondentId);
+                cmd.Parameters.AddWithValue("@statements", blotter.Statements);
+                cmd.Parameters.AddWithValue("@status", blotter.Status);
+                cmd.Parameters.AddWithValue("@date_filed", blotter.DateFiled);
+
+                await cmd.ExecuteNonQueryAsync();
+                await transact.CommitAsync();
+            }
+            catch (Exception) {
+                await transact.RollbackAsync();
+                throw;
+            }
+        }
+
+
+        //get the blotter with a limit
+        public async Task<DataTable> GetBlotters(int limit) {
+            string stmt = "Select is as ID,complainant_id as 'Complainant ID', respondent_id as 'Respondent ID' " +
+                "statements as Statement, DATE_FORMAT(date_filed, '%W, %M %d, %Y %r') as 'Date Filed'  limit @limit ";
+
+            try {
+                DataTable table = new DataTable();
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
+
+                await adapter.FillAsync(table);
+
+                return table;
+
+            }
+            catch (Exception) {
+                throw;
             }
 
         }
+
+
+
     }
 }

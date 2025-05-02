@@ -10,17 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.usersDashboard.modals {
-    public partial class RequestDocsModal : Form {
-        public RequestDocsModal() {
+    public partial class UsersModal : Form {
+        public UsersModal() {
             InitializeComponent();
         }
 
         private void RequestDocsModal_Load(object sender, EventArgs e) {
-            RequestDocumentsModalCotntrol control = new();
-
-            pnlContainer.Controls.Clear();
-            pnlContainer.Controls.Add(control);
-            control.Dock = DockStyle.Fill;
+           
         }
     }
 }

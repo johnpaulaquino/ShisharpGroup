@@ -13,13 +13,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.adminDashboard.controls {
-    public partial class ResidentAccountSetting : UserControl {
+    public partial class AdminAccountManagementControl : UserControl {
         private UIAdminUtils uiAdmin = new UIAdminUtils();
         private Utils utils = new Utils();
         private AdminModal modal = new AdminModal();
         public bool isUpdated = false;
         public bool isCliked = false;
-        public ResidentAccountSetting() {
+        public AdminAccountManagementControl() {
             InitializeComponent();
             AfterInit();
 
@@ -98,14 +98,14 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                     modal.ShowDialog(this);
                 }
             }
-            catch(Exception ex) {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
             finally {
                 isCliked = false;
             }
-            
-           
+
+
         }
 
         public async void AfterInit() {

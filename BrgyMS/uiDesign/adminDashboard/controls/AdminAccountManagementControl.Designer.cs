@@ -1,5 +1,5 @@
 namespace BrgyMS.uiDesign.adminDashboard.controls {
-    partial class ResidentAccountSetting {
+    partial class AdminAccountManagementControl {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

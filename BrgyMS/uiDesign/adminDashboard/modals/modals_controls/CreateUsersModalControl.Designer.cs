@@ -1,4 +1,4 @@
-namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
+﻿namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
     partial class CreateUsersModalControl {
         /// <summary> 
         /// Required designer variable.
@@ -24,8 +24,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         /// </summary>
         private void InitializeComponent() {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            btgURole = new GroupBox();
-            cbMcUsers = new Krypton.Toolkit.KryptonCheckBox();
             cbMcSecretary = new Krypton.Toolkit.KryptonCheckBox();
             kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             cbMcShowPass = new Krypton.Toolkit.KryptonCheckBox();
@@ -39,12 +37,11 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
-            btgURole.SuspendLayout();
             SuspendLayout();
             // 
             // kryptonPanel1
             // 
-            kryptonPanel1.Controls.Add(btgURole);
+            kryptonPanel1.Controls.Add(cbMcSecretary);
             kryptonPanel1.Controls.Add(kryptonLabel7);
             kryptonPanel1.Controls.Add(cbMcShowPass);
             kryptonPanel1.Controls.Add(btnMcCreate);
@@ -62,30 +59,10 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
-            // btgURole
-            // 
-            btgURole.Controls.Add(cbMcUsers);
-            btgURole.Controls.Add(cbMcSecretary);
-            btgURole.Location = new Point(18, 451);
-            btgURole.Name = "btgURole";
-            btgURole.Size = new Size(246, 45);
-            btgURole.TabIndex = 43;
-            btgURole.TabStop = false;
-            // 
-            // cbMcUsers
-            // 
-            cbMcUsers.AutoSize = false;
-            cbMcUsers.Location = new Point(6, 0);
-            cbMcUsers.Name = "cbMcUsers";
-            cbMcUsers.Size = new Size(89, 45);
-            cbMcUsers.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbMcUsers.TabIndex = 41;
-            cbMcUsers.Values.Text = "User";
-            // 
             // cbMcSecretary
             // 
             cbMcSecretary.AutoSize = false;
-            cbMcSecretary.Location = new Point(118, 0);
+            cbMcSecretary.Location = new Point(18, 460);
             cbMcSecretary.Name = "cbMcSecretary";
             cbMcSecretary.Size = new Size(128, 45);
             cbMcSecretary.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -112,9 +89,11 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             cbMcShowPass.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbMcShowPass.TabIndex = 39;
             cbMcShowPass.Values.Text = "Show Password";
+            cbMcShowPass.CheckedChanged += cbMcShowPass_CheckedChanged;
             // 
             // btnMcCreate
             // 
+            btnMcCreate.Cursor = Cursors.Hand;
             btnMcCreate.Location = new Point(144, 628);
             btnMcCreate.Margin = new Padding(4, 3, 4, 3);
             btnMcCreate.Name = "btnMcCreate";
@@ -179,6 +158,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             txtMcPassword.Location = new Point(18, 306);
             txtMcPassword.Multiline = true;
             txtMcPassword.Name = "txtMcPassword";
+            txtMcPassword.PasswordChar = '●';
             txtMcPassword.Size = new Size(430, 45);
             txtMcPassword.StateCommon.Content.Font = new Font("Microsoft Sans Serif", 12F);
             txtMcPassword.TabIndex = 11;
@@ -251,7 +231,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
-            btgURole.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -268,8 +247,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private Krypton.Toolkit.KryptonCheckBox cbMcUsers;
         private Krypton.Toolkit.KryptonCheckBox cbMcSecretary;
-        private GroupBox btgURole;
     }
 }

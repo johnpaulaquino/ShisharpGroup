@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BrgyMs.backend.data_validation;
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
-using BrgyMs.backend.models.residents_model;
+using BrgyMs.backend.models.residents_docs;
 using BrgyMS.backend.services;
 using MySql.Data.MySqlClient;
 

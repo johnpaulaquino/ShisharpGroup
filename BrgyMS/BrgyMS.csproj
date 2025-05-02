@@ -61,14 +61,29 @@
 		<Compile Update="uiDesign\adminDashboard\controls\AdminDashboardControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
-		<Compile Update="uiDesign\usersDashboard\controls\RequestDocumentsControls.cs">
+		<Compile Update="uiDesign\usersDashboard\modals\modals_controls\BlotterResidentModalCotntrol.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
-		<Compile Update="uiDesign\usersDashboard\controls\ResidentUserLogsControl.cs">
+		<Compile Update="uiDesign\usersDashboard\secretary_controls\SecretaryOfficialsControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\usersDashboard\secretary_controls\SecretaryBlotterControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\usersDashboard\secretary_controls\SecretaryApprovalDocumentsControls.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\usersDashboard\user_controls\RequestDocumentsControls.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\usersDashboard\user_controls\ResidentUserLogsControl.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
 		<Compile Update="uiDesign\usersDashboard\modals\modals_controls\RequestDocumentsModalCotntrol.cs">
 		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\usersDashboard\SercretaryPageForm.cs">
+		  <SubType>Form</SubType>
 		</Compile>
 		<Compile Update="uiDesign\usersDashboard\ResidentPageForm.cs">
 		  <SubType>Form</SubType>

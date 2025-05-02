@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BrgyMs.backend.models.residents_model {
+namespace BrgyMs.backend.models.residents_docs {
     public class ResidentDocumentRequest {
         public string Id = Guid.NewGuid().ToString();
         public string UserId { get; set; }
