@@ -11,6 +11,8 @@ using System.Data;
 using BrgyMS.backend.models.base_model;
 using System.Reflection.Metadata;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Org.BouncyCastle.Math.EC.Endo;
+using BrgyMS.backend.models;
 
 namespace BrgyMs.backend.database.repositories {
     public class SecretaryRepository : BaseRepository {
@@ -137,6 +139,60 @@ namespace BrgyMs.backend.database.repositories {
             }
 
         }
+        //for admin announcement
+        public async Task<DataTable> GetAnnouncement() {
+            string stmt = "SELECT id as ID, title  as Title, date_post as 'Date Post', details as Details";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var adapater = new MySqlDataAdapter(stmt, connection);
+                DataTable dt = new DataTable();
+
+                await adapater.FillAsync(dt);
+
+                return dt;
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
+        //for resident
+        //public async Task<DataTable> GetAnnouncement(String id) {
+        //    string stmt = "SELECT id , title , date_post , details, attachments, post_by, status";
+
+        //    try {
+        //        using var connection = await conn.getConnection();
+        //        using var adapater = new MySqlCommand(stmt, connection);
+
+
+        //    }
+        //    catch (Exception) {
+        //        throw;
+        //    }
+        //}
+
+        public async Task CreateAnnouncement(AnnouncementsModel annoucenment) {
+            try {
+                string stmt = "INSERT INTO annoucenments(id , title, date_post, details, attachment, post_by, status ) " +
+                    "VALUES (@id, @title, @datePost, @details, @attachment, @postBy, @status) ";
+
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@id", annoucenment.Id);
+                cmd.Parameters.AddWithValue("@title", annoucenment.Title);
+                cmd.Parameters.AddWithValue("@datePost", annoucenment.DatePost);
+                cmd.Parameters.AddWithValue("@details", annoucenment.Details);
+                cmd.Parameters.AddWithValue("@attachment", annoucenment.Attachments);
+                cmd.Parameters.AddWithValue("@postBy", annoucenment.PostBy);
+                cmd.Parameters.AddWithValue("@status", annoucenment.Status);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception e) {
+                throw;
+            }
+        }// end
 
 
 

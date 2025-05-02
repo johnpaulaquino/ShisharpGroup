@@ -10,6 +10,7 @@ using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.secretary_model;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
+using BrgyMS.backend.models;
 using BrgyMS.backend.models.base_model;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
@@ -372,6 +373,41 @@ namespace BrgyMs.backend.database.repositories {
             catch (Exception) {
                 throw;
             }
-        }
+        } // 
+
+        //To update announcements
+        public async Task UpdateAnnouncement(AnnouncementsModel annoucnement, string id) {
+            string stmt = "Update annoucenments set title = @title, details = @details, attachment = @attachment, status = @status " +
+                "Where id =@id";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@title", annoucnement.Title);
+                cmd.Parameters.AddWithValue("@details", annoucnement.Details);
+                cmd.Parameters.AddWithValue("@attachment", annoucnement.Attachments);
+                cmd.Parameters.AddWithValue("@status", annoucnement.Status);
+                cmd.Parameters.AddWithValue("@status", id);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end
+
+        public async Task DeleteAnnoucenments(string id) {
+            string stmt = "Delete FROM annoucenments WHERE id = @id";
+            try {
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // end 
     }
 }

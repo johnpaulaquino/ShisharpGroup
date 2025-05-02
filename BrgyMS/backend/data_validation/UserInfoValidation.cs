@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_docs;
+using BrgyMS.backend.models;
 using BrgyMS.backend.models.base_model;
 
 
@@ -254,6 +255,16 @@ namespace BrgyMs.backend.data_validation {
 			}
 		} // end
 
+
+		public void ValidateAnnoucnement(AnnouncementsModel announcement) {
+			if (string.IsNullOrEmpty(announcement.Title)) {
+				throw new Exception("Please spcify the title!");
+			}
+
+			if (string.IsNullOrEmpty(announcement.Details)) {
+				throw new Exception("Please spcify the details!");
+			}
+		}
 
 	}
 }

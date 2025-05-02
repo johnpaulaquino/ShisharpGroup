@@ -34,12 +34,25 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private AdminServices _AdminServices = new();
         private UserInfoValidation validation = new();
 
+        private byte[] attachmentsByte = null;
+        private String attachmentFilePath = "";
+
 
         public AnnouncementsModalControl() {
             InitializeComponent();
 
         }
 
-     
+        private void btnUplaodAnnouncement_Click(object sender, EventArgs e) {
+            try {
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                if (fileDialog.ShowDialog() == DialogResult.OK) {
+                    attachmentFilePath = fileDialog.FileName;
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
