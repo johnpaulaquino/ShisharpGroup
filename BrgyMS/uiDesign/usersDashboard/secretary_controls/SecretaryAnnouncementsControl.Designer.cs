@@ -1,5 +1,5 @@
-namespace BrgyMS.uiDesign.adminDashboard.controls {
-    partial class AdminAnnouncementsControl {
+namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
+    partial class SecretaryAnnouncementsControl{
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -24,8 +24,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
@@ -224,8 +224,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridBlotterTable.AllowUserToDeleteRows = false;
             dataGridBlotterTable.AllowUserToResizeColumns = false;
             dataGridBlotterTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridBlotterTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridBlotterTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridBlotterTable.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridBlotterTable.AutoGenerateKryptonColumns = false;
             dataGridBlotterTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -240,8 +240,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridBlotterTable.Name = "dataGridBlotterTable";
             dataGridBlotterTable.RowHeadersVisible = false;
             dataGridBlotterTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridBlotterTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridBlotterTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridBlotterTable.ScrollBars = ScrollBars.Vertical;
             dataGridBlotterTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridBlotterTable.Size = new Size(892, 375);
@@ -261,7 +261,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridBlotterTable.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
             dataGridBlotterTable.TabIndex = 18;
             dataGridBlotterTable.ToolTipShadow = false;
-            dataGridBlotterTable.MouseDown += dataGridBlotterTable_MouseDown;
+
             // 
             // id
             // 
@@ -304,21 +304,20 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ctxBlotter.Font = new Font("Segoe UI", 9F);
             ctxBlotter.Items.AddRange(new ToolStripItem[] { updateBlotterToolStripMenuItem, deleteBlotterToolStripMenuItem });
             ctxBlotter.Name = "ctxBlotter";
-            ctxBlotter.Size = new Size(199, 48);
+            ctxBlotter.Size = new Size(151, 48);
             // 
             // updateBlotterToolStripMenuItem
             // 
             updateBlotterToolStripMenuItem.Name = "updateBlotterToolStripMenuItem";
-            updateBlotterToolStripMenuItem.Size = new Size(198, 22);
-            updateBlotterToolStripMenuItem.Text = "Update Announcement";
-            updateBlotterToolStripMenuItem.Click += updateBlotterToolStripMenuItem_Click;
+            updateBlotterToolStripMenuItem.Size = new Size(150, 22);
+            updateBlotterToolStripMenuItem.Text = "Update Blotter";
+         
             // 
             // deleteBlotterToolStripMenuItem
             // 
             deleteBlotterToolStripMenuItem.Name = "deleteBlotterToolStripMenuItem";
-            deleteBlotterToolStripMenuItem.Size = new Size(198, 22);
-            deleteBlotterToolStripMenuItem.Text = "Delete Announcement";
-            deleteBlotterToolStripMenuItem.Click += deleteBlotterToolStripMenuItem_Click;
+            deleteBlotterToolStripMenuItem.Size = new Size(150, 22);
+            deleteBlotterToolStripMenuItem.Text = "Delete Blotter";
             // 
             // pnlMainContentControler
             // 
@@ -346,19 +345,19 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             kryptonLabel2.Location = new Point(36, 48);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(291, 29);
+            kryptonLabel2.Size = new Size(302, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
-            kryptonLabel2.Values.Text = "Announcement Management";
+            kryptonLabel2.Values.Text = "Announcements Management";
             // 
-            // AdminAnnouncementsControl
+            // SecretaryAnnouncementsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
-            Name = "AdminAnnouncementsControl";
+            Name = "SecretaryAnnouncementsControl";
             Size = new Size(944, 607);
-            Load += SecretaryBlotterControl_Load;
+            Load += SecretaryAnnouncementsControl_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

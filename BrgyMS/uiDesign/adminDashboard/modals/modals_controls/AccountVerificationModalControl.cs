@@ -28,7 +28,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             AdminModal modal = new AdminModal();
 
 
-            string userId = utils.ReadUserIdInFile();
+            string userId = utils.ReadIdInFile();
             var option = MessageBox.Show("Are you sure you want to activate this account? ",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             try {
@@ -68,7 +68,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         }
 
         private async void btnAvDecline_Click(object sender, EventArgs e) {
-            string userId = utils.ReadUserIdInFile();
+            string userId = utils.ReadIdInFile();
             AdminModal modal = new();
             var option = MessageBox.Show("Are you sure you want to decline this account? ",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

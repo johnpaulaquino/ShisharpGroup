@@ -117,17 +117,16 @@ namespace BrgyMs.backend.database.repositories {
 
 
         //get the blotter with a limit
-        public async Task<DataTable> GetBlotters(int limit) {
+        public async Task<DataTable> GetBlotters() {
             string stmt = "Select id as ID,complainant_id as 'Complainant ID', respondent_id as 'Respondent ID', " +
                 "status as Status, statements as Statement, DATE_FORMAT(date_filed, '%W, %M %d, %Y %r') as 'Date Filed' " +
                 "From blotters " +
-                " limit @limit ";
+                " limit 10 ";
 
             try {
                 DataTable table = new DataTable();
                 using var connection = await conn.getConnection();
                 using var adapter = new MySqlDataAdapter(stmt, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
 
                 await adapter.FillAsync(table);
 
@@ -139,13 +138,15 @@ namespace BrgyMs.backend.database.repositories {
             }
 
         }
-        //for admin announcement
+        //Get all active announcements. Will add offset here
         public async Task<DataTable> GetAnnouncement() {
-            string stmt = "SELECT id as ID, title  as Title, date_post as 'Date Post', details as Details";
+            string stmt = "SELECT id as ID, title  as Title, DATE_FORMAT(date_post,  '%W, %M %d, %Y %r') as 'Date Post', details as Details " +
+                "FROM annoucenments where status = @status Limit 10";
 
             try {
                 using var connection = await conn.getConnection();
                 using var adapater = new MySqlDataAdapter(stmt, connection);
+                adapater.SelectCommand.Parameters.AddWithValue("@status", "1");
                 DataTable dt = new DataTable();
 
                 await adapater.FillAsync(dt);
@@ -156,25 +157,42 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         }
-        //for resident
-        //public async Task<DataTable> GetAnnouncement(String id) {
-        //    string stmt = "SELECT id , title , date_post , details, attachments, post_by, status";
+        //Get announcements to get data for updating
+        public async Task<AnnouncementsModel> GetAnnouncement(String id) {
+            string stmt = "SELECT id , title , date_post , details, attachment, status " +
+                "From annoucenments " +
+                "WHERE id =@id";
+            AnnouncementsModel announcement = new();
+            try {
+                using var connection = await conn.getConnection();
+                using var adapater = new MySqlCommand(stmt, connection);
 
-        //    try {
-        //        using var connection = await conn.getConnection();
-        //        using var adapater = new MySqlCommand(stmt, connection);
+                adapater.Parameters.AddWithValue("@id", id);
+                using var reader = await adapater.ExecuteReaderAsync();
 
+                if (await reader.ReadAsync()) {
+                    announcement = new()
+                    {
+                        Attachments = (byte[])reader["attachment"],
+                        DatePost = reader.GetDateTime("date_post"),
+                        Details = reader.GetString("details"),
+                        Status = reader.GetBoolean("status"),
+                        Title = reader.GetString("title")
+                    };
 
-        //    }
-        //    catch (Exception) {
-        //        throw;
-        //    }
-        //}
+                }
+                return announcement;
+
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
 
         public async Task CreateAnnouncement(AnnouncementsModel annoucenment) {
             try {
-                string stmt = "INSERT INTO annoucenments(id , title, date_post, details, attachment, post_by, status ) " +
-                    "VALUES (@id, @title, @datePost, @details, @attachment, @postBy, @status) ";
+                string stmt = "INSERT INTO annoucenments(id , title, date_post, details, attachment, status ) " +
+                    "VALUES (@id, @title, @datePost, @details, @attachment, @status) ";
 
                 using var connection = await conn.getConnection();
                 using var cmd = new MySqlCommand(stmt, connection);
@@ -184,7 +202,6 @@ namespace BrgyMs.backend.database.repositories {
                 cmd.Parameters.AddWithValue("@datePost", annoucenment.DatePost);
                 cmd.Parameters.AddWithValue("@details", annoucenment.Details);
                 cmd.Parameters.AddWithValue("@attachment", annoucenment.Attachments);
-                cmd.Parameters.AddWithValue("@postBy", annoucenment.PostBy);
                 cmd.Parameters.AddWithValue("@status", annoucenment.Status);
 
                 await cmd.ExecuteNonQueryAsync();

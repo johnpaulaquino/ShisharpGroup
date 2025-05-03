@@ -24,13 +24,14 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             nudAmLimit = new Krypton.Toolkit.KryptonNumericUpDown();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            btnCreateSec = new Krypton.Toolkit.KryptonButton();
             dataGridAmTableAdmin = new Krypton.Toolkit.KryptonDataGridView();
             id = new DataGridViewTextBoxColumn();
             colemail = new DataGridViewTextBoxColumn();
@@ -47,7 +48,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            btnCreateSec = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -97,7 +97,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonSeparator1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             kryptonSeparator1.Location = new Point(-3, 78);
             kryptonSeparator1.Name = "kryptonSeparator1";
-            kryptonSeparator1.Size = new Size(1125, 5);
+            kryptonSeparator1.Size = new Size(944, 5);
             kryptonSeparator1.TabIndex = 3;
             // 
             // kryptonPanel1
@@ -111,9 +111,70 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.Controls.Add(kryptonLabel4);
             kryptonPanel1.Location = new Point(0, 83);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1125, 594);
+            kryptonPanel1.Size = new Size(944, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
+            // 
+            // btnCreateSec
+            // 
+            btnCreateSec.Location = new Point(25, 60);
+            btnCreateSec.Margin = new Padding(4, 3, 4, 3);
+            btnCreateSec.Name = "btnCreateSec";
+            btnCreateSec.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.OverrideDefault.Back.ColorAngle = 45F;
+            btnCreateSec.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnCreateSec.OverrideDefault.Border.Rounding = 5F;
+            btnCreateSec.OverrideDefault.Border.Width = 1;
+            btnCreateSec.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnCreateSec.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnCreateSec.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnCreateSec.Size = new Size(164, 45);
+            btnCreateSec.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateCommon.Back.ColorAngle = 45F;
+            btnCreateSec.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnCreateSec.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnCreateSec.StateCommon.Border.ColorAngle = 45F;
+            btnCreateSec.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnCreateSec.StateCommon.Border.Rounding = 5F;
+            btnCreateSec.StateCommon.Border.Width = 1;
+            btnCreateSec.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnCreateSec.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnCreateSec.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCreateSec.StateDisabled.Border.Rounding = 5F;
+            btnCreateSec.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateNormal.Border.Rounding = 5F;
+            btnCreateSec.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnCreateSec.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnCreateSec.StatePressed.Back.Color1 = Color.White;
+            btnCreateSec.StatePressed.Back.Color2 = Color.White;
+            btnCreateSec.StatePressed.Back.ColorAngle = 130F;
+            btnCreateSec.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnCreateSec.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnCreateSec.StatePressed.Border.ColorAngle = 130F;
+            btnCreateSec.StatePressed.Border.Rounding = 5F;
+            btnCreateSec.StatePressed.Border.Width = 1;
+            btnCreateSec.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnCreateSec.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnCreateSec.StateTracking.Back.ColorAngle = 45F;
+            btnCreateSec.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnCreateSec.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateTracking.Border.ColorAngle = 45F;
+            btnCreateSec.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnCreateSec.StateTracking.Border.Rounding = 5F;
+            btnCreateSec.StateTracking.Border.Width = 1;
+            btnCreateSec.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnCreateSec.TabIndex = 39;
+            btnCreateSec.Values.DropDownArrowColor = Color.Empty;
+            btnCreateSec.Values.Text = "Create Account";
+            btnCreateSec.Click += btnCreateSec_Click;
             // 
             // dataGridAmTableAdmin
             // 
@@ -123,8 +184,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAmTableAdmin.AllowUserToDeleteRows = false;
             dataGridAmTableAdmin.AllowUserToResizeColumns = false;
             dataGridAmTableAdmin.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAmTableAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridAmTableAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridAmTableAdmin.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridAmTableAdmin.AutoGenerateKryptonColumns = false;
             dataGridAmTableAdmin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -134,16 +195,16 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAmTableAdmin.Columns.AddRange(new DataGridViewColumn[] { id, colemail, colusername, colrole, colfullname, colgender, colbday, colage, colcontact });
             dataGridAmTableAdmin.ContextMenuStrip = ctxmenuAccManagement;
             dataGridAmTableAdmin.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridAmTableAdmin.Location = new Point(26, 207);
+            dataGridAmTableAdmin.Location = new Point(25, 204);
             dataGridAmTableAdmin.MultiSelect = false;
             dataGridAmTableAdmin.Name = "dataGridAmTableAdmin";
             dataGridAmTableAdmin.RowHeadersVisible = false;
             dataGridAmTableAdmin.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridAmTableAdmin.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridAmTableAdmin.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridAmTableAdmin.ScrollBars = ScrollBars.Vertical;
             dataGridAmTableAdmin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAmTableAdmin.Size = new Size(1073, 371);
+            dataGridAmTableAdmin.Size = new Size(892, 355);
             dataGridAmTableAdmin.StateCommon.Background.Color1 = Color.White;
             dataGridAmTableAdmin.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             dataGridAmTableAdmin.StateCommon.DataCell.Border.Color1 = Color.DimGray;
@@ -234,7 +295,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txtSearch.Location = new Point(688, 131);
+            txtSearch.Location = new Point(507, 131);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(411, 40);
@@ -252,7 +313,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler.Controls.Add(kryptonPanel1);
             pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
-            pnlMainContentControler.Size = new Size(1125, 677);
+            pnlMainContentControler.Size = new Size(944, 677);
             pnlMainContentControler.TabIndex = 2;
             // 
             // kryptonPanel2
@@ -262,7 +323,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel2.Controls.Add(kryptonLabel2);
             kryptonPanel2.Location = new Point(0, 0);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1125, 80);
+            kryptonPanel2.Size = new Size(944, 80);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 2;
             kryptonPanel2.Paint += kryptonPanel2_Paint;
@@ -277,74 +338,13 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Account Management";
             // 
-            // btnCreateSec
-            // 
-            btnCreateSec.Location = new Point(25, 60);
-            btnCreateSec.Margin = new Padding(4, 3, 4, 3);
-            btnCreateSec.Name = "btnCreateSec";
-            btnCreateSec.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.OverrideDefault.Back.ColorAngle = 45F;
-            btnCreateSec.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnCreateSec.OverrideDefault.Border.Rounding = 5F;
-            btnCreateSec.OverrideDefault.Border.Width = 1;
-            btnCreateSec.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnCreateSec.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnCreateSec.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnCreateSec.Size = new Size(164, 45);
-            btnCreateSec.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateCommon.Back.ColorAngle = 45F;
-            btnCreateSec.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnCreateSec.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            btnCreateSec.StateCommon.Border.ColorAngle = 45F;
-            btnCreateSec.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnCreateSec.StateCommon.Border.Rounding = 5F;
-            btnCreateSec.StateCommon.Border.Width = 1;
-            btnCreateSec.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnCreateSec.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnCreateSec.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCreateSec.StateDisabled.Border.Rounding = 5F;
-            btnCreateSec.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateNormal.Border.Rounding = 5F;
-            btnCreateSec.StateNormal.Content.ShortText.Color1 = Color.White;
-            btnCreateSec.StateNormal.Content.ShortText.Color2 = Color.White;
-            btnCreateSec.StatePressed.Back.Color1 = Color.White;
-            btnCreateSec.StatePressed.Back.Color2 = Color.White;
-            btnCreateSec.StatePressed.Back.ColorAngle = 130F;
-            btnCreateSec.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            btnCreateSec.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            btnCreateSec.StatePressed.Border.ColorAngle = 130F;
-            btnCreateSec.StatePressed.Border.Rounding = 5F;
-            btnCreateSec.StatePressed.Border.Width = 1;
-            btnCreateSec.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateTracking.Back.Color1 = Color.WhiteSmoke;
-            btnCreateSec.StateTracking.Back.Color2 = Color.WhiteSmoke;
-            btnCreateSec.StateTracking.Back.ColorAngle = 45F;
-            btnCreateSec.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnCreateSec.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateTracking.Border.ColorAngle = 45F;
-            btnCreateSec.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnCreateSec.StateTracking.Border.Rounding = 5F;
-            btnCreateSec.StateTracking.Border.Width = 1;
-            btnCreateSec.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnCreateSec.TabIndex = 39;
-            btnCreateSec.Values.DropDownArrowColor = Color.Empty;
-            btnCreateSec.Values.Text = "Create Account";
-            btnCreateSec.Click += btnCreateSec_Click;
-            // 
-            // ResidentAccountSetting
+            // AdminAccountManagementControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
-            Name = "ResidentAccountSetting";
-            Size = new Size(1125, 607);
+            Name = "AdminAccountManagementControl";
+            Size = new Size(944, 607);
             Load += AdminAccountManagementControl_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();

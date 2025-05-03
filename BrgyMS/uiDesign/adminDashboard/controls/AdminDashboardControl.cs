@@ -38,5 +38,9 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private void kryptonPanel5_Paint(object sender, PaintEventArgs e) {
 
         }
+
+        private void kryptonPanel1_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

@@ -25,7 +25,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private void InitializeComponent() {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
-            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             cboStatus = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
@@ -35,16 +34,17 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            btnSubmitBlotter = new Krypton.Toolkit.KryptonButton();
             btnUpdateBlotter = new Krypton.Toolkit.KryptonButton();
+            btnSubmitBlotter = new Krypton.Toolkit.KryptonButton();
+            kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).BeginInit();
             pnlMainContentHolder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboRespondentName).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboComplainantName).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             SuspendLayout();
             // 
             // kryptonPanel1
@@ -79,14 +79,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             pnlMainContentHolder.Size = new Size(370, 535);
             pnlMainContentHolder.StateCommon.Color1 = Color.White;
             pnlMainContentHolder.TabIndex = 12;
-            // 
-            // kryptonPanel2
-            // 
-            kryptonPanel2.Location = new Point(123, 677);
-            kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(100, 10);
-            kryptonPanel2.StateCommon.Color1 = Color.White;
-            kryptonPanel2.TabIndex = 47;
             // 
             // cboStatus
             // 
@@ -183,70 +175,9 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel1.TabIndex = 17;
             kryptonLabel1.Values.Text = "Respondent Name";
             // 
-            // btnSubmitBlotter
-            // 
-            btnSubmitBlotter.Location = new Point(80, 617);
-            btnSubmitBlotter.Margin = new Padding(4, 3, 4, 3);
-            btnSubmitBlotter.Name = "btnSubmitBlotter";
-            btnSubmitBlotter.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.OverrideDefault.Back.ColorAngle = 45F;
-            btnSubmitBlotter.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSubmitBlotter.OverrideDefault.Border.Rounding = 5F;
-            btnSubmitBlotter.OverrideDefault.Border.Width = 1;
-            btnSubmitBlotter.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnSubmitBlotter.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnSubmitBlotter.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnSubmitBlotter.Size = new Size(187, 54);
-            btnSubmitBlotter.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateCommon.Back.ColorAngle = 45F;
-            btnSubmitBlotter.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSubmitBlotter.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            btnSubmitBlotter.StateCommon.Border.ColorAngle = 45F;
-            btnSubmitBlotter.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSubmitBlotter.StateCommon.Border.Rounding = 5F;
-            btnSubmitBlotter.StateCommon.Border.Width = 1;
-            btnSubmitBlotter.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnSubmitBlotter.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnSubmitBlotter.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSubmitBlotter.StateDisabled.Border.Rounding = 5F;
-            btnSubmitBlotter.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateNormal.Border.Rounding = 5F;
-            btnSubmitBlotter.StateNormal.Content.ShortText.Color1 = Color.White;
-            btnSubmitBlotter.StateNormal.Content.ShortText.Color2 = Color.White;
-            btnSubmitBlotter.StatePressed.Back.Color1 = Color.White;
-            btnSubmitBlotter.StatePressed.Back.Color2 = Color.White;
-            btnSubmitBlotter.StatePressed.Back.ColorAngle = 130F;
-            btnSubmitBlotter.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            btnSubmitBlotter.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            btnSubmitBlotter.StatePressed.Border.ColorAngle = 130F;
-            btnSubmitBlotter.StatePressed.Border.Rounding = 5F;
-            btnSubmitBlotter.StatePressed.Border.Width = 1;
-            btnSubmitBlotter.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateTracking.Back.Color1 = Color.WhiteSmoke;
-            btnSubmitBlotter.StateTracking.Back.Color2 = Color.WhiteSmoke;
-            btnSubmitBlotter.StateTracking.Back.ColorAngle = 45F;
-            btnSubmitBlotter.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSubmitBlotter.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateTracking.Border.ColorAngle = 45F;
-            btnSubmitBlotter.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSubmitBlotter.StateTracking.Border.Rounding = 5F;
-            btnSubmitBlotter.StateTracking.Border.Width = 1;
-            btnSubmitBlotter.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitBlotter.TabIndex = 38;
-            btnSubmitBlotter.Values.DropDownArrowColor = Color.Empty;
-            btnSubmitBlotter.Values.Text = "Submit";
-            btnSubmitBlotter.Click += btnSubmitBlotter_Click;
-            // 
             // btnUpdateBlotter
             // 
-            btnUpdateBlotter.Location = new Point(80, 617);
+            btnUpdateBlotter.Location = new Point(80, 629);
             btnUpdateBlotter.Margin = new Padding(4, 3, 4, 3);
             btnUpdateBlotter.Name = "btnUpdateBlotter";
             btnUpdateBlotter.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -306,6 +237,75 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             btnUpdateBlotter.Click += btnUpdateBlotter_Click;
             btnUpdateBlotter.MouseClick += btnUpdateBlotter_MouseClick;
             // 
+            // btnSubmitBlotter
+            // 
+            btnSubmitBlotter.Location = new Point(80, 629);
+            btnSubmitBlotter.Margin = new Padding(4, 3, 4, 3);
+            btnSubmitBlotter.Name = "btnSubmitBlotter";
+            btnSubmitBlotter.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.OverrideDefault.Back.ColorAngle = 45F;
+            btnSubmitBlotter.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSubmitBlotter.OverrideDefault.Border.Rounding = 5F;
+            btnSubmitBlotter.OverrideDefault.Border.Width = 1;
+            btnSubmitBlotter.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnSubmitBlotter.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnSubmitBlotter.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnSubmitBlotter.Size = new Size(187, 54);
+            btnSubmitBlotter.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateCommon.Back.ColorAngle = 45F;
+            btnSubmitBlotter.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSubmitBlotter.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnSubmitBlotter.StateCommon.Border.ColorAngle = 45F;
+            btnSubmitBlotter.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSubmitBlotter.StateCommon.Border.Rounding = 5F;
+            btnSubmitBlotter.StateCommon.Border.Width = 1;
+            btnSubmitBlotter.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnSubmitBlotter.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnSubmitBlotter.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSubmitBlotter.StateDisabled.Border.Rounding = 5F;
+            btnSubmitBlotter.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateNormal.Border.Rounding = 5F;
+            btnSubmitBlotter.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnSubmitBlotter.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnSubmitBlotter.StatePressed.Back.Color1 = Color.White;
+            btnSubmitBlotter.StatePressed.Back.Color2 = Color.White;
+            btnSubmitBlotter.StatePressed.Back.ColorAngle = 130F;
+            btnSubmitBlotter.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnSubmitBlotter.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnSubmitBlotter.StatePressed.Border.ColorAngle = 130F;
+            btnSubmitBlotter.StatePressed.Border.Rounding = 5F;
+            btnSubmitBlotter.StatePressed.Border.Width = 1;
+            btnSubmitBlotter.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnSubmitBlotter.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnSubmitBlotter.StateTracking.Back.ColorAngle = 45F;
+            btnSubmitBlotter.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSubmitBlotter.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateTracking.Border.ColorAngle = 45F;
+            btnSubmitBlotter.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSubmitBlotter.StateTracking.Border.Rounding = 5F;
+            btnSubmitBlotter.StateTracking.Border.Width = 1;
+            btnSubmitBlotter.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitBlotter.TabIndex = 38;
+            btnSubmitBlotter.Values.DropDownArrowColor = Color.Empty;
+            btnSubmitBlotter.Values.Text = "Submit";
+            btnSubmitBlotter.Click += btnSubmitBlotter_Click;
+            // 
+            // kryptonPanel2
+            // 
+            kryptonPanel2.Location = new Point(123, 689);
+            kryptonPanel2.Name = "kryptonPanel2";
+            kryptonPanel2.Size = new Size(100, 10);
+            kryptonPanel2.StateCommon.Color1 = Color.White;
+            kryptonPanel2.TabIndex = 49;
+            // 
             // BlotterResidentModalCotntrol
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -319,10 +319,10 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).EndInit();
             pnlMainContentHolder.ResumeLayout(false);
             pnlMainContentHolder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboRespondentName).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboComplainantName).EndInit();
+            ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             ResumeLayout(false);
         }
 
@@ -334,7 +334,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         protected internal Krypton.Toolkit.KryptonButton btnSubmitBlotter;
         protected internal Krypton.Toolkit.KryptonButton btnUpdateBlotter;
@@ -342,5 +341,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         protected internal Krypton.Toolkit.KryptonComboBox cboComplainantName;
         protected internal Krypton.Toolkit.KryptonComboBox cboRespondentName;
         protected internal Krypton.Toolkit.KryptonTextBox txtStatements;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel2;
     }
 }

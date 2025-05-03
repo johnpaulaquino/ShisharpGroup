@@ -125,7 +125,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // 
             // btnMcLogin
             // 
-            btnMcLogin.Location = new Point(144, 628);
+            btnMcLogin.Location = new Point(129, 624);
             btnMcLogin.Margin = new Padding(4, 3, 4, 3);
             btnMcLogin.Name = "btnMcLogin";
             btnMcLogin.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);

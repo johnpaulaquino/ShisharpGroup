@@ -16,6 +16,7 @@ using Org.BouncyCastle.Bcpg.Sig;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing.Imaging;
 using System.Dynamic;
 using System.Linq;
 using System.Security.Claims;
@@ -212,7 +213,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             KryptonTextBox txtUsername
             ) {
 
-            string UserIdInFile = utils.ReadUserIdInFile(); // Read  the user id that write in file after click the 
+            string UserIdInFile = utils.ReadIdInFile(); // Read  the user id that write in file after click the 
             // show information in Account management.
 
 
@@ -354,7 +355,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             ) {
 
             try {
-                string userId = utils.ReadUserIdInFile(); // read the user id from file
+                string userId = utils.ReadIdInFile(); // read the user id from file
 
                 List<object> userInfo = await _AdminServices.GetAllUserInformations(userId); //retrieve the account informations
 
@@ -416,6 +417,19 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 throw;
             }
         }// end of function
+
+        public byte[] GetBytesFromPictureBox(KryptonPictureBox picture) {
+            byte[] bytes = null;
+            if (picture != null) {
+
+                using MemoryStream ms = new();
+                picture?.Image?.Save(ms, ImageFormat.Png);
+                bytes = ms.ToArray();
+
+
+            }
+            return bytes;
+        }// end
 
     }
 }

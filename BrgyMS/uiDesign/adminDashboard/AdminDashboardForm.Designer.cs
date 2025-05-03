@@ -47,6 +47,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             picProfilePic = new Krypton.Toolkit.KryptonPictureBox();
             lblUsername = new Krypton.Toolkit.KryptonLabel();
             picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
+            picOfficials = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)pnlMainContainer).BeginInit();
             pnlMainContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -74,6 +75,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlTopSeperator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picProfilePic).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picOfficials).BeginInit();
             SuspendLayout();
             // 
             // pnlMainContainer
@@ -108,9 +110,9 @@ namespace BrgyMS.uiDesign.adminDashboard {
             kryptonPanel1.Controls.Add(pnlRighSeperator);
             kryptonPanel1.Controls.Add(kryptonPanel3);
             kryptonPanel1.Dock = DockStyle.Fill;
-            kryptonPanel1.Location = new Point(49, 0);
+            kryptonPanel1.Location = new Point(45, 0);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1150, 632);
+            kryptonPanel1.Size = new Size(1154, 632);
             kryptonPanel1.TabIndex = 5;
             // 
             // kryptonPanel4
@@ -119,7 +121,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             kryptonPanel4.Dock = DockStyle.Fill;
             kryptonPanel4.Location = new Point(25, 25);
             kryptonPanel4.Name = "kryptonPanel4";
-            kryptonPanel4.Size = new Size(1125, 607);
+            kryptonPanel4.Size = new Size(1129, 607);
             kryptonPanel4.TabIndex = 15;
             // 
             // pnlMainContentHolder1
@@ -128,7 +130,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlMainContentHolder1.Dock = DockStyle.Fill;
             pnlMainContentHolder1.Location = new Point(0, 0);
             pnlMainContentHolder1.Name = "pnlMainContentHolder1";
-            pnlMainContentHolder1.Size = new Size(1125, 607);
+            pnlMainContentHolder1.Size = new Size(1129, 607);
             pnlMainContentHolder1.StateCommon.Color1 = Color.White;
             pnlMainContentHolder1.TabIndex = 13;
             // 
@@ -146,13 +148,14 @@ namespace BrgyMS.uiDesign.adminDashboard {
             kryptonPanel3.Dock = DockStyle.Top;
             kryptonPanel3.Location = new Point(0, 0);
             kryptonPanel3.Name = "kryptonPanel3";
-            kryptonPanel3.Size = new Size(1150, 25);
+            kryptonPanel3.Size = new Size(1154, 25);
             kryptonPanel3.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
             kryptonPanel3.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             kryptonPanel3.TabIndex = 13;
             // 
             // pnlSidebar
             // 
+            pnlSidebar.Controls.Add(picOfficials);
             pnlSidebar.Controls.Add(picBlotter);
             pnlSidebar.Controls.Add(picLogout);
             pnlSidebar.Controls.Add(picAccountVerification);
@@ -165,7 +168,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.RightToLeft = RightToLeft.No;
-            pnlSidebar.Size = new Size(49, 632);
+            pnlSidebar.Size = new Size(45, 632);
             pnlSidebar.StateCommon.Color1 = Color.IndianRed;
             pnlSidebar.StateCommon.Color2 = Color.IndianRed;
             pnlSidebar.StateCommon.ColorAngle = 100F;
@@ -263,7 +266,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             // kryptonPanel6
             // 
             kryptonPanel6.Dock = DockStyle.Right;
-            kryptonPanel6.Location = new Point(48, 0);
+            kryptonPanel6.Location = new Point(44, 0);
             kryptonPanel6.Name = "kryptonPanel6";
             kryptonPanel6.Size = new Size(1, 632);
             kryptonPanel6.StateCommon.Color1 = Color.FromArgb(220, 230, 224);
@@ -343,6 +346,18 @@ namespace BrgyMS.uiDesign.adminDashboard {
             picMenuButton.TabIndex = 1;
             picMenuButton.TabStop = false;
             // 
+            // picOfficials
+            // 
+            picOfficials.Cursor = Cursors.Hand;
+            picOfficials.Image = (Image)resources.GetObject("picOfficials.Image");
+            picOfficials.Location = new Point(12, 381);
+            picOfficials.Name = "picOfficials";
+            picOfficials.Size = new Size(25, 25);
+            picOfficials.SizeMode = PictureBoxSizeMode.Zoom;
+            picOfficials.TabIndex = 10;
+            picOfficials.TabStop = false;
+            picOfficials.Click += picOfficials_Click;
+            // 
             // AdminDashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -381,6 +396,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlTopSeperator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picProfilePic).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMenuButton).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picOfficials).EndInit();
             ResumeLayout(false);
         }
 
@@ -410,5 +426,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
         private Krypton.Toolkit.KryptonPanel kryptonPanel4;
         private Krypton.Toolkit.KryptonPanel pnlMainContentHolder1;
         private Krypton.Toolkit.KryptonPictureBox picBlotter;
+        private Krypton.Toolkit.KryptonPictureBox picOfficials;
     }
 }

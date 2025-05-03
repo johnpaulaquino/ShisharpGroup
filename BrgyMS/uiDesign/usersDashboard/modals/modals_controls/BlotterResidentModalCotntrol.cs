@@ -98,7 +98,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
         private async void btnUpdateBlotter_MouseClick(object sender, MouseEventArgs e) {
             try {
-                string id = utils.ReadBlotterIdInFile();
+                string id = utils.ReadIdInFile();
 
 
                 //await _AdminServices.UpdateBlotter(id, blotter);
@@ -158,7 +158,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
         private async void btnUpdateBlotter_Click(object sender, EventArgs e) {
             try {
-                string id = utils.ReadBlotterIdInFile();
+                string id = utils.ReadIdInFile();
                 string status = cboStatus.SelectedItem.ToString();
                 Cursor = Cursors.WaitCursor;
                 await Task.Run(async () =>

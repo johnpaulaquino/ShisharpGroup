@@ -25,6 +25,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
         private AuthUtils _AuthUtils = new AuthUtils();
 
 
+
         public AdminDashboardForm() {
             InitializeComponent();
 
@@ -45,6 +46,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
         }
 
         private void picAnnouncements_Click(object sender, EventArgs e) {
+
             AdminAnnouncementsControl acnnoucnecontrol = new AdminAnnouncementsControl();
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(acnnoucnecontrol);
@@ -95,6 +97,27 @@ namespace BrgyMS.uiDesign.adminDashboard {
             pnlMainContentHolder1.Controls.Add(control);
 
             control.Dock = DockStyle.Fill;
+
+        }
+
+        private void picOfficials_Click(object sender, EventArgs e) {
+            AdminOfficialsManagementControl officialsControl = new();
+            try {
+                Cursor = Cursors.WaitCursor;
+                pnlMainContentHolder1.Controls.Clear();
+
+                pnlMainContentHolder1.Controls.Add(officialsControl);
+
+                officialsControl.Dock = DockStyle.Fill;
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
+
 
         }
     }

@@ -33,6 +33,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private SecretaryServices _SecretaryServices = new();
         private AdminServices _AdminServices = new();
         private UserInfoValidation validation = new();
+        AnnouncementsModel announcementMOdel = null;
 
         private byte[] attachmentsByte = null;
         private String attachmentFilePath = "";
@@ -48,7 +49,87 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 OpenFileDialog fileDialog = new OpenFileDialog();
                 if (fileDialog.ShowDialog() == DialogResult.OK) {
                     attachmentFilePath = fileDialog.FileName;
+                    picAttachment.Image = new Bitmap(attachmentFilePath);
                 }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void btnSubmitAnnouncements_Click(object sender, EventArgs e) {
+            try {
+                string announcementId = utils.ReadIdInFile();
+
+                if (!string.IsNullOrEmpty(attachmentFilePath)) {
+                    using var fs = new FileStream(attachmentFilePath, FileMode.Open, FileAccess.Read);
+
+                    attachmentsByte = new byte[fs.Length];
+                    await fs.ReadExactlyAsync(attachmentsByte);
+                }
+
+                AnnouncementsModel announce = new()
+                {
+                    Attachments = attachmentsByte,
+                    DatePost = DateTime.Now,
+                    Details = txtStatements.Text,
+                    Title = txtTitle.Text
+
+                };
+
+                Cursor = Cursors.WaitCursor;
+                await Task.Run(async () =>
+                {
+                    await _SecretaryServices.CreateAnnouncemrnts(announce);
+                });
+
+                MessageBox.Show("Successfully Created Annoucemnets!");
+                ClearFieldsAfterAdd();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
+        }// end
+
+        public void ClearFieldsAfterAdd() {
+            txtTitle.Text = "";
+            txtStatements.Text = "";
+            picAttachment.Image = null;
+
+        }
+
+        private async void btnUpdateAnnouncements_Click(object sender, EventArgs e) {
+            try {
+
+                string announceId = utils.ReadIdInFile();
+                byte[] attachmentImg = uiadmin.GetBytesFromPictureBox(picAttachment);
+
+                bool stat = false;
+
+                AnnouncementsModel announce = new AnnouncementsModel()
+                {
+                    Attachments = attachmentImg,
+                    Details = txtStatements.Text,
+                    Status = stat,
+                    Title = txtTitle.Text
+                };
+
+                if (cbHidePost.Checked) {
+                    stat = true;
+                }
+                announce.Status = stat;
+
+
+                await Task.Run(async () =>
+                 {
+                     await _AdminServices.UpdateAnnouncements(announce, announceId);
+                 });
+
+                MessageBox.Show("Susccessfully Updated Anouncement!");
+
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

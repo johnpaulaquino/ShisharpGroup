@@ -2,6 +2,7 @@ using BrgyMs.backend.utils;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.adminDashboard.modals.modals_controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,6 +97,9 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                         control.txtMcUsername);
 
                     modal.ShowDialog(this);
+
+                    await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, 10);
+
                 }
             }
             catch (Exception ex) {
@@ -104,7 +108,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             finally {
                 isCliked = false;
             }
-
 
         }
 
@@ -142,6 +145,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             finally {
                 isCliked = false;
             }
-        }
+        } // end
+
     }
 }

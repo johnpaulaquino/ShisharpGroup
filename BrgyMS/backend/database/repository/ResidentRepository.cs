@@ -28,26 +28,27 @@ namespace BrgyMs.backend.database.repositories {
 
         //This section is for setters
         public async Task AddOfficialsInfo(OfficialsInfo _OfficialsInfo,
-            ElectionHistories ElecHistories, string UserId) {
+            String ElecHistories) {
 
-            string stmt = "Insert into officials(user_id, term_start, term_end, position, election_histories, status) "
-            + "Values(?,?,?,?,?,?)";
-            string EelcHisto = JsonConvert.SerializeObject(ElecHistories, Newtonsoft.Json.Formatting.Indented);
+            string stmt = "Insert into officials(id, user_id, term_start, term_end, position, election_histories, status) "
+            + "Values(@id, @user_id,@term_start,@term_end,@position,@election_histories,@status)";
+
 
             try {
                 using (var cmd = new MySqlCommand(stmt, await conn.getConnection())) {
-                    cmd.Parameters.AddWithValue("user_id", UserId);
-                    cmd.Parameters.AddWithValue("term_start", _OfficialsInfo.TermStart.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("term_end", _OfficialsInfo.TermEnd.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("position", _OfficialsInfo.Position);
-                    cmd.Parameters.AddWithValue("election_histories", EelcHisto);
-                    cmd.Parameters.AddWithValue("status", _OfficialsInfo.Status);
+                    cmd.Parameters.AddWithValue("@user_id", _OfficialsInfo.UserId);
+                    cmd.Parameters.AddWithValue("@term_start", _OfficialsInfo.TermStart.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@term_end", _OfficialsInfo.TermEnd.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@position", _OfficialsInfo.Position);
+                    cmd.Parameters.AddWithValue("@election_histories", ElecHistories);
+                    cmd.Parameters.AddWithValue("@status", _OfficialsInfo.Status);
+                    cmd.Parameters.AddWithValue("@id", _OfficialsInfo.Id);
                     await cmd.ExecuteNonQueryAsync();
-                    Console.WriteLine("Successfully add officials info");
+                    Console.WriteLine("Successfully add officials info!");
                 }
             }
-            catch (Exception e) {
-                throw new Exception(e.Message);
+            catch (Exception) {
+                throw;
             }
 
         }//End of Function

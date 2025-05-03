@@ -92,7 +92,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonSeparator1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             kryptonSeparator1.Location = new Point(-3, 78);
             kryptonSeparator1.Name = "kryptonSeparator1";
-            kryptonSeparator1.Size = new Size(1125, 5);
+            kryptonSeparator1.Size = new Size(944, 5);
             kryptonSeparator1.TabIndex = 3;
             // 
             // kryptonPanel1
@@ -105,7 +105,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.Controls.Add(kryptonLabel4);
             kryptonPanel1.Location = new Point(0, 83);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1125, 594);
+            kryptonPanel1.Size = new Size(944, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
             // 
@@ -137,7 +137,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridAmTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridAmTable.ScrollBars = ScrollBars.Vertical;
             dataGridAmTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAmTable.Size = new Size(1073, 480);
+            dataGridAmTable.Size = new Size(892, 480);
             dataGridAmTable.StateCommon.Background.Color1 = Color.White;
             dataGridAmTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             dataGridAmTable.StateCommon.DataCell.Border.Color1 = Color.DimGray;
@@ -207,7 +207,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            txtSearch.Location = new Point(688, 20);
+            txtSearch.Location = new Point(507, 20);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(411, 40);
@@ -225,7 +225,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler.Controls.Add(kryptonPanel1);
             pnlMainContentControler.Location = new Point(0, -35);
             pnlMainContentControler.Name = "pnlMainContentControler";
-            pnlMainContentControler.Size = new Size(1125, 677);
+            pnlMainContentControler.Size = new Size(944, 677);
             pnlMainContentControler.TabIndex = 2;
             // 
             // kryptonPanel2
@@ -235,7 +235,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel2.Controls.Add(kryptonLabel2);
             kryptonPanel2.Location = new Point(0, 0);
             kryptonPanel2.Name = "kryptonPanel2";
-            kryptonPanel2.Size = new Size(1125, 80);
+            kryptonPanel2.Size = new Size(944, 80);
             kryptonPanel2.StateCommon.Color1 = Color.White;
             kryptonPanel2.TabIndex = 2;
             kryptonPanel2.Paint += kryptonPanel2_Paint;
@@ -256,7 +256,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlMainContentControler);
             Name = "AdminAccountVerification";
-            Size = new Size(1125, 607);
+            Size = new Size(944, 607);
             Load += AdminAccountVerification_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();

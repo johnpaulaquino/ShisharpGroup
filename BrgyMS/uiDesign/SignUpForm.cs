@@ -85,11 +85,11 @@ namespace BrgyMs.uiDesign {
                 _Users = new User(email, Username, password);
 
                 //Data from 2nd page
-                string firstname = txtSFName.Text;
-                string middlename = txtSMName.Text;
-                string lastname = txtSLastname.Text;
-                string suffix = cboSSuffix.SelectedItem.ToString();
-                string gender = cboSGender.SelectedItem.ToString();
+                string firstname = utils.CapitalizeFirstLetter(txtSFName.Text);
+                string middlename = utils.CapitalizeFirstLetter(txtSMName.Text);
+                string lastname = utils.CapitalizeFirstLetter(txtSLastname.Text);
+                string suffix = utils.CapitalizeFirstLetter(cboSSuffix.SelectedItem.ToString());
+                string gender = utils.CapitalizeFirstLetter(cboSGender.SelectedItem.ToString());
 
 
 

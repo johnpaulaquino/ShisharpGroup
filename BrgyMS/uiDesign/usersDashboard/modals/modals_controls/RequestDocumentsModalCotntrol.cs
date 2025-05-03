@@ -77,7 +77,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             string forJobSeeker = "NBI/Police Clearance Application";
 
             try {
-                string userId = utils.ReadUserIdInFile();
+                string userId = utils.ReadIdInFile();
 
                 string purpose = cboPurposes.SelectedItem.ToString();
 

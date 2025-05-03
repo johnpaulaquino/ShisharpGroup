@@ -18,15 +18,15 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
     public partial class SecretaryOfficialsControl : UserControl {
         private UIResidentUtils uioResident = new UIResidentUtils();
         private Utils utils = new Utils();
-        private BlotterResidentModalCotntrol blotterModal = new();
+        private OfficialsModalControl officalsModalC = new();
         private UsersModal modal = new();
         public SecretaryOfficialsControl() {
             InitializeComponent();
         }
 
         private void btnBlotter_Click(object sender, EventArgs e) {
-            if (blotterModal == null) {
-                blotterModal = new();
+            if (officalsModalC == null) {
+                officalsModalC = new();
             }
             if (modal == null) {
                 modal = new();
@@ -34,9 +34,9 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
             modal.pnlContainer.Controls.Clear();
             modal.StartPosition = FormStartPosition.CenterScreen;
-            modal.pnlContainer.Controls.Add(blotterModal);
+            modal.pnlContainer.Controls.Add(officalsModalC);
 
-            blotterModal.Dock = DockStyle.Fill;
+            officalsModalC.Dock = DockStyle.Fill;
             modal.ShowDialog(this);
         }
     }

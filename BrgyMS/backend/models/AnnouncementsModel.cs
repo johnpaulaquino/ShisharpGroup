@@ -11,7 +11,6 @@ namespace BrgyMS.backend.models {
         public string Details { get; set; }
         public bool Status { get; set; }
         public DateTime DatePost { get; set; }
-        public String PostBy { get; set; }
         public byte[] Attachments { get; set; }
 
 

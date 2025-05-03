@@ -45,6 +45,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             ctxApproveDocuments = new ContextMenuStrip(components);
+            approveDocumentsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -53,6 +54,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
+            ctxApproveDocuments.SuspendLayout();
             SuspendLayout();
             // 
             // nudLimit
@@ -259,8 +261,15 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // ctxApproveDocuments
             // 
             ctxApproveDocuments.Font = new Font("Segoe UI", 9F);
+            ctxApproveDocuments.Items.AddRange(new ToolStripItem[] { approveDocumentsToolStripMenuItem });
             ctxApproveDocuments.Name = "ctxApproveDocuments";
-            ctxApproveDocuments.Size = new Size(61, 4);
+            ctxApproveDocuments.Size = new Size(184, 26);
+            // 
+            // approveDocumentsToolStripMenuItem
+            // 
+            approveDocumentsToolStripMenuItem.Name = "approveDocumentsToolStripMenuItem";
+            approveDocumentsToolStripMenuItem.Size = new Size(183, 22);
+            approveDocumentsToolStripMenuItem.Text = "Approve Documents";
             // 
             // SecretaryApprovalDocumentsControls
             // 
@@ -280,6 +289,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);
             kryptonPanel2.PerformLayout();
+            ctxApproveDocuments.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -304,5 +314,6 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private DataGridViewTextBoxColumn colactions;
         private DataGridViewTextBoxColumn colaffectedtable;
         private ContextMenuStrip ctxApproveDocuments;
+        private ToolStripMenuItem approveDocumentsToolStripMenuItem;
     }
 }

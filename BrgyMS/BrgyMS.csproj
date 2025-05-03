@@ -49,6 +49,12 @@
 		<Compile Update="uiDesign\adminDashboard\controls\AdminAccountManagementControl.cs">
 			<SubType>UserControl</SubType>
 		</Compile>
+		<Compile Update="uiDesign\adminDashboard\controls\AdminOfficialsManagementControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\adminDashboard\controls\AdminAnnouncementsControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
 		<Compile Update="uiDesign\adminDashboard\modals\modals_controls\CreateUsersModalControl.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
@@ -67,7 +73,10 @@
 		<Compile Update="uiDesign\usersDashboard\modals\modals_controls\BlotterResidentModalCotntrol.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>
-		<Compile Update="uiDesign\usersDashboard\secretary_controls\AnnouncementsControl.cs" />
+		<Compile Update="uiDesign\usersDashboard\modals\modals_controls\OfficialsModalControl.cs">
+		  <SubType>UserControl</SubType>
+		</Compile>
+		<Compile Update="uiDesign\usersDashboard\secretary_controls\SecretaryAnnouncementsControl.cs" />
 		<Compile Update="uiDesign\usersDashboard\secretary_controls\SecretaryOfficialsControl.cs">
 		  <SubType>UserControl</SubType>
 		</Compile>

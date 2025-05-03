@@ -35,7 +35,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         }
 
         private void RequestDocumentsControls_Load(object sender, EventArgs e) {
-            string userid = utils.ReadUserIdInFile();
+            string userid = utils.ReadIdInFile();
             int limit = (int)nudLimit.Value;
             Invoke(new Action(async () =>
             {

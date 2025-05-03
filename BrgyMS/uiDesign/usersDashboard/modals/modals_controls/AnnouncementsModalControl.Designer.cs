@@ -26,7 +26,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
             picAttachment = new Krypton.Toolkit.KryptonPictureBox();
-            kryptonCheckBox1 = new Krypton.Toolkit.KryptonCheckBox();
+            cbHidePost = new Krypton.Toolkit.KryptonCheckBox();
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             txtTitle = new Krypton.Toolkit.KryptonTextBox();
             btnUplaodAnnouncement = new Krypton.Toolkit.KryptonButton();
@@ -36,8 +36,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            btnSubmitAnnouncements = new Krypton.Toolkit.KryptonButton();
             btnUpdateAnnouncements = new Krypton.Toolkit.KryptonButton();
+            btnSubmitAnnouncements = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).BeginInit();
@@ -61,7 +61,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             pnlMainContentHolder.AutoScroll = true;
             pnlMainContentHolder.Controls.Add(picAttachment);
-            pnlMainContentHolder.Controls.Add(kryptonCheckBox1);
+            pnlMainContentHolder.Controls.Add(cbHidePost);
             pnlMainContentHolder.Controls.Add(kryptonLabel4);
             pnlMainContentHolder.Controls.Add(txtTitle);
             pnlMainContentHolder.Controls.Add(btnUplaodAnnouncement);
@@ -71,8 +71,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             pnlMainContentHolder.Controls.Add(kryptonLabel3);
             pnlMainContentHolder.Controls.Add(kryptonLabel2);
             pnlMainContentHolder.Controls.Add(kryptonLabel1);
-            pnlMainContentHolder.Controls.Add(btnSubmitAnnouncements);
             pnlMainContentHolder.Controls.Add(btnUpdateAnnouncements);
+            pnlMainContentHolder.Controls.Add(btnSubmitAnnouncements);
             pnlMainContentHolder.Dock = DockStyle.Fill;
             pnlMainContentHolder.Location = new Point(0, 0);
             pnlMainContentHolder.Name = "pnlMainContentHolder";
@@ -88,15 +88,15 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             picAttachment.TabIndex = 54;
             picAttachment.TabStop = false;
             // 
-            // kryptonCheckBox1
+            // cbHidePost
             // 
-            kryptonCheckBox1.Enabled = false;
-            kryptonCheckBox1.Location = new Point(3, 620);
-            kryptonCheckBox1.Name = "kryptonCheckBox1";
-            kryptonCheckBox1.Size = new Size(66, 26);
-            kryptonCheckBox1.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonCheckBox1.TabIndex = 53;
-            kryptonCheckBox1.Values.Text = "Hide";
+            cbHidePost.Enabled = false;
+            cbHidePost.Location = new Point(3, 620);
+            cbHidePost.Name = "cbHidePost";
+            cbHidePost.Size = new Size(66, 26);
+            cbHidePost.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbHidePost.TabIndex = 53;
+            cbHidePost.Values.Text = "Hide";
             // 
             // kryptonLabel4
             // 
@@ -228,66 +228,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel1.TabIndex = 17;
             kryptonLabel1.Values.Text = "Attachment";
             // 
-            // btnSubmitAnnouncements
-            // 
-            btnSubmitAnnouncements.Location = new Point(80, 675);
-            btnSubmitAnnouncements.Margin = new Padding(4, 3, 4, 3);
-            btnSubmitAnnouncements.Name = "btnSubmitAnnouncements";
-            btnSubmitAnnouncements.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.OverrideDefault.Back.ColorAngle = 45F;
-            btnSubmitAnnouncements.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSubmitAnnouncements.OverrideDefault.Border.Rounding = 5F;
-            btnSubmitAnnouncements.OverrideDefault.Border.Width = 1;
-            btnSubmitAnnouncements.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnSubmitAnnouncements.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnSubmitAnnouncements.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnSubmitAnnouncements.Size = new Size(187, 54);
-            btnSubmitAnnouncements.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateCommon.Back.ColorAngle = 45F;
-            btnSubmitAnnouncements.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSubmitAnnouncements.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            btnSubmitAnnouncements.StateCommon.Border.ColorAngle = 45F;
-            btnSubmitAnnouncements.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSubmitAnnouncements.StateCommon.Border.Rounding = 5F;
-            btnSubmitAnnouncements.StateCommon.Border.Width = 1;
-            btnSubmitAnnouncements.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnSubmitAnnouncements.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnSubmitAnnouncements.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSubmitAnnouncements.StateDisabled.Border.Rounding = 5F;
-            btnSubmitAnnouncements.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateNormal.Border.Rounding = 5F;
-            btnSubmitAnnouncements.StateNormal.Content.ShortText.Color1 = Color.White;
-            btnSubmitAnnouncements.StateNormal.Content.ShortText.Color2 = Color.White;
-            btnSubmitAnnouncements.StatePressed.Back.Color1 = Color.White;
-            btnSubmitAnnouncements.StatePressed.Back.Color2 = Color.White;
-            btnSubmitAnnouncements.StatePressed.Back.ColorAngle = 130F;
-            btnSubmitAnnouncements.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            btnSubmitAnnouncements.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            btnSubmitAnnouncements.StatePressed.Border.ColorAngle = 130F;
-            btnSubmitAnnouncements.StatePressed.Border.Rounding = 5F;
-            btnSubmitAnnouncements.StatePressed.Border.Width = 1;
-            btnSubmitAnnouncements.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateTracking.Back.Color1 = Color.WhiteSmoke;
-            btnSubmitAnnouncements.StateTracking.Back.Color2 = Color.WhiteSmoke;
-            btnSubmitAnnouncements.StateTracking.Back.ColorAngle = 45F;
-            btnSubmitAnnouncements.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnSubmitAnnouncements.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateTracking.Border.ColorAngle = 45F;
-            btnSubmitAnnouncements.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnSubmitAnnouncements.StateTracking.Border.Rounding = 5F;
-            btnSubmitAnnouncements.StateTracking.Border.Width = 1;
-            btnSubmitAnnouncements.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnSubmitAnnouncements.TabIndex = 38;
-            btnSubmitAnnouncements.Values.DropDownArrowColor = Color.Empty;
-            btnSubmitAnnouncements.Values.Text = "Submit";
-            // 
             // btnUpdateAnnouncements
             // 
             btnUpdateAnnouncements.Location = new Point(80, 675);
@@ -347,6 +287,68 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             btnUpdateAnnouncements.TabIndex = 48;
             btnUpdateAnnouncements.Values.DropDownArrowColor = Color.Empty;
             btnUpdateAnnouncements.Values.Text = "Update";
+            btnUpdateAnnouncements.Click += btnUpdateAnnouncements_Click;
+            // 
+            // btnSubmitAnnouncements
+            // 
+            btnSubmitAnnouncements.Location = new Point(80, 675);
+            btnSubmitAnnouncements.Margin = new Padding(4, 3, 4, 3);
+            btnSubmitAnnouncements.Name = "btnSubmitAnnouncements";
+            btnSubmitAnnouncements.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.OverrideDefault.Back.ColorAngle = 45F;
+            btnSubmitAnnouncements.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSubmitAnnouncements.OverrideDefault.Border.Rounding = 5F;
+            btnSubmitAnnouncements.OverrideDefault.Border.Width = 1;
+            btnSubmitAnnouncements.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnSubmitAnnouncements.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnSubmitAnnouncements.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnSubmitAnnouncements.Size = new Size(187, 54);
+            btnSubmitAnnouncements.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateCommon.Back.ColorAngle = 45F;
+            btnSubmitAnnouncements.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSubmitAnnouncements.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnSubmitAnnouncements.StateCommon.Border.ColorAngle = 45F;
+            btnSubmitAnnouncements.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSubmitAnnouncements.StateCommon.Border.Rounding = 5F;
+            btnSubmitAnnouncements.StateCommon.Border.Width = 1;
+            btnSubmitAnnouncements.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnSubmitAnnouncements.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnSubmitAnnouncements.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSubmitAnnouncements.StateDisabled.Border.Rounding = 5F;
+            btnSubmitAnnouncements.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateNormal.Border.Rounding = 5F;
+            btnSubmitAnnouncements.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnSubmitAnnouncements.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnSubmitAnnouncements.StatePressed.Back.Color1 = Color.White;
+            btnSubmitAnnouncements.StatePressed.Back.Color2 = Color.White;
+            btnSubmitAnnouncements.StatePressed.Back.ColorAngle = 130F;
+            btnSubmitAnnouncements.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnSubmitAnnouncements.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnSubmitAnnouncements.StatePressed.Border.ColorAngle = 130F;
+            btnSubmitAnnouncements.StatePressed.Border.Rounding = 5F;
+            btnSubmitAnnouncements.StatePressed.Border.Width = 1;
+            btnSubmitAnnouncements.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnSubmitAnnouncements.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnSubmitAnnouncements.StateTracking.Back.ColorAngle = 45F;
+            btnSubmitAnnouncements.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnSubmitAnnouncements.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateTracking.Border.ColorAngle = 45F;
+            btnSubmitAnnouncements.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnSubmitAnnouncements.StateTracking.Border.Rounding = 5F;
+            btnSubmitAnnouncements.StateTracking.Border.Width = 1;
+            btnSubmitAnnouncements.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnSubmitAnnouncements.TabIndex = 38;
+            btnSubmitAnnouncements.Values.DropDownArrowColor = Color.Empty;
+            btnSubmitAnnouncements.Values.Text = "Submit";
+            btnSubmitAnnouncements.Click += btnSubmitAnnouncements_Click;
             // 
             // AnnouncementsModalControl
             // 
@@ -379,8 +381,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         protected internal Krypton.Toolkit.KryptonTextBox txtStatements;
         protected internal Krypton.Toolkit.KryptonButton btnUplaodAnnouncement;
         protected internal Krypton.Toolkit.KryptonTextBox txtTitle;
-        private Krypton.Toolkit.KryptonPictureBox picAttachment;
-        protected internal Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
+        protected internal Krypton.Toolkit.KryptonCheckBox cbHidePost;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        protected internal Krypton.Toolkit.KryptonPictureBox picAttachment;
     }
 }

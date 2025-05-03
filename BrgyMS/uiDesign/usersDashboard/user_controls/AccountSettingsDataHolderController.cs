@@ -50,7 +50,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
 
         public async Task LoadContents() {
             try {
-                userId = _Utils.ReadUserIdInFile();
+                userId = _Utils.ReadIdInFile();
                 _BaseServices = new BaseServices();
 
                 Cursor = Cursors.WaitCursor;
@@ -121,7 +121,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private async void kryptonButton1_Click(object sender, EventArgs e) {
             // for personal information
             _BaseServices = new();
-            userId = _Utils.ReadUserIdInFile();
+            userId = _Utils.ReadIdInFile();
             try {
                 Cursor = Cursors.WaitCursor;
                 //    Invoke(new Action(() =>

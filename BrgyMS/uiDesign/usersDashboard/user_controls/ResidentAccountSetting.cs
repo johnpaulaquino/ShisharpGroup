@@ -25,7 +25,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private AccountSettingsDataHolderController data;
         public ResidentAccountSetting() {
             InitializeComponent();
-            userId = utils.ReadUserIdInFile();
+            userId = utils.ReadIdInFile();
 
 
         }

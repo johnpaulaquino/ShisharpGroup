@@ -67,7 +67,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
                     string? userId = dataGridBlotterTable.Rows[hit.RowIndex].Cells[0].Value?.ToString();
                     try {
-                        utils.PutBlotterIdOnFile(userId);
+                        utils.PutIdOnFile(userId);
 
                         //show the context
                         ctxBlotter.Show(this, dataGridBlotterTable.PointToScreen(e.Location));
@@ -85,7 +85,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
                 SecretaryBlotterControl bControl = new();
 
-                string id = utils.ReadBlotterIdInFile();
+                string id = utils.ReadIdInFile();
 
                 var option = MessageBox.Show("Are you sure you wan to delete this permanently?", "Delete Blotter",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -108,9 +108,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private async void updateBlotterToolStripMenuItem_Click(object sender, EventArgs e) {
             modal = new();
             blotterModal = new();
-            string id = utils.ReadBlotterIdInFile();
-
-            BlotterInformation blotter = await _AdminServices.GetBlotter(id);
+            string id = utils.ReadIdInFile();
 
             modal.pnlContainer.Controls.Clear();
             modal.pnlContainer.Controls.Add(blotterModal);
@@ -140,7 +138,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private async Task SetDataWhenUpdatingBlotter() {
             try {
 
-                string id = utils.ReadBlotterIdInFile();
+                string id = utils.ReadIdInFile();
 
                 List<BlotterInformation> data = await _AdminServices.GetBlotterAndPersonalInfo(id);
                 BlotterInformation blotter = (BlotterInformation)data[0];
@@ -166,7 +164,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         public async void BlotterTableResfresher() {
             try {
                 int limit = (int)nudLimit.Value;
-                await _Secretary.FillBlotterTable(dataGridBlotterTable, limit);
+                await _Secretary.FillBlotterTable(dataGridBlotterTable);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

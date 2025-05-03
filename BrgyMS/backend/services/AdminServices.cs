@@ -18,6 +18,7 @@ using BrgyMs.backend.utils;
 using OtpNet;
 using BrgyMS.backend.models.base_model;
 using MySqlX.XDevAPI.Common;
+using BrgyMS.backend.models;
 
 namespace BrgyMs.backend.services {
     public class AdminServices : BaseServices {
@@ -200,7 +201,8 @@ namespace BrgyMs.backend.services {
             }
         } // end
 
-        //dedelte blotter
+
+        //dedelte blotter permanently
         public async Task DeleteBlotter(string id) {
             try {
 
@@ -210,20 +212,6 @@ namespace BrgyMs.backend.services {
                 throw;
             }
         } // 
-        public async Task<BlotterInformation> GetBlotter(string id) {
-            try {
-                BlotterInformation blotterObject = await _AdminRepository.GetBlotter(id);
-                if (blotterObject != null) {
-                    return blotterObject;
-                }
-
-                throw new Exception("No records found!");
-            }
-
-            catch (Exception) {
-                throw;
-            }
-        }
 
         //Get the personal Blotter information
         public async Task<List<BlotterInformation>> GetBlotterAndPersonalInfo(string id) {
@@ -258,6 +246,31 @@ namespace BrgyMs.backend.services {
                 throw;
             }
         } //
+
+
+        //update announcement
+        public async Task UpdateAnnouncements(AnnouncementsModel announce, string announceId) {
+            try {
+                validation.ValidateAnnoucnement(announce);
+
+                await _AdminRepository.UpdateAnnouncement(announce, announceId);
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // end
+
+        //Delete the announcement permanently
+        public async Task DeleteAnnuoncement(string id) {
+            try {
+
+                await _AdminRepository.DeleteAnnoucenments(id);
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
+
 
 
 

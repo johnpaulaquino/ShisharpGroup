@@ -206,7 +206,7 @@ namespace BrgyMs.backend.database.repositories {
                 "FROM users u " +
                 "Right join action_logs la " +
                 "ON u.id = la.user_id " +
-                "ORDER by la.date_performed ASC LIMIT @limit ";
+                "ORDER by la.date_performed ASC LIMIT 10 ";
 
             try {
                 var connection = await conn.getConnection();
@@ -237,12 +237,11 @@ namespace BrgyMs.backend.database.repositories {
                 "On u.id = p.user_id " +
                 "LEFT JOIN address ad " +
                 "ON u.id = ad.user_id " +
-                "WHERE u.status = @status LIMIT @limit";
+                "WHERE u.status = @status LIMIT 10";
 
             var connection = await conn.getConnection();
             var adapter = new MySqlDataAdapter(stmt, connection);
             adapter.SelectCommand.Parameters.AddWithValue("@status", "0");
-            adapter.SelectCommand.Parameters.AddWithValue("@limit", 15);
 
             return adapter;
         }
@@ -353,6 +352,7 @@ namespace BrgyMs.backend.database.repositories {
 
         } // end
 
+        //get blotter for update
         public async Task<DataTable> GetBlotterForUpdate(string id) {
             string stmt = "SELECT b.id as ID, " +
                 "b.complainant_id as Complainant, b.respondent_id as Respondent, b.statements as Statements, " +
@@ -382,12 +382,14 @@ namespace BrgyMs.backend.database.repositories {
 
             try {
                 using var connection = await conn.getConnection();
+
                 using var cmd = new MySqlCommand(stmt, connection);
+
                 cmd.Parameters.AddWithValue("@title", annoucnement.Title);
                 cmd.Parameters.AddWithValue("@details", annoucnement.Details);
                 cmd.Parameters.AddWithValue("@attachment", annoucnement.Attachments);
                 cmd.Parameters.AddWithValue("@status", annoucnement.Status);
-                cmd.Parameters.AddWithValue("@status", id);
+                cmd.Parameters.AddWithValue("@id", id);
 
                 await cmd.ExecuteNonQueryAsync();
             }

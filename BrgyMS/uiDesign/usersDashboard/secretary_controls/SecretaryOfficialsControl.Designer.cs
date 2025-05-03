@@ -311,10 +311,10 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             kryptonLabel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             kryptonLabel2.Location = new Point(36, 48);
             kryptonLabel2.Name = "kryptonLabel2";
-            kryptonLabel2.Size = new Size(189, 29);
+            kryptonLabel2.Size = new Size(321, 29);
             kryptonLabel2.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 15.75F);
             kryptonLabel2.TabIndex = 4;
-            kryptonLabel2.Values.Text = "Barangay Officials";
+            kryptonLabel2.Values.Text = "Barangay Officials Management";
             // 
             // SecretaryOfficialsControl
             // 
