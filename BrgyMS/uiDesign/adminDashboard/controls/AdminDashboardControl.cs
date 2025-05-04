@@ -1,6 +1,7 @@
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.services;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using LiveCharts.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveChartsCore.SkiaSharpView.Wi;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.Kernel.Sketches;
+using LiveCharts;
 
 namespace BrgyMS.uiDesign.adminDashboard.controls {
     public partial class AdminDashboardControl : UserControl {
@@ -41,6 +46,15 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         private void kryptonPanel1_Paint(object sender, PaintEventArgs e) {
 
+        }
+
+        Func<ChartPoint, string> label = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+        private void GenerateChart() {
+            SeriesCollection series = new SeriesCollection();
+
+            foreach (var item in series) {
+                
+            }
         }
     }
 }

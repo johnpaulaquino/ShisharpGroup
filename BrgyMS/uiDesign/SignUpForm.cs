@@ -325,11 +325,7 @@ namespace BrgyMs.uiDesign {
 
 
         private void btnAProofOfresidency_Click(object sender, EventArgs e) {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            if (fileDialog.ShowDialog() == DialogResult.OK) {
-                filePathProofOfR = fileDialog.FileName;
-                txtAPoRFilePath.Text = filePathProofOfR;
-            }
+        
 
         }
         //If the resident lives in village

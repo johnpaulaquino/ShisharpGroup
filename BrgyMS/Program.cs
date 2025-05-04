@@ -15,7 +15,7 @@ namespace BrgyMS {
             // see https://aka.ms/applicationconfiguration.
 
 
-            Application.Run(new ReportViewer());
+            Application.Run(new LoginForm());
 
 
         }

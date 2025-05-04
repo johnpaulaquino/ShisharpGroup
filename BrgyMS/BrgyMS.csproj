@@ -39,19 +39,30 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView" Version="2.4.18" />
 		<PackageReference Include="DotnetEnv" Version="3.1.1" />
+		<PackageReference Include="FastReport.OpenSource" Version="2025.2.0" />
+		<PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2025.2.0" />
 		<PackageReference Include="Isopoh.Cryptography.Argon2" Version="2.0.0" />
 		<PackageReference Include="Krypton.Docking" Version="95.25.4.111" />
 		<PackageReference Include="Krypton.Navigator" Version="95.25.4.111" />
 		<PackageReference Include="Krypton.Toolkit" Version="95.25.4.111" />
 		<PackageReference Include="Krypton.Workspace" Version="95.25.4.111" />
+		<PackageReference Include="LiveCharts.Core" Version="0.9.8" />
+		<PackageReference Include="LiveCharts.NetCore" Version="0.9.8" />
+		<PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
 		<PackageReference Include="Mailkit" Version="4.11.0" />
 		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.8.0" />
+		<PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.WebForms" Version="150.1652.0" />
 		<PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1652.0" />
 		<PackageReference Include="Microsoft.ReportViewer.WinForms" Version="10.0.40219.1" />
 		<PackageReference Include="Mysql.Data" Version="9.2.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Otp.NET" Version="1.4.0" />
+		<PackageReference Include="Stimulsoft.Connect.API" Version="2025.2.3" />
+		<PackageReference Include="Stimulsoft.Reports.Engine" Version="2025.2.3" />
+		<PackageReference Include="Stimulsoft.Reports.Engine.NetCore" Version="2025.2.3" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.8.0" />
 		<PackageReference Include="Microsoft.Build.Tasks.Git" Version="8.0.0" PrivateAssets="all">
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

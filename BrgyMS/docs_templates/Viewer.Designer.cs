@@ -1,5 +1,5 @@
 ﻿namespace BrgyMS.docs_templates {
-    partial class ReportViewer {
+    partial class Viewer {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,22 +28,23 @@
             // 
             // kryptonButton1
             // 
-            kryptonButton1.Location = new Point(295, 253);
+            kryptonButton1.Location = new Point(318, 265);
             kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(297, 54);
+            kryptonButton1.Size = new Size(90, 25);
             kryptonButton1.TabIndex = 0;
             kryptonButton1.Values.DropDownArrowColor = Color.Empty;
             kryptonButton1.Values.Text = "kryptonButton1";
             kryptonButton1.Click += kryptonButton1_Click;
             // 
-            // ReportViewer
+            // Viewer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(kryptonButton1);
-            Name = "ReportViewer";
-            Text = "ReportViewer";
+            Name = "Viewer";
+            Text = "Viewer";
+            Load += Viewer_Load;
             ResumeLayout(false);
         }
 
