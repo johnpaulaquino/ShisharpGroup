@@ -1,5 +1,6 @@
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.models.bo_model;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMS.backend.models;
@@ -11,6 +12,8 @@ using Krypton.Toolkit;
 using Microsoft.VisualBasic.Devices;
 using Mysqlx.Resultset;
 using MySqlX.XDevAPI.Relational;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Org.BouncyCastle.Asn1.Cmp;
 using Org.BouncyCastle.Bcpg.Sig;
 using System;
@@ -21,6 +24,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -33,6 +37,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         private EmailServices _EmailServices = new();
         private readonly AdminRepository _admin = new AdminRepository();
         private readonly Utils utils = new Utils();
+        private SecretaryServices _SecreataryServices = new();
 
         public UIAdminUtils() {
 
@@ -74,14 +79,19 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                 table.Update();
                 table.Refresh();
-                using var userInfo = await _AdminServices.GetUserInformation(limit);
+
+                var userInfo = await Task.Run(async () =>
+                {
+                    return await _AdminServices.GetUserInformation(limit);
+                });
+
                 table.Columns.Clear();
                 table.DataSource = userInfo;
                 SetWidthToAccountManagementTable(table);
 
 
             }
-            catch (System.Exception e) {
+            catch (Exception e) {
                 MessageBox.Show(e.Message);
             }
             finally {
@@ -430,6 +440,98 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             }
             return bytes;
         }// end
+
+
+        // to get the offivials data in table
+        public async Task SetOfficialsInTable(DataGridView table) {
+            try {
+                var dt = await Task.Run(async () =>
+                {
+                    return await _SecreataryServices.GetOFficialsInfo();
+                });
+                table.Columns.Clear();
+                table.DataSource = dt;
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        } // end
+
+
+        //set the officials info when the update context menu is clicked inbrangay officials tbale
+        public async Task SetOfficialsDataInModal(KryptonTextBox txtAccom,
+            KryptonTextBox txtAchievements, KryptonComboBox cboStatus,
+            KryptonComboBox cboPosition,
+            KryptonComboBox cboDateRange, KryptonComboBox cboAccom,
+            KryptonComboBox cboAchievements) {
+            try {
+                ElectionHistories elect = null;
+                List<string> achievemnt = new List<string>();
+                List<string> accom = new List<string>();
+                List<ElectionHistories> histories = new List<ElectionHistories>();
+                string id = utils.ReadIdInFile();
+
+                string json = "";
+                cboAccom.Items.Clear();
+                cboAchievements.Items.Clear();
+                cboDateRange.Items.Clear();
+
+
+                DataTable dt = await _SecreataryServices.GetOFficialsInfo(id);
+
+                foreach (DataRow item in dt.Rows) {
+                    elect = JsonConvert.DeserializeObject<ElectionHistories>((string)item["Histories"]); // dezerialize the object
+                    json = (string)item["Histories"]; // get the json, so that can get all the achievements and acomm on that year
+                    histories.Add(elect); // add the election history to the list
+                    cboStatus.SelectedItem = (string)item["Status"];
+                    cboPosition.SelectedItem = (string)item["Position"];
+                    string startDate = elect.TermStart;
+                    string endDate = elect.TermEnd;
+
+                    string dateRange = $"{startDate} To {endDate}";
+
+                    cboDateRange.Items.Add(dateRange);
+                }// end of loop
+
+
+                // get the date range  based on the cboDaterange selectedIndex
+                string startDate1 = "";
+                string enDate = "";
+                if (cboDateRange.Items.Count != 0) {
+                    cboDateRange.SelectedIndex = 0;
+                    startDate1 = cboDateRange.SelectedItem.ToString().Split(' ')[0].ToString(); // get the start date
+                    enDate = cboDateRange.SelectedItem.ToString().Split(' ')[1].ToString(); // get the start date
+
+
+                }                // parse the json string
+                var jsonArray = JArray.Parse(json);
+
+                await Task.Run(() =>
+                {
+                    foreach (var item in jsonArray.Children<JObject>()) {
+                        if (string.Equals((string)item["TermStart"], startDate1) &&
+                            string.Equals((string)item["TermEnd"], enDate)) {
+
+                            var achievemntlist = item["Achievements"] as JArray;
+                            var acomlist = item["Accomplished"] as JArray;
+
+                            if (achievemntlist != null) {
+                                foreach (var accom in achievemntlist) {
+                                    cboAchievements.Items.Add(accom);
+                                }
+                            }
+
+                        }
+                    }
+                });
+
+
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
 
     }
 }

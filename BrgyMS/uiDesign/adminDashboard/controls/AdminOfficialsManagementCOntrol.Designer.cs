@@ -31,7 +31,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            btnAddOfficials = new Krypton.Toolkit.KryptonButton();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
@@ -43,7 +42,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             col3 = new DataGridViewTextBoxColumn();
             col4 = new DataGridViewTextBoxColumn();
             col5 = new DataGridViewTextBoxColumn();
-            ctxBlotter = new ContextMenuStrip(components);
+            ctxOfficials = new ContextMenuStrip(components);
             updateBlotterToolStripMenuItem = new ToolStripMenuItem();
             deleteBlotterToolStripMenuItem = new ToolStripMenuItem();
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
@@ -53,7 +52,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridOFficialsable).BeginInit();
-            ctxBlotter.SuspendLayout();
+            ctxOfficials.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).BeginInit();
             pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
@@ -103,7 +102,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // kryptonPanel1
             // 
             kryptonPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            kryptonPanel1.Controls.Add(btnAddOfficials);
             kryptonPanel1.Controls.Add(kryptonLabel5);
             kryptonPanel1.Controls.Add(kryptonDateTimePicker1);
             kryptonPanel1.Controls.Add(kryptonLabel1);
@@ -117,67 +115,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonPanel1.Size = new Size(944, 594);
             kryptonPanel1.StateCommon.Color1 = Color.White;
             kryptonPanel1.TabIndex = 1;
-            // 
-            // btnAddOfficials
-            // 
-            btnAddOfficials.Location = new Point(32, 45);
-            btnAddOfficials.Margin = new Padding(4, 3, 4, 3);
-            btnAddOfficials.Name = "btnAddOfficials";
-            btnAddOfficials.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.OverrideDefault.Back.ColorAngle = 45F;
-            btnAddOfficials.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnAddOfficials.OverrideDefault.Border.Rounding = 5F;
-            btnAddOfficials.OverrideDefault.Border.Width = 1;
-            btnAddOfficials.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnAddOfficials.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnAddOfficials.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnAddOfficials.Size = new Size(188, 45);
-            btnAddOfficials.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateCommon.Back.ColorAngle = 45F;
-            btnAddOfficials.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnAddOfficials.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            btnAddOfficials.StateCommon.Border.ColorAngle = 45F;
-            btnAddOfficials.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnAddOfficials.StateCommon.Border.Rounding = 5F;
-            btnAddOfficials.StateCommon.Border.Width = 1;
-            btnAddOfficials.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnAddOfficials.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnAddOfficials.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddOfficials.StateDisabled.Border.Rounding = 5F;
-            btnAddOfficials.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateNormal.Border.Rounding = 5F;
-            btnAddOfficials.StateNormal.Content.ShortText.Color1 = Color.White;
-            btnAddOfficials.StateNormal.Content.ShortText.Color2 = Color.White;
-            btnAddOfficials.StatePressed.Back.Color1 = Color.White;
-            btnAddOfficials.StatePressed.Back.Color2 = Color.White;
-            btnAddOfficials.StatePressed.Back.ColorAngle = 130F;
-            btnAddOfficials.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            btnAddOfficials.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            btnAddOfficials.StatePressed.Border.ColorAngle = 130F;
-            btnAddOfficials.StatePressed.Border.Rounding = 5F;
-            btnAddOfficials.StatePressed.Border.Width = 1;
-            btnAddOfficials.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateTracking.Back.Color1 = Color.WhiteSmoke;
-            btnAddOfficials.StateTracking.Back.Color2 = Color.WhiteSmoke;
-            btnAddOfficials.StateTracking.Back.ColorAngle = 45F;
-            btnAddOfficials.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnAddOfficials.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateTracking.Border.ColorAngle = 45F;
-            btnAddOfficials.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnAddOfficials.StateTracking.Border.Rounding = 5F;
-            btnAddOfficials.StateTracking.Border.Width = 1;
-            btnAddOfficials.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnAddOfficials.TabIndex = 38;
-            btnAddOfficials.Values.DropDownArrowColor = Color.Empty;
-            btnAddOfficials.Values.Text = "Add Officials";
-            btnAddOfficials.Click += btnAddOfficials_Click;
             // 
             // kryptonLabel5
             // 
@@ -233,7 +170,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridOFficialsable.BorderStyle = BorderStyle.None;
             dataGridOFficialsable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridOFficialsable.Columns.AddRange(new DataGridViewColumn[] { id, col1, col2, col3, col4, col5 });
-            dataGridOFficialsable.ContextMenuStrip = ctxBlotter;
+            dataGridOFficialsable.ContextMenuStrip = ctxOfficials;
             dataGridOFficialsable.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridOFficialsable.Location = new Point(36, 184);
             dataGridOFficialsable.MultiSelect = false;
@@ -261,6 +198,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             dataGridOFficialsable.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
             dataGridOFficialsable.TabIndex = 18;
             dataGridOFficialsable.ToolTipShadow = false;
+            dataGridOFficialsable.MouseDown += dataGridOFficialsable_MouseDown;
             // 
             // id
             // 
@@ -298,24 +236,26 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             col5.Name = "col5";
             col5.ReadOnly = true;
             // 
-            // ctxBlotter
+            // ctxOfficials
             // 
-            ctxBlotter.Font = new Font("Segoe UI", 9F);
-            ctxBlotter.Items.AddRange(new ToolStripItem[] { updateBlotterToolStripMenuItem, deleteBlotterToolStripMenuItem });
-            ctxBlotter.Name = "ctxBlotter";
-            ctxBlotter.Size = new Size(199, 48);
+            ctxOfficials.Font = new Font("Segoe UI", 9F);
+            ctxOfficials.Items.AddRange(new ToolStripItem[] { updateBlotterToolStripMenuItem, deleteBlotterToolStripMenuItem });
+            ctxOfficials.Name = "ctxBlotter";
+            ctxOfficials.Size = new Size(211, 70);
             // 
             // updateBlotterToolStripMenuItem
             // 
             updateBlotterToolStripMenuItem.Name = "updateBlotterToolStripMenuItem";
-            updateBlotterToolStripMenuItem.Size = new Size(198, 22);
-            updateBlotterToolStripMenuItem.Text = "Update Announcement";
+            updateBlotterToolStripMenuItem.Size = new Size(210, 22);
+            updateBlotterToolStripMenuItem.Text = "Update Barangay Officials";
+            updateBlotterToolStripMenuItem.Click += updateBlotterToolStripMenuItem_Click;
             // 
             // deleteBlotterToolStripMenuItem
             // 
             deleteBlotterToolStripMenuItem.Name = "deleteBlotterToolStripMenuItem";
-            deleteBlotterToolStripMenuItem.Size = new Size(198, 22);
-            deleteBlotterToolStripMenuItem.Text = "Delete Announcement";
+            deleteBlotterToolStripMenuItem.Size = new Size(210, 22);
+            deleteBlotterToolStripMenuItem.Text = "Delete Barangay  Officials";
+            deleteBlotterToolStripMenuItem.Click += deleteBlotterToolStripMenuItem_Click;
             // 
             // pnlMainContentControler
             // 
@@ -355,12 +295,13 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             Controls.Add(pnlMainContentControler);
             Name = "AdminOfficialsManagementControl";
             Size = new Size(944, 607);
+            Load += AdminOfficialsManagementControl_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
             kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridOFficialsable).EndInit();
-            ctxBlotter.ResumeLayout(false);
+            ctxOfficials.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pnlMainContentControler).EndInit();
             pnlMainContentControler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
@@ -383,7 +324,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonDateTimePicker dtpkStartDate;
-        private Krypton.Toolkit.KryptonButton btnAddOfficials;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn col1;
         private DataGridViewTextBoxColumn col2;
@@ -391,7 +331,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private DataGridViewTextBoxColumn col4;
         private DataGridViewTextBoxColumn col5;
         protected internal Krypton.Toolkit.KryptonDataGridView dataGridOFficialsable;
-        private ContextMenuStrip ctxBlotter;
+        private ContextMenuStrip ctxOfficials;
         private ToolStripMenuItem updateBlotterToolStripMenuItem;
         private ToolStripMenuItem deleteBlotterToolStripMenuItem;
     }

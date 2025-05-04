@@ -19,6 +19,26 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <COMReference Include="RDPCOMAPILib">
+	    <WrapperTool>tlbimp</WrapperTool>
+	    <VersionMinor>0</VersionMinor>
+	    <VersionMajor>1</VersionMajor>
+	    <Guid>cc802d05-ae07-4c15-b496-db9d22aa0a84</Guid>
+	    <Lcid>0</Lcid>
+	    <Isolated>false</Isolated>
+	    <EmbedInteropTypes>true</EmbedInteropTypes>
+	  </COMReference>
+	  <COMReference Include="AxRDPCOMAPILib">
+	    <WrapperTool>aximp</WrapperTool>
+	    <VersionMinor>0</VersionMinor>
+	    <VersionMajor>1</VersionMajor>
+	    <Guid>cc802d05-ae07-4c15-b496-db9d22aa0a84</Guid>
+	    <Lcid>0</Lcid>
+	    <Isolated>false</Isolated>
+	  </COMReference>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="DotnetEnv" Version="3.1.1" />
 		<PackageReference Include="Isopoh.Cryptography.Argon2" Version="2.0.0" />
 		<PackageReference Include="Krypton.Docking" Version="95.25.4.111" />
@@ -27,6 +47,8 @@
 		<PackageReference Include="Krypton.Workspace" Version="95.25.4.111" />
 		<PackageReference Include="Mailkit" Version="4.11.0" />
 		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.8.0" />
+		<PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1652.0" />
+		<PackageReference Include="Microsoft.ReportViewer.WinForms" Version="10.0.40219.1" />
 		<PackageReference Include="Mysql.Data" Version="9.2.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Otp.NET" Version="1.4.0" />

@@ -26,25 +26,47 @@ namespace BrgyMs.backend.database.repositories {
             _AuthUtils = new AuthUtils();
         }
 
+
+        public async Task<bool> CheckOfficialsIfExists(string id) {
+            try {
+                string stmt = "SELECT * from officials " +
+                    "Where user_id = @user_id and status = @status ";
+
+                using var connection = await conn.getConnection();
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@user_id", id);
+                cmd.Parameters.AddWithValue("@status", "Active");
+
+                using var reader = await cmd.ExecuteReaderAsync();
+
+                if (await reader.ReadAsync()) {
+                    MessageBox.Show("true");
+                    return true; // return true if exist
+
+                }
+                return false;
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
         //This section is for setters
         public async Task AddOfficialsInfo(OfficialsInfo _OfficialsInfo,
             String ElecHistories) {
 
-            string stmt = "Insert into officials(id, user_id, term_start, term_end, position, election_histories, status) "
-            + "Values(@id, @user_id,@term_start,@term_end,@position,@election_histories,@status)";
-
+            string stmt = "Insert into officials(id, user_id,position, election_histories, status) "
+            + "Values(@id, @user_id,@position,@election_histories,@status)";
 
             try {
                 using (var cmd = new MySqlCommand(stmt, await conn.getConnection())) {
                     cmd.Parameters.AddWithValue("@user_id", _OfficialsInfo.UserId);
-                    cmd.Parameters.AddWithValue("@term_start", _OfficialsInfo.TermStart.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@term_end", _OfficialsInfo.TermEnd.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@position", _OfficialsInfo.Position);
-                    cmd.Parameters.AddWithValue("@election_histories", ElecHistories);
                     cmd.Parameters.AddWithValue("@status", _OfficialsInfo.Status);
+                    cmd.Parameters.AddWithValue("@election_histories", ElecHistories);
                     cmd.Parameters.AddWithValue("@id", _OfficialsInfo.Id);
                     await cmd.ExecuteNonQueryAsync();
-                    Console.WriteLine("Successfully add officials info!");
+
                 }
             }
             catch (Exception) {

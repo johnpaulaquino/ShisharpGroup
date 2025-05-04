@@ -6,8 +6,8 @@ using Newtonsoft.Json;
 
 namespace BrgyMs.backend.models.bo_model {
     public class ElectionHistories {
-        public DateTime TermStart { get; set; }
-        public DateTime TermEnd { get; set; }
+        public string TermStart { get; set; }
+        public string TermEnd { get; set; }
         public List<string> Accomplished { get; set; }
         public List<string> Achievements { get; set; }
     }

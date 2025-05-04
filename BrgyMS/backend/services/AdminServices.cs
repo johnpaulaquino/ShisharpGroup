@@ -33,12 +33,10 @@ namespace BrgyMs.backend.services {
         //for limiting records and when start the app
         public async Task<DataTable> GetUserInformation(int limit) {
 
-            var userInfo = Task.Run(() =>
-            {
-                return _AdminRepository.GetUserInformation(limit);
+            var dt = await _AdminRepository.GetUserInformation(limit);
 
-            });
-            return await userInfo;
+
+            return dt;
 
         }
 
@@ -265,6 +263,16 @@ namespace BrgyMs.backend.services {
             try {
 
                 await _AdminRepository.DeleteAnnoucenments(id);
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // end 
+
+        public async Task DeleteOfficials(string id) {
+            try {
+                await _AdminRepository.DeleteOfficials(id);
+
             }
             catch (Exception) {
                 throw;

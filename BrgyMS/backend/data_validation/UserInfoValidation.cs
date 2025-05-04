@@ -272,16 +272,10 @@ namespace BrgyMs.backend.data_validation {
                 if (string.IsNullOrEmpty(officialsInfo.Position) || string.Equals(officialsInfo.Position, "--Select--")) {
                     throw new Exception("Please specify the position!");
                 }
-                if (officialsInfo.TermStart > officialsInfo.TermEnd) {
-                    throw new Exception("Invalid date range, start date should be less than to end date!");
-
-                }
                 if (string.IsNullOrEmpty(officialsInfo.Status) ||
                     string.Equals(officialsInfo.Status, "--Select--")) {
                     throw new Exception("Please specify the status!");
                 }
-
-
             }
             catch (Exception) {
                 throw;

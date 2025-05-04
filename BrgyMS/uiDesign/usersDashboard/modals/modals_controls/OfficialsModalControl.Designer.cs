@@ -23,18 +23,24 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
+            cboDateRange = new Krypton.Toolkit.KryptonComboBox();
+            kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
             cboStatus = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             dtpkEndTerm = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             btnAddAccom = new Krypton.Toolkit.KryptonButton();
             cboAcom = new Krypton.Toolkit.KryptonComboBox();
+            ctxRemoveAccom = new ContextMenuStrip(components);
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             txtAccom = new Krypton.Toolkit.KryptonTextBox();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             btnAddAchievement = new Krypton.Toolkit.KryptonButton();
             cboAchievements = new Krypton.Toolkit.KryptonComboBox();
+            ctxRemoveAchievements = new ContextMenuStrip(components);
+            removeToolStripMenuItem = new ToolStripMenuItem();
             dtpkStartTerm = new Krypton.Toolkit.KryptonDateTimePicker();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             txtAchievements = new Krypton.Toolkit.KryptonTextBox();
@@ -42,20 +48,24 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            btnSubmitOfficials = new Krypton.Toolkit.KryptonButton();
             btnOfficialsSaveChanges = new Krypton.Toolkit.KryptonButton();
+            btnSubmitOfficials = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).BeginInit();
             pnlMainContentHolder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cboDateRange).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboStatus).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboAcom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cboAchievements).BeginInit();
+            ctxRemoveAchievements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cboPosition).BeginInit();
             SuspendLayout();
             // 
             // pnlMainContentHolder
             // 
             pnlMainContentHolder.AutoScroll = true;
+            pnlMainContentHolder.Controls.Add(cboDateRange);
+            pnlMainContentHolder.Controls.Add(kryptonLabel8);
             pnlMainContentHolder.Controls.Add(cboStatus);
             pnlMainContentHolder.Controls.Add(kryptonLabel7);
             pnlMainContentHolder.Controls.Add(dtpkEndTerm);
@@ -83,14 +93,40 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             pnlMainContentHolder.StateCommon.Color1 = Color.White;
             pnlMainContentHolder.TabIndex = 13;
             // 
+            // cboDateRange
+            // 
+            cboDateRange.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cboDateRange.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboDateRange.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboDateRange.DropDownWidth = 428;
+            cboDateRange.Enabled = false;
+            cboDateRange.Location = new Point(3, 520);
+            cboDateRange.Name = "cboDateRange";
+            cboDateRange.Size = new Size(339, 25);
+            cboDateRange.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
+            cboDateRange.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cboDateRange.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
+            cboDateRange.StateNormal.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
+            cboDateRange.TabIndex = 58;
+            // 
+            // kryptonLabel8
+            // 
+            kryptonLabel8.Location = new Point(6, 481);
+            kryptonLabel8.Name = "kryptonLabel8";
+            kryptonLabel8.Size = new Size(146, 33);
+            kryptonLabel8.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonLabel8.TabIndex = 57;
+            kryptonLabel8.Values.Text = "Date Range";
+            // 
             // cboStatus
             // 
             cboStatus.AutoCompleteMode = AutoCompleteMode.Suggest;
             cboStatus.AutoCompleteSource = AutoCompleteSource.ListItems;
             cboStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cboStatus.DropDownWidth = 428;
+            cboStatus.Enabled = false;
             cboStatus.Items.AddRange(new object[] { "Active", "Inactive", "Resigned", "Suspended" });
-            cboStatus.Location = new Point(3, 745);
+            cboStatus.Location = new Point(3, 431);
             cboStatus.Name = "cboStatus";
             cboStatus.Size = new Size(339, 25);
             cboStatus.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
@@ -101,7 +137,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // kryptonLabel7
             // 
-            kryptonLabel7.Location = new Point(6, 706);
+            kryptonLabel7.Location = new Point(6, 392);
             kryptonLabel7.Name = "kryptonLabel7";
             kryptonLabel7.Size = new Size(85, 33);
             kryptonLabel7.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -129,7 +165,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // btnAddAccom
             // 
-            btnAddAccom.Location = new Point(209, 631);
+            btnAddAccom.Enabled = false;
+            btnAddAccom.Location = new Point(209, 799);
             btnAddAccom.Margin = new Padding(4, 3, 4, 3);
             btnAddAccom.Name = "btnAddAccom";
             btnAddAccom.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -191,9 +228,10 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             cboAcom.AutoCompleteMode = AutoCompleteMode.Suggest;
             cboAcom.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboAcom.ContextMenuStrip = ctxRemoveAccom;
             cboAcom.DropDownWidth = 428;
-            cboAcom.Items.AddRange(new object[] { "Barangay Certificate of Indigency", "Barangay Clearance" });
-            cboAcom.Location = new Point(209, 595);
+            cboAcom.Enabled = false;
+            cboAcom.Location = new Point(209, 763);
             cboAcom.Name = "cboAcom";
             cboAcom.Size = new Size(136, 25);
             cboAcom.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
@@ -202,9 +240,15 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             cboAcom.StateNormal.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAcom.TabIndex = 51;
             // 
+            // ctxRemoveAccom
+            // 
+            ctxRemoveAccom.Font = new Font("Segoe UI", 9F);
+            ctxRemoveAccom.Name = "ctxRemoveAccom";
+            ctxRemoveAccom.Size = new Size(61, 4);
+            // 
             // kryptonLabel4
             // 
-            kryptonLabel4.Location = new Point(6, 556);
+            kryptonLabel4.Location = new Point(6, 724);
             kryptonLabel4.Name = "kryptonLabel4";
             kryptonLabel4.Size = new Size(208, 33);
             kryptonLabel4.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -213,7 +257,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // txtAccom
             // 
-            txtAccom.Location = new Point(6, 595);
+            txtAccom.Enabled = false;
+            txtAccom.Location = new Point(6, 763);
             txtAccom.Multiline = true;
             txtAccom.Name = "txtAccom";
             txtAccom.ReadOnly = true;
@@ -222,7 +267,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // kryptonPanel2
             // 
-            kryptonPanel2.Location = new Point(142, 848);
+            kryptonPanel2.Location = new Point(142, 931);
             kryptonPanel2.Name = "kryptonPanel2";
             kryptonPanel2.Size = new Size(100, 10);
             kryptonPanel2.StateCommon.Color1 = Color.White;
@@ -230,7 +275,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // btnAddAchievement
             // 
-            btnAddAchievement.Location = new Point(209, 473);
+            btnAddAchievement.Enabled = false;
+            btnAddAchievement.Location = new Point(209, 647);
             btnAddAchievement.Margin = new Padding(4, 3, 4, 3);
             btnAddAchievement.Name = "btnAddAchievement";
             btnAddAchievement.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -287,14 +333,17 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             btnAddAchievement.TabIndex = 47;
             btnAddAchievement.Values.DropDownArrowColor = Color.Empty;
             btnAddAchievement.Values.Text = "Add";
+            btnAddAchievement.Click += btnAddAchievement_Click;
             // 
             // cboAchievements
             // 
             cboAchievements.AutoCompleteMode = AutoCompleteMode.Suggest;
             cboAchievements.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboAchievements.ContextMenuStrip = ctxRemoveAchievements;
             cboAchievements.DropDownWidth = 428;
-            cboAchievements.Items.AddRange(new object[] { "Barangay Certificate of Indigency", "Barangay Clearance" });
-            cboAchievements.Location = new Point(209, 437);
+            cboAchievements.Enabled = false;
+            cboAchievements.Items.AddRange(new object[] { "asdasd", "asdasd", "asdasd" });
+            cboAchievements.Location = new Point(209, 611);
             cboAchievements.Name = "cboAchievements";
             cboAchievements.Size = new Size(136, 25);
             cboAchievements.StateCommon.ComboBox.Content.Font = new Font("Microsoft Sans Serif", 12F);
@@ -302,6 +351,21 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             cboAchievements.StateCommon.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAchievements.StateNormal.Item.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F);
             cboAchievements.TabIndex = 46;
+            cboAchievements.MouseDown += cboAchievements_MouseDown;
+            // 
+            // ctxRemoveAchievements
+            // 
+            ctxRemoveAchievements.Font = new Font("Segoe UI", 9F);
+            ctxRemoveAchievements.Items.AddRange(new ToolStripItem[] { removeToolStripMenuItem });
+            ctxRemoveAchievements.Name = "ctxRemoveAchievements";
+            ctxRemoveAchievements.Size = new Size(118, 26);
+            // 
+            // removeToolStripMenuItem
+            // 
+            removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            removeToolStripMenuItem.Size = new Size(117, 22);
+            removeToolStripMenuItem.Text = "Remove";
+            removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
             // 
             // dtpkStartTerm
             // 
@@ -313,7 +377,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // kryptonLabel5
             // 
-            kryptonLabel5.Location = new Point(6, 398);
+            kryptonLabel5.Location = new Point(6, 572);
             kryptonLabel5.Name = "kryptonLabel5";
             kryptonLabel5.Size = new Size(170, 33);
             kryptonLabel5.StateCommon.ShortText.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -322,7 +386,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // txtAchievements
             // 
-            txtAchievements.Location = new Point(6, 437);
+            txtAchievements.Enabled = false;
+            txtAchievements.Location = new Point(6, 611);
             txtAchievements.Multiline = true;
             txtAchievements.Name = "txtAchievements";
             txtAchievements.ReadOnly = true;
@@ -372,9 +437,70 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             kryptonLabel1.TabIndex = 17;
             kryptonLabel1.Values.Text = "Start Term";
             // 
+            // btnOfficialsSaveChanges
+            // 
+            btnOfficialsSaveChanges.Location = new Point(89, 874);
+            btnOfficialsSaveChanges.Margin = new Padding(4, 3, 4, 3);
+            btnOfficialsSaveChanges.Name = "btnOfficialsSaveChanges";
+            btnOfficialsSaveChanges.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.OverrideDefault.Back.ColorAngle = 45F;
+            btnOfficialsSaveChanges.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnOfficialsSaveChanges.OverrideDefault.Border.Rounding = 5F;
+            btnOfficialsSaveChanges.OverrideDefault.Border.Width = 1;
+            btnOfficialsSaveChanges.OverrideDefault.Content.ShortText.Color1 = Color.White;
+            btnOfficialsSaveChanges.OverrideDefault.Content.ShortText.Color2 = Color.White;
+            btnOfficialsSaveChanges.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            btnOfficialsSaveChanges.Size = new Size(187, 51);
+            btnOfficialsSaveChanges.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateCommon.Back.ColorAngle = 45F;
+            btnOfficialsSaveChanges.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnOfficialsSaveChanges.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
+            btnOfficialsSaveChanges.StateCommon.Border.ColorAngle = 45F;
+            btnOfficialsSaveChanges.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnOfficialsSaveChanges.StateCommon.Border.Rounding = 5F;
+            btnOfficialsSaveChanges.StateCommon.Border.Width = 1;
+            btnOfficialsSaveChanges.StateCommon.Content.ShortText.Color1 = Color.White;
+            btnOfficialsSaveChanges.StateCommon.Content.ShortText.Color2 = Color.White;
+            btnOfficialsSaveChanges.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOfficialsSaveChanges.StateDisabled.Border.Rounding = 5F;
+            btnOfficialsSaveChanges.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateNormal.Border.Rounding = 5F;
+            btnOfficialsSaveChanges.StateNormal.Content.ShortText.Color1 = Color.White;
+            btnOfficialsSaveChanges.StateNormal.Content.ShortText.Color2 = Color.White;
+            btnOfficialsSaveChanges.StatePressed.Back.Color1 = Color.White;
+            btnOfficialsSaveChanges.StatePressed.Back.Color2 = Color.White;
+            btnOfficialsSaveChanges.StatePressed.Back.ColorAngle = 130F;
+            btnOfficialsSaveChanges.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
+            btnOfficialsSaveChanges.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
+            btnOfficialsSaveChanges.StatePressed.Border.ColorAngle = 130F;
+            btnOfficialsSaveChanges.StatePressed.Border.Rounding = 5F;
+            btnOfficialsSaveChanges.StatePressed.Border.Width = 1;
+            btnOfficialsSaveChanges.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateTracking.Back.Color1 = Color.WhiteSmoke;
+            btnOfficialsSaveChanges.StateTracking.Back.Color2 = Color.WhiteSmoke;
+            btnOfficialsSaveChanges.StateTracking.Back.ColorAngle = 45F;
+            btnOfficialsSaveChanges.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
+            btnOfficialsSaveChanges.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateTracking.Border.ColorAngle = 45F;
+            btnOfficialsSaveChanges.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            btnOfficialsSaveChanges.StateTracking.Border.Rounding = 5F;
+            btnOfficialsSaveChanges.StateTracking.Border.Width = 1;
+            btnOfficialsSaveChanges.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
+            btnOfficialsSaveChanges.TabIndex = 39;
+            btnOfficialsSaveChanges.Values.DropDownArrowColor = Color.Empty;
+            btnOfficialsSaveChanges.Values.Text = "Save Changes";
+            btnOfficialsSaveChanges.Click += btnOfficialsSaveChanges_Click;
+            // 
             // btnSubmitOfficials
             // 
-            btnSubmitOfficials.Location = new Point(89, 791);
+            btnSubmitOfficials.Location = new Point(89, 874);
             btnSubmitOfficials.Margin = new Padding(4, 3, 4, 3);
             btnSubmitOfficials.Name = "btnSubmitOfficials";
             btnSubmitOfficials.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
@@ -433,66 +559,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             btnSubmitOfficials.Values.Text = "Submit";
             btnSubmitOfficials.Click += btnSubmitOfficials_Click_1;
             // 
-            // btnOfficialsSaveChanges
-            // 
-            btnOfficialsSaveChanges.Location = new Point(89, 791);
-            btnOfficialsSaveChanges.Margin = new Padding(4, 3, 4, 3);
-            btnOfficialsSaveChanges.Name = "btnOfficialsSaveChanges";
-            btnOfficialsSaveChanges.OverrideDefault.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.OverrideDefault.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.OverrideDefault.Back.ColorAngle = 45F;
-            btnOfficialsSaveChanges.OverrideDefault.Border.Color1 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.OverrideDefault.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnOfficialsSaveChanges.OverrideDefault.Border.Rounding = 5F;
-            btnOfficialsSaveChanges.OverrideDefault.Border.Width = 1;
-            btnOfficialsSaveChanges.OverrideDefault.Content.ShortText.Color1 = Color.White;
-            btnOfficialsSaveChanges.OverrideDefault.Content.ShortText.Color2 = Color.White;
-            btnOfficialsSaveChanges.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            btnOfficialsSaveChanges.Size = new Size(187, 51);
-            btnOfficialsSaveChanges.StateCommon.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateCommon.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateCommon.Back.ColorAngle = 45F;
-            btnOfficialsSaveChanges.StateCommon.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnOfficialsSaveChanges.StateCommon.Border.Color2 = Color.FromArgb(6, 174, 244);
-            btnOfficialsSaveChanges.StateCommon.Border.ColorAngle = 45F;
-            btnOfficialsSaveChanges.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnOfficialsSaveChanges.StateCommon.Border.Rounding = 5F;
-            btnOfficialsSaveChanges.StateCommon.Border.Width = 1;
-            btnOfficialsSaveChanges.StateCommon.Content.ShortText.Color1 = Color.White;
-            btnOfficialsSaveChanges.StateCommon.Content.ShortText.Color2 = Color.White;
-            btnOfficialsSaveChanges.StateCommon.Content.ShortText.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOfficialsSaveChanges.StateDisabled.Border.Rounding = 5F;
-            btnOfficialsSaveChanges.StateNormal.Back.Color1 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateNormal.Back.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateNormal.Border.Rounding = 5F;
-            btnOfficialsSaveChanges.StateNormal.Content.ShortText.Color1 = Color.White;
-            btnOfficialsSaveChanges.StateNormal.Content.ShortText.Color2 = Color.White;
-            btnOfficialsSaveChanges.StatePressed.Back.Color1 = Color.White;
-            btnOfficialsSaveChanges.StatePressed.Back.Color2 = Color.White;
-            btnOfficialsSaveChanges.StatePressed.Back.ColorAngle = 130F;
-            btnOfficialsSaveChanges.StatePressed.Border.Color1 = Color.FromArgb(21, 146, 197);
-            btnOfficialsSaveChanges.StatePressed.Border.Color2 = Color.FromArgb(22, 122, 206);
-            btnOfficialsSaveChanges.StatePressed.Border.ColorAngle = 130F;
-            btnOfficialsSaveChanges.StatePressed.Border.Rounding = 5F;
-            btnOfficialsSaveChanges.StatePressed.Border.Width = 1;
-            btnOfficialsSaveChanges.StatePressed.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StatePressed.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateTracking.Back.Color1 = Color.WhiteSmoke;
-            btnOfficialsSaveChanges.StateTracking.Back.Color2 = Color.WhiteSmoke;
-            btnOfficialsSaveChanges.StateTracking.Back.ColorAngle = 45F;
-            btnOfficialsSaveChanges.StateTracking.Border.Color1 = Color.FromArgb(6, 174, 244);
-            btnOfficialsSaveChanges.StateTracking.Border.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateTracking.Border.ColorAngle = 45F;
-            btnOfficialsSaveChanges.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            btnOfficialsSaveChanges.StateTracking.Border.Rounding = 5F;
-            btnOfficialsSaveChanges.StateTracking.Border.Width = 1;
-            btnOfficialsSaveChanges.StateTracking.Content.ShortText.Color1 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.StateTracking.Content.ShortText.Color2 = Color.FromArgb(8, 142, 254);
-            btnOfficialsSaveChanges.TabIndex = 39;
-            btnOfficialsSaveChanges.Values.DropDownArrowColor = Color.Empty;
-            btnOfficialsSaveChanges.Values.Text = "Save Changes";
-            // 
             // OfficialsModalControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -503,10 +569,12 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             ((System.ComponentModel.ISupportInitialize)pnlMainContentHolder).EndInit();
             pnlMainContentHolder.ResumeLayout(false);
             pnlMainContentHolder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cboDateRange).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboStatus).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboAcom).EndInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             ((System.ComponentModel.ISupportInitialize)cboAchievements).EndInit();
+            ctxRemoveAchievements.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cboPosition).EndInit();
             ResumeLayout(false);
         }
@@ -514,25 +582,30 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         #endregion
 
         public Krypton.Toolkit.KryptonPanel pnlMainContentHolder;
-        private Krypton.Toolkit.KryptonComboBox cboStatus;
         private Krypton.Toolkit.KryptonLabel kryptonLabel7;
-        private Krypton.Toolkit.KryptonDateTimePicker dtpkEndTerm;
         private Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private Krypton.Toolkit.KryptonButton btnAddAccom;
-        private Krypton.Toolkit.KryptonComboBox cboAcom;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private Krypton.Toolkit.KryptonTextBox txtAccom;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private Krypton.Toolkit.KryptonButton btnAddAchievement;
-        private Krypton.Toolkit.KryptonComboBox cboAchievements;
-        private Krypton.Toolkit.KryptonDateTimePicker dtpkStartTerm;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private Krypton.Toolkit.KryptonTextBox txtAchievements;
-        private Krypton.Toolkit.KryptonComboBox cboPosition;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonButton btnSubmitOfficials;
-        private Krypton.Toolkit.KryptonButton btnOfficialsSaveChanges;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
+        protected internal Krypton.Toolkit.KryptonComboBox cboStatus;
+        protected internal Krypton.Toolkit.KryptonDateTimePicker dtpkEndTerm;
+        protected internal Krypton.Toolkit.KryptonButton btnAddAccom;
+        protected internal Krypton.Toolkit.KryptonComboBox cboAcom;
+        protected internal Krypton.Toolkit.KryptonTextBox txtAccom;
+        protected internal Krypton.Toolkit.KryptonButton btnAddAchievement;
+        protected internal Krypton.Toolkit.KryptonComboBox cboAchievements;
+        protected internal Krypton.Toolkit.KryptonDateTimePicker dtpkStartTerm;
+        protected internal Krypton.Toolkit.KryptonTextBox txtAchievements;
+        protected internal Krypton.Toolkit.KryptonComboBox cboPosition;
+        protected internal Krypton.Toolkit.KryptonButton btnSubmitOfficials;
+        protected internal Krypton.Toolkit.KryptonButton btnOfficialsSaveChanges;
+        protected internal Krypton.Toolkit.KryptonComboBox cboDateRange;
+        private ContextMenuStrip ctxRemoveAccom;
+        private ContextMenuStrip ctxRemoveAchievements;
+        private ToolStripMenuItem removeToolStripMenuItem;
     }
 }

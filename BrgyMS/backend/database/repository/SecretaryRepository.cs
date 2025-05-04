@@ -189,6 +189,8 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
+
+
         public async Task CreateAnnouncement(AnnouncementsModel annoucenment) {
             try {
                 string stmt = "INSERT INTO annoucenments(id , title, date_post, details, attachment, status ) " +
@@ -211,6 +213,69 @@ namespace BrgyMs.backend.database.repositories {
             }
         }// end
 
+        public async Task<DataTable> GetOfficials() {
+            string stmt = "Select o.user_id as ID, CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename " +
+                " IS NULL OR p.middlename = '' " +
+                " THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END), " +
+                " p.lastname, NULLIF(p.suffix, '') ) as 'Fullname',  " +
+                "p.gender as Gender, o.position as Position " +
+                "From personal_info p " +
+                "LEFT JOIN officials o  " +
+                "ON p.user_id = o.user_id " +
+                "LEFT JOIN additional_info ai " +
+                "ON p.user_id = ai.user_id " +
+                "WHERE o.status = @status " +
+                "LIMIT 10";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@status", "Active");
+
+                DataTable dt = new DataTable();
+
+                await adapter.FillAsync(dt);
+
+                return dt;
+
+            }
+            catch (Exception) {
+                throw;
+            }
+        } //end 
+
+        public async Task<DataTable> GetOfficials(string id) {
+            string stmt = "Select p.Id as ID, CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename " +
+                " IS NULL OR p.middlename = '' " +
+                " THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END), " +
+                " p.lastname, NULLIF(p.suffix, '') ) as 'Fullname',  " +
+                "p.gender as Gender, o.position as Position, " +
+                "o.election_histories as 'Histories', o.status as Status, ai.profile_image as Profile " +
+                "From personal_info p " +
+                "LEFT JOIN officials o  " +
+                "ON p.user_id = o.user_id " +
+                "LEFT JOIN additional_info ai " +
+                "ON p.user_id = ai.user_id " +
+                "WHERE p.user_id = @user_id";
+
+            try {
+                using var connection = await conn.getConnection();
+                using var adapter = new MySqlDataAdapter(stmt, connection);
+                adapter.SelectCommand.Parameters.AddWithValue("@user_id", id);
+
+                DataTable dt = new DataTable();
+
+                await adapter.FillAsync(dt);
+
+                return dt;
+
+            }
+            catch (Exception) {
+                throw;
+            }
+
+
+        }
 
 
     }

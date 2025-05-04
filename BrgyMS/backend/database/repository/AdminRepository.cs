@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using BrgyMs.backend.models.admin_model;
 using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.models.bo_model;
 using BrgyMs.backend.models.secretary_model;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
@@ -411,5 +412,22 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         } // end 
+
+        public async Task DeleteOfficials(string id) {
+            try {
+                string stmt = "Delete from  Officials WHERe user_id = @userid";
+
+                using var connection = await conn.getConnection();
+
+                using var cmd = new MySqlCommand(stmt, connection);
+
+                cmd.Parameters.AddWithValue("@userid", id);
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception ex) {
+                throw;
+            }
+        }
     }
 }

@@ -2,6 +2,8 @@ using BrgyMs.backend.utils;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.adminDashboard.modals.modals_controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using BrgyMS.uiDesign.usersDashboard.modals;
+using BrgyMS.uiDesign.usersDashboard.secretary_controls;
 using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
@@ -20,12 +22,12 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private AdminModal modal = new AdminModal();
         public bool isUpdated = false;
         public bool isCliked = false;
+        private UsersModal Officialmodal = new UsersModal();
         public AdminAccountManagementControl() {
             InitializeComponent();
             AfterInit();
 
         }
-
         private async void nudLimit_ValueChanged(object sender, EventArgs e) {
             int limit = (int)nudAmLimit.Value + 1;
             Cursor = Cursors.WaitCursor;
@@ -47,14 +49,24 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private async void AdminAccountManagementControl_Load(object sender, EventArgs e) {
-            Refresh();
-            dataGridAmTableAdmin.Refresh();
-            int limit = (int)nudAmLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
-            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
+
+            try {
+                dataGridAmTableAdmin.Refresh();
+                int limit = (int)nudAmLimit.Value + 1;
+                Cursor = Cursors.WaitCursor;
+
+                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
+
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
+
+
         }
 
         private void dataGridAdminDashboard_MouseDown(object sender, MouseEventArgs e) {
@@ -147,5 +159,23 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             }
         } // end
 
+        private void addAsBarangayOfficialsToolStripMenuItem_Click(object sender, EventArgs e) {
+            try {
+                OfficialsModalControl control = new();
+
+                Officialmodal.pnlContainer.Controls.Clear();
+                Officialmodal.pnlContainer.Controls.Add(control);
+
+                control.Dock = DockStyle.Fill;
+                Officialmodal.ShowDialog(this);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+
+            }
+        }
     }
 }

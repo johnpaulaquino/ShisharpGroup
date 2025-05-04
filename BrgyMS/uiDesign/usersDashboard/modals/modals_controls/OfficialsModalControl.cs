@@ -18,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BrgyMS.uiDesign.usersDashboard.modals {
     public partial class OfficialsModalControl : UserControl {
@@ -29,11 +30,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private ResidentServices _ResidentServices = new();
         private SecretaryServices _SecretaryServices = new();
         private BaseServices _BaseServices = new();
-
-
-
         private UserInfoValidation validation = new();
-
+        private List<string> listAccom = new List<string>();
 
         public OfficialsModalControl() {
             InitializeComponent();
@@ -43,6 +41,10 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             cboStatus.Items.Insert(0, "--Select--");
             cboStatus.SelectedItem = "--Select--";
 
+            cboDateRange.Items.Insert(0, "--Select--");
+            cboDateRange.SelectedItem = "--Select--";
+
+            cboStatus.SelectedItem = "Active";
         }
 
         private void btnSubmitOfficials_Click(object sender, EventArgs e) {
@@ -79,34 +81,31 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                      }
 
                  });
-                ElectionHistories elect = new()
-                {
-                    TermStart = dtpkEndTerm.Value,
-                    TermEnd = dtpkEndTerm.Value,
-                    Accomplished = accomp,
-                    Achievements = achievements
 
-                };
 
+                String formattedStartDate = dtpkStartTerm.Value.Date.ToString("yyyy-mm-dd");
+                String formattedEndtDate = dtpkEndTerm.Value.Date.ToString("yyyy-mm-dd");
                 OfficialsInfo officialsInfo = new()
                 {
 
                     Position = cboPosition.SelectedItem.ToString(),
                     Status = cboStatus.SelectedItem.ToString(),
-                    TermStart = dtpkEndTerm.Value,
-                    TermEnd = dtpkEndTerm.Value,
                     UserId = userId,
-                    ElectionHistories = elect
+                    ElectionHistories = new ElectionHistories()
+                    {
+                        TermStart = formattedStartDate,
+                        TermEnd = formattedEndtDate
+                    }
                 };
-                Cursor = Cursors.WaitCursor;
 
+                Cursor = Cursors.WaitCursor;
                 await Task.Run(async () =>
                 {
                     await _SecretaryServices.AddBarangayOfficials(officialsInfo);
 
                 });
-                MessageBox.Show("Successfull Created Officials!");
-
+                MessageBox.Show("Successfully Created Officials!");
+                CLearFields();
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -122,6 +121,48 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             }
             else {
                 dtpkEndTerm.Format = DateTimePickerFormat.Custom;
+            }
+        } // 
+
+        private void CLearFields() {
+            cboPosition.SelectedItem = "--Select--";
+            dtpkStartTerm.Value = DateTime.Now;
+            dtpkEndTerm.Format = DateTimePickerFormat.Custom;
+        }
+
+        private void btnOfficialsSaveChanges_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnAddAchievement_Click(object sender, EventArgs e) {
+            try {
+                string accomplishment = txtAchievements.Text;
+                if (string.IsNullOrEmpty(accomplishment)) {
+                    listAccom.Add(accomplishment);
+                    cboAchievements.Items.Add(accomplishment);
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cboAchievements_MouseDown(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Right) {
+                if (cboAchievements.SelectedIndex == -1) {
+                    ctxRemoveAchievements.Visible = false; // or skip opening
+                }
+                else {
+                    ctxRemoveAchievements.Show(cboAchievements, e.Location);
+                }
+            }
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e) {
+            var option = MessageBox.Show("Are you sure you want to remove this item?", "Achievement",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (option == DialogResult.Yes) {
+                cboAchievements.SelectedIndex = -1;
             }
         }
     }

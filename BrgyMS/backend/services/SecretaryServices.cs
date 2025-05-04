@@ -110,6 +110,8 @@ namespace BrgyMs.backend.services {
             }
         }// end 
 
+
+        //Add the officials
         public async Task AddBarangayOfficials(OfficialsInfo officialsInfo) {
             try {
                 validation.ValidatebarangayOfficials(officialsInfo); // validate first 
@@ -117,14 +119,42 @@ namespace BrgyMs.backend.services {
                 string EelcHisto = JsonConvert.SerializeObject(officialsInfo.ElectionHistories, Newtonsoft.Json.Formatting.Indented); // serialize the object
                 await Task.Run(async () =>
                 {
+                    bool isExist = await _ResidentRepo.CheckOfficialsIfExists(officialsInfo.UserId);
+                    if (isExist) {
+                        throw new Exception("Already added as Barangay Officials!");
+                    }
+
                     await _ResidentRepo.AddOfficialsInfo(officialsInfo, EelcHisto); // then insert if no error
                 });
+
 
             }
             catch (Exception) {
                 throw;
             }
-        }
+        } // end
+
+        public async Task<DataTable> GetOFficialsInfo() {
+            try {
+
+                var dt = await _SecretaryRepo.GetOfficials();
+                return dt;
+            }
+            catch (Exception) {
+                throw;
+            }
+        } //end
+
+        public async Task<DataTable> GetOFficialsInfo(string id) {
+            try {
+
+                var dt = await _SecretaryRepo.GetOfficials(id);
+                return dt;
+            }
+            catch (Exception) {
+                throw;
+            }
+        } //end
 
 
     }

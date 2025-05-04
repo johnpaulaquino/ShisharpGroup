@@ -48,6 +48,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            addAsBarangayOfficialsToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)kryptonSeparator1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -281,14 +282,14 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // ctxmenuAccManagement
             // 
             ctxmenuAccManagement.Font = new Font("Segoe UI", 9F);
-            ctxmenuAccManagement.Items.AddRange(new ToolStripItem[] { actionsToolStripMenuItem });
+            ctxmenuAccManagement.Items.AddRange(new ToolStripItem[] { actionsToolStripMenuItem, addAsBarangayOfficialsToolStripMenuItem });
             ctxmenuAccManagement.Name = "contextMenuStrip1";
-            ctxmenuAccManagement.Size = new Size(161, 26);
+            ctxmenuAccManagement.Size = new Size(211, 70);
             // 
             // actionsToolStripMenuItem
             // 
             actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            actionsToolStripMenuItem.Size = new Size(160, 22);
+            actionsToolStripMenuItem.Size = new Size(210, 22);
             actionsToolStripMenuItem.Text = "Update Account";
             actionsToolStripMenuItem.Click += actionsToolStripMenuItem_Click;
             // 
@@ -338,6 +339,13 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             kryptonLabel2.TabIndex = 4;
             kryptonLabel2.Values.Text = "Account Management";
             // 
+            // addAsBarangayOfficialsToolStripMenuItem
+            // 
+            addAsBarangayOfficialsToolStripMenuItem.Name = "addAsBarangayOfficialsToolStripMenuItem";
+            addAsBarangayOfficialsToolStripMenuItem.Size = new Size(210, 22);
+            addAsBarangayOfficialsToolStripMenuItem.Text = "Add As Barangay Officials";
+            addAsBarangayOfficialsToolStripMenuItem.Click += addAsBarangayOfficialsToolStripMenuItem_Click;
+            // 
             // AdminAccountManagementControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -383,5 +391,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         protected internal Krypton.Toolkit.KryptonDataGridView dataGridAmTableAdmin;
         protected internal Krypton.Toolkit.KryptonNumericUpDown nudAmLimit;
         private Krypton.Toolkit.KryptonButton btnCreateSec;
+        private ToolStripMenuItem addAsBarangayOfficialsToolStripMenuItem;
     }
 }
