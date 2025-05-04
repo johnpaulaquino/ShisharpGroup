@@ -1,0 +1,43 @@
+using BrgyMs.backend.database.repositories;
+using BrgyMs.backend.services;
+using BrgyMs.backend.utils;
+using BrgyMS.uiDesign.usersDashboard.modals;
+using BrgyMS.uiDesign.uiUtils.ui_residents_utils;
+using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
+    public partial class SecretaryOfficialsControl : UserControl {
+        private UIResidentUtils uioResident = new UIResidentUtils();
+        private Utils utils = new Utils();
+        private OfficialsModalControl officalsModalC = new OfficialsModalControl();
+        private UsersModal modal = new UsersModal();
+        public SecretaryOfficialsControl() {
+            InitializeComponent();
+        }
+
+        private void btnAddOfficials_Click(object sender, EventArgs e) {
+            if (officalsModalC == null) {
+                officalsModalC = new OfficialsModalControl();
+            }
+            if (modal == null) {
+                modal = new UsersModal();
+            }
+
+            modal.pnlContainer.Controls.Clear();
+            modal.StartPosition = FormStartPosition.CenterScreen;
+            modal.pnlContainer.Controls.Add(officalsModalC);
+
+            officalsModalC.Dock = DockStyle.Fill;
+            modal.ShowDialog(this);
+        }
+    }
+}

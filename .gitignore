@@ -1,0 +1,10 @@
+.vs/
+bin/
+obj/
+packages/
+Localization/
+Properties/
+*.user
+*.suo
+*.cache
+.env
