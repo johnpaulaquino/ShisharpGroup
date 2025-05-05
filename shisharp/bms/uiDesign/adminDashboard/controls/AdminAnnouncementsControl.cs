@@ -48,8 +48,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                 announceModalControl.txtStatements.Text = announcement.Details;
                 announceModalControl.txtTitle.Text = announcement.Title;
 
-                MessageBox.Show(announcement.Title);
-
                 if (announcement.Attachments != null) {
                     using (var ms = new MemoryStream(announcement.Attachments)) {
                         announceModalControl.picAttachment.Image = new Bitmap(ms);
@@ -69,7 +67,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         public async void AnnouncementsRefreshTable() {
             try {
-                int limit = (int)nudLimit.Value;
+                
                 await _Secretary.FillAnnouncementTable(dataGridBlotterTable);
             }
             catch (Exception ex) {

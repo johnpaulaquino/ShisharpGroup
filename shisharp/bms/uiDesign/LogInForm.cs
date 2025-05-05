@@ -1,3 +1,4 @@
+using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
@@ -17,6 +18,7 @@ using System.Windows.Forms;
 
 namespace BrgyMs.uiDesign {
     public partial class LoginForm : Form {
+        private AuthUtils _AuthUtils = new AuthUtils();
         private AuthServices _Authervices = new AuthServices();
         private UILoginUtils uilogin = new UILoginUtils();
         private bool isCLicked = true;
@@ -40,13 +42,12 @@ namespace BrgyMs.uiDesign {
                     if (isLoggedIn) {
 
                         MessageBox.Show("Successfully Login!");
-
+                     
                         uilogin.Homepage(this, _Authervices.GetStatus());
                     }
                 }
                 catch (Exception ex) {
                     MessageBox.Show(ex.Message);
-                    System.Diagnostics.Debug.WriteLine(ex.StackTrace);
                 }
                 finally {
                     isCLicked = true;

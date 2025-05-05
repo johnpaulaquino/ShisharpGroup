@@ -20,7 +20,7 @@ namespace shisharp {
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            Application.Run(new LoginForm());
+            Application.Run(new Viewer());
         }
     }
 }

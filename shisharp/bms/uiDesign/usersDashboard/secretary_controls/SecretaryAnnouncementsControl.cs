@@ -39,7 +39,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         //Table Resfresher
         public async void AnnouncementsRefreshTable() {
             try {
-                int limit = (int)nudLimit.Value;
+      
                 await _Secretary.FillAnnouncementTable(dataGridBlotterTable);
             }
             catch (Exception ex) {
@@ -70,6 +70,10 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
         private void SecretaryAnnouncementsControl_Load(object sender, EventArgs e) {
             AnnouncementsRefreshTable();
+        }
+
+        private void nudLimit_ValueChanged(object sender, EventArgs e) {
+
         }
     }
 }

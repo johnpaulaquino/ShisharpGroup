@@ -73,7 +73,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 string announceId = utils.ReadIdInFile();
                 byte[] attachmentImg = uiadmin.GetBytesFromPictureBox(picAttachment);
 
-                bool stat = false;
+                bool stat = true;
 
                 AnnouncementsModel announce = new AnnouncementsModel()
                 {
@@ -84,8 +84,9 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 };
 
                 if (cbHidePost.Checked) {
-                    stat = true;
+                    stat = false;
                 }
+                MessageBox.Show((stat).ToString());
                 announce.Status = stat;
 
 

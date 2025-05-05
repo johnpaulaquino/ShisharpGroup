@@ -1,3 +1,4 @@
+using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.adminDashboard.modals.modals_controls;
@@ -12,6 +13,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +25,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         public bool isUpdated = false;
         public bool isCliked = false;
         private UsersModal Officialmodal = new UsersModal();
+        private AdminServices _AdminServices = new AdminServices();
         public AdminAccountManagementControl() {
             InitializeComponent();
             AfterInit();
@@ -31,14 +34,19 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         public async void AfterInit() {
             // Resfresh the table content
-            Refresh();
-            dataGridAmTableAdmin.Refresh();
-            int limit = (int)nudAmLimit.Value + 1;
             Cursor = Cursors.WaitCursor;
-            SuspendLayout();
-            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
+            try {
+
+
+                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
+
         }
 
 
@@ -100,7 +108,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
                     modal.ShowDialog(this);
 
-                    await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, 10);
+
+                    await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
 
                 }
             }
@@ -138,11 +147,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private async void AdminAccountManagementControl_Load_1(object sender, EventArgs e) {
 
             try {
-                dataGridAmTableAdmin.Refresh();
-                int limit = (int)nudAmLimit.Value + 1;
+
                 Cursor = Cursors.WaitCursor;
 
-                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
+                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
 
 
             }
@@ -155,23 +163,35 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private async void txtSearch_TextChanged_1(object sender, EventArgs e) {
-            int limit = (int)nudAmLimit.Value + 1;
-            string keyword = txtSearch.Text;
-            Cursor = Cursors.WaitCursor;
+            try {
 
-            SuspendLayout();
-            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
+                Cursor = Cursors.WaitCursor;
+
+
+                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
+                ResumeLayout();
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
+
         }
 
         private async void nudAmLimit_ValueChanged(object sender, EventArgs e) {
-            int limit = (int)nudAmLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
-            await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
+            try {
+
+                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
+
+                Cursor = Cursors.Default;
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -1,3 +1,4 @@
+using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.adminDashboard.modals.modals_controls;
@@ -17,6 +18,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private readonly Utils utils = new Utils();
         private UIAdminUtils uiAdmin = new UIAdminUtils();
         private AdminModal modal = new AdminModal();
+        private AdminServices _AdminServices = new AdminServices();
 
 
         public AdminAccountVerification() {
@@ -26,14 +28,11 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         public async void RefreshTabke() {
-            Refresh();
-            dataGridAmTable.Refresh();
-            int limit = (int)nudAvLimit.Value + 1;
+
             Cursor = Cursors.WaitCursor;
-            SuspendLayout();
+          
             await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
 
-            ResumeLayout();
             Cursor = Cursors.Default;
         }
 
@@ -46,14 +45,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private async void AdminAccountVerification_Load_1(object sender, EventArgs e) {
-            Refresh();
-            dataGridAmTable.Refresh();
-            int limit = (int)nudAvLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
+          
             await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
 
-            ResumeLayout();
+
             Cursor = Cursors.Default;
         }
 
@@ -81,22 +76,19 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         }
 
         private async void nudAvLimit_ValueChanged(object sender, EventArgs e) {
-            int limit = (int)nudAvLimit.Value + 1;
+
             Cursor = Cursors.WaitCursor;
-            SuspendLayout();
+
             await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
             ResumeLayout();
             Cursor = Cursors.Default;
         }
 
         private async void txtSearch_TextChanged(object sender, EventArgs e) {
-            int limit = (int)nudAvLimit.Value + 1;
-            string keyword = txtSearch.Text;
-            Cursor = Cursors.WaitCursor;
 
-            SuspendLayout();
+     
             await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
-            ResumeLayout();
+
             Cursor = Cursors.Default;
         }
     }

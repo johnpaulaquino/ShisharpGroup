@@ -1,5 +1,9 @@
 using BrgyMs.backend.database.repositories;
+using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.services;
+using BrgyMs.backend.utils;
+using BrgyMS.backend.services;
+using BrgyMS.uiDesign.uiUtils.ui_residents_utils;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using System;
 using System.Collections.Generic;
@@ -13,29 +17,32 @@ using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.usersDashboard.user_controls {
     public partial class ResidentUserLogsControl : UserControl {
-        private UIAdminUtils uiAdmin = new UIAdminUtils();
+        private UIResidentUtils uiAdmin = new UIResidentUtils();
+        private AdminServices _AdminServices = new AdminServices();
+        private BaseServices _BaseServices = new BaseServices();
+        private AuthServices _AuthServices = new AuthServices();
+        private AuthUtils _AuthUtils = new AuthUtils();
+        private Utils _Utils = new Utils();
+
         public ResidentUserLogsControl() {
             InitializeComponent();
         }
 
-        private async void AdminUserLogsControl_Load(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
+        private async void ResidentUserLogsControl_Load(object sender, EventArgs e) {
+            try {
+                string token = _AuthUtils.ReadTokenInFile();
+                User user = _AuthUtils.ValidateToken(token);
 
-            await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
-        }
+                Cursor = Cursors.WaitCursor;
+                await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard, user.UserId);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
 
-
-        private async void nudLimit_ValueChanged_1(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
-            await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
         }
     }
 }

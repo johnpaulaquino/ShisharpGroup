@@ -6,6 +6,7 @@ using BrgyMs.backend.utils;
 using BrgyMs.backend.database.repositories;
 using BrgyMS.backend.models;
 using BrgyMS.backend.services;
+using System.Windows;
 
 
 namespace BrgyMs.backend.services {
@@ -22,6 +23,7 @@ namespace BrgyMs.backend.services {
 
             try {
                 Dictionary<string, string> data = await _ResidentRepo.GetEmail(Email);
+
                 if (Password.Length <= 0 && Email.Length <= 0) {
                     throw new Exception("Username and Password should not be empty!");
                 }
@@ -49,8 +51,7 @@ namespace BrgyMs.backend.services {
                 Status = data["role"];
 
                 _AuthUtils.GenerateToken(data); // Generate Token after login
-
-
+        
                 string id = await Task.Run(_ResidentRepo.GenerateLogsId);
 
                 var logs = new Logs(id, data["userId"], "Login") { DatePerformed = DateTime.Now };

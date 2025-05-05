@@ -1,4 +1,5 @@
 using BrgyMs.backend.data_validation;
+using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_docs;
 using BrgyMs.backend.services;
 using BrgyMs.backend.utils;
@@ -20,13 +21,9 @@ using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.usersDashboard.modals {
     public partial class RequestDocumentsModalCotntrol : UserControl {
-        private readonly UIAdminUtils uiadmin = new UIAdminUtils();
-        private readonly Utils utils = new Utils();
-        private bool isActivted = false;
-        private AdminAccountVerification accverifyControl = new AdminAccountVerification();
-        private bool isFirstTimeSeeker = false;
         private ResidentServices _ResidentServices = new ResidentServices();
         private BaseServices _BaseServices = new BaseServices();
+        private AuthUtils _AuthUtils = new AuthUtils();
 
         private string[] brgyClearancePurposes = { "Applying for a passport", "Registering a vehicle",
         "Applying for a marriage license", "Applying for a construction permit", "Government Transaction",
@@ -69,14 +66,15 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             }
         }
 
-
-
         private async void btnSubmitRequest_Click_1(object sender, EventArgs e) {
             string forJobSeeker = "NBI/Police Clearance Application";
 
             try {
-                string userId = utils.ReadIdInFile();
 
+                string token = _AuthUtils.ReadTokenInFile();
+                User user = _AuthUtils.ValidateToken(token);
+
+                MessageBox.Show(user.UserId);
                 string purpose = cboPurposes.SelectedItem.ToString();
 
                 //Check if purpose is others
@@ -87,14 +85,23 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                     purpose = txtOtherPurpose.Text; // set the purpose based on the user input
                 }
 
+                bool isFirstTime = false;
+
+                if (cbFirstTimeJobSeeker.Checked) {
+                    isFirstTime = true;
+                }
+
+                ResidentDocumentRequest requestDocs = new ResidentDocumentRequest()
+                {
+                    UserId = user.UserId,
+                    DocumentType = cboDocsType.SelectedItem.ToString(),
+                    Purpose = purpose,
+                    isFirstTImeJbSeeker = isFirstTime,
+                    OtherPurposes = txtOtherPurpose.Text
+                };
 
 
-                ResidentDocumentRequest requestDocs = new ResidentDocumentRequest(userId,
-                    cboDocsType.SelectedItem.ToString(),
-                   purpose);
-
-
-                validation.ValdiateRequestDocs(requestDocs); // validate the request
+                validation.ValidateRequestDocs(requestDocs); // validate the request
                 string docsType = cboDocsType.SelectedItem.ToString();
 
                 var option = MessageBox.Show("Are you sure you want to request this document?",
@@ -107,7 +114,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 {
                     string id = await _BaseServices.GenerateLogsId(); // generate id for logs
                     await _ResidentServices.CreateResidentDocument(requestDocs); // request docs
-                    Logs logs = new Logs(id, userId, "Request", DateTime.Now
+                    Logs logs = new Logs(id, user.UserId, "Request Docs", DateTime.Now
 
                         )
                     { Details = $"Requested {docsType}." };

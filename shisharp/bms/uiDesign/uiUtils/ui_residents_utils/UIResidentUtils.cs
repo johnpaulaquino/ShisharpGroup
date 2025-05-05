@@ -29,8 +29,6 @@ namespace BrgyMS.uiDesign.uiUtils.ui_residents_utils {
                     bytes = ms.ToArray();
                 }
 
-
-
             }
             return bytes;
         }
@@ -46,31 +44,28 @@ namespace BrgyMS.uiDesign.uiUtils.ui_residents_utils {
         }
 
         //users logs
-        public async Task SetUserLogsToTable(DataGridView table, int limit) {
+        public async Task SetUserLogsToTable(DataGridView table, string userId) {
             try {
 
                 _ResidentServices = new ResidentServices();
-                table.Update();
-                table.Refresh();
+
                 var dt = new DataTable();
 
                 using (var adapter = await Task.Run(() =>
                 {
-                    return _ResidentServices.GetUsersLogs(limit);
-                })) {
+                    return _ResidentServices.GetUsersLogs(userId);
+                }))
+
                     adapter.Fill(dt);
-                    table.Columns.Clear();
+                table.Columns.Clear();
 
-                    table.DataSource = dt;
+                table.DataSource = dt;
 
 
-                    SetWidthToUsersLogsTable(table);
+                SetWidthToUsersLogsTable(table);
 
+                {
                 }
-
-
-
-
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -92,27 +87,21 @@ namespace BrgyMS.uiDesign.uiUtils.ui_residents_utils {
         }
         //Set the data int table
         public async Task SetRequestDocumentsControlsTable(DataGridView table,
-            int limit, string userId) {
+string userId) {
             try {
 
                 _ResidentServices = new ResidentServices();
-                table.Update();
-                table.Refresh();
                 var dt = new DataTable();
 
                 using (var adapter = await Task.Run(() =>
                 {
-                    return _ResidentServices.GetRequestDocuments(userId, limit);
+                    return _ResidentServices.GetRequestDocuments(userId);
                 })) {
                     adapter.Fill(dt);
                     table.Columns.Clear();
 
                     table.DataSource = dt;
                 }
-
-
-
-
                 SetWidthToRequestDocumentsTable(table);
 
             }

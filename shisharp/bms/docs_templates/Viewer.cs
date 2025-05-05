@@ -1,4 +1,6 @@
 ﻿
+using FastReport;
+using Microsoft.Reporting.WinForms;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Components;
 using Stimulsoft.Report.Dictionary;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,22 +61,9 @@ namespace BrgyMS.docs_templates {
 
         }
 
-        private void kryptonButton1_Click_1(object sender, EventArgs e) {
-            StiReport report = new StiReport();
-            report.Load(@"C:\\Users\\ADMIN\\Desktop\\shisharp\\shisharp\\bms\\docs_templates\\Report.mrt");
-
-            foreach (StiVariable item in report.Dictionary.Variables) {
-
-                // Display the variable name and value
-                MessageBox.Show($"Variable Name: {item.Value}");
-            }
-
-            report.Compile();
-            report.Render();
-            report.Show();
-
+        private void Viewer_Load_1(object sender, EventArgs e) {
+         
         }
-
     }
 
 }

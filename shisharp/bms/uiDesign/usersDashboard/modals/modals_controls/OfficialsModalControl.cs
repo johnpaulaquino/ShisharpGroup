@@ -31,6 +31,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private SecretaryServices _SecretaryServices = new SecretaryServices();
         private BaseServices _BaseServices = new BaseServices();
         private UserInfoValidation validation = new UserInfoValidation();
+        private AdminServices _AdminServices = new AdminServices();
         private List<string> listAccom = new List<string>();
 
         public OfficialsModalControl() {
@@ -40,10 +41,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
             cboStatus.Items.Insert(0, "--Select--");
             cboStatus.SelectedItem = "--Select--";
-
-            cboDateRange.Items.Insert(0, "--Select--");
-            cboDateRange.SelectedItem = "--Select--";
-
             cboStatus.SelectedItem = "Active";
         }
         private void CLearFields() {
@@ -52,39 +49,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             dtpkEndTerm.Format = DateTimePickerFormat.Custom;
         }
 
-
-
-        private void btnAddAchievement_Click_1(object sender, EventArgs e) {
-            try {
-                string accomplishment = txtAchievements.Text;
-                if (string.IsNullOrEmpty(accomplishment)) {
-                    listAccom.Add(accomplishment);
-                    cboAchievements.Items.Add(accomplishment);
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ctxRemoveAchievements_Opening(object sender, CancelEventArgs e) {
-            var option = MessageBox.Show("Are you sure you want to remove this item?", "Achievement",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (option == DialogResult.Yes) {
-                cboAchievements.SelectedIndex = -1;
-            }
-        }
-
-        private void cboAchievements_MouseDown_1(object sender, MouseEventArgs e) {
-            if (e.Button == MouseButtons.Right) {
-                if (cboAchievements.SelectedIndex == -1) {
-                    ctxRemoveAchievements.Visible = false; // or skip opening
-                }
-                else {
-                    ctxRemoveAchievements.Show(cboAchievements, e.Location);
-                }
-            }
-        }
         private void dtpkEndTerm_ValueChanged_1(object sender, EventArgs e) {
             if (dtpkEndTerm.Checked) {
                 dtpkEndTerm.Format = DateTimePickerFormat.Long;
@@ -101,26 +65,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
                 string userId = utils.ReadIdInFile();
 
-
-                await Task.Run(async () =>
-                {
-                    // Add tje items of cbo accomplished to the list
-                    foreach (var item in cboAcom.Items) {
-                        if (!string.Equals(item.ToString(), "--Select--")) {
-                            accomp.Add(item.ToString());
-                        }
-                    }
-
-                    // Add tje items of cbo ashievement to the list
-                    foreach (var item in cboAchievements.Items) {
-                        if (!string.Equals(item.ToString(), "--Select--")) {
-                            achievements.Add(item.ToString());
-                        }
-                    }
-
-                });
-
-
                 String formattedStartDate = dtpkStartTerm.Value.Date.ToString("yyyy-mm-dd");
                 String formattedEndtDate = dtpkEndTerm.Value.Date.ToString("yyyy-mm-dd");
                 OfficialsInfo officialsInfo = new OfficialsInfo()
@@ -129,11 +73,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                     Position = cboPosition.SelectedItem.ToString(),
                     Status = cboStatus.SelectedItem.ToString(),
                     UserId = userId,
-                    ElectionHistories = new ElectionHistories()
-                    {
-                        TermStart = formattedStartDate,
-                        TermEnd = formattedEndtDate
-                    }
+                    TermStart = dtpkStartTerm.Value.Date,
+                    TermEnd = dtpkEndTerm.Value.Date
                 };
 
                 Cursor = Cursors.WaitCursor;
@@ -159,6 +100,28 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             }
             else {
                 dtpkEndTerm.Format = DateTimePickerFormat.Custom;
+            }
+        }
+
+        private async void btnOfficialsSaveChanges_Click(object sender, EventArgs e) {
+            try {
+
+                OfficialsInfo officials = new OfficialsInfo
+                {
+                    Position = cboPosition.SelectedItem.ToString(),
+                    Status = cboStatus.SelectedItem.ToString(),
+                    TermEnd = dtpkEndTerm.Value.Date,
+                    TermStart = dtpkStartTerm.Value.Date
+                };
+                var option = MessageBox.Show("Are you sure you want to update this? ", "Barangay officials",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (option == DialogResult.OK) {
+                    await _AdminServices.UpdateOfficials(officials);
+                }
+            }
+            catch (Exception Ex) {
+                MessageBox.Show(Ex.Message);
             }
         }
     }

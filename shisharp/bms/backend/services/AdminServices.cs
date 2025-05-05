@@ -31,12 +31,10 @@ namespace BrgyMs.backend.services {
         public AdminServices() { }
 
         //for limiting records and when start the app
-        public async Task<DataTable> GetUserInformation(int limit) {
 
-            var dt = await _AdminRepository.GetUserInformation(limit);
-
-
-            return dt;
+        public async Task<int> GetTotalCountForUserAccount() {
+            int totalCount = await Task.Run(async () => { return await _AdminRepository.GetTotalCountForUserAccount(); });
+            return totalCount;
 
         }
 
@@ -44,7 +42,7 @@ namespace BrgyMs.backend.services {
         public async Task<DataTable> GetUserInformation() {
 
             try {
-                return await _AdminRepository.GetUserInformation();
+                return await _AdminRepository.GetUserInformation1();
             }
             catch (Exception) {
                 throw;
@@ -53,9 +51,9 @@ namespace BrgyMs.backend.services {
         }
 
         //for searching data
-        public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
+        public async Task<MySqlDataAdapter> GetUserInformation1(string keyword) {
 
-            var dataReader = await _AdminRepository.GetUserInformation(limit, keyword);
+            var dataReader = await _AdminRepository.GetUserInformation(keyword);
             //int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
 
             return dataReader;
@@ -64,8 +62,21 @@ namespace BrgyMs.backend.services {
         }
 
         //Get all logs
-        public async Task<MySqlDataAdapter> GetAllLogs(int limit) {
-            var dataAdapter = await _AdminRepository.GetAllUsersLogs(limit);
+
+        public async Task<int> GetTotalRecordsInLogs() {
+            try {
+                int total = await Task.Run(async () =>
+                  {
+                      return await _AdminRepository.GetTotalRecordsInLogs();
+                  });
+                return total;
+            }
+            catch (Exception ex) {
+                throw;
+            }
+        }
+        public async Task<MySqlDataAdapter> GetAllLogs() {
+            var dataAdapter = await _AdminRepository.GetAllUsersLogs();
             //int totalusers = await _AdminRepository.getTotalNUmberOfUsers();
 
             return dataAdapter;
@@ -75,10 +86,26 @@ namespace BrgyMs.backend.services {
 
         //Get all users who are inactive
         public async Task<MySqlDataAdapter> GetInActiveResidentUser() {
+            try {
+                var dataAdapter = await _AdminRepository.GetInActiveResidentUser();
+                return dataAdapter;
+            }
+            catch (Exception) {
+                throw;
+            }
 
-            var dataAdapter = await _AdminRepository.GetInActiveResidentUser();
-            return dataAdapter;
         }
+
+        public async Task<int> GetTotalRecordsInActiveUser() {
+            try {
+                return await _AdminRepository.GetTotalRecordsInActiveuser();
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        }
+
 
 
         public async Task<List<User>> GetUserBasicInfo(string UserId) {
@@ -275,6 +302,19 @@ namespace BrgyMs.backend.services {
             try {
                 await _AdminRepository.DeleteOfficials(id);
 
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end
+
+        public async Task UpdateOfficials(OfficialsInfo officials) {
+            try {
+                await Task.Run(async () =>
+                {
+                    validation.ValidatebarangayOfficials(officials);
+                    await _AdminRepository.UpdateOfficialsInfo(officials);
+                });
             }
             catch (Exception) {
                 throw;

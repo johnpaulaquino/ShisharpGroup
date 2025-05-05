@@ -423,6 +423,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.Controls.Add(this.pnlMainContainer);
             this.Name = "ResidentPageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.ResidentPageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContainer)).EndInit();
             this.pnlMainContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlFilterValueHolder)).EndInit();

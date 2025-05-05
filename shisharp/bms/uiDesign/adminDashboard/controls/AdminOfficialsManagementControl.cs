@@ -55,16 +55,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                 modal.pnlContainer.Controls.Add(offcialsCotntrol);
                 offcialsCotntrol.Dock = DockStyle.Fill;
 
-                offcialsCotntrol.txtAccom.Enabled = true;
 
-                offcialsCotntrol.txtAchievements.Enabled = true;
-                offcialsCotntrol.btnAddAccom.Enabled = true;
-                offcialsCotntrol.btnAddAchievement.Enabled = true;
-                offcialsCotntrol.btnOfficialsSaveChanges.BringToFront();
-                offcialsCotntrol.cboDateRange.Enabled = true;
-                offcialsCotntrol.cboStatus.Enabled = true;
-                offcialsCotntrol.cboAcom.Enabled = true;
-                offcialsCotntrol.cboAchievements.Enabled = true;
 
                 offcialsCotntrol.cboPosition.Enabled = false;
                 offcialsCotntrol.dtpkEndTerm.Enabled = false;
@@ -72,16 +63,16 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
 
                 //set the data into officials modal
-                await uiAdmin.SetOfficialsDataInModal(offcialsCotntrol.txtAccom,
-                    offcialsCotntrol.txtAchievements, offcialsCotntrol.cboStatus, offcialsCotntrol.cboPosition,
-                    offcialsCotntrol.cboDateRange, offcialsCotntrol.cboAcom, offcialsCotntrol.cboAchievements);
+                await uiAdmin.SetOfficialsDataInModal(offcialsCotntrol.cboStatus, offcialsCotntrol.cboPosition,
+                    offcialsCotntrol.dtpkStartTerm, offcialsCotntrol.dtpkEndTerm);
 
+                offcialsCotntrol.cboStatus.Enabled = true;
+                offcialsCotntrol.btnOfficialsSaveChanges.BringToFront();
                 modal.ShowDialog(this);
+
                 Cursor = Cursors.WaitCursor;
 
                 await uiAdmin.SetOfficialsInTable(dataGridOFficialsable);
-
-
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

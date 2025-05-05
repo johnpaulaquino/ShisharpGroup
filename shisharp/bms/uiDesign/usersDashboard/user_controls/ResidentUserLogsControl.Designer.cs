@@ -27,17 +27,14 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
-            this.nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
-            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             this.dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coluserid = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,9 +73,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel1.Controls.Add(this.kryptonDateTimePicker1);
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Controls.Add(this.dtpkStartDate);
-            this.kryptonPanel1.Controls.Add(this.nudLimit);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel3);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel4);
             this.kryptonPanel1.Controls.Add(this.dataGridAdminDashboard);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel1.Name = "kryptonPanel1";
@@ -127,55 +121,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.dtpkStartDate.TabIndex = 37;
             this.dtpkStartDate.ValueNullable = new System.DateTime(2025, 4, 28, 0, 0, 0, 0);
             // 
-            // nudLimit
-            // 
-            this.nudLimit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudLimit.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudLimit.Location = new System.Drawing.Point(65, 98);
-            this.nudLimit.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.nudLimit.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nudLimit.Name = "nudLimit";
-            this.nudLimit.Size = new System.Drawing.Size(47, 22);
-            this.nudLimit.TabIndex = 35;
-            this.nudLimit.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nudLimit.ValueChanged += new System.EventHandler(this.nudLimit_ValueChanged_1);
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonLabel3.Location = new System.Drawing.Point(22, 97);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(44, 19);
-            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.kryptonLabel3.TabIndex = 34;
-            this.kryptonLabel3.Values.Text = "Show";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonLabel4.Location = new System.Drawing.Point(117, 97);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(53, 19);
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.kryptonLabel4.TabIndex = 36;
-            this.kryptonLabel4.Values.Text = "Entries";
-            // 
             // dataGridAdminDashboard
             // 
             this.dataGridAdminDashboard.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -184,8 +129,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.dataGridAdminDashboard.AllowUserToDeleteRows = false;
             this.dataGridAdminDashboard.AllowUserToResizeColumns = false;
             this.dataGridAdminDashboard.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAdminDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
@@ -207,8 +152,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             this.dataGridAdminDashboard.RowHeadersVisible = false;
             this.dataGridAdminDashboard.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridAdminDashboard.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAdminDashboard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAdminDashboard.Size = new System.Drawing.Size(770, 314);
@@ -310,6 +255,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.Controls.Add(this.pnlMainContentControler);
             this.Name = "ResidentUserLogsControl";
             this.Size = new System.Drawing.Size(809, 526);
+            this.Load += new System.EventHandler(this.ResidentUserLogsControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
@@ -343,8 +289,5 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonDateTimePicker dtpkStartDate;
-        private Krypton.Toolkit.KryptonNumericUpDown nudLimit;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
     }
 }

@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace BrgyMS.uiDesign.adminDashboard.controls {
-    public partial class ResDashboard : UserControl {
+namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
+    public partial class SecretaryDashboardControl : UserControl {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AdminServices _AdminServices = new AdminServices();
         private ChartGenerator chartGend = new ChartGenerator();
-        public ResDashboard() {
+        public SecretaryDashboardControl() {
             InitializeComponent();
         }
 

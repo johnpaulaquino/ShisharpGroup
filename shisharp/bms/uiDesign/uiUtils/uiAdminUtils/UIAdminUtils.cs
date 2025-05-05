@@ -65,16 +65,14 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         public void SetUserLabel(KryptonLabel lblRole,
             KryptonLabel lblusername) {
             string token = _AuthUtils.ReadTokenInFile();
-            var principal = _AuthUtils.ValidateToken(token);
             User user = _AuthUtils.ValidateToken(token);
-
 
             string role = utils.FormatRoles(user.Role);
 
             lblRole.Text = role;
             lblusername.Text = "Hi, " + user.Username;
         }
-        public async Task SetInfoInAdminAccountTable(DataGridView table, int limit) {
+        public async Task SetInfoInAdminAccountTable(DataGridView table) {
 
 
             try {
@@ -84,7 +82,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                 var userInfo = await Task.Run(async () =>
                 {
-                    return await _AdminServices.GetUserInformation(limit);
+                    return await _AdminServices.GetUserInformation();
                 });
 
                 table.Columns.Clear();
@@ -110,23 +108,19 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 table.Update();
                 table.Refresh();
 
-                var dt = new DataTable();
+
                 using (var userIno = await Task.Run(() =>
                 {
-                    return _AdminServices.GetUserInformation(limit, keyword);
+                    return _AdminServices.GetUserInformation();
                 })) {
-                    userIno.Fill(dt);
+
 
                     table.Columns.Clear();
 
-                    table.DataSource = dt;
+                    table.DataSource = userIno;
 
                     SetWidthToAccountManagementTable(table);
                 }
-
-
-
-
             }
             catch (System.Exception e) {
                 MessageBox.Show(e.Message);
@@ -149,7 +143,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
         }
 
         //users logs
-        public async Task SetUserLogsToTable(DataGridView table, int limit) {
+        public async Task SetUserLogsToTable(DataGridView table) {
             try {
 
                 table.Update();
@@ -157,7 +151,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
                 var dt = new DataTable();
                 using (var adapter = await Task.Run(() =>
                 {
-                    return _AdminServices.GetAllLogs(limit);
+                    return _AdminServices.GetAllLogs();
                 })) {
                     adapter.Fill(dt);
 
@@ -169,10 +163,6 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                     SetWidthToUsersLogsTable(table);
                 }
-
-
-
-
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -199,7 +189,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                 var dt = new DataTable();
 
-                using (var adapter = await Task.Run(_AdminServices.GetInActiveResidentUser)) {
+                using (var adapter = await _AdminServices.GetInActiveResidentUser()) {
                     adapter.Fill(dt);
 
 
@@ -473,73 +463,19 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
 
         //set the officials info when the update context menu is clicked inbrangay officials tbale
-        public async Task SetOfficialsDataInModal(KryptonTextBox txtAccom,
-            KryptonTextBox txtAchievements, KryptonComboBox cboStatus,
-            KryptonComboBox cboPosition,
-            KryptonComboBox cboDateRange, KryptonComboBox cboAccom,
-            KryptonComboBox cboAchievements) {
+        public async Task SetOfficialsDataInModal(KryptonComboBox cboStatus,
+            KryptonComboBox cboPosition, KryptonDateTimePicker StartTem,
+            KryptonDateTimePicker EndTerm) {
             try {
-                ElectionHistories elect = null;
-                List<string> achievemnt = new List<string>();
-                List<string> accom = new List<string>();
-                List<ElectionHistories> histories = new List<ElectionHistories>();
                 string id = utils.ReadIdInFile();
-
-                string json = "";
-                cboAccom.Items.Clear();
-                cboAchievements.Items.Clear();
-                cboDateRange.Items.Clear();
-
-
                 DataTable dt = await _SecreataryServices.GetOFficialsInfo(id);
 
                 foreach (DataRow item in dt.Rows) {
-                    elect = JsonConvert.DeserializeObject<ElectionHistories>((string)item["Histories"]); // dezerialize the object
-                    json = (string)item["Histories"]; // get the json, so that can get all the achievements and acomm on that year
-                    histories.Add(elect); // add the election history to the list
-                    cboStatus.SelectedItem = (string)item["Status"];
                     cboPosition.SelectedItem = (string)item["Position"];
-                    string startDate = elect.TermStart;
-                    string endDate = elect.TermEnd;
-
-                    string dateRange = $"{startDate} To {endDate}";
-
-                    cboDateRange.Items.Add(dateRange);
-                }// end of loop
-
-
-                // get the date range  based on the cboDaterange selectedIndex
-                string startDate1 = "";
-                string enDate = "";
-                if (cboDateRange.Items.Count != 0) {
-                    cboDateRange.SelectedIndex = 0;
-                    startDate1 = cboDateRange.SelectedItem.ToString().Split(' ')[0].ToString(); // get the start date
-                    enDate = cboDateRange.SelectedItem.ToString().Split(' ')[1].ToString(); // get the start date
-
-
-                }                // parse the json string
-                var jsonArray = JArray.Parse(json);
-
-                await Task.Run(() =>
-                {
-                    foreach (var item in jsonArray.Children<JObject>()) {
-                        if (string.Equals((string)item["TermStart"], startDate1) &&
-                            string.Equals((string)item["TermEnd"], enDate)) {
-
-                            var achievemntlist = item["Achievements"] as JArray;
-                            var acomlist = item["Accomplished"] as JArray;
-
-                            if (achievemntlist != null) {
-                                foreach (var accom1 in achievemntlist) {
-                                    cboAchievements.Items.Add(accom1);
-                                }
-                            }
-
-                        }
-                    }
-                });
-
-
+                    cboStatus.SelectedItem = (string)item["Status"];
+                    StartTem.Value = (DateTime)item["StartTerm"];
+                    EndTerm.Value = (DateTime)item["EndTerm"];
+                }
             }
             catch (Exception) {
                 throw;

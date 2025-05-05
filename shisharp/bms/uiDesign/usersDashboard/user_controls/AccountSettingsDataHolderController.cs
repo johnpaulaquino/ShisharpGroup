@@ -25,7 +25,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private BaseServices _BaseServices;
         private AuthUtils _AuthUtils = new AuthUtils();
         private Utils _Utils = new Utils();
-        private string userId;
         private PersonalInformation personalInfo;
         private AdditionalInfo additionalInfo;
         private Address addressInfo;
@@ -48,80 +47,80 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         }
         public async Task LoadContents() {
             try {
-                userId = _Utils.ReadIdInFile();
+                string token = _AuthUtils.ReadTokenInFile();
+                User UserInfo = _AuthUtils.ValidateToken(token);
+                string userId = UserInfo.UserId;
+                MessageBox.Show(userId);
                 _BaseServices = new BaseServices();
 
                 Cursor = Cursors.WaitCursor;
-                List<object> userInfo = await Task.Run(() =>
-                {
-                    return _BaseServices.GetAllUserInformations(userId);
-                });
+
+
+                List<object> userInfo = await _BaseServices.GetAllUserInformations(userId);
+
 
                 Cursor = Cursors.Default;
 
                 // Make a thread
-                Invoke(new Action(() =>
-                {
-                    if (userInfo != null) {
 
-                        // cast the object into specific type
-                        PersonalInformation pInfo = (PersonalInformation)userInfo[1];
-                        AdditionalInfo addInfo = (AdditionalInfo)userInfo[2];
-                        Address address = (Address)userInfo[3];
+                if (userInfo != null) {
+                    MessageBox.Show("HEy");
+                    // cast the object into specific type
+                    PersonalInformation pInfo = (PersonalInformation)userInfo[1];
+                    AdditionalInfo addInfo = (AdditionalInfo)userInfo[2];
+                    Address address = (Address)userInfo[3];
 
-                        //personal info
-                        txtAsFname.Text = pInfo.Firstname;
-                        txtAsMname.Text = pInfo.Middlename;
-                        txtAsLname.Text = pInfo.Lastname;
-                        cboAsSuffix.SelectedItem = pInfo.Suffix;
-                        cboAsGender.SelectedItem = pInfo.Gender;
+                    //personal info
+                    txtAsFname.Text = pInfo.Firstname;
+                    txtAsMname.Text = pInfo.Middlename;
+                    txtAsLname.Text = pInfo.Lastname;
+                    cboAsSuffix.SelectedItem = pInfo.Suffix;
+                    cboAsGender.SelectedItem = pInfo.Gender;
 
-                        //Additional Info
-                        dtpkAsBday.SetDate(addInfo.BirthDate);
-                        txtAsAge.Text = addInfo.Age.ToString();
-                        txtAsContactNo.Text = addInfo.ContactNo;
-                        txtAsReligion.Text = addInfo.Religion;
-                        cboAsCivilStatus.SelectedItem = addInfo.CivilStatus;
-                        cboAsEducAttain.SelectedItem = addInfo.EducAttain;
-                        cboAsEmploymentStatus.SelectedItem = addInfo.EmpStatus;
-                        cboAsResidentType.SelectedItem = addInfo.ResidentType;
+                    //Additional Info
+                    dtpkAsBday.SetDate(addInfo.BirthDate);
+                    txtAsAge.Text = addInfo.Age.ToString();
+                    txtAsContactNo.Text = addInfo.ContactNo;
+                    txtAsReligion.Text = addInfo.Religion;
+                    cboAsCivilStatus.SelectedItem = addInfo.CivilStatus;
+                    cboAsEducAttain.SelectedItem = addInfo.EducAttain;
+                    cboAsEmploymentStatus.SelectedItem = addInfo.EmpStatus;
+                    cboAsResidentType.SelectedItem = addInfo.ResidentType;
 
-                        if (addInfo.IsVoter) {
-                            cbVoterStatus.Checked = true;
-                        }
-
-                        Task.Run(() =>
-                        {
-                            if (addInfo.ProfileImage != null) {
-                                using (MemoryStream mStream = new MemoryStream(addInfo.ProfileImage)) {
-                                    picAsProfilePicture.Image = new Bitmap(mStream);
-                                    // set the profile picture
-
-                                }
-                            }
-
-                        });
-
-                        //Address
-                        txtAsHouseNo.Text = address.HouseNumber;
-                        txtAsStreet.Text = address.Street;
-                        txtAsSubdivision.Text = address.SubdivisionName;
-                        txtAsLotNo.Text = address.LotNo;
-                        txtAsBlockNo.Text = address.BlockNumber;
+                    if (addInfo.IsVoter) {
+                        cbVoterStatus.Checked = true;
                     }
 
-                }));
+                    await Task.Run(() =>
+                     {
+                         if (addInfo.ProfileImage != null) {
+                             using (MemoryStream mStream = new MemoryStream(addInfo.ProfileImage)) {
+                                 picAsProfilePicture.Image = new Bitmap(mStream);
+                                 // set the profile picture
+
+                             }
+                         }
+
+                     });
+
+                    //Address
+                    txtAsHouseNo.Text = address.HouseNumber;
+                    txtAsStreet.Text = address.Street;
+                    txtAsSubdivision.Text = address.SubdivisionName;
+                    txtAsLotNo.Text = address.LotNo;
+                    txtAsBlockNo.Text = address.BlockNumber;
+                }
+
+
 
             }
             catch (Exception) {
                 throw;
             }
+            finally {
+                Cursor = Cursors.Default;
+            }
         }
-
-        private async void kryptonButton1_Click(object sender, EventArgs e) {
-
-        }// end of function
-
 
         private void btnAsUpload_Click_1(object sender, EventArgs e) {
             try {
@@ -239,6 +238,10 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             finally {
                 Cursor = Cursors.Default;
             }
+        }
+
+        private async void AccountSettingsDataHolderController_Load(object sender, EventArgs e) {
+            await LoadContents();
         }
     }
 }

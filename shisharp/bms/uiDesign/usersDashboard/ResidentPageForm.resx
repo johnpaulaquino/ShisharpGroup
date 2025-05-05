@@ -118,24 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="kryptonPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAJ9JREFUSEvtlUEOgzAMBPcTVOVH/Up5bjlwpw9pZSmRLIM1gTY3RvIBNOuQBIh0
-        cZCHpLekz8laS48UE2LoaFmPlCqdBfMoAJhHIfCUdHPXmEfBMRV3doNgHgXHIOlV/EXS2JJHIWBPbjOo
-        M8F8JtT7rZWSCbEBVQoKgb8t0R5xk+8teRQc3V9To+uHtgfmUQAw3/13bYfFL4PggXOx4Qvhm6BtkVdJ
-        GQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="picLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAJ9JREFUSEvtlUEOgzAMBPcTVOVH/Up5bjlwpw9pZSmRLIM1gTY3RvIBNOuQBIh0
-        cZCHpLekz8laS48UE2LoaFmPlCqdBfMoAJhHIfCUdHPXmEfBMRV3doNgHgXHIOlV/EXS2JJHIWBPbjOo
-        M8F8JtT7rZWSCbEBVQoKgb8t0R5xk+8teRQc3V9To+uHtgfmUQAw3/13bYfFL4PggXOx4Qvhm6BtkVdJ
-        GQAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="picUserLogs.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -189,6 +171,24 @@
         NDaV6Xh0znVJFxf7HD41pUwt/Q5WxfFaCIaB3VmsGAH2ZxE4lQ/aTBxvKa3C498tdaswNdMRs4ONyRRZ
         gm7k/Whg56OhtaFNH32d41xLeQHYmJ1deVvUsnhyrZx3wMWGdu0V+h54BGwO3TI1xnId+A8OAs8aLhw1
         bSvCf70yxQvecvXC3xXjsezUK16RbqCPG9sVvwFk6mj98CwItQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="kryptonPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAJ9JREFUSEvtlUEOgzAMBPcTVOVH/Up5bjlwpw9pZSmRLIM1gTY3RvIBNOuQBIh0
+        cZCHpLekz8laS48UE2LoaFmPlCqdBfMoAJhHIfCUdHPXmEfBMRV3doNgHgXHIOlV/EXS2JJHIWBPbjOo
+        M8F8JtT7rZWSCbEBVQoKgb8t0R5xk+8teRQc3V9To+uHtgfmUQAw3/13bYfFL4PggXOx4Qvhm6BtkVdJ
+        GQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="picLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAJ9JREFUSEvtlUEOgzAMBPcTVOVH/Up5bjlwpw9pZSmRLIM1gTY3RvIBNOuQBIh0
+        cZCHpLekz8laS48UE2LoaFmPlCqdBfMoAJhHIfCUdHPXmEfBMRV3doNgHgXHIOlV/EXS2JJHIWBPbjOo
+        M8F8JtT7rZWSCbEBVQoKgb8t0R5xk+8teRQc3V9To+uHtgfmUQAw3/13bYfFL4PggXOx4Qvhm6BtkVdJ
+        GQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="picProfilePic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

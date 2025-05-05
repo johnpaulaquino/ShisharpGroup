@@ -15,6 +15,7 @@ using BrgyMS.backend.models;
 using BrgyMS.backend.models.base_model;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
+using Mysqlx.Sql;
 using MySqlX.XDevAPI.Relational;
 
 
@@ -79,8 +80,35 @@ namespace BrgyMs.backend.database.repositories {
 
 
 
+        //this will get the total records for User information, to use in offset
+        public async Task<int> GetTotalCountForUserAccount() {
+            string stmt = "Select count(id) as total FROM users " +
+                "WHERE role IN(@role1, @role2) AND status = @status";
+
+
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+
+                        cmd.Parameters.AddWithValue("@role1", "secretary");
+                        cmd.Parameters.AddWithValue("@role2", "users");
+                        cmd.Parameters.AddWithValue("@status", "1");
+                        using (var reader = await cmd.ExecuteReaderAsync()) {
+                            if (await reader.ReadAsync()) {
+                                return reader.GetInt32(reader.GetOrdinal("total"));
+                            }
+                        }
+                        return 0;
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
+
         // to set data in table in admin dashboard
-        public async Task<DataTable> GetUserInformation(int limit) {
+        public async Task<DataTable> GetUserInformation1() {
 
             string stmt = @"Select u.id as 'ID', u.email as 'Email', u.username as 'Username', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
             + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
@@ -91,8 +119,7 @@ namespace BrgyMs.backend.database.repositories {
             + "On u.id = p.user_id "
             + "Left join additional_info ai " +
             "ON u.id = ai.user_id "
-            + "Where u.role IN(@role1, @role2) AND u.status = @status " +
-            "Limit @limit";
+            + "Where u.role IN(@role1, @role2) AND u.status = @status ";
             try {
                 DataTable dt = new DataTable();
                 using (var connection = await conn.getConnection()) {
@@ -100,7 +127,6 @@ namespace BrgyMs.backend.database.repositories {
                         adapter.SelectCommand.Parameters.AddWithValue("@role1", "secretary");
                         adapter.SelectCommand.Parameters.AddWithValue("@role2", "users");
                         adapter.SelectCommand.Parameters.AddWithValue("@status", "1");
-                        adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
 
                         await adapter.FillAsync(dt);
                         return dt;
@@ -147,7 +173,7 @@ namespace BrgyMs.backend.database.repositories {
 
 
         //Use for searching
-        public async Task<MySqlDataAdapter> GetUserInformation(int limit, string keyword) {
+        public async Task<MySqlDataAdapter> GetUserInformation(string keyword) {
             string stmt = @"Select u.id as 'ID', u.email as 'Email', u.username as 'Username', Concat(UPPER(Left(u.role, 1)), LOWER(SUBSTRING(u.role FROM 2))) as 'Role', "
             + "CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END)  " +
             ", p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', p.gender as 'Gender', " +
@@ -158,7 +184,7 @@ namespace BrgyMs.backend.database.repositories {
             + "Left join additional_info ai " +
             "ON u.id = ai.user_id "
             + "Where u.role IN(@role1, @role2) AND u.status = @status  AND " +
-             "(p.firstname Like @keyword OR p.lastname Like @keyword) Limit @limit";
+             "(p.firstname Like @keyword OR p.lastname Like @keyword)";
 
 
             try {
@@ -168,7 +194,7 @@ namespace BrgyMs.backend.database.repositories {
                 cmd.SelectCommand.Parameters.AddWithValue("@role2", "secretary");
                 cmd.SelectCommand.Parameters.AddWithValue("@status", "1");
                 cmd.SelectCommand.Parameters.AddWithValue("@keyword", $"%{keyword}%");
-                cmd.SelectCommand.Parameters.AddWithValue("@limit", limit);
+
                 return cmd;
 
             }
@@ -206,24 +232,43 @@ namespace BrgyMs.backend.database.repositories {
             }
         }
 
+
+
+        //get the total records
+        public async Task<int> GetTotalRecordsInLogs() {
+            int total = 0;
+            string stmt = "SElecT count(id) as total FROM action_logs ";
+
+            using (var connection = await conn.getConnection()) {
+                using (var cmd = new MySqlCommand(stmt, connection)) {
+                    using (var reader = await cmd.ExecuteReaderAsync()) {
+                        if (await reader.ReadAsync()) {
+                            return reader.GetInt32(reader.GetOrdinal("total"));
+                        }
+                    }
+                    return 0;
+                }
+            }
+        }
+
         /// <summary>
         /// Get logs froms all users
         /// </summary>
         /// <param name="limit">to limit the number of records to return</param>
         /// 
         /// <returns> MysqlAdapter taht will use later for the filling the table</returns>
-        public async Task<MySqlDataAdapter> GetAllUsersLogs(int limit) {
+        public async Task<MySqlDataAdapter> GetAllUsersLogs() {
             string stmt = "SELECT la.id as 'ID', la.user_id as 'User ID', u.username as 'Username', CONCAT(UPPER(LEFT(u.role, 1)),LOWER(SUBSTRING(u.role FROM 2))) as 'Role', " +
                 "la.actions_made as 'Actions Made' ,la.details as 'Description', DATE_FORMAT(la.date_performed, '%W, %M %d, %Y %r' ) as 'Date Performed' " +
                 "FROM users u " +
                 "Right join action_logs la " +
                 "ON u.id = la.user_id " +
-                "ORDER by la.date_performed ASC LIMIT 10 ";
+                "ORDER by la.date_performed ASC ";
 
             try {
                 var connection = await conn.getConnection();
                 var adapter = new MySqlDataAdapter(stmt, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@limit", limit);
+
 
                 return adapter;
 
@@ -232,6 +277,29 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         } // End of function
+
+
+        public async Task<int> GetTotalRecordsInActiveuser() {
+            try {
+                string stmt = "Select COUNT(id) as total From users " +
+                    "WHERe status = @status ";
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@status", "0");
+                        using (var reader = await cmd.ExecuteReaderAsync()) {
+
+                            if (await reader.ReadAsync()) {
+                                return reader.GetInt32(reader.GetOrdinal("total"));
+                            }
+                        }
+                    }
+
+                }
+                return 0;
+
+            }
+            catch (Exception e) { throw; }
+        }
 
         /// <summary>
         /// Use to get all the users for verification
@@ -249,7 +317,7 @@ namespace BrgyMs.backend.database.repositories {
                 "On u.id = p.user_id " +
                 "LEFT JOIN address ad " +
                 "ON u.id = ad.user_id " +
-                "WHERE u.status = @status LIMIT 10";
+                "WHERE u.status = @status";
 
             var connection = await conn.getConnection();
             var adapter = new MySqlDataAdapter(stmt, connection);
@@ -455,6 +523,27 @@ namespace BrgyMs.backend.database.repositories {
                     }
                 }
 
+            }
+            catch (Exception ex) {
+                throw;
+            }
+        }// end
+
+        public async Task UpdateOfficialsInfo(OfficialsInfo officials) {
+            try {
+                string stmt = "Update officials Set position = @position, status = @status, " +
+                    "start_term = @startterm, end_term =@endterm";
+
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@position", officials.Position);
+                        cmd.Parameters.AddWithValue("@status", officials.Status);
+                        cmd.Parameters.AddWithValue("@startterm", officials.TermStart.Date);
+                        cmd.Parameters.AddWithValue("@endterm", officials.TermEnd.Date);
+
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+                }
             }
             catch (Exception ex) {
                 throw;

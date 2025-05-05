@@ -14,26 +14,24 @@ using System.Windows.Forms;
 namespace BrgyMS.uiDesign.adminDashboard.controls {
     public partial class AdminUserLogsControl : UserControl {
         private UIAdminUtils uiAdmin = new UIAdminUtils();
+        private AdminServices _AdminServices = new AdminServices();
         public AdminUserLogsControl() {
             InitializeComponent();
         }
 
         private async void AdminUserLogsControl_Load(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
-            await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
+            try {
+
+                await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard);
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
+            }
         }
 
-        private async void nudLimit_ValueChanged(object sender, EventArgs e) {
-            int limit = (int)nudLimit.Value + 1;
-            Cursor = Cursors.WaitCursor;
-            SuspendLayout();
-            await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard, limit);
-            ResumeLayout();
-            Cursor = Cursors.Default;
-        }
     }
 }

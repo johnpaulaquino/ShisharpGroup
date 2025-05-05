@@ -28,98 +28,47 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
-            this.cboDateRange = new Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel8 = new Krypton.Toolkit.KryptonLabel();
             this.cboStatus = new Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             this.dtpkEndTerm = new Krypton.Toolkit.KryptonDateTimePicker();
             this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
-            this.btnAddAccom = new Krypton.Toolkit.KryptonButton();
-            this.cboAcom = new Krypton.Toolkit.KryptonComboBox();
-            this.ctxRemoveAccom = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
-            this.txtAccom = new Krypton.Toolkit.KryptonTextBox();
-            this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
-            this.btnAddAchievement = new Krypton.Toolkit.KryptonButton();
-            this.cboAchievements = new Krypton.Toolkit.KryptonComboBox();
-            this.ctxRemoveAchievements = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpkStartTerm = new Krypton.Toolkit.KryptonDateTimePicker();
-            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            this.txtAchievements = new Krypton.Toolkit.KryptonTextBox();
             this.cboPosition = new Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.btnSubmitOfficials = new Krypton.Toolkit.KryptonButton();
             this.btnOfficialsSaveChanges = new Krypton.Toolkit.KryptonButton();
+            this.ctxRemoveAccom = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctxRemoveAchievements = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentHolder)).BeginInit();
             this.pnlMainContentHolder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDateRange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAcom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAchievements)).BeginInit();
-            this.ctxRemoveAchievements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboPosition)).BeginInit();
+            this.ctxRemoveAchievements.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMainContentHolder
             // 
             this.pnlMainContentHolder.AutoScroll = true;
-            this.pnlMainContentHolder.Controls.Add(this.cboDateRange);
-            this.pnlMainContentHolder.Controls.Add(this.kryptonLabel8);
             this.pnlMainContentHolder.Controls.Add(this.cboStatus);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel7);
             this.pnlMainContentHolder.Controls.Add(this.dtpkEndTerm);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel6);
-            this.pnlMainContentHolder.Controls.Add(this.btnAddAccom);
-            this.pnlMainContentHolder.Controls.Add(this.cboAcom);
-            this.pnlMainContentHolder.Controls.Add(this.kryptonLabel4);
-            this.pnlMainContentHolder.Controls.Add(this.txtAccom);
-            this.pnlMainContentHolder.Controls.Add(this.kryptonPanel2);
-            this.pnlMainContentHolder.Controls.Add(this.btnAddAchievement);
-            this.pnlMainContentHolder.Controls.Add(this.cboAchievements);
             this.pnlMainContentHolder.Controls.Add(this.dtpkStartTerm);
-            this.pnlMainContentHolder.Controls.Add(this.kryptonLabel5);
-            this.pnlMainContentHolder.Controls.Add(this.txtAchievements);
             this.pnlMainContentHolder.Controls.Add(this.cboPosition);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel3);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel2);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel1);
-            this.pnlMainContentHolder.Controls.Add(this.btnSubmitOfficials);
             this.pnlMainContentHolder.Controls.Add(this.btnOfficialsSaveChanges);
+            this.pnlMainContentHolder.Controls.Add(this.btnSubmitOfficials);
             this.pnlMainContentHolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContentHolder.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContentHolder.Name = "pnlMainContentHolder";
             this.pnlMainContentHolder.Size = new System.Drawing.Size(317, 581);
             this.pnlMainContentHolder.StateCommon.Color1 = System.Drawing.Color.White;
             this.pnlMainContentHolder.TabIndex = 13;
-            // 
-            // cboDateRange
-            // 
-            this.cboDateRange.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboDateRange.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboDateRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDateRange.DropDownWidth = 428;
-            this.cboDateRange.Enabled = false;
-            this.cboDateRange.Location = new System.Drawing.Point(3, 451);
-            this.cboDateRange.Name = "cboDateRange";
-            this.cboDateRange.Size = new System.Drawing.Size(291, 25);
-            this.cboDateRange.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboDateRange.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.cboDateRange.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboDateRange.StateNormal.Item.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboDateRange.TabIndex = 58;
-            // 
-            // kryptonLabel8
-            // 
-            this.kryptonLabel8.Location = new System.Drawing.Point(5, 417);
-            this.kryptonLabel8.Name = "kryptonLabel8";
-            this.kryptonLabel8.Size = new System.Drawing.Size(146, 33);
-            this.kryptonLabel8.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel8.TabIndex = 57;
-            this.kryptonLabel8.Values.Text = "Date Range";
             // 
             // cboStatus
             // 
@@ -170,212 +119,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel6.TabIndex = 53;
             this.kryptonLabel6.Values.Text = "End Term";
             // 
-            // btnAddAccom
-            // 
-            this.btnAddAccom.Enabled = false;
-            this.btnAddAccom.Location = new System.Drawing.Point(179, 692);
-            this.btnAddAccom.Name = "btnAddAccom";
-            this.btnAddAccom.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnAddAccom.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddAccom.OverrideDefault.Border.Rounding = 5F;
-            this.btnAddAccom.OverrideDefault.Border.Width = 1;
-            this.btnAddAccom.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddAccom.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddAccom.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAddAccom.Size = new System.Drawing.Size(117, 44);
-            this.btnAddAccom.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateCommon.Back.ColorAngle = 45F;
-            this.btnAddAccom.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddAccom.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddAccom.StateCommon.Border.ColorAngle = 45F;
-            this.btnAddAccom.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddAccom.StateCommon.Border.Rounding = 5F;
-            this.btnAddAccom.StateCommon.Border.Width = 1;
-            this.btnAddAccom.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddAccom.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddAccom.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAccom.StateDisabled.Border.Rounding = 5F;
-            this.btnAddAccom.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateNormal.Border.Rounding = 5F;
-            this.btnAddAccom.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddAccom.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddAccom.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnAddAccom.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnAddAccom.StatePressed.Back.ColorAngle = 130F;
-            this.btnAddAccom.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnAddAccom.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnAddAccom.StatePressed.Border.ColorAngle = 130F;
-            this.btnAddAccom.StatePressed.Border.Rounding = 5F;
-            this.btnAddAccom.StatePressed.Border.Width = 1;
-            this.btnAddAccom.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnAddAccom.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnAddAccom.StateTracking.Back.ColorAngle = 45F;
-            this.btnAddAccom.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddAccom.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateTracking.Border.ColorAngle = 45F;
-            this.btnAddAccom.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddAccom.StateTracking.Border.Rounding = 5F;
-            this.btnAddAccom.StateTracking.Border.Width = 1;
-            this.btnAddAccom.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAccom.TabIndex = 52;
-            this.btnAddAccom.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnAddAccom.Values.Text = "Add";
-            // 
-            // cboAcom
-            // 
-            this.cboAcom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboAcom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboAcom.ContextMenuStrip = this.ctxRemoveAccom;
-            this.cboAcom.DropDownWidth = 428;
-            this.cboAcom.Enabled = false;
-            this.cboAcom.Location = new System.Drawing.Point(179, 661);
-            this.cboAcom.Name = "cboAcom";
-            this.cboAcom.Size = new System.Drawing.Size(117, 25);
-            this.cboAcom.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboAcom.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.cboAcom.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboAcom.StateNormal.Item.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboAcom.TabIndex = 51;
-            // 
-            // ctxRemoveAccom
-            // 
-            this.ctxRemoveAccom.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ctxRemoveAccom.Name = "ctxRemoveAccom";
-            this.ctxRemoveAccom.Size = new System.Drawing.Size(61, 4);
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(5, 627);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(208, 33);
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel4.TabIndex = 50;
-            this.kryptonLabel4.Values.Text = "Accomplishments";
-            // 
-            // txtAccom
-            // 
-            this.txtAccom.Enabled = false;
-            this.txtAccom.Location = new System.Drawing.Point(5, 661);
-            this.txtAccom.Multiline = true;
-            this.txtAccom.Name = "txtAccom";
-            this.txtAccom.ReadOnly = true;
-            this.txtAccom.Size = new System.Drawing.Size(169, 75);
-            this.txtAccom.TabIndex = 49;
-            // 
-            // kryptonPanel2
-            // 
-            this.kryptonPanel2.Location = new System.Drawing.Point(122, 807);
-            this.kryptonPanel2.Name = "kryptonPanel2";
-            this.kryptonPanel2.Size = new System.Drawing.Size(86, 9);
-            this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.White;
-            this.kryptonPanel2.TabIndex = 48;
-            // 
-            // btnAddAchievement
-            // 
-            this.btnAddAchievement.Enabled = false;
-            this.btnAddAchievement.Location = new System.Drawing.Point(179, 561);
-            this.btnAddAchievement.Name = "btnAddAchievement";
-            this.btnAddAchievement.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnAddAchievement.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddAchievement.OverrideDefault.Border.Rounding = 5F;
-            this.btnAddAchievement.OverrideDefault.Border.Width = 1;
-            this.btnAddAchievement.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddAchievement.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddAchievement.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAddAchievement.Size = new System.Drawing.Size(117, 44);
-            this.btnAddAchievement.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateCommon.Back.ColorAngle = 45F;
-            this.btnAddAchievement.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddAchievement.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddAchievement.StateCommon.Border.ColorAngle = 45F;
-            this.btnAddAchievement.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddAchievement.StateCommon.Border.Rounding = 5F;
-            this.btnAddAchievement.StateCommon.Border.Width = 1;
-            this.btnAddAchievement.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddAchievement.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddAchievement.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAchievement.StateDisabled.Border.Rounding = 5F;
-            this.btnAddAchievement.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateNormal.Border.Rounding = 5F;
-            this.btnAddAchievement.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddAchievement.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddAchievement.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnAddAchievement.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnAddAchievement.StatePressed.Back.ColorAngle = 130F;
-            this.btnAddAchievement.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnAddAchievement.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnAddAchievement.StatePressed.Border.ColorAngle = 130F;
-            this.btnAddAchievement.StatePressed.Border.Rounding = 5F;
-            this.btnAddAchievement.StatePressed.Border.Width = 1;
-            this.btnAddAchievement.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnAddAchievement.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnAddAchievement.StateTracking.Back.ColorAngle = 45F;
-            this.btnAddAchievement.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddAchievement.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateTracking.Border.ColorAngle = 45F;
-            this.btnAddAchievement.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddAchievement.StateTracking.Border.Rounding = 5F;
-            this.btnAddAchievement.StateTracking.Border.Width = 1;
-            this.btnAddAchievement.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddAchievement.TabIndex = 47;
-            this.btnAddAchievement.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnAddAchievement.Values.Text = "Add";
-            this.btnAddAchievement.Click += new System.EventHandler(this.btnAddAchievement_Click_1);
-            // 
-            // cboAchievements
-            // 
-            this.cboAchievements.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboAchievements.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboAchievements.ContextMenuStrip = this.ctxRemoveAchievements;
-            this.cboAchievements.DropDownWidth = 428;
-            this.cboAchievements.Enabled = false;
-            this.cboAchievements.Items.AddRange(new object[] {
-            "asdasd",
-            "asdasd",
-            "asdasd"});
-            this.cboAchievements.Location = new System.Drawing.Point(179, 530);
-            this.cboAchievements.Name = "cboAchievements";
-            this.cboAchievements.Size = new System.Drawing.Size(117, 25);
-            this.cboAchievements.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboAchievements.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            this.cboAchievements.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboAchievements.StateNormal.Item.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cboAchievements.TabIndex = 46;
-            this.cboAchievements.MouseDown += new System.Windows.Forms.MouseEventHandler(this.cboAchievements_MouseDown_1);
-            // 
-            // ctxRemoveAchievements
-            // 
-            this.ctxRemoveAchievements.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ctxRemoveAchievements.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.removeToolStripMenuItem});
-            this.ctxRemoveAchievements.Name = "ctxRemoveAchievements";
-            this.ctxRemoveAchievements.Size = new System.Drawing.Size(118, 26);
-            this.ctxRemoveAchievements.Opening += new System.ComponentModel.CancelEventHandler(this.ctxRemoveAchievements_Opening);
-            // 
-            // removeToolStripMenuItem
-            // 
-            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
-            // 
             // dtpkStartTerm
             // 
             this.dtpkStartTerm.Location = new System.Drawing.Point(5, 213);
@@ -383,25 +126,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.dtpkStartTerm.Size = new System.Drawing.Size(291, 29);
             this.dtpkStartTerm.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpkStartTerm.TabIndex = 45;
-            // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(5, 496);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(170, 33);
-            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel5.TabIndex = 44;
-            this.kryptonLabel5.Values.Text = "Achievements";
-            // 
-            // txtAchievements
-            // 
-            this.txtAchievements.Enabled = false;
-            this.txtAchievements.Location = new System.Drawing.Point(5, 530);
-            this.txtAchievements.Multiline = true;
-            this.txtAchievements.Name = "txtAchievements";
-            this.txtAchievements.ReadOnly = true;
-            this.txtAchievements.Size = new System.Drawing.Size(169, 75);
-            this.txtAchievements.TabIndex = 43;
             // 
             // cboPosition
             // 
@@ -457,7 +181,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // btnSubmitOfficials
             // 
-            this.btnSubmitOfficials.Location = new System.Drawing.Point(76, 757);
+            this.btnSubmitOfficials.Location = new System.Drawing.Point(61, 534);
             this.btnSubmitOfficials.Name = "btnSubmitOfficials";
             this.btnSubmitOfficials.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
             this.btnSubmitOfficials.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -517,7 +241,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // btnOfficialsSaveChanges
             // 
-            this.btnOfficialsSaveChanges.Location = new System.Drawing.Point(76, 757);
+            this.btnOfficialsSaveChanges.Location = new System.Drawing.Point(61, 534);
             this.btnOfficialsSaveChanges.Name = "btnOfficialsSaveChanges";
             this.btnOfficialsSaveChanges.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
             this.btnOfficialsSaveChanges.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -573,6 +297,27 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.btnOfficialsSaveChanges.TabIndex = 39;
             this.btnOfficialsSaveChanges.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnOfficialsSaveChanges.Values.Text = "Save Changes";
+            this.btnOfficialsSaveChanges.Click += new System.EventHandler(this.btnOfficialsSaveChanges_Click);
+            // 
+            // ctxRemoveAccom
+            // 
+            this.ctxRemoveAccom.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxRemoveAccom.Name = "ctxRemoveAccom";
+            this.ctxRemoveAccom.Size = new System.Drawing.Size(61, 4);
+            // 
+            // ctxRemoveAchievements
+            // 
+            this.ctxRemoveAchievements.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxRemoveAchievements.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.removeToolStripMenuItem});
+            this.ctxRemoveAchievements.Name = "ctxRemoveAchievements";
+            this.ctxRemoveAchievements.Size = new System.Drawing.Size(118, 26);
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
             // 
             // OfficialsModalControl
             // 
@@ -584,13 +329,9 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentHolder)).EndInit();
             this.pnlMainContentHolder.ResumeLayout(false);
             this.pnlMainContentHolder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDateRange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAcom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAchievements)).EndInit();
-            this.ctxRemoveAchievements.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cboPosition)).EndInit();
+            this.ctxRemoveAchievements.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -600,26 +341,15 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         public Krypton.Toolkit.KryptonPanel pnlMainContentHolder;
         private Krypton.Toolkit.KryptonLabel kryptonLabel7;
         private Krypton.Toolkit.KryptonLabel kryptonLabel6;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel8;
         protected internal Krypton.Toolkit.KryptonComboBox cboStatus;
         protected internal Krypton.Toolkit.KryptonDateTimePicker dtpkEndTerm;
-        protected internal Krypton.Toolkit.KryptonButton btnAddAccom;
-        protected internal Krypton.Toolkit.KryptonComboBox cboAcom;
-        protected internal Krypton.Toolkit.KryptonTextBox txtAccom;
-        protected internal Krypton.Toolkit.KryptonButton btnAddAchievement;
-        protected internal Krypton.Toolkit.KryptonComboBox cboAchievements;
         protected internal Krypton.Toolkit.KryptonDateTimePicker dtpkStartTerm;
-        protected internal Krypton.Toolkit.KryptonTextBox txtAchievements;
         protected internal Krypton.Toolkit.KryptonComboBox cboPosition;
         protected internal Krypton.Toolkit.KryptonButton btnSubmitOfficials;
         protected internal Krypton.Toolkit.KryptonButton btnOfficialsSaveChanges;
-        protected internal Krypton.Toolkit.KryptonComboBox cboDateRange;
         private ContextMenuStrip ctxRemoveAccom;
         private ContextMenuStrip ctxRemoveAchievements;
         private ToolStripMenuItem removeToolStripMenuItem;

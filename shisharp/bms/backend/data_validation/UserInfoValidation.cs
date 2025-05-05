@@ -189,7 +189,7 @@ namespace BrgyMs.backend.data_validation {
 
 
         //validate request documents
-        public void ValdiateRequestDocs(ResidentDocumentRequest _RequestDocs) {
+        public void ValidateRequestDocs(ResidentDocumentRequest _RequestDocs) {
             if (string.IsNullOrEmpty(_RequestDocs.DocumentType)) {
                 throw new Exception("Please specify the document you are requesting!");
             }

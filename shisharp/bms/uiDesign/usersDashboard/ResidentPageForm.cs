@@ -14,27 +14,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BrgyMS.uiDesign.usersDashboard.user_controls;
+using Krypton.Toolkit;
+using BrgyMs.backend.models.base_model;
 
 namespace BrgyMS.uiDesign.usersDashboard {
     public partial class ResidentPageForm : Form {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();
         private BaseRepository _BaseRepo = new BaseRepository();
-        private ResidentDashboardControls dashboard;
+        private ResDashboard dashboard;
         private RequestDocumentsControls docs;
         private ResidentUserLogsControl logsControl;
         private AccountSettingsDataHolderController dataHolder;
-
+        private Utils utils = new Utils();
         public ResidentPageForm() {
             InitializeComponent();
 
         }
-     
+
         private void picUserDashboardIcon_Click_1(object sender, EventArgs e) {
-            if (dashboard == null) {
-                dashboard = new ResidentDashboardControls();
-            }
+
+            dashboard = new ResDashboard();
+
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
             pnlMainContentHolder.Controls.Add(dashboard);
@@ -54,9 +55,9 @@ namespace BrgyMS.uiDesign.usersDashboard {
         }
 
         private void picUserLogs_Click_1(object sender, EventArgs e) {
-            if (logsControl == null) {
-                logsControl = new ResidentUserLogsControl();
-            }
+
+            logsControl = new ResidentUserLogsControl();
+
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
             pnlMainContentHolder.Controls.Add(logsControl);
@@ -65,9 +66,9 @@ namespace BrgyMS.uiDesign.usersDashboard {
         }
 
         private void picUserRequestDocs_Click_1(object sender, EventArgs e) {
-            if (docs == null) {
-                docs = new RequestDocumentsControls();
-            }
+
+            docs = new RequestDocumentsControls();
+
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
             pnlMainContentHolder.Controls.Add(docs);
@@ -85,6 +86,29 @@ namespace BrgyMS.uiDesign.usersDashboard {
                 login.Owner = this;
                 login.Show();
             }
+        }
+
+        private void ResidentPageForm_Load(object sender, EventArgs e) {
+            SetUserLabel(lblRole, lblUsername);
+
+            dashboard = new ResDashboard();
+
+            Cursor = Cursors.WaitCursor;
+            pnlMainContentHolder.Controls.Clear();
+            pnlMainContentHolder.Controls.Add(dashboard);
+            dashboard.Dock = DockStyle.Fill;
+            Cursor = Cursors.Default;
+        }
+        public void SetUserLabel(KryptonLabel lblRole,
+         KryptonLabel lblusername) {
+
+            string token = _AuthUtils.ReadTokenInFile();
+            User user = _AuthUtils.ValidateToken(token);
+
+            string role = utils.FormatRoles(user.Role);
+
+            lblRole.Text = role;
+            lblusername.Text = "Hi, " + user.Username;
         }
     }
 }

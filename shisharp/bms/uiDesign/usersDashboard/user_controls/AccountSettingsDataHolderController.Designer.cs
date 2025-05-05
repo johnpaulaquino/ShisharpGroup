@@ -902,6 +902,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.Controls.Add(this.kryptonPanel1);
             this.Name = "AccountSettingsDataHolderController";
             this.Size = new System.Drawing.Size(809, 526);
+            this.Load += new System.EventHandler(this.AccountSettingsDataHolderController_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();

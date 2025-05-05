@@ -47,6 +47,15 @@ namespace BrgyMS.backend.services {
             }
         } // end of the line
 
+        public async Task<int> GetTotalResidetnLogs(string userid) {
+            try {
+                return await _BaseRepo.GetTotalResidetnLogs(userid);
+            }
+            catch (Exception ex) {
+                throw;
+            }
+        }
+
         public async Task<List<object>> GetAllUserInformations(string userId) {
             _BaseRepo = new BaseRepository();
             List<object> usersInfo = new List<object>();
@@ -127,11 +136,10 @@ namespace BrgyMS.backend.services {
                         usersInfo.Add(addInfo);
                         usersInfo.Add(address);
                         // lastly return the list taht contains the info
-
-
+                        return usersInfo;
                     }
 
-                    return usersInfo;
+                    return null; 
                 }
 
             }
@@ -153,7 +161,18 @@ namespace BrgyMS.backend.services {
                 throw;
             }
 
-        }
+        }// end
+
+        public async Task<DataTable> GetOFficialsInfo() {
+            try {
+
+                var dt = await _SecretaryRepo.GetOfficials();
+                return dt;
+            }
+            catch (Exception) {
+                throw;
+            }
+        } //end
     }
 
 }

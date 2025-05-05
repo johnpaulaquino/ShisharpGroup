@@ -298,6 +298,34 @@ namespace BrgyMs.backend.database.repositories {
         }//end of function
 
 
+
+        //get the logs with offset
+        public async Task<int> GetTotalResidetnLogs(string userId) {
+            string stmt = "Select count(id) as total from action_logs " +
+                "WHERe user_id = @userid ";
+
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@userid", userId);
+
+                        using (var reader = await cmd.ExecuteReaderAsync()) {
+                            if (await reader.ReadAsync()) {
+                                return reader.GetInt32(reader.GetOrdinal("total"));
+                            }
+                        }
+
+                    }
+
+                }
+                return 0;
+            }
+            catch (Exception ex) {
+                throw;
+            }
+        }
+
+
         //GEt the email of the user
         public async Task<Dictionary<string, string>> GetEmail(string email) {
             string stmt = "Select id, email, password,username, role, status from users "

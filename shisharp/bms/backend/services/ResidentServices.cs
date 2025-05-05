@@ -7,6 +7,7 @@ using BrgyMs.backend.data_validation;
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.models.residents_docs;
+using BrgyMS.backend.models;
 using BrgyMS.backend.services;
 using MySql.Data.MySqlClient;
 
@@ -41,8 +42,8 @@ namespace BrgyMs.backend.services {
             try {
 
                 //Validate fields first before insertion.
-                _Validation.ValdiateRequestDocs(_RequestDocs);
-         
+                _Validation.ValidateRequestDocs(_RequestDocs);
+
                 // Insert data on database
                 await _ResidentRepo.AddRequestDocuments(_RequestDocs);
 
@@ -52,21 +53,66 @@ namespace BrgyMs.backend.services {
             }
         } // end of the function
 
-        public async Task<MySqlDataAdapter> GetUsersLogs(int limit) {
+
+        //Get user logs per users
+        public async Task<MySqlDataAdapter> GetUsersLogs(string userId) {
             try {
-                return await _ResidentRepo.GetUserLogs(limit);
+                return await _ResidentRepo.GetUserLogs(userId);
             }
             catch (Exception) {
                 throw;
             }
         }// end of function
-    
+
 
         //Get the request documnts
 
-        public async Task<MySqlDataAdapter> GetRequestDocuments(string userId, int limit) {
+        public async Task<MySqlDataAdapter> GetRequestDocuments(string userId) {
             try {
-                return await _ResidentRepo.GetRequestedDocs(userId, limit);
+                return await _ResidentRepo.GetRequestedDocs(userId);
+            }
+            catch (Exception) {
+                throw;
+            }
+        }// end 
+
+
+        public async Task<List<AnnouncementsModel>> GetAnnouncement() {
+            try {
+                List<AnnouncementsModel> data = await _ResidentRepo.GetAnnouncement();
+                return data;
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // end
+
+        public async Task UpdateResidentRequestDocs(string id,
+            string doc_type,
+            string purpose) {
+            try {
+                var docs = new ResidentDocumentRequest()
+                {
+                    DocumentType = doc_type,
+                    Purpose = purpose
+                };
+                _Validation.ValidateRequestDocs(docs); // validate
+
+                await _ResidentRepo.UpdateRequestDocs(id, doc_type, purpose); // then update
+            }
+            catch (Exception) {
+                throw;
+            }
+
+        } // 
+        public async Task<DataTable> GetRequestDocs(string userid) {
+            try {
+                DataTable dt = await Task.Run(async () =>
+                {
+                    return await _ResidentRepo.GetRequestedDocs1(userid);
+                });
+
+                return dt;
             }
             catch (Exception) {
                 throw;

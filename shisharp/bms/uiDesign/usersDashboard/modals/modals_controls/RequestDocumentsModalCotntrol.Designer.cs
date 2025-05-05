@@ -49,6 +49,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             // 
             // kryptonPanel1
             // 
+            this.kryptonPanel1.AutoScroll = true;
             this.kryptonPanel1.Controls.Add(this.pnlMainContentHolder);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
@@ -322,13 +323,13 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonComboBox cboDocsType;
-        private Krypton.Toolkit.KryptonButton btnSubmitRequest;
-        private Krypton.Toolkit.KryptonButton btnSaveChanges;
-        private Krypton.Toolkit.KryptonComboBox cboPurposes;
-        private Krypton.Toolkit.KryptonCheckBox cbFirstTimeJobSeeker;
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private Krypton.Toolkit.KryptonTextBox txtOtherPurpose;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        protected internal Krypton.Toolkit.KryptonComboBox cboDocsType;
+        protected internal Krypton.Toolkit.KryptonButton btnSubmitRequest;
+        protected internal Krypton.Toolkit.KryptonButton btnSaveChanges;
+        protected internal Krypton.Toolkit.KryptonComboBox cboPurposes;
+        protected internal Krypton.Toolkit.KryptonCheckBox cbFirstTimeJobSeeker;
+        protected internal Krypton.Toolkit.KryptonTextBox txtOtherPurpose;
     }
 }

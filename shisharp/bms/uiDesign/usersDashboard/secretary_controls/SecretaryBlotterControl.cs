@@ -61,7 +61,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         //Table Resfresher
         public async void BlotterTableResfresher() {
             try {
-                int limit = (int)nudLimit.Value;
+                
                 await _Secretary.FillBlotterTable(dataGridBlotterTable);
             }
             catch (Exception ex) {

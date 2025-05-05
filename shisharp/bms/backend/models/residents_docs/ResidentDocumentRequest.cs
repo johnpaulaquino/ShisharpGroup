@@ -10,15 +10,17 @@ namespace BrgyMs.backend.models.residents_docs {
         public string DocumentType { get; set; }
         public string Status { get; set; }
         public string Purpose { get; set; }
+        public bool isFirstTImeJbSeeker { get; set; }
+        public string OtherPurposes { get; set; }
 
-        public ResidentDocumentRequest(string UserId,
-        string DocumentType,
-        string Purpose,
-        string Status = "pending") {
+        public ResidentDocumentRequest(
+        string Status = "pending",
+        string OtherPurposes = "") {
             this.DocumentType = DocumentType;// This is the documents that the resident is requesting. ex. Brgy Clearance. 
             this.Status = Status;
             this.UserId = UserId;
             this.Purpose = Purpose;
+            this.OtherPurposes = OtherPurposes;
         }
     }
 }

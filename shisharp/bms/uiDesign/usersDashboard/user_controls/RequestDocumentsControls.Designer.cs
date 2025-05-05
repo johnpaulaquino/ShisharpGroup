@@ -27,11 +27,9 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.nudLimit = new Krypton.Toolkit.KryptonNumericUpDown();
-            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             this.btnLogin = new Krypton.Toolkit.KryptonButton();
@@ -48,6 +46,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.ctxResidentRequestDocs = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.updateRequestDocumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -56,55 +56,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            this.ctxResidentRequestDocs.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // nudLimit
-            // 
-            this.nudLimit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nudLimit.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudLimit.Location = new System.Drawing.Point(70, 120);
-            this.nudLimit.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.nudLimit.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.nudLimit.Name = "nudLimit";
-            this.nudLimit.Size = new System.Drawing.Size(47, 22);
-            this.nudLimit.TabIndex = 13;
-            this.nudLimit.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonLabel3.Location = new System.Drawing.Point(27, 119);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(44, 19);
-            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.kryptonLabel3.TabIndex = 12;
-            this.kryptonLabel3.Values.Text = "Show";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.kryptonLabel4.Location = new System.Drawing.Point(123, 119);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(53, 19);
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.kryptonLabel4.TabIndex = 14;
-            this.kryptonLabel4.Values.Text = "Entries";
             // 
             // kryptonSeparator1
             // 
@@ -125,9 +78,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel1.Controls.Add(this.dtpkStartDate);
             this.kryptonPanel1.Controls.Add(this.dataGridAdminDashboard);
-            this.kryptonPanel1.Controls.Add(this.nudLimit);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel3);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel4);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(809, 515);
@@ -281,6 +231,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.dataGridAdminDashboard.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.dataGridAdminDashboard.TabIndex = 18;
             this.dataGridAdminDashboard.ToolTipShadow = false;
+            this.dataGridAdminDashboard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridAdminDashboard_MouseDown);
             // 
             // id
             // 
@@ -344,6 +295,21 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Request Documents";
             // 
+            // ctxResidentRequestDocs
+            // 
+            this.ctxResidentRequestDocs.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxResidentRequestDocs.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateRequestDocumentToolStripMenuItem});
+            this.ctxResidentRequestDocs.Name = "ctxResidentRequestDocs";
+            this.ctxResidentRequestDocs.Size = new System.Drawing.Size(217, 26);
+            // 
+            // updateRequestDocumentToolStripMenuItem
+            // 
+            this.updateRequestDocumentToolStripMenuItem.Name = "updateRequestDocumentToolStripMenuItem";
+            this.updateRequestDocumentToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.updateRequestDocumentToolStripMenuItem.Text = "Update Request Document";
+            this.updateRequestDocumentToolStripMenuItem.Click += new System.EventHandler(this.updateRequestDocumentToolStripMenuItem_Click);
+            // 
             // RequestDocumentsControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,15 +328,12 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            this.ctxResidentRequestDocs.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Krypton.Toolkit.KryptonNumericUpDown nudLimit;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private Krypton.Toolkit.KryptonSeparator kryptonSeparator1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private Krypton.Toolkit.KryptonPanel pnlMainContentControler;
@@ -387,5 +350,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private DataGridViewTextBoxColumn colrole;
         private DataGridViewTextBoxColumn colactions;
         private DataGridViewTextBoxColumn colaffectedtable;
+        private ContextMenuStrip ctxResidentRequestDocs;
+        private ToolStripMenuItem updateRequestDocumentToolStripMenuItem;
     }
 }

@@ -138,6 +138,9 @@ namespace BrgyMs.backend.database.repositories {
             }
 
         }
+
+
+
         //Get all active announcements. Will add offset here
         public async Task<DataTable> GetAnnouncement() {
             string stmt = "SELECT id as ID, title  as Title, DATE_FORMAT(date_post,  '%W, %M %d, %Y %r') as 'Date Post', details as Details " +
@@ -258,7 +261,7 @@ namespace BrgyMs.backend.database.repositories {
                 " THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END), " +
                 " p.lastname, NULLIF(p.suffix, '') ) as 'Fullname',  " +
                 "p.gender as Gender, o.position as Position, " +
-                "o.election_histories as 'Histories', o.status as Status, ai.profile_image as Profile " +
+                "o.start_term as StartTerm, o.end_term as EndTerm,  o.status as Status, ai.profile_image as Profile " +
                 "From personal_info p " +
                 "LEFT JOIN officials o  " +
                 "ON p.user_id = o.user_id " +

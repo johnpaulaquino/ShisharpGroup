@@ -39,8 +39,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.btnUpdateAnnouncements = new Krypton.Toolkit.KryptonButton();
             this.btnSubmitAnnouncements = new Krypton.Toolkit.KryptonButton();
+            this.btnUpdateAnnouncements = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentHolder)).BeginInit();
@@ -74,8 +74,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel3);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel2);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel1);
-            this.pnlMainContentHolder.Controls.Add(this.btnSubmitAnnouncements);
             this.pnlMainContentHolder.Controls.Add(this.btnUpdateAnnouncements);
+            this.pnlMainContentHolder.Controls.Add(this.btnSubmitAnnouncements);
             this.pnlMainContentHolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContentHolder.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContentHolder.Name = "pnlMainContentHolder";
@@ -230,66 +230,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel1.TabIndex = 17;
             this.kryptonLabel1.Values.Text = "Attachment";
             // 
-            // btnUpdateAnnouncements
-            // 
-            this.btnUpdateAnnouncements.Location = new System.Drawing.Point(69, 585);
-            this.btnUpdateAnnouncements.Name = "btnUpdateAnnouncements";
-            this.btnUpdateAnnouncements.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnUpdateAnnouncements.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnUpdateAnnouncements.OverrideDefault.Border.Rounding = 5F;
-            this.btnUpdateAnnouncements.OverrideDefault.Border.Width = 1;
-            this.btnUpdateAnnouncements.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnUpdateAnnouncements.Size = new System.Drawing.Size(160, 47);
-            this.btnUpdateAnnouncements.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateCommon.Back.ColorAngle = 45F;
-            this.btnUpdateAnnouncements.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnUpdateAnnouncements.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnUpdateAnnouncements.StateCommon.Border.ColorAngle = 45F;
-            this.btnUpdateAnnouncements.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnUpdateAnnouncements.StateCommon.Border.Rounding = 5F;
-            this.btnUpdateAnnouncements.StateCommon.Border.Width = 1;
-            this.btnUpdateAnnouncements.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAnnouncements.StateDisabled.Border.Rounding = 5F;
-            this.btnUpdateAnnouncements.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateNormal.Border.Rounding = 5F;
-            this.btnUpdateAnnouncements.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnUpdateAnnouncements.StatePressed.Back.ColorAngle = 130F;
-            this.btnUpdateAnnouncements.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnUpdateAnnouncements.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnUpdateAnnouncements.StatePressed.Border.ColorAngle = 130F;
-            this.btnUpdateAnnouncements.StatePressed.Border.Rounding = 5F;
-            this.btnUpdateAnnouncements.StatePressed.Border.Width = 1;
-            this.btnUpdateAnnouncements.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdateAnnouncements.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdateAnnouncements.StateTracking.Back.ColorAngle = 45F;
-            this.btnUpdateAnnouncements.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnUpdateAnnouncements.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateTracking.Border.ColorAngle = 45F;
-            this.btnUpdateAnnouncements.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnUpdateAnnouncements.StateTracking.Border.Rounding = 5F;
-            this.btnUpdateAnnouncements.StateTracking.Border.Width = 1;
-            this.btnUpdateAnnouncements.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateAnnouncements.TabIndex = 48;
-            this.btnUpdateAnnouncements.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnUpdateAnnouncements.Values.Text = "Update";
-            this.btnUpdateAnnouncements.Click += new System.EventHandler(this.btnUpdateAnnouncements_Click_1);
-            // 
             // btnSubmitAnnouncements
             // 
             this.btnSubmitAnnouncements.Location = new System.Drawing.Point(69, 585);
@@ -349,6 +289,66 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.btnSubmitAnnouncements.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSubmitAnnouncements.Values.Text = "Submit";
             this.btnSubmitAnnouncements.Click += new System.EventHandler(this.btnSubmitAnnouncements_Click);
+            // 
+            // btnUpdateAnnouncements
+            // 
+            this.btnUpdateAnnouncements.Location = new System.Drawing.Point(69, 585);
+            this.btnUpdateAnnouncements.Name = "btnUpdateAnnouncements";
+            this.btnUpdateAnnouncements.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.OverrideDefault.Back.ColorAngle = 45F;
+            this.btnUpdateAnnouncements.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnUpdateAnnouncements.OverrideDefault.Border.Rounding = 5F;
+            this.btnUpdateAnnouncements.OverrideDefault.Border.Width = 1;
+            this.btnUpdateAnnouncements.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnUpdateAnnouncements.Size = new System.Drawing.Size(160, 47);
+            this.btnUpdateAnnouncements.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateCommon.Back.ColorAngle = 45F;
+            this.btnUpdateAnnouncements.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnUpdateAnnouncements.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnUpdateAnnouncements.StateCommon.Border.ColorAngle = 45F;
+            this.btnUpdateAnnouncements.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnUpdateAnnouncements.StateCommon.Border.Rounding = 5F;
+            this.btnUpdateAnnouncements.StateCommon.Border.Width = 1;
+            this.btnUpdateAnnouncements.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateAnnouncements.StateDisabled.Border.Rounding = 5F;
+            this.btnUpdateAnnouncements.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateNormal.Border.Rounding = 5F;
+            this.btnUpdateAnnouncements.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.StatePressed.Back.Color1 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.StatePressed.Back.Color2 = System.Drawing.Color.White;
+            this.btnUpdateAnnouncements.StatePressed.Back.ColorAngle = 130F;
+            this.btnUpdateAnnouncements.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.btnUpdateAnnouncements.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
+            this.btnUpdateAnnouncements.StatePressed.Border.ColorAngle = 130F;
+            this.btnUpdateAnnouncements.StatePressed.Border.Rounding = 5F;
+            this.btnUpdateAnnouncements.StatePressed.Border.Width = 1;
+            this.btnUpdateAnnouncements.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdateAnnouncements.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdateAnnouncements.StateTracking.Back.ColorAngle = 45F;
+            this.btnUpdateAnnouncements.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnUpdateAnnouncements.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateTracking.Border.ColorAngle = 45F;
+            this.btnUpdateAnnouncements.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnUpdateAnnouncements.StateTracking.Border.Rounding = 5F;
+            this.btnUpdateAnnouncements.StateTracking.Border.Width = 1;
+            this.btnUpdateAnnouncements.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateAnnouncements.TabIndex = 48;
+            this.btnUpdateAnnouncements.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.btnUpdateAnnouncements.Values.Text = "Update";
+            this.btnUpdateAnnouncements.Click += new System.EventHandler(this.btnUpdateAnnouncements_Click_1);
             // 
             // AnnouncementsModalControl
             // 

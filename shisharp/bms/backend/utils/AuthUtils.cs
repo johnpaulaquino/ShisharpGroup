@@ -16,6 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Org.BouncyCastle.Crypto.Generators;
+using System.Windows;
 
 
 namespace BrgyMs.backend.utils {
@@ -110,7 +111,7 @@ namespace BrgyMs.backend.utils {
                 var principal = tokenHandler.ValidateToken(token, validateTokenParam, out SecurityToken validatedToken);
                 if (principal != null) {
                     string username = principal.FindFirst("username")?.Value;
-                    string userId = principal.FindFirst("userId")?.Value;
+                    string userId = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                     string role = principal.FindFirst(ClaimTypes.Role)?.Value;
 
 
@@ -133,7 +134,7 @@ namespace BrgyMs.backend.utils {
         private void PutTokenInFile(String token) {
             //get the curr directory and add info directory
             try {
-                fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../../info");
+                fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../info");
 
                 //check if not exist, then create
                 if (!Directory.Exists(fileDirectory)) {
@@ -149,6 +150,7 @@ namespace BrgyMs.backend.utils {
                     using (StreamWriter writer = new StreamWriter(fs)) {
 
                         writer.Write(token);
+                        writer.Close();
                     }
                 }
             }
@@ -160,7 +162,7 @@ namespace BrgyMs.backend.utils {
         public string ReadTokenInFile() {
             try {
                 string token = "";
-                fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../../info");
+                fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../info");
                 string fileLocation = fileDirectory + filename;
 
 
@@ -168,10 +170,10 @@ namespace BrgyMs.backend.utils {
                 using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                     using (var reader = new StreamReader(fs)) {
                         token = reader.ReadToEnd();
+                        reader.Close();
+                        return token;
                     }
                 }
-
-                return token;
             }
             catch (Exception) {
                 throw;
@@ -181,7 +183,7 @@ namespace BrgyMs.backend.utils {
 
         public void DeleteTokeAfterLogoutOrCloseTheFrom() {
             try {
-                fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../../info");
+                fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../info");
                 string fileLocation = fileDirectory + filename;
 
                 File.Delete(fileLocation);

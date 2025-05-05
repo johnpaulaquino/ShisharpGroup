@@ -1,8 +1,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BrgyMS.uiDesign.adminDashboard.controls {
-    partial class ResDashboard {
+namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
+    partial class SecretaryDashboardControl {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -57,6 +57,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonPanel14 = new Krypton.Toolkit.KryptonPanel();
             this.cartesianChart = new LiveCharts.WinForms.CartesianChart();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonPanel16 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel3 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
@@ -94,12 +95,13 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonPanel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonSeparator1
             // 
-            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonSeparator1.Location = new System.Drawing.Point(-3, 68);
             this.kryptonSeparator1.Name = "kryptonSeparator1";
@@ -108,8 +110,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // pnlMainContentControler
             // 
-            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel1);
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel2);
@@ -120,7 +122,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.AutoScroll = true;
             this.kryptonPanel1.Controls.Add(this.kryptonPanel5);
@@ -132,7 +134,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel5
             // 
-            this.kryptonPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel5.AutoScroll = true;
             this.kryptonPanel5.Controls.Add(this.kryptonTableLayoutPanel1);
@@ -145,7 +147,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonTableLayoutPanel1
             // 
-            this.kryptonTableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonTableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTableLayoutPanel1.ColumnCount = 3;
             this.kryptonTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -257,7 +259,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonTableLayoutPanel2
             // 
-            this.kryptonTableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonTableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonTableLayoutPanel2.AutoScroll = true;
             this.kryptonTableLayoutPanel2.ColumnCount = 3;
@@ -431,9 +433,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel2
             // 
-            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonPanel2.Controls.Add(this.kryptonPanel16);
             this.kryptonPanel2.Controls.Add(this.kryptonPanel3);
             this.kryptonPanel2.Controls.Add(this.kryptonSeparator1);
             this.kryptonPanel2.Controls.Add(this.kryptonLabel2);
@@ -443,9 +446,16 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel2.TabIndex = 2;
             // 
+            // kryptonPanel16
+            // 
+            this.kryptonPanel16.Location = new System.Drawing.Point(156, 68);
+            this.kryptonPanel16.Name = "kryptonPanel16";
+            this.kryptonPanel16.Size = new System.Drawing.Size(100, 100);
+            this.kryptonPanel16.TabIndex = 7;
+            // 
             // kryptonPanel3
             // 
-            this.kryptonPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel3.Location = new System.Drawing.Point(3, 68);
             this.kryptonPanel3.Name = "kryptonPanel3";
@@ -513,6 +523,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
             this.ResumeLayout(false);
 
@@ -553,5 +564,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel9;
         private Krypton.Toolkit.KryptonPanel kryptonPanel14;
         private LiveCharts.WinForms.CartesianChart cartesianChart;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel16;
     }
 }

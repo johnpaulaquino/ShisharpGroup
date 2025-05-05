@@ -5,7 +5,6 @@ using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using BrgyMS.uiDesign.usersDashboard.modals;
 using BrgyMS.uiDesign.usersDashboard.secretary_controls;
-using BrgyMS.uiDesign.usersDashboard.user_controls;
 using Google.Protobuf.Reflection;
 using Mysqlx.Crud;
 using System;
@@ -31,30 +30,32 @@ namespace BrgyMS.uiDesign.adminDashboard {
 
         }
 
-        private void picDashboardIcon_Click(object sender, EventArgs e) {
-            AdminDashboardControl dashcontrol = new AdminDashboardControl();
+
+
+        private void picAccountVerification_Click_1(object sender, EventArgs e) {
+            AdminAccountVerification verificationcontrol = new AdminAccountVerification();
             pnlMainContentHolder1.Controls.Clear();
-            pnlMainContentHolder1.Controls.Add(dashcontrol);
-            dashcontrol.Dock = DockStyle.Fill;
+            pnlMainContentHolder1.Controls.Add(verificationcontrol);
+            verificationcontrol.Dock = DockStyle.Fill;
         }
 
-        private void picLogs_Click(object sender, EventArgs e) {
-            AdminUserLogsControl logscontrol = new AdminUserLogsControl();
+        private void picAccountManagement_Click_1(object sender, EventArgs e) {
+            AdminAccountManagementControl accountcontrol = new AdminAccountManagementControl();
             pnlMainContentHolder1.Controls.Clear();
-            pnlMainContentHolder1.Controls.Add(logscontrol);
-            logscontrol.Dock = DockStyle.Fill;
+            pnlMainContentHolder1.Controls.Add(accountcontrol);
+            accountcontrol.Dock = DockStyle.Fill;
         }
 
-        private void picAnnouncements_Click(object sender, EventArgs e) {
+        private void picBlotter_Click(object sender, EventArgs e) {
+            SecretaryBlotterControl control = new SecretaryBlotterControl();
 
-            AdminAnnouncementsControl acnnoucnecontrol = new AdminAnnouncementsControl();
             pnlMainContentHolder1.Controls.Clear();
-            pnlMainContentHolder1.Controls.Add(acnnoucnecontrol);
-            acnnoucnecontrol.Dock = DockStyle.Fill;
-        }
+            pnlMainContentHolder1.Controls.Add(control);
 
-        private void AdminDashboardForm_Load(object sender, EventArgs e) {
-            AdminDashboardControl dashcontrol = new AdminDashboardControl();
+            control.Dock = DockStyle.Fill;
+        }
+        private void AdminDashboardForm_Load_1(object sender, EventArgs e) {
+            ResDashboard dashcontrol = new ResDashboard();
             uiadmin.SetUserLabel(lblRole, lblUsername);
             pnlMainContentHolder1.Controls.Clear();
 
@@ -64,40 +65,11 @@ namespace BrgyMS.uiDesign.adminDashboard {
 
         }
 
-        private void picAccountManagement_Click(object sender, EventArgs e) {
-            AdminAccountManagementControl accountcontrol = new AdminAccountManagementControl();
+        private void picAnnouncements_Click(object sender, EventArgs e) {
+            AdminAnnouncementsControl acnnoucnecontrol = new AdminAnnouncementsControl();
             pnlMainContentHolder1.Controls.Clear();
-            pnlMainContentHolder1.Controls.Add(accountcontrol);
-            accountcontrol.Dock = DockStyle.Fill;
-        }
-
-        private void picAccountVerification_Click(object sender, EventArgs e) {
-            AdminAccountVerification verificationcontrol = new AdminAccountVerification();
-            pnlMainContentHolder1.Controls.Clear();
-            pnlMainContentHolder1.Controls.Add(verificationcontrol);
-            verificationcontrol.Dock = DockStyle.Fill;
-        }
-
-        private void picLogout_Click(object sender, EventArgs e) {
-            DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (option == DialogResult.Yes) {
-                this.Hide();
-                _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
-                LoginForm login = new LoginForm();
-                login.Owner = this;
-                login.Show();
-            }
-        }
-
-        private void kryptonPictureBox1_Click(object sender, EventArgs e) {
-            SecretaryBlotterControl control = new SecretaryBlotterControl();
-
-            pnlMainContentHolder1.Controls.Clear();
-            pnlMainContentHolder1.Controls.Add(control);
-
-            control.Dock = DockStyle.Fill;
-
+            pnlMainContentHolder1.Controls.Add(acnnoucnecontrol);
+            acnnoucnecontrol.Dock = DockStyle.Fill;
         }
 
         private void picOfficials_Click(object sender, EventArgs e) {
@@ -116,9 +88,37 @@ namespace BrgyMS.uiDesign.adminDashboard {
             }
             finally {
                 Cursor = Cursors.Default;
+
+
+
             }
+        }
 
+        private void picLogs_Click_1(object sender, EventArgs e) {
+            AdminUserLogsControl logscontrol = new AdminUserLogsControl();
+            pnlMainContentHolder1.Controls.Clear();
+            pnlMainContentHolder1.Controls.Add(logscontrol);
+            logscontrol.Dock = DockStyle.Fill;
 
+        }
+
+        private void picDashboardIcon_Click_1(object sender, EventArgs e) {
+            ResDashboard dashcontrol = new ResDashboard();
+            pnlMainContentHolder1.Controls.Clear();
+            pnlMainContentHolder1.Controls.Add(dashcontrol);
+            dashcontrol.Dock = DockStyle.Fill;
+        }
+
+        private void picLogout_Click_1(object sender, EventArgs e) {
+            DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (option == DialogResult.Yes) {
+                this.Hide();
+                _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
+                LoginForm login = new LoginForm();
+                login.Owner = this;
+                login.Show();
+            }
         }
     }
 }
