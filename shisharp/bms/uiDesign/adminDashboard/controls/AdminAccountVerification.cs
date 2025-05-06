@@ -75,21 +75,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             }
         }
 
-        private async void nudAvLimit_ValueChanged(object sender, EventArgs e) {
-
-            Cursor = Cursors.WaitCursor;
-
-            await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
-            ResumeLayout();
-            Cursor = Cursors.Default;
-        }
-
-        private async void txtSearch_TextChanged(object sender, EventArgs e) {
+      
 
      
-            await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
-
-            Cursor = Cursors.Default;
-        }
     }
 }

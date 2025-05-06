@@ -42,7 +42,6 @@ namespace BrgyMs.uiDesign {
             this.kryptonLabel32 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel31 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel30 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
@@ -52,6 +51,7 @@ namespace BrgyMs.uiDesign {
             this.txtSPassword = new Krypton.Toolkit.KryptonTextBox();
             this.txtSEmail = new Krypton.Toolkit.KryptonTextBox();
             this.txtSConfirmPass = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             this.pnlSEmailVerification = new Krypton.Toolkit.KryptonPanel();
             this.btnResend = new Krypton.Toolkit.KryptonButton();
             this.lblTimer = new Krypton.Toolkit.KryptonLabel();
@@ -486,15 +486,6 @@ namespace BrgyMs.uiDesign {
             this.kryptonLabel30.TabIndex = 61;
             this.kryptonLabel30.Values.Text = "*";
             // 
-            // kryptonLabel7
-            // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(24, 305);
-            this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(173, 26);
-            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel7.TabIndex = 39;
-            this.kryptonLabel7.Values.Text = "Confirm Password";
-            // 
             // kryptonLabel6
             // 
             this.kryptonLabel6.Location = new System.Drawing.Point(24, 226);
@@ -626,6 +617,15 @@ namespace BrgyMs.uiDesign {
             this.txtSConfirmPass.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSConfirmPass.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.txtSConfirmPass.TabIndex = 31;
+            // 
+            // kryptonLabel7
+            // 
+            this.kryptonLabel7.Location = new System.Drawing.Point(24, 305);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(173, 26);
+            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel7.TabIndex = 39;
+            this.kryptonLabel7.Values.Text = "Confirm Password";
             // 
             // pnlSEmailVerification
             // 
@@ -1780,6 +1780,7 @@ namespace BrgyMs.uiDesign {
             this.Name = "SignUpForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Information";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignUpForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();

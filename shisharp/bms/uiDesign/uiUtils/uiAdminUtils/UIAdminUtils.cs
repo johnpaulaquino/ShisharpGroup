@@ -293,19 +293,23 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
             { Password = password, Role = role, Status = isActivated };
 
             try {
-                await _AdminServices.UpdateAccountInfo(userModel, userId); // Update info
+                var option = MessageBox.Show("Are you sure you want to update this?", "Update Account Inforemation",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (option == DialogResult.Yes) {
+                    await _AdminServices.UpdateAccountInfo(userModel, userId); // Update info
 
-                string Logsid = await _AdminServices.GenerateLogsId(); // id for logs
+                    string Logsid = await _AdminServices.GenerateLogsId(); // id for logs
 
-                string token = _AuthUtils.ReadTokenInFile(); // token, which credentials of the user who logged in
+                    string token = _AuthUtils.ReadTokenInFile(); // token, which credentials of the user who logged in
 
-                var user = _AuthUtils.ValidateToken(token); // Decrypt generated token and get the data.
+                    var user = _AuthUtils.ValidateToken(token); // Decrypt generated token and get the data.
 
-                await _admin.LogUserActions(new Logs( // log user Action
-                    Logsid, user.UserId, "Update")
-                { DatePerformed = DateTime.Now, Details = $"Update account info with the user id of {userId}." });
+                    await _admin.LogUserActions(new Logs( // log user Action
+                        Logsid, user.UserId, "Update")
+                    { DatePerformed = DateTime.Now, Details = $"Update account info with the user id of {userId}." });
 
-                MessageBox.Show("Successfully updated account info!");
+                    MessageBox.Show("Successfully updated account info!");
+                }
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BrgyMS.backend.services {
     public class BaseServices {
@@ -63,83 +64,67 @@ namespace BrgyMS.backend.services {
 
                 using (var dataReader = await _BaseRepo.GetUserAllInformation(userId)) {
 
+                    if (await dataReader.ReadAsync()) {
+                        string GetString(string column) => dataReader.IsDBNull(dataReader.GetOrdinal(column)) ? null : dataReader.GetString(dataReader.GetOrdinal(column));
+                        int? GetInt(string column) => dataReader.IsDBNull(dataReader.GetOrdinal(column)) ? (int?)null : dataReader.GetInt32(dataReader.GetOrdinal(column));
+                        bool? GetBool(string column) => dataReader.IsDBNull(dataReader.GetOrdinal(column)) ? (bool?)null : dataReader.GetBoolean(dataReader.GetOrdinal(column));
+                        DateTime? GetDate(string column) => dataReader.IsDBNull(dataReader.GetOrdinal(column)) ? (DateTime?)null : dataReader.GetDateTime(dataReader.GetOrdinal(column));
+                        byte[] GetBytes(string column) => dataReader.IsDBNull(dataReader.GetOrdinal(column)) ? null : (byte[])dataReader[column];
 
-                    if (dataReader.Read()) {
-                        User user;
-                        PersonalInformation personalInfo;
-                        AdditionalInfo addInfo;
-                        Address address;
-
-                        int status = dataReader.GetInt32(dataReader.GetOrdinal("status"));
-
-                        //user info
-                        user = new User(
-                            dataReader.GetString(dataReader.GetOrdinal("email")),
-                            dataReader.GetString(dataReader.GetOrdinal("username"))
-
-                            )
+                        // User
+                        var user = new User(GetString("email"), GetString("username"))
                         {
-                            Role = dataReader.GetString(dataReader.GetOrdinal("role")),
-                            Password = dataReader.GetString(dataReader.GetOrdinal("email")),
-                            Status = dataReader.GetBoolean(dataReader.GetOrdinal("status"))
+                            Role = GetString("role"),
+                            Password = GetString("email"), // Probably meant to be a different field?
+                            Status = GetBool("status") ?? false
                         };
 
-                        //Personal Information
-                        personalInfo = new PersonalInformation(
-                            dataReader.GetString(dataReader.GetOrdinal("firstname")),
-                            dataReader.GetString(dataReader.GetOrdinal("middlename")),
-                            dataReader.GetString(dataReader.GetOrdinal("lastname")),
-                            dataReader.GetString(dataReader.GetOrdinal("gender")))
-                        { Suffix = dataReader.GetString(dataReader.GetOrdinal("suffix")) }
-                        ;
-
-                        //Additional Information
-
-                        byte[] proofOfResidency = null;
-                        byte[] profileImg = null;
-                        if (!dataReader.IsDBNull(dataReader.GetOrdinal("proof_of_residency"))) {
-                            proofOfResidency = (byte[])dataReader["proof_of_residency"];
-                        }
-                        if (!dataReader.IsDBNull(dataReader.GetOrdinal("profile_image"))) {
-                            profileImg = (byte[])dataReader["profile_image"];
-                        }
-
-
-                        addInfo = new AdditionalInfo(dataReader.GetBoolean(dataReader.GetOrdinal("is_voter")),
-                            dataReader.GetDateTime(dataReader.GetOrdinal("birth_day")),
-                            dataReader.GetString(dataReader.GetOrdinal("employment_status")),
-                            dataReader.GetString(dataReader.GetOrdinal("educational_attaintment")),
-                            dataReader.GetString(dataReader.GetOrdinal("civil_status")),
-                            dataReader.GetString(dataReader.GetOrdinal("resident_type")),
-                            dataReader.GetString(dataReader.GetOrdinal("contact_number")),
-                            dataReader.GetString(dataReader.GetOrdinal("religion")),
-                            proofOfResidency)
+                        // Personal Info
+                        var personalInfo = new PersonalInformation(
+                            GetString("firstname"),
+                            GetString("middlename"),
+                            GetString("lastname"),
+                            GetString("gender")
+                        )
                         {
-                            ProfileImage = profileImg,
-                            Age = dataReader.GetInt32(dataReader.GetOrdinal("age"))
-                        }
-                        ;
-
-                        //Address
-                        address = new Address(dataReader.GetString(dataReader.GetOrdinal("street")),
-                            dataReader.GetString(dataReader.GetOrdinal("house_number")))
-                        {
-                            BlockNumber = dataReader.GetString(dataReader.GetOrdinal("block_number")),
-                            LotNo = dataReader.GetString(dataReader.GetOrdinal("lot_number")),
-                            SubdivisionName = dataReader.GetString(dataReader.GetOrdinal("subdivision"))
+                            Suffix = GetString("suffix")
                         };
 
+                        // Additional Info
+                        var addInfo = new AdditionalInfo(
+                            GetBool("is_voter") ?? false,
+                            GetDate("birth_day") ?? DateTime.MinValue,
+                            GetString("employment_status"),
+                            GetString("educational_attaintment"),
+                            GetString("civil_status"),
+                            GetString("resident_type"),
+                            GetString("contact_number"),
+                            GetString("religion"),
+                            GetBytes("proof_of_residency")
+                        )
+                        {
+                            ProfileImage = GetBytes("profile_image"),
+                            Age = GetInt("age") ?? 0
+                        };
 
-                        //add to the objects to the list
+                        // Address
+                        var address = new Address(
+                            GetString("street"),
+                            GetString("house_number")
+                        )
+                        {
+                            BlockNumber = GetString("block_number"),
+                            LotNo = GetString("lot_number"),
+                            SubdivisionName = GetString("subdivision")
+                        };
+
+                        // Add to list
                         usersInfo.Add(user);
                         usersInfo.Add(personalInfo);
                         usersInfo.Add(addInfo);
                         usersInfo.Add(address);
-                        // lastly return the list taht contains the info
-                        return usersInfo;
                     }
-
-                    return null; 
+                    return usersInfo;
                 }
 
             }
@@ -173,6 +158,22 @@ namespace BrgyMS.backend.services {
                 throw;
             }
         } //end
+
+
+        public async Task<DataTable> GetUserlogs(string userid) {
+            try {
+                var dt = await Task.Run(async () =>
+                {
+                    return await _BaseRepo.GetUserlogs(userid);
+                });
+
+                return dt;
+            }
+
+            catch (Exception) {
+                throw;
+            }
+        }
     }
 
 }

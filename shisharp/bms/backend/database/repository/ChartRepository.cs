@@ -19,7 +19,7 @@ namespace shisharp.bms.backend.database.repository {
                 "FROM personal_info p " +
                 "LEFT JOIN address a " +
                 "ON p.user_id = a.user_id " +
-                "GROUP BY(a.street) ";
+                "GROUP BY p.gender ";
 
             try {
                 using (var connection = await conn.getConnection()) {
@@ -101,7 +101,7 @@ namespace shisharp.bms.backend.database.repository {
                         }
                     }
                 }
-            
+
             }
             catch (Exception ex) { throw; }
 

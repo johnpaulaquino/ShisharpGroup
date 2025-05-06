@@ -9,6 +9,7 @@ using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Stimulsoft.Report.Design.StiActions;
 
 namespace BrgyMS.uiDesign.usersDashboard.modals {
     public partial class RequestDocumentsModalCotntrol : UserControl {
         private ResidentServices _ResidentServices = new ResidentServices();
         private BaseServices _BaseServices = new BaseServices();
         private AuthUtils _AuthUtils = new AuthUtils();
+        private Utils utils = new Utils();
+
 
         private string[] brgyClearancePurposes = { "Applying for a passport", "Registering a vehicle",
         "Applying for a marriage license", "Applying for a construction permit", "Government Transaction",
@@ -72,17 +76,15 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             try {
 
                 string token = _AuthUtils.ReadTokenInFile();
-                User user = _AuthUtils.ValidateToken(token);
+                var user = _AuthUtils.ValidateToken(token);
 
-                MessageBox.Show(user.UserId);
                 string purpose = cboPurposes.SelectedItem.ToString();
-
+                MessageBox.Show(purpose);
                 //Check if purpose is others
                 if (string.Equals(purpose, "Others")) {
                     if (string.IsNullOrEmpty(txtOtherPurpose.Text)) {
                         throw new Exception("Please state your purpose");
                     }
-                    purpose = txtOtherPurpose.Text; // set the purpose based on the user input
                 }
 
                 bool isFirstTime = false;
@@ -149,6 +151,60 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             else {
                 txtOtherPurpose.Text = "";
                 txtOtherPurpose.ReadOnly = true;
+            }
+        }
+
+
+
+        private async void btnSaveChanges_Click(object sender, EventArgs e) {
+            try {
+                string id = utils.ReadIdInFile();
+
+                bool isFirstime = false;
+
+
+                ResidentDocumentRequest dcs = new ResidentDocumentRequest()
+                {
+                    DocumentType = cboDocsType.SelectedItem.ToString(),
+                    Purpose = cboPurposes.SelectedItem.ToString(),
+                    isFirstTImeJbSeeker = isFirstime,
+                    OtherPurposes = txtOtherPurpose.Text
+                };
+
+                if (cbFirstTimeJobSeeker.Checked) {
+                    isFirstime = true;
+                    dcs.isFirstTImeJbSeeker = isFirstime;
+                }
+                validation.ValidateRequestDocs(dcs);
+
+                var option = MessageBox.Show("Are you sure you want to update this? ", "Update",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (option == DialogResult.Yes) {
+                    await _ResidentServices.UpdateResidentRequestDocs(id,
+                  dcs.DocumentType, dcs.Purpose, dcs.OtherPurposes, dcs.isFirstTImeJbSeeker);
+
+
+                    string token = _AuthUtils.ReadTokenInFile();
+                    var user = _AuthUtils.ValidateToken(token);
+
+                    // to  not interrupt the other UI background while processing the data
+                    await Task.Run(async () =>
+                    {
+                        string logsid = await _BaseServices.GenerateLogsId(); // generate id for logs
+
+                        Logs logs = new Logs(logsid, user.UserId, "Update Docs", DateTime.Now
+
+                            )
+                        { Details = $"Update Requestd Docs." };
+                        await _BaseServices.LogUserActions(logs);
+                    });
+                    MessageBox.Show("Successfully Updated!");
+                }
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
     }

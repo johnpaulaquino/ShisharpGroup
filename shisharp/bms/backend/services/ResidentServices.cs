@@ -89,7 +89,7 @@ namespace BrgyMs.backend.services {
 
         public async Task UpdateResidentRequestDocs(string id,
             string doc_type,
-            string purpose) {
+            string purpose, string others, bool isFirstTime) {
             try {
                 var docs = new ResidentDocumentRequest()
                 {
@@ -98,7 +98,7 @@ namespace BrgyMs.backend.services {
                 };
                 _Validation.ValidateRequestDocs(docs); // validate
 
-                await _ResidentRepo.UpdateRequestDocs(id, doc_type, purpose); // then update
+                await _ResidentRepo.UpdateRequestDocs(id, doc_type, purpose, others, isFirstTime); // then update
             }
             catch (Exception) {
                 throw;

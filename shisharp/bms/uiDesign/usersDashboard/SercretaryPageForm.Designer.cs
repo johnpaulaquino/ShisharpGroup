@@ -35,9 +35,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlRightSeperator = new Krypton.Toolkit.KryptonPanel();
             this.pnlSidebar = new Krypton.Toolkit.KryptonPanel();
             this.pnlUserSidebar = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonPanel5 = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
-            this.picLogout = new Krypton.Toolkit.KryptonPictureBox();
             this.kryptonPanel4 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             this.picOfficials = new Krypton.Toolkit.KryptonPictureBox();
@@ -76,9 +73,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlUserSidebar)).BeginInit();
             this.pnlUserSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
-            this.kryptonPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).BeginInit();
             this.kryptonPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOfficials)).BeginInit();
@@ -191,7 +185,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             // 
             // pnlUserSidebar
             // 
-            this.pnlUserSidebar.Controls.Add(this.kryptonPanel5);
             this.pnlUserSidebar.Controls.Add(this.kryptonPanel4);
             this.pnlUserSidebar.Controls.Add(this.kryptonPanel3);
             this.pnlUserSidebar.Controls.Add(this.pnlUserLogsIcon);
@@ -214,36 +207,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlUserSidebar.StateNormal.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.pnlUserSidebar.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.TopMiddle;
             this.pnlUserSidebar.TabIndex = 9;
-            // 
-            // kryptonPanel5
-            // 
-            this.kryptonPanel5.Controls.Add(this.kryptonLabel7);
-            this.kryptonPanel5.Controls.Add(this.picLogout);
-            this.kryptonPanel5.Location = new System.Drawing.Point(0, 495);
-            this.kryptonPanel5.Name = "kryptonPanel5";
-            this.kryptonPanel5.Size = new System.Drawing.Size(197, 35);
-            this.kryptonPanel5.TabIndex = 15;
-            // 
-            // kryptonLabel7
-            // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(44, 8);
-            this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(62, 23);
-            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel7.TabIndex = 8;
-            this.kryptonLabel7.Values.Text = "Logout";
-            // 
-            // picLogout
-            // 
-            this.picLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogout.Image = ((System.Drawing.Image)(resources.GetObject("picLogout.Image")));
-            this.picLogout.Location = new System.Drawing.Point(8, 8);
-            this.picLogout.Name = "picLogout";
-            this.picLogout.Size = new System.Drawing.Size(21, 22);
-            this.picLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogout.TabIndex = 8;
-            this.picLogout.TabStop = false;
-            this.picLogout.Click += new System.EventHandler(this.picLogout_Click_1);
             // 
             // kryptonPanel4
             // 
@@ -519,6 +482,8 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.Controls.Add(this.pnlMainContainer);
             this.Name = "SercretaryPageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SercretaryPageForm_FormClosing);
+            this.Load += new System.EventHandler(this.SercretaryPageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContainer)).EndInit();
             this.pnlMainContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlFilterValueHolder)).EndInit();
@@ -531,10 +496,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlUserSidebar)).EndInit();
             this.pnlUserSidebar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).EndInit();
-            this.kryptonPanel5.ResumeLayout(false);
-            this.kryptonPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel4)).EndInit();
             this.kryptonPanel4.ResumeLayout(false);
             this.kryptonPanel4.PerformLayout();
@@ -589,7 +550,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private Krypton.Toolkit.KryptonPanel pnlRightSeperator;
         protected internal Krypton.Toolkit.KryptonPanel pnlMainContentHolder;
         protected internal Krypton.Toolkit.KryptonPanel pnlSidebar;
-        private Krypton.Toolkit.KryptonPictureBox picLogout;
         private Krypton.Toolkit.KryptonPanel pnlUserSidebar;
         private Krypton.Toolkit.KryptonPanel pnlUserLogsIcon;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
@@ -611,7 +571,5 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private Krypton.Toolkit.KryptonPanel kryptonPanel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonPictureBox picApprovalDocs;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel5;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
     }
 }

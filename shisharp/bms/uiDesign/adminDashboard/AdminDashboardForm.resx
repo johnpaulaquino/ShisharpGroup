@@ -121,7 +121,7 @@
   <data name="picOfficials.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAG4SURBVEhLxdQ5
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAG4SURBVEhLxdQ5
         z01RFMbxHxIKoSSCTqHmAxgbFQpTgYZGaPSGhsrXoNIiFBJTrzRFYoiZCCpiyJOsm5zs3HPec+UV/+Rk
         nfXstfdee+2B/8g23MBH/MYHXMeWJu4KnlTcr7Lxo/eSwV9hL1ZjSdl9eI3Nndh1lcDS8pfhZ+m9JNM9
         rVjsx7VGywQTFtYEg3zCmlYs1lYZunQnWFClGuRHlWUa0dPe5TsW139s/EHmWkE2vMtzHCl7tOwg2YNs
@@ -135,7 +135,7 @@
   <data name="picBlotter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGqSURBVEhL3dXN
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGqSURBVEhL3dXN
         q01RGMfxj/ISI9wJrsLARHGTqZd/wPUP8A9IBjK45Q5MvN26ExMJAxlgdkeYGZEyUzKQIi8Dt8RVDCj0
         nJ69W62zc88+M761aj/rWed31nqe39qb/41J3MQH/O4xfuAZZrCmFm3YhDd4hdN1chlWYS8W8DDjIS5j
         HidwtU6OyIr8kzjJEG+xEwfxuE72YB9e1JMb8SV3sB5f83kc4nefMVFOHsKjIn6H7UX8sqOx5fiVGg2h
@@ -144,15 +144,6 @@
         1ofmwChxrXcXiYbDeFBP9mBPY5TvWFtnsS0bNS7r0igWsaXOpsXe5wtwHLbiYzzcwLk6m1zErXpyRC7g
         ejzEh+Y1zucXrSRK9zQdFTVdWeW7iJ2HeGiG9oDNeZI4Urgh3p4NUcuz2bDlbnOM0Iidt+L/Nn8Aqdtz
         cBHKMekAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="picLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAJ9JREFUSEvtlUEOgzAMBPcTVOVH/Up5bjlwpw9pZSmRLIM1gTY3RvIBNOuQBIh0
-        cZCHpLekz8laS48UE2LoaFmPlCqdBfMoAJhHIfCUdHPXmEfBMRV3doNgHgXHIOlV/EXS2JJHIWBPbjOo
-        M8F8JtT7rZWSCbEBVQoKgb8t0R5xk+8teRQc3V9To+uHtgfmUQAw3/13bYfFL4PggXOx4Qvhm6BtkVdJ
-        GQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="picAccountVerification.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -31,7 +31,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             finally {
                 Cursor = Cursors.Default;
             }
-        }
 
+        }
     }
 }

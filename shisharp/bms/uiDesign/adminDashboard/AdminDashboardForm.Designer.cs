@@ -37,7 +37,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.pnlSidebar = new Krypton.Toolkit.KryptonPanel();
             this.picOfficials = new Krypton.Toolkit.KryptonPictureBox();
             this.picBlotter = new Krypton.Toolkit.KryptonPictureBox();
-            this.picLogout = new Krypton.Toolkit.KryptonPictureBox();
             this.picAccountVerification = new Krypton.Toolkit.KryptonPictureBox();
             this.picAnnouncements = new Krypton.Toolkit.KryptonPictureBox();
             this.picLogs = new Krypton.Toolkit.KryptonPictureBox();
@@ -66,7 +65,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOfficials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBlotter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAccountVerification)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnnouncements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogs)).BeginInit();
@@ -160,7 +158,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
             // 
             this.pnlSidebar.Controls.Add(this.picOfficials);
             this.pnlSidebar.Controls.Add(this.picBlotter);
-            this.pnlSidebar.Controls.Add(this.picLogout);
             this.pnlSidebar.Controls.Add(this.picAccountVerification);
             this.pnlSidebar.Controls.Add(this.picAnnouncements);
             this.pnlSidebar.Controls.Add(this.picLogs);
@@ -205,18 +202,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picBlotter.TabIndex = 9;
             this.picBlotter.TabStop = false;
             this.picBlotter.Click += new System.EventHandler(this.picBlotter_Click);
-            // 
-            // picLogout
-            // 
-            this.picLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogout.Image = ((System.Drawing.Image)(resources.GetObject("picLogout.Image")));
-            this.picLogout.Location = new System.Drawing.Point(10, 514);
-            this.picLogout.Name = "picLogout";
-            this.picLogout.Size = new System.Drawing.Size(21, 22);
-            this.picLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogout.TabIndex = 8;
-            this.picLogout.TabStop = false;
-            this.picLogout.Click += new System.EventHandler(this.picLogout_Click_1);
             // 
             // picAccountVerification
             // 
@@ -370,6 +355,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.Name = "AdminDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminDashboardForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminDashboardForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContainer)).EndInit();
             this.pnlMainContainer.ResumeLayout(false);
@@ -386,7 +372,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.pnlSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picOfficials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBlotter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAccountVerification)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnnouncements)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogs)).EndInit();
@@ -423,7 +408,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
         private Krypton.Toolkit.KryptonPictureBox picAnnouncements;
         private Krypton.Toolkit.KryptonPanel pnlFilterValueHolder;
         private Krypton.Toolkit.KryptonPictureBox picAccountVerification;
-        private Krypton.Toolkit.KryptonPictureBox picLogout;
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private Krypton.Toolkit.KryptonPanel pnlRighSeperator;
         private Krypton.Toolkit.KryptonPanel kryptonPanel3;

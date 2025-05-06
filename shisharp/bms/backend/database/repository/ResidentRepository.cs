@@ -88,16 +88,16 @@ namespace BrgyMs.backend.database.repositories {
         public async Task AddRequestDocuments(ResidentDocumentRequest _RequestDocu) {
             string stmt = "INSERT INTO request_document(id, user_id, document_type, status, "
             + "purpose, fjob_seeker, other_purposes) "
-            + "Values(?,?,?,?,?, ?,?)";
+            + "Values(@id, @user_id, @docs, @status, @purpose, @seeker, @others)";
             try {
                 using (var cmd = new MySqlCommand(stmt, await conn.getConnection())) {
-                    cmd.Parameters.AddWithValue("id", _RequestDocu.Id);
-                    cmd.Parameters.AddWithValue("user_id", _RequestDocu.UserId);
-                    cmd.Parameters.AddWithValue("document_type", _RequestDocu.DocumentType);
-                    cmd.Parameters.AddWithValue("status", _RequestDocu.Status);
-                    cmd.Parameters.AddWithValue("fjob_seeker", _RequestDocu.isFirstTImeJbSeeker);
-                    cmd.Parameters.AddWithValue("other_purposes", _RequestDocu.OtherPurposes);
-                    cmd.Parameters.AddWithValue("purpose", _RequestDocu.Purpose);
+                    cmd.Parameters.AddWithValue("@id", _RequestDocu.Id);
+                    cmd.Parameters.AddWithValue("@user_id", _RequestDocu.UserId);
+                    cmd.Parameters.AddWithValue("@docs", _RequestDocu.DocumentType);
+                    cmd.Parameters.AddWithValue("@status", _RequestDocu.Status);
+                    cmd.Parameters.AddWithValue("@seeker", _RequestDocu.isFirstTImeJbSeeker);
+                    cmd.Parameters.AddWithValue("@others", _RequestDocu.OtherPurposes);
+                    cmd.Parameters.AddWithValue("@purpose", _RequestDocu.Purpose);
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
@@ -261,9 +261,10 @@ namespace BrgyMs.backend.database.repositories {
         //update resident Reslated docs
         public async Task UpdateRequestDocs(string id,
             string document_type,
-            string purpose) {
+            string purpose, string others, bool isfirstime) {
             try {
-                string stmt = "UPDATE request_document SET document_type = @doc_type, purpose = @purpose " +
+                string stmt = "UPDATE request_document SET document_type = @doc_type, purpose = @purpose, other_purposes = @others," +
+                    "fjob_seeker = @job_seeker " +
                     "Where id = @id ";
 
                 using (var connection = await conn.getConnection()) {
@@ -271,6 +272,8 @@ namespace BrgyMs.backend.database.repositories {
                         cmd.Parameters.AddWithValue("@doc_type", document_type);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@purpose", purpose);
+                        cmd.Parameters.AddWithValue("@job_seeker", isfirstime);
+                        cmd.Parameters.AddWithValue("@others", others);
                         await cmd.ExecuteNonQueryAsync();
                     }
                 }

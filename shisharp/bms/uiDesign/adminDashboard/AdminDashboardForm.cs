@@ -1,6 +1,8 @@
 using BrgyMs.backend.database.repositories;
 using BrgyMs.backend.utils;
 using BrgyMs.uiDesign;
+using BrgyMS.backend.models;
+using BrgyMS.backend.services;
 using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using BrgyMS.uiDesign.usersDashboard.modals;
@@ -23,11 +25,16 @@ namespace BrgyMS.uiDesign.adminDashboard {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AuthUtils _AuthUtils = new AuthUtils();
 
+        private BaseServices _BaseServices = new BaseServices();
+        private string userId = "";
+
 
 
         public AdminDashboardForm() {
             InitializeComponent();
-
+            string token = _AuthUtils.ReadTokenInFile();
+            var user = _AuthUtils.ValidateToken(token);
+            userId = user.UserId;
         }
 
 
@@ -47,7 +54,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
         }
 
         private void picBlotter_Click(object sender, EventArgs e) {
-            SecretaryBlotterControl control = new SecretaryBlotterControl();
+            AdminBlotterControl control = new AdminBlotterControl();
 
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(control);
@@ -55,7 +62,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             control.Dock = DockStyle.Fill;
         }
         private void AdminDashboardForm_Load_1(object sender, EventArgs e) {
-            ResDashboard dashcontrol = new ResDashboard();
+            AdminDashboardControl dashcontrol = new AdminDashboardControl();
             uiadmin.SetUserLabel(lblRole, lblUsername);
             pnlMainContentHolder1.Controls.Clear();
 
@@ -103,21 +110,43 @@ namespace BrgyMS.uiDesign.adminDashboard {
         }
 
         private void picDashboardIcon_Click_1(object sender, EventArgs e) {
-            ResDashboard dashcontrol = new ResDashboard();
+            AdminDashboardControl dashcontrol = new AdminDashboardControl();
             pnlMainContentHolder1.Controls.Clear();
             pnlMainContentHolder1.Controls.Add(dashcontrol);
             dashcontrol.Dock = DockStyle.Fill;
         }
 
-        private void picLogout_Click_1(object sender, EventArgs e) {
-            DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+        private async void AdminDashboardForm_FormClosing(object sender, FormClosingEventArgs e) {
+            var option = MessageBox.Show("Are you sure you wan to logout?", "Logout",
+           MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (option == DialogResult.Yes) {
-                this.Hide();
+
+                string logsId = await _BaseServices.GenerateLogsId();
+
+                Logs logs = new Logs(logsId, userId, "Logout")
+                {
+                    DatePerformed = DateTime.Now,
+                    Details = $"Logout user."
+                };
+
+                await Task.Run(async () =>
+                {
+                    await _BaseServices.LogUserActions(logs);
+
+                });
+
                 _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
                 LoginForm login = new LoginForm();
-                login.Owner = this;
+
                 login.Show();
+                this.FormClosing -= AdminDashboardForm_FormClosing;
+
+                this.Close(); // Now close safely
+            }
+            else {
+                e.Cancel = true;
             }
         }
     }

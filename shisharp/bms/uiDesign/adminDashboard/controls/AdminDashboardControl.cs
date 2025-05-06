@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 
 namespace BrgyMS.uiDesign.adminDashboard.controls {
-    public partial class ResDashboard : UserControl {
+    public partial class AdminDashboardControl : UserControl {
         private UIAdminUtils uiadmin = new UIAdminUtils();
         private AdminServices _AdminServices = new AdminServices();
         private ChartGenerator chartGend = new ChartGenerator();
-        public ResDashboard() {
+        public AdminDashboardControl() {
             InitializeComponent();
         }
 

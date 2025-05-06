@@ -30,8 +30,12 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             InitializeComponent();
         }
 
-        private void btnLogin_Click_1(object sender, EventArgs e) {
+        private async void btnLogin_Click_1(object sender, EventArgs e) {
+            string token = _Authutils.ReadTokenInFile();
 
+            BrgyMs.backend.models.base_model.User user = _Authutils.ValidateToken(token);
+
+            string UserId = user.UserId;
             UsersModal docs = new UsersModal();
             RequestDocumentsModalCotntrol control = new RequestDocumentsModalCotntrol();
 
@@ -41,6 +45,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             control.Dock = DockStyle.Fill;
 
             docs.ShowDialog(this);
+            await uioResident.SetRequestDocumentsControlsTable(dataGridAdminDashboard, UserId);
+
         }
 
         private async void RequestDocumentsControls_Load_1(object sender, EventArgs e) {
@@ -70,7 +76,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             string UserId = user.UserId;
 
             RequestDocumentsModalCotntrol control = new RequestDocumentsModalCotntrol();
-         
+
             string dcoId = utils.ReadIdInFile();
             docs.pnlContainer.Controls.Clear();
             control.btnSaveChanges.BringToFront();
@@ -83,12 +89,14 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             docs.ShowDialog(this);
             //refresh table after close the modal
             await uioResident.SetRequestDocumentsControlsTable(dataGridAdminDashboard, UserId);
+
+
         }
 
         private void dataGridAdminDashboard_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right) {
                 var hit = dataGridAdminDashboard.HitTest(e.X, e.Y); // get the location where clicked
-                if (hit.RowIndex >= 0) {
+                if (hit.RowIndex > 0) {
 
 
                     dataGridAdminDashboard.ClearSelection();
@@ -99,7 +107,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                         utils.PutIdOnFile(userId);
 
                         //show the context
-                        ctxResidentRequestDocs.Show(this, dataGridAdminDashboard.PointToScreen(e.Location));
+                        ctxResidentRequestDocs.Show(this, e.Location);
                     }
                     catch (Exception ex) {
                         MessageBox.Show(ex.Message);

@@ -50,7 +50,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                 string token = _AuthUtils.ReadTokenInFile();
                 User UserInfo = _AuthUtils.ValidateToken(token);
                 string userId = UserInfo.UserId;
-                MessageBox.Show(userId);
+
                 _BaseServices = new BaseServices();
 
                 Cursor = Cursors.WaitCursor;
@@ -58,13 +58,12 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
 
                 List<object> userInfo = await _BaseServices.GetAllUserInformations(userId);
 
-
                 Cursor = Cursors.Default;
 
                 // Make a thread
 
                 if (userInfo != null) {
-                    MessageBox.Show("HEy");
+
                     // cast the object into specific type
                     PersonalInformation pInfo = (PersonalInformation)userInfo[1];
                     AdditionalInfo addInfo = (AdditionalInfo)userInfo[2];
@@ -79,6 +78,9 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
 
                     //Additional Info
                     dtpkAsBday.SetDate(addInfo.BirthDate);
+                    if (addInfo.BirthDate < dtpkAsBday.MinDate) {
+                        dtpkAsBday.SetDate(DateTime.Now.Date);
+                    }
                     txtAsAge.Text = addInfo.Age.ToString();
                     txtAsContactNo.Text = addInfo.ContactNo;
                     txtAsReligion.Text = addInfo.Religion;

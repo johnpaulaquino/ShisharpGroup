@@ -16,10 +16,7 @@ namespace BrgyMs.backend.models.residents_docs {
         public ResidentDocumentRequest(
         string Status = "pending",
         string OtherPurposes = "") {
-            this.DocumentType = DocumentType;// This is the documents that the resident is requesting. ex. Brgy Clearance. 
             this.Status = Status;
-            this.UserId = UserId;
-            this.Purpose = Purpose;
             this.OtherPurposes = OtherPurposes;
         }
     }

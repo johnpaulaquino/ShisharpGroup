@@ -47,9 +47,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlUserAccountManageIcon = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.picUserAccountManagement = new Krypton.Toolkit.KryptonPictureBox();
-            this.kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             this.kryptonPanel6 = new Krypton.Toolkit.KryptonPanel();
-            this.picLogout = new Krypton.Toolkit.KryptonPictureBox();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.pnlTopSeperator = new Krypton.Toolkit.KryptonPanel();
             this.lblRole = new Krypton.Toolkit.KryptonLabel();
@@ -80,9 +78,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
             ((System.ComponentModel.ISupportInitialize)(this.pnlUserAccountManageIcon)).BeginInit();
             this.pnlUserAccountManageIcon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserAccountManagement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlTopSeperator)).BeginInit();
             this.pnlTopSeperator.SuspendLayout();
@@ -158,7 +154,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             // pnlSidebar
             // 
             this.pnlSidebar.Controls.Add(this.pnlUserSidebar);
-            this.pnlSidebar.Controls.Add(this.picLogout);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 42);
             this.pnlSidebar.Name = "pnlSidebar";
@@ -180,7 +175,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlUserSidebar.Controls.Add(this.pnlUserRequestocsIcon);
             this.pnlUserSidebar.Controls.Add(this.pnlUserDashboardIcon);
             this.pnlUserSidebar.Controls.Add(this.pnlUserAccountManageIcon);
-            this.pnlUserSidebar.Controls.Add(this.kryptonPictureBox1);
             this.pnlUserSidebar.Controls.Add(this.kryptonPanel6);
             this.pnlUserSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlUserSidebar.Location = new System.Drawing.Point(0, 0);
@@ -317,18 +311,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.picUserAccountManagement.TabStop = false;
             this.picUserAccountManagement.Click += new System.EventHandler(this.picUserAccountManagement_Click_1);
             // 
-            // kryptonPictureBox1
-            // 
-            this.kryptonPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.kryptonPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("kryptonPictureBox1.Image")));
-            this.kryptonPictureBox1.Location = new System.Drawing.Point(8, 514);
-            this.kryptonPictureBox1.Name = "kryptonPictureBox1";
-            this.kryptonPictureBox1.Size = new System.Drawing.Size(21, 22);
-            this.kryptonPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kryptonPictureBox1.TabIndex = 8;
-            this.kryptonPictureBox1.TabStop = false;
-            this.kryptonPictureBox1.Click += new System.EventHandler(this.kryptonPictureBox1_Click);
-            // 
             // kryptonPanel6
             // 
             this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Right;
@@ -337,17 +319,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.kryptonPanel6.Size = new System.Drawing.Size(1, 548);
             this.kryptonPanel6.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(224)))));
             this.kryptonPanel6.TabIndex = 2;
-            // 
-            // picLogout
-            // 
-            this.picLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogout.Image = ((System.Drawing.Image)(resources.GetObject("picLogout.Image")));
-            this.picLogout.Location = new System.Drawing.Point(10, 560);
-            this.picLogout.Name = "picLogout";
-            this.picLogout.Size = new System.Drawing.Size(21, 22);
-            this.picLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogout.TabIndex = 8;
-            this.picLogout.TabStop = false;
             // 
             // kryptonPanel2
             // 
@@ -423,6 +394,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.Controls.Add(this.pnlMainContainer);
             this.Name = "ResidentPageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResidentPageForm_FormClosing);
             this.Load += new System.EventHandler(this.ResidentPageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContainer)).EndInit();
             this.pnlMainContainer.ResumeLayout(false);
@@ -452,9 +424,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
             this.pnlUserAccountManageIcon.ResumeLayout(false);
             this.pnlUserAccountManageIcon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserAccountManagement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kryptonPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlTopSeperator)).EndInit();
             this.pnlTopSeperator.ResumeLayout(false);
@@ -483,7 +453,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private Krypton.Toolkit.KryptonPanel pnlRightSeperator;
         protected internal Krypton.Toolkit.KryptonPanel pnlMainContentHolder;
         protected internal Krypton.Toolkit.KryptonPanel pnlSidebar;
-        private Krypton.Toolkit.KryptonPictureBox picLogout;
         private Krypton.Toolkit.KryptonPanel pnlUserSidebar;
         private Krypton.Toolkit.KryptonPanel pnlUserLogsIcon;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
@@ -497,7 +466,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private Krypton.Toolkit.KryptonPanel pnlUserAccountManageIcon;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonPictureBox picUserAccountManagement;
-        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel6;
     }
 }

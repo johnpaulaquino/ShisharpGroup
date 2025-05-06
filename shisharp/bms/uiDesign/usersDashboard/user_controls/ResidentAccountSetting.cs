@@ -37,11 +37,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private void ResidentAccountSetting_Load_1(object sender, EventArgs e) {
 
             try {
-                if (data == null) // check if the object is not null then create
-                {
-                    data = new AccountSettingsDataHolderController();
-                }
 
+                data = new AccountSettingsDataHolderController();
 
                 // clear first
                 pnlAsMainContentHolder.Controls.Clear();

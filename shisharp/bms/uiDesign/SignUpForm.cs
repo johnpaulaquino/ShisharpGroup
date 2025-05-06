@@ -463,6 +463,10 @@ namespace BrgyMs.uiDesign {
 
             }
         }
+
+        private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e) {
+
+        }
     }
 
 }

@@ -448,6 +448,12 @@
     <Compile Include="bms\docs_templates\Viewer.Designer.cs">
       <DependentUpon>Viewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="bms\uiDesign\adminDashboard\controls\AdminBlotterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bms\uiDesign\adminDashboard\controls\AdminBlotterControl.Designer.cs">
+      <DependentUpon>AdminBlotterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="bms\uiDesign\ResetPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,12 +465,6 @@
     </Compile>
     <Compile Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryDashboardControl.Designer.cs">
       <DependentUpon>SecretaryDashboardControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="bms\uiDesign\usersDashboard\user_controls\ResDashboard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="bms\uiDesign\usersDashboard\user_controls\ResDashboard.Designer.cs">
-      <DependentUpon>ResDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="bms\uiDesign\adminDashboard\AdminDashboardForm.cs">
@@ -671,6 +671,9 @@
     <EmbeddedResource Include="bms\uiDesign\adminDashboard\controls\AdminUserLogsControl.resx">
       <DependentUpon>AdminUserLogsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\adminDashboard\controls\AdminBlotterControl.resx">
+      <DependentUpon>AdminBlotterControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\adminDashboard\modals\AdminModal.resx">
       <DependentUpon>AdminModal.cs</DependentUpon>
     </EmbeddedResource>
@@ -730,9 +733,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\RequestDocumentsControls.resx">
       <DependentUpon>RequestDocumentsControls.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\ResDashboard.resx">
-      <DependentUpon>ResDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\ResidentAccountSetting.resx">
       <DependentUpon>ResidentAccountSetting.cs</DependentUpon>

@@ -10,6 +10,7 @@ using BrgyMS.uiDesign.adminDashboard.modals;
 using BrgyMS.uiDesign.uiUtils.uiAdminUtils;
 using BrgyMS.uiDesign.usersDashboard.secretary_controls;
 using Microsoft.VisualBasic;
+using Org.BouncyCastle.Bcpg;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private AdminServices _AdminServices = new AdminServices();
         private UserInfoValidation validation = new UserInfoValidation();
         AnnouncementsModel announcementMOdel = null;
-
+        private string userId = "";
+        private AuthUtils _AuthUtils = new AuthUtils();
         private byte[] attachmentsByte = null;
         private String attachmentFilePath = "";
 
@@ -43,6 +45,9 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         public AnnouncementsModalControl() {
             InitializeComponent();
 
+            string otken = _AuthUtils.ReadTokenInFile();
+            var user = _AuthUtils.ValidateToken(otken);
+            userId = user.UserId;
         }
 
 
@@ -86,16 +91,33 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 if (cbHidePost.Checked) {
                     stat = false;
                 }
-                MessageBox.Show((stat).ToString());
                 announce.Status = stat;
 
+                var option = MessageBox.Show("Are you sure you want to update this announcement?", "Announcement",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                await Task.Run(async () =>
-                {
-                    await _AdminServices.UpdateAnnouncements(announce, announceId);
-                });
+                if (option == DialogResult.Yes) {
 
-                MessageBox.Show("Susccessfully Updated Anouncement!");
+
+                    await Task.Run(async () =>
+                    {
+                        await _AdminServices.UpdateAnnouncements(announce, announceId);
+                    });
+
+                    string id = await _BaseServices.GenerateLogsId();
+
+                    Logs logs = new Logs(id, userId, "Update")
+                    {
+                        DatePerformed = DateTime.Now,
+                        Details = $"Update Acnnouncement."
+                    };
+                    await Task.Run(async () =>
+                    {
+                        await _BaseServices.LogUserActions(logs);
+                    });
+
+                    MessageBox.Show("Susccessfully Updated Anouncement!");
+                }
 
             }
             catch (Exception ex) {
@@ -123,13 +145,35 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                     };
 
                     Cursor = Cursors.WaitCursor;
-                    await Task.Run(async () =>
-                    {
-                        await _SecretaryServices.CreateAnnouncemrnts(announce);
-                    });
 
-                    MessageBox.Show("Successfully Created Annoucemnets!");
-                    ClearFieldsAfterAdd();
+
+                    var option = MessageBox.Show("Are you sure you want to create this?", "Announcement",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+                    if (option == DialogResult.Yes) {
+                        await Task.Run(async () =>
+                        {
+                            await _SecretaryServices.CreateAnnouncemrnts(announce);
+                        });
+
+
+
+                        string id = await _BaseServices.GenerateLogsId();
+
+                        Logs logs = new Logs(id, userId, "Create")
+                        {
+                            DatePerformed = DateTime.Now,
+                            Details = $"Create Acnnouncement."
+                        };
+                        await Task.Run(async () =>
+                        {
+                            await _BaseServices.LogUserActions(logs);
+                        });
+
+                        MessageBox.Show("Successfully Created Annoucemnets!");
+                        ClearFieldsAfterAdd();
+                    }
                 }
             }
             catch (Exception ex) {

@@ -35,23 +35,22 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            this.dataGridAmTable = new Krypton.Toolkit.KryptonDataGridView();
-            this.colcaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colgender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colfullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
+            this.dataGridAmTable = new Krypton.Toolkit.KryptonDataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colfullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colgender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colcaddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             this.ctxAccountVerification.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentControler)).BeginInit();
             this.pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAmTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAmTable)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonSeparator1
@@ -111,6 +110,17 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Account Verification";
             // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonPanel1.Controls.Add(this.dataGridAmTable);
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(809, 515);
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
+            this.kryptonPanel1.TabIndex = 1;
+            // 
             // dataGridAmTable
             // 
             this.dataGridAmTable.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -136,7 +146,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.colcaddress});
             this.dataGridAmTable.ContextMenuStrip = this.ctxAccountVerification;
             this.dataGridAmTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridAmTable.Location = new System.Drawing.Point(22, 85);
+            this.dataGridAmTable.Location = new System.Drawing.Point(22, 29);
             this.dataGridAmTable.MultiSelect = false;
             this.dataGridAmTable.Name = "dataGridAmTable";
             this.dataGridAmTable.RowHeadersVisible = false;
@@ -145,7 +155,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridAmTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAmTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAmTable.Size = new System.Drawing.Size(765, 416);
+            this.dataGridAmTable.Size = new System.Drawing.Size(765, 472);
             this.dataGridAmTable.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridAmTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dataGridAmTable.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DimGray;
@@ -165,31 +175,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTable.VirtualMode = true;
             this.dataGridAmTable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridAmTable_MouseDown);
             // 
-            // colcaddress
-            // 
-            this.colcaddress.FillWeight = 200F;
-            this.colcaddress.HeaderText = "Address";
-            this.colcaddress.Name = "colcaddress";
-            this.colcaddress.ReadOnly = true;
-            // 
-            // colgender
-            // 
-            this.colgender.HeaderText = "Gender";
-            this.colgender.Name = "colgender";
-            this.colgender.ReadOnly = true;
-            // 
-            // colfullname
-            // 
-            this.colfullname.HeaderText = "Fullname";
-            this.colfullname.Name = "colfullname";
-            this.colfullname.ReadOnly = true;
-            // 
-            // colemail
-            // 
-            this.colemail.HeaderText = "Email";
-            this.colemail.Name = "colemail";
-            this.colemail.ReadOnly = true;
-            // 
             // id
             // 
             this.id.FillWeight = 50F;
@@ -197,31 +182,30 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
-            // kryptonPanel1
+            // colemail
             // 
-            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonPanel1.Controls.Add(this.dataGridAmTable);
-            this.kryptonPanel1.Controls.Add(this.txtSearch);
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
-            this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(809, 515);
-            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
-            this.kryptonPanel1.TabIndex = 1;
+            this.colemail.HeaderText = "Email";
+            this.colemail.Name = "colemail";
+            this.colemail.ReadOnly = true;
             // 
-            // txtSearch
+            // colfullname
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(435, 17);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(352, 35);
-            this.txtSearch.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(5, -1, 5, 15);
-            this.txtSearch.TabIndex = 17;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.colfullname.HeaderText = "Fullname";
+            this.colfullname.Name = "colfullname";
+            this.colfullname.ReadOnly = true;
+            // 
+            // colgender
+            // 
+            this.colgender.HeaderText = "Gender";
+            this.colgender.Name = "colgender";
+            this.colgender.ReadOnly = true;
+            // 
+            // colcaddress
+            // 
+            this.colcaddress.FillWeight = 200F;
+            this.colcaddress.HeaderText = "Address";
+            this.colcaddress.Name = "colcaddress";
+            this.colcaddress.ReadOnly = true;
             // 
             // AdminAccountVerification
             // 
@@ -238,10 +222,9 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAmTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAmTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,6 +243,5 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private DataGridViewTextBoxColumn colfullname;
         private DataGridViewTextBoxColumn colgender;
         private DataGridViewTextBoxColumn colcaddress;
-        private Krypton.Toolkit.KryptonTextBox txtSearch;
     }
 }

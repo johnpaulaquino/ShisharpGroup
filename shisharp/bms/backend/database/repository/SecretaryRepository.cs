@@ -91,7 +91,7 @@ namespace BrgyMs.backend.database.repositories {
                 var transact = await connecetion.BeginTransactionAsync();
                 try {
                     string stmt = "INSERT INTO blotters (id, complainant_id, respondent_id, statements, status, date_filed, complainant_name, respondent_name) " +
-                        "VALUES(@id, @complainant_id, @respondent_id, @statements, @status, @date_filed, @complainant_id, @respondent_id)";
+                        "VALUES(@id, @complainant_id, @respondent_id, @statements, @status, @date_filed, @complainant_name, @respondent_name)";
                     using (var cmd = new MySqlCommand(stmt, connecetion)) {
                         cmd.Parameters.AddWithValue("@id", blotter.Id);
                         cmd.Parameters.AddWithValue("@complainant_id", blotter.ComplainantId);
@@ -121,7 +121,7 @@ namespace BrgyMs.backend.database.repositories {
             string stmt = "Select id as ID,complainant_id as 'Complainant ID', respondent_id as 'Respondent ID', " +
                 "status as Status, statements as Statement, DATE_FORMAT(date_filed, '%W, %M %d, %Y %r') as 'Date Filed' " +
                 "From blotters " +
-                " limit 10 ";
+                " ";
 
             try {
                 DataTable table = new DataTable();
@@ -144,7 +144,7 @@ namespace BrgyMs.backend.database.repositories {
         //Get all active announcements. Will add offset here
         public async Task<DataTable> GetAnnouncement() {
             string stmt = "SELECT id as ID, title  as Title, DATE_FORMAT(date_post,  '%W, %M %d, %Y %r') as 'Date Post', details as Details " +
-                "FROM annoucenments where status = @status Limit 10";
+                "FROM annoucenments where status = @status ";
 
             try {
                 using (var connection = await conn.getConnection()) {
@@ -233,8 +233,7 @@ namespace BrgyMs.backend.database.repositories {
                 "ON p.user_id = o.user_id " +
                 "LEFT JOIN additional_info ai " +
                 "ON p.user_id = ai.user_id " +
-                "WHERE o.status = @status " +
-                "LIMIT 10";
+                "WHERE o.status = @status ";
 
             try {
                 using (var connection = await conn.getConnection()) {

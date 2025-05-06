@@ -16,6 +16,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.usersDashboard.secretary_controls;
+using BrgyMS.backend.models;
+using BrgyMS.backend.services;
+using Stimulsoft.Editor;
+using BrgyMs.backend.models.base_model;
 
 namespace BrgyMS.uiDesign.usersDashboard {
     public partial class SercretaryPageForm : Form {
@@ -28,16 +32,19 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private ResidentUserLogsControl logsControl;
         private SecretaryBlotterControl blotter;
         private SecretaryOfficialsControl officialsControl;
+        private string userId = "";
+        private Utils utils = new Utils();
+
+
+        private BaseServices _BaseServices = new BaseServices();
         public SercretaryPageForm() {
             InitializeComponent();
+            string token = _AuthUtils.ReadTokenInFile();
+            var user = _AuthUtils.ValidateToken(token);
+            userId = user.UserId;
 
         }
-        private void ResidentPageForm_Load(object sender, EventArgs e) {
 
-            uiadmin.SetUserLabel(
-                lblRole, lblUsername);
-
-        }
 
         private void picOfficials_Click_1(object sender, EventArgs e) {
             if (officialsControl == null) {
@@ -97,13 +104,13 @@ namespace BrgyMS.uiDesign.usersDashboard {
         }
 
         private void picUserDashboardIcon_Click_1(object sender, EventArgs e) {
-            if (dashboard == null) {
-                dashboard = new ResidentDashboardControls();
-            }
+
+            AdminDashboardControl control = new AdminDashboardControl();
+
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
-            pnlMainContentHolder.Controls.Add(dashboard);
-            dashboard.Dock = DockStyle.Fill;
+            pnlMainContentHolder.Controls.Add(control);
+            control.Dock = DockStyle.Fill;
             Cursor = Cursors.Default;
         }
 
@@ -117,6 +124,60 @@ namespace BrgyMS.uiDesign.usersDashboard {
                 login.Owner = this;
                 login.Show();
             }
+        }
+
+        private async void SercretaryPageForm_FormClosing(object sender, FormClosingEventArgs e) {
+            var option = MessageBox.Show("Are you sure you wan to logout?", "Logout",
+             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (option == DialogResult.Yes) {
+
+                string logsId = await _BaseServices.GenerateLogsId();
+
+                Logs logs = new Logs(logsId, userId, "Logout")
+                {
+                    DatePerformed = DateTime.Now,
+                    Details = $"Logout user."
+                };
+
+                await Task.Run(async () =>
+                {
+                    await _BaseServices.LogUserActions(logs);
+
+                });
+                _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
+                LoginForm login = new LoginForm();
+
+                login.Show();
+                this.FormClosing -= SercretaryPageForm_FormClosing;
+
+                this.Close(); // Now close safely
+            }
+
+            else {
+                e.Cancel = true;
+            }
+        }
+
+        private void SercretaryPageForm_Load(object sender, EventArgs e) {
+
+            Invoke(new Action(() =>
+            {
+                string token = _AuthUtils.ReadTokenInFile();
+                User user = _AuthUtils.ValidateToken(token);
+
+                string role = utils.FormatRoles(user.Role);
+
+                lblRole.Text = role;
+                lblUsername.Text = "Hi, " + user.Username;
+
+                AdminDashboardControl control = new AdminDashboardControl();
+
+                Cursor = Cursors.WaitCursor;
+                pnlMainContentHolder.Controls.Clear();
+                pnlMainContentHolder.Controls.Add(control);
+                control.Dock = DockStyle.Fill;
+                Cursor = Cursors.Default;
+            }));
         }
     }
 }

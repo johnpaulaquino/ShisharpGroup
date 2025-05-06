@@ -27,8 +27,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             this.dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
@@ -39,7 +39,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.colactions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colaffectedtable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldateperformed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
             this.pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
@@ -67,7 +66,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.Controls.Add(this.dataGridAdminDashboard);
-            this.kryptonPanel1.Controls.Add(this.txtSearch);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(964, 515);
@@ -82,8 +80,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAdminDashboard.AllowUserToDeleteRows = false;
             this.dataGridAdminDashboard.AllowUserToResizeColumns = false;
             this.dataGridAdminDashboard.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAdminDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
@@ -100,16 +98,16 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.colaffectedtable,
             this.coldateperformed});
             this.dataGridAdminDashboard.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridAdminDashboard.Location = new System.Drawing.Point(22, 85);
+            this.dataGridAdminDashboard.Location = new System.Drawing.Point(22, 38);
             this.dataGridAdminDashboard.MultiSelect = false;
             this.dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             this.dataGridAdminDashboard.RowHeadersVisible = false;
             this.dataGridAdminDashboard.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridAdminDashboard.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAdminDashboard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAdminDashboard.Size = new System.Drawing.Size(920, 416);
+            this.dataGridAdminDashboard.Size = new System.Drawing.Size(920, 463);
             this.dataGridAdminDashboard.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridAdminDashboard.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dataGridAdminDashboard.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DimGray;
@@ -169,19 +167,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.coldateperformed.Name = "coldateperformed";
             this.coldateperformed.ReadOnly = true;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(590, 17);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(352, 35);
-            this.txtSearch.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(5, -1, 5, 15);
-            this.txtSearch.TabIndex = 17;
-            this.txtSearch.Text = "Search";
-            // 
             // pnlMainContentControler
             // 
             this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -221,10 +206,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.Controls.Add(this.pnlMainContentControler);
             this.Name = "AdminUserLogsControl";
             this.Size = new System.Drawing.Size(964, 526);
+            this.Load += new System.EventHandler(this.AdminUserLogsControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAdminDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentControler)).EndInit();
             this.pnlMainContentControler.ResumeLayout(false);
@@ -242,7 +227,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
-        private Krypton.Toolkit.KryptonTextBox txtSearch;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn coluserid;
         private DataGridViewTextBoxColumn colusername;

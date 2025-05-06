@@ -67,7 +67,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         public async void AnnouncementsRefreshTable() {
             try {
-                
+
                 await _Secretary.FillAnnouncementTable(dataGridBlotterTable);
             }
             catch (Exception ex) {
@@ -193,6 +193,10 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                     }
                 }
             }
+        }
+
+        private void kryptonButton1_Click(object sender, EventArgs e) {
+           
         }
     }
 }

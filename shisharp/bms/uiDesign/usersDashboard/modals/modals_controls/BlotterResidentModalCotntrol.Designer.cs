@@ -38,8 +38,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.btnUpdateBlotter = new Krypton.Toolkit.KryptonButton();
             this.btnSubmitBlotter = new Krypton.Toolkit.KryptonButton();
+            this.btnUpdateBlotter = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentHolder)).BeginInit();
@@ -96,7 +96,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.cboStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cboStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboStatus.DropDownWidth = 428;
-            this.cboStatus.Enabled = false;
             this.cboStatus.Items.AddRange(new object[] {
             "Unsettled",
             "Settled",
@@ -189,66 +188,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel1.TabIndex = 17;
             this.kryptonLabel1.Values.Text = "Respondent Name";
             // 
-            // btnUpdateBlotter
-            // 
-            this.btnUpdateBlotter.Location = new System.Drawing.Point(69, 545);
-            this.btnUpdateBlotter.Name = "btnUpdateBlotter";
-            this.btnUpdateBlotter.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnUpdateBlotter.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnUpdateBlotter.OverrideDefault.Border.Rounding = 5F;
-            this.btnUpdateBlotter.OverrideDefault.Border.Width = 1;
-            this.btnUpdateBlotter.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnUpdateBlotter.Size = new System.Drawing.Size(160, 47);
-            this.btnUpdateBlotter.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateCommon.Back.ColorAngle = 45F;
-            this.btnUpdateBlotter.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnUpdateBlotter.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnUpdateBlotter.StateCommon.Border.ColorAngle = 45F;
-            this.btnUpdateBlotter.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnUpdateBlotter.StateCommon.Border.Rounding = 5F;
-            this.btnUpdateBlotter.StateCommon.Border.Width = 1;
-            this.btnUpdateBlotter.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateBlotter.StateDisabled.Border.Rounding = 5F;
-            this.btnUpdateBlotter.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateNormal.Border.Rounding = 5F;
-            this.btnUpdateBlotter.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnUpdateBlotter.StatePressed.Back.ColorAngle = 130F;
-            this.btnUpdateBlotter.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnUpdateBlotter.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnUpdateBlotter.StatePressed.Border.ColorAngle = 130F;
-            this.btnUpdateBlotter.StatePressed.Border.Rounding = 5F;
-            this.btnUpdateBlotter.StatePressed.Border.Width = 1;
-            this.btnUpdateBlotter.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdateBlotter.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnUpdateBlotter.StateTracking.Back.ColorAngle = 45F;
-            this.btnUpdateBlotter.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnUpdateBlotter.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateTracking.Border.ColorAngle = 45F;
-            this.btnUpdateBlotter.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnUpdateBlotter.StateTracking.Border.Rounding = 5F;
-            this.btnUpdateBlotter.StateTracking.Border.Width = 1;
-            this.btnUpdateBlotter.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnUpdateBlotter.TabIndex = 48;
-            this.btnUpdateBlotter.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnUpdateBlotter.Values.Text = "Update";
-            this.btnUpdateBlotter.Click += new System.EventHandler(this.btnUpdateBlotter_Click_1);
-            // 
             // btnSubmitBlotter
             // 
             this.btnSubmitBlotter.Location = new System.Drawing.Point(69, 545);
@@ -308,6 +247,66 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.btnSubmitBlotter.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSubmitBlotter.Values.Text = "Submit";
             this.btnSubmitBlotter.Click += new System.EventHandler(this.btnSubmitBlotter_Click);
+            // 
+            // btnUpdateBlotter
+            // 
+            this.btnUpdateBlotter.Location = new System.Drawing.Point(69, 545);
+            this.btnUpdateBlotter.Name = "btnUpdateBlotter";
+            this.btnUpdateBlotter.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.OverrideDefault.Back.ColorAngle = 45F;
+            this.btnUpdateBlotter.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnUpdateBlotter.OverrideDefault.Border.Rounding = 5F;
+            this.btnUpdateBlotter.OverrideDefault.Border.Width = 1;
+            this.btnUpdateBlotter.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnUpdateBlotter.Size = new System.Drawing.Size(160, 47);
+            this.btnUpdateBlotter.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateCommon.Back.ColorAngle = 45F;
+            this.btnUpdateBlotter.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnUpdateBlotter.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnUpdateBlotter.StateCommon.Border.ColorAngle = 45F;
+            this.btnUpdateBlotter.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnUpdateBlotter.StateCommon.Border.Rounding = 5F;
+            this.btnUpdateBlotter.StateCommon.Border.Width = 1;
+            this.btnUpdateBlotter.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateBlotter.StateDisabled.Border.Rounding = 5F;
+            this.btnUpdateBlotter.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateNormal.Border.Rounding = 5F;
+            this.btnUpdateBlotter.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.StatePressed.Back.Color1 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.StatePressed.Back.Color2 = System.Drawing.Color.White;
+            this.btnUpdateBlotter.StatePressed.Back.ColorAngle = 130F;
+            this.btnUpdateBlotter.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.btnUpdateBlotter.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
+            this.btnUpdateBlotter.StatePressed.Border.ColorAngle = 130F;
+            this.btnUpdateBlotter.StatePressed.Border.Rounding = 5F;
+            this.btnUpdateBlotter.StatePressed.Border.Width = 1;
+            this.btnUpdateBlotter.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdateBlotter.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
+            this.btnUpdateBlotter.StateTracking.Back.ColorAngle = 45F;
+            this.btnUpdateBlotter.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnUpdateBlotter.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateTracking.Border.ColorAngle = 45F;
+            this.btnUpdateBlotter.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnUpdateBlotter.StateTracking.Border.Rounding = 5F;
+            this.btnUpdateBlotter.StateTracking.Border.Width = 1;
+            this.btnUpdateBlotter.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnUpdateBlotter.TabIndex = 48;
+            this.btnUpdateBlotter.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.btnUpdateBlotter.Values.Text = "Update";
+            this.btnUpdateBlotter.Click += new System.EventHandler(this.btnUpdateBlotter_Click_1);
             // 
             // BlotterResidentModalCotntrol
             // 

@@ -33,11 +33,15 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private SecretaryServices _SecretaryServices = new SecretaryServices();
         private AdminServices _AdminServices = new AdminServices();
         private UserInfoValidation validation = new UserInfoValidation();
-
+        private string userId = "";
+        private AuthUtils _AuthUtils = new AuthUtils();
 
         public BlotterResidentModalCotntrol() {
             InitializeComponent();
+            string token = _AuthUtils.ReadTokenInFile();
+            var user = _AuthUtils.ValidateToken(token);
 
+            userId = user.UserId;
         }
 
         private void ClearFields() {
@@ -53,11 +57,26 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 string id = utils.ReadIdInFile();
                 string status = cboStatus.SelectedItem.ToString();
                 Cursor = Cursors.WaitCursor;
-                await Task.Run(async () =>
-                {
-                    await _AdminServices.UpdateBlotter(id, status);
-                });
 
+                var option = MessageBox.Show("Are you sure you want to update this?", "Blotter",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (option == DialogResult.Yes) {
+                    await _AdminServices.UpdateBlotter(id, status);
+
+                    string logsId = await _BaseServices.GenerateLogsId();
+
+                    Logs logs = new Logs(logsId, userId, "Blotter")
+                    {
+                        DatePerformed = DateTime.Now,
+                        Details = $"Update Blotter Resident with the id of {id}."
+                    };
+
+                    await Task.Run(async () =>
+                    {
+                        await _BaseServices.LogUserActions(logs);
+                    });
+                }
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -78,6 +97,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
                 cboRespondentName.Items.Insert(0, "--Select--");
                 cboRespondentName.SelectedItem = "--Select--";
+
 
                 Cursor = Cursors.WaitCursor;
                 var dt = await _AdminServices.GetUserInformation();
@@ -114,9 +134,9 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             }
         }
 
-        private void btnSubmitBlotter_Click(object sender, EventArgs e) {
+        private async void btnSubmitBlotter_Click(object sender, EventArgs e) {
             try {
-                SecretaryBlotterControl bControl = new SecretaryBlotterControl();
+                AdminBlotterControl bControl = new AdminBlotterControl();
                 BlotterInformation blotter = new BlotterInformation()
                 {
                     ComplainantId = cboComplainantName.SelectedItem.ToString(),
@@ -130,27 +150,43 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 string respondenntId = Regex.Split(blotter.RespondentId, @"[()]")[1].ToString();
 
                 // cut the word to get the full name of respondent and complainant name
-                string cname = Regex.Split(blotter.ComplainantId, @"[()]")[0].ToString().Trim();
-                string rName = Regex.Split(blotter.RespondentId, @"[()]")[0].ToString().Trim();
+                string cname = Regex.Split(cboComplainantName.SelectedItem.ToString(), @"[()]")[0].ToString().Trim();
+                string rName = Regex.Split(cboRespondentName.SelectedItem.ToString(), @"[()]")[0].ToString().Trim();
+
 
                 //set the id
                 blotter.ComplainantId = complainantId;
                 blotter.RespondentId = respondenntId;
 
+
                 //set the name
                 blotter.ComplainantName = cname;
                 blotter.RespondentName = rName;
 
+                
                 var option = MessageBox.Show("Are you sure you want to blotter this?", "Blotter",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (option == DialogResult.Yes) {
-                    Invoke(new Action(async () =>
+
+                    await _SecretaryServices.BlotterResident(blotter);
+
+                    string id = await _BaseServices.GenerateLogsId();
+
+                    Logs logs = new Logs(id, userId, "Blotter")
                     {
-                        await _SecretaryServices.BlotterResident(blotter);
-                        MessageBox.Show("Successfully blotter Resident!");
-                        ClearFields();
-                    }));
+                        DatePerformed = DateTime.Now,
+                        Details = $"Blotter Resident."
+                    };
+
+                    await Task.Run(async () =>
+                    {
+                        await _BaseServices.LogUserActions(logs);
+                    });
+
+                    MessageBox.Show("Successfully blotter Resident!");
+                    ClearFields();
+
 
                 }
 

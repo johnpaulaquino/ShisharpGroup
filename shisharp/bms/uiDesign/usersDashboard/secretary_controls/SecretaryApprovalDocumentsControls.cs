@@ -24,6 +24,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         }
 
         private void approveDocumentsToolStripMenuItem_Click(object sender, EventArgs e) {
+            // will insert 
 
         }
 

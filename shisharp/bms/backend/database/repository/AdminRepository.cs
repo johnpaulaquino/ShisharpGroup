@@ -548,6 +548,28 @@ namespace BrgyMs.backend.database.repositories {
             catch (Exception ex) {
                 throw;
             }
+        }// end
+
+        public async Task<DataTable> SearchInAnnouncement(string date1, string date2) {
+            try {
+                string stmt = "SELECT id as ID, title  as Title, DATE_FORMAT(date_post,  '%W, %M %d, %Y %r') as 'Date Post', details as Details " +
+                "FROM annoucenments where status = @status AND Convert(Varchar,date_post, 23) BETWEEN  @fdate AND @ldate";
+                using (var connection = await conn.getConnection()) {
+                    using (var adapater = new MySqlDataAdapter(stmt, connection)) {
+                        adapater.SelectCommand.Parameters.AddWithValue("@status", "1");
+                        adapater.SelectCommand.Parameters.AddWithValue("@fdate", date1);
+                        adapater.SelectCommand.Parameters.AddWithValue("@ldate", date2);
+                        DataTable dt = new DataTable();
+
+                        await adapater.FillAsync(dt);
+
+                        return dt;
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
         }
     }
 }

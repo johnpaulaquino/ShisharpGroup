@@ -45,7 +45,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.ctxmenuAccManagement = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAsBarangayOfficialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtSearch = new Krypton.Toolkit.KryptonTextBox();
             this.pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
@@ -76,7 +75,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.Controls.Add(this.btnCreateSec);
             this.kryptonPanel1.Controls.Add(this.dataGridAmTableAdmin);
-            this.kryptonPanel1.Controls.Add(this.txtSearch);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(809, 515);
@@ -172,7 +170,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.colcontact});
             this.dataGridAmTableAdmin.ContextMenuStrip = this.ctxmenuAccManagement;
             this.dataGridAmTableAdmin.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridAmTableAdmin.Location = new System.Drawing.Point(21, 177);
+            this.dataGridAmTableAdmin.Location = new System.Drawing.Point(21, 122);
             this.dataGridAmTableAdmin.MultiSelect = false;
             this.dataGridAmTableAdmin.Name = "dataGridAmTableAdmin";
             this.dataGridAmTableAdmin.RowHeadersVisible = false;
@@ -181,7 +179,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTableAdmin.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridAmTableAdmin.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAmTableAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAmTableAdmin.Size = new System.Drawing.Size(765, 308);
+            this.dataGridAmTableAdmin.Size = new System.Drawing.Size(765, 363);
             this.dataGridAmTableAdmin.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridAmTableAdmin.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dataGridAmTableAdmin.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DimGray;
@@ -278,20 +276,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.addAsBarangayOfficialsToolStripMenuItem.Text = "Add As Barangay Officials";
             this.addAsBarangayOfficialsToolStripMenuItem.Click += new System.EventHandler(this.addAsBarangayOfficialsToolStripMenuItem_Click_1);
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(435, 114);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(352, 35);
-            this.txtSearch.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSearch.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.StateCommon.Content.Padding = new System.Windows.Forms.Padding(5, -1, 5, 15);
-            this.txtSearch.TabIndex = 17;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
-            // 
             // pnlMainContentControler
             // 
             this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -335,7 +319,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAmTableAdmin)).EndInit();
             this.ctxmenuAccManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentControler)).EndInit();
@@ -353,7 +336,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonPanel pnlMainContentControler;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonTextBox txtSearch;
         private ContextMenuStrip ctxmenuAccManagement;
         private ToolStripMenuItem actionsToolStripMenuItem;
         private DataGridViewTextBoxColumn id;

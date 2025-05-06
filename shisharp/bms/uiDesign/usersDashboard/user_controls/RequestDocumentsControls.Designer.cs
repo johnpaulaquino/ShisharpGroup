@@ -28,15 +28,11 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             this.btnLogin = new Krypton.Toolkit.KryptonButton();
-            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonDateTimePicker1 = new Krypton.Toolkit.KryptonDateTimePicker();
-            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.dtpkStartDate = new Krypton.Toolkit.KryptonDateTimePicker();
             this.dataGridAdminDashboard = new Krypton.Toolkit.KryptonDataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colusername = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,10 +69,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.Controls.Add(this.btnLogin);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel5);
-            this.kryptonPanel1.Controls.Add(this.kryptonDateTimePicker1);
-            this.kryptonPanel1.Controls.Add(this.kryptonLabel1);
-            this.kryptonPanel1.Controls.Add(this.dtpkStartDate);
             this.kryptonPanel1.Controls.Add(this.dataGridAdminDashboard);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel1.Name = "kryptonPanel1";
@@ -144,43 +136,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.btnLogin.Values.Text = "Request";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(480, 56);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(101, 26);
-            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel5.TabIndex = 26;
-            this.kryptonLabel5.Values.Text = "Start Date";
-            // 
-            // kryptonDateTimePicker1
-            // 
-            this.kryptonDateTimePicker1.Location = new System.Drawing.Point(580, 56);
-            this.kryptonDateTimePicker1.Name = "kryptonDateTimePicker1";
-            this.kryptonDateTimePicker1.Size = new System.Drawing.Size(215, 25);
-            this.kryptonDateTimePicker1.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.kryptonDateTimePicker1.TabIndex = 25;
-            this.kryptonDateTimePicker1.ValueNullable = new System.DateTime(2025, 4, 28, 8, 54, 50, 0);
-            // 
-            // kryptonLabel1
-            // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(480, 117);
-            this.kryptonLabel1.Name = "kryptonLabel1";
-            this.kryptonLabel1.Size = new System.Drawing.Size(94, 26);
-            this.kryptonLabel1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel1.TabIndex = 24;
-            this.kryptonLabel1.Values.Text = "End Date";
-            // 
-            // dtpkStartDate
-            // 
-            this.dtpkStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpkStartDate.Location = new System.Drawing.Point(580, 117);
-            this.dtpkStartDate.Name = "dtpkStartDate";
-            this.dtpkStartDate.Size = new System.Drawing.Size(215, 25);
-            this.dtpkStartDate.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dtpkStartDate.TabIndex = 23;
-            this.dtpkStartDate.ValueNullable = new System.DateTime(2025, 4, 28, 0, 0, 0, 0);
-            // 
             // dataGridAdminDashboard
             // 
             this.dataGridAdminDashboard.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -189,8 +144,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.dataGridAdminDashboard.AllowUserToDeleteRows = false;
             this.dataGridAdminDashboard.AllowUserToResizeColumns = false;
             this.dataGridAdminDashboard.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAdminDashboard.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridAdminDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAdminDashboard.AutoGenerateKryptonColumns = false;
@@ -205,16 +160,16 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.colactions,
             this.colaffectedtable});
             this.dataGridAdminDashboard.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridAdminDashboard.Location = new System.Drawing.Point(31, 159);
+            this.dataGridAdminDashboard.Location = new System.Drawing.Point(31, 116);
             this.dataGridAdminDashboard.MultiSelect = false;
             this.dataGridAdminDashboard.Name = "dataGridAdminDashboard";
             this.dataGridAdminDashboard.RowHeadersVisible = false;
             this.dataGridAdminDashboard.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAdminDashboard.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridAdminDashboard.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAdminDashboard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAdminDashboard.Size = new System.Drawing.Size(765, 325);
+            this.dataGridAdminDashboard.Size = new System.Drawing.Size(765, 368);
             this.dataGridAdminDashboard.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridAdminDashboard.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dataGridAdminDashboard.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DimGray;
@@ -321,7 +276,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAdminDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentControler)).EndInit();
             this.pnlMainContentControler.ResumeLayout(false);
@@ -340,10 +294,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonDataGridView dataGridAdminDashboard;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private Krypton.Toolkit.KryptonDateTimePicker kryptonDateTimePicker1;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonDateTimePicker dtpkStartDate;
         private Krypton.Toolkit.KryptonButton btnLogin;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn colusername;

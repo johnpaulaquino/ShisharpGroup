@@ -34,7 +34,10 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                 User user = _AuthUtils.ValidateToken(token);
 
                 Cursor = Cursors.WaitCursor;
-                await uiAdmin.SetUserLogsToTable(dataGridAdminDashboard, user.UserId);
+                var dt = await _BaseServices.GetUserlogs(user.UserId);
+                dataGridAdminDashboard.Columns.Clear();
+                dataGridAdminDashboard.DataSource = dt;
+
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
