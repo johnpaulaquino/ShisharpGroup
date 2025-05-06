@@ -36,8 +36,9 @@ namespace BrgyMs.backend.services {
 
 
                 DataTable dt = await _SecretaryRepo.GetResidentRequestDocs();
-                table.Columns.Clear();
-
+                if (dt != null) {
+                    table.Columns.Clear();
+                }
                 table.DataSource = dt;
             }
             catch (Exception) {
@@ -147,6 +148,28 @@ namespace BrgyMs.backend.services {
             }
         } //end
 
+        public async Task UpdateResidentDocument(string userId) {
+            try {
+                await Task.Run(async () =>
+                {
+                    await _SecretaryRepo.UpdateResidentDocument(userId);
+                });
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // end
 
+        public async Task DeleteRequestDocument(string userid) {
+            try {
+                await Task.Run(async () =>
+                {
+                    await _SecretaryRepo.DeleteRequestDocument(userid);
+                });
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
     }
 }

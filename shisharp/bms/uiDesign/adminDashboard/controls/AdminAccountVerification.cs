@@ -30,24 +30,24 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         public async void RefreshTabke() {
 
             Cursor = Cursors.WaitCursor;
-          
+
             await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
 
             Cursor = Cursors.Default;
         }
 
-        private void atsVerfiyAccount_Click_1(object sender, EventArgs e) {
+        private async void atsVerfiyAccount_Click_1(object sender, EventArgs e) {
             RequestDocumentsModalCotntrol control = new RequestDocumentsModalCotntrol();
             modal.StartPosition = FormStartPosition.CenterScreen;
             modal.pnlModalMainContent.Controls.Add(control);
             control.Dock = DockStyle.Fill;
             modal.ShowDialog(this);
+            await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
         }
 
         private async void AdminAccountVerification_Load_1(object sender, EventArgs e) {
-          
-            await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
 
+            await uiAdmin.SetInActiveUsersInTable(dataGridAmTable);
 
             Cursor = Cursors.Default;
         }
@@ -75,8 +75,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             }
         }
 
-      
 
-     
+
+
     }
 }

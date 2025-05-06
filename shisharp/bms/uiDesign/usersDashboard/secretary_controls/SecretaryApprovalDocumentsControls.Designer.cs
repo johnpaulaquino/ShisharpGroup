@@ -43,6 +43,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.ctxApproveDocuments = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.approveDocumentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.delineRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -192,9 +193,10 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             this.ctxApproveDocuments.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ctxApproveDocuments.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.approveDocumentsToolStripMenuItem});
+            this.approveDocumentsToolStripMenuItem,
+            this.delineRequestToolStripMenuItem});
             this.ctxApproveDocuments.Name = "ctxApproveDocuments";
-            this.ctxApproveDocuments.Size = new System.Drawing.Size(184, 26);
+            this.ctxApproveDocuments.Size = new System.Drawing.Size(184, 70);
             // 
             // approveDocumentsToolStripMenuItem
             // 
@@ -202,6 +204,13 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.approveDocumentsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.approveDocumentsToolStripMenuItem.Text = "Approve Documents";
             this.approveDocumentsToolStripMenuItem.Click += new System.EventHandler(this.approveDocumentsToolStripMenuItem_Click);
+            // 
+            // delineRequestToolStripMenuItem
+            // 
+            this.delineRequestToolStripMenuItem.Name = "delineRequestToolStripMenuItem";
+            this.delineRequestToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.delineRequestToolStripMenuItem.Text = "Deline Request";
+            this.delineRequestToolStripMenuItem.Click += new System.EventHandler(this.delineRequestToolStripMenuItem_Click);
             // 
             // SecretaryApprovalDocumentsControls
             // 
@@ -239,5 +248,6 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private DataGridViewTextBoxColumn colaffectedtable;
         private ContextMenuStrip ctxApproveDocuments;
         private ToolStripMenuItem approveDocumentsToolStripMenuItem;
+        private ToolStripMenuItem delineRequestToolStripMenuItem;
     }
 }

@@ -96,7 +96,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private void dataGridAdminDashboard_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right) {
                 var hit = dataGridAdminDashboard.HitTest(e.X, e.Y); // get the location where clicked
-                if (hit.RowIndex > 0) {
+                if (hit.RowIndex >= 0) {
 
 
                     dataGridAdminDashboard.ClearSelection();
@@ -104,10 +104,14 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
 
                     string userId = dataGridAdminDashboard.Rows[hit.RowIndex].Cells[0].Value?.ToString();
                     try {
-                        utils.PutIdOnFile(userId);
 
-                        //show the context
-                        ctxResidentRequestDocs.Show(this, e.Location);
+                        string status = dataGridAdminDashboard.Rows[hit.RowIndex].Cells[2].Value?.ToString();
+                        if (string.Equals(status, "pending")) {
+                            utils.PutIdOnFile(userId);
+                            //show the context
+                            ctxResidentRequestDocs.Show(this, e.Location);
+                        }
+
                     }
                     catch (Exception ex) {
                         MessageBox.Show(ex.Message);

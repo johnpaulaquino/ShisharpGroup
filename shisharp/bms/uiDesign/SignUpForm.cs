@@ -196,6 +196,8 @@ namespace BrgyMs.uiDesign {
                         //set the bytes on the bytesProofOfR variable
                         bytesProofOfR = new byte[fileStream.Length];
 
+                        fileStream.Read(bytesProofOfR, 0, (int)fileStream.Length);
+
                     }
                 }
 
@@ -206,6 +208,7 @@ namespace BrgyMs.uiDesign {
                     using (var fileStream = new FileStream(filePathProfilePic, FileMode.Open, FileAccess.Read)) {
                         //set the bytes on the bytesProofOfR variable
                         bytesProfilePic = new byte[fileStream.Length];
+                        fileStream.Read(bytesProfilePic, 0, (int)fileStream.Length);
 
                     }
                 }
@@ -227,8 +230,6 @@ namespace BrgyMs.uiDesign {
 
 
 
-                //set empty strings to the not required fields if not set.
-                _UserValidation.SetEmptyStringThatCanAcceptNullForPInfo(_PersonalInfo);
 
                 //validate per page
                 switch (pnlPage) {
@@ -278,6 +279,9 @@ namespace BrgyMs.uiDesign {
                                 throw new Exception("OTP is Eexpired!"); // otherwise expired
                             }
                         } // otherwise next the page
+
+                        //set empty strings to the not required fields if not set.
+                        _UserValidation.SetEmptyStringThatCanAcceptNullForPInfo(_PersonalInfo);
                         break;
 
                     case 2:

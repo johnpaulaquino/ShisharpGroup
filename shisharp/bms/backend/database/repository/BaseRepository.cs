@@ -51,27 +51,30 @@ namespace BrgyMs.backend.database.repositories {
         public async Task InsertUserAddinfo(AdditionalInfo _AdditionalInfo,
                                         string UserId) {
             string stmt1 = "Insert Into additional_info (id, user_id, is_voter,"
-                          + "civil_status, educational_attaintment, employment_status,resident_type, religion, birth_day, age, contact_number, profile_image, proof_of_residency ) "
-                          + "Values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                          + "civil_status, educational_attaintment, employment_status,resident_type, " +
+                          "religion, birth_day, age, " +
+                          "contact_number, profile_image, proof_of_residency ) "
+                          + "Values (@id, @user_id,@is_voter,@civil_status,@educational_attaintment, " +
+                          "@employment_status,@resident_type,@religion,@birth_day,@age,@contact_number,@profile_image , @proof_of_residency )";
 
             int Age = util.calculateAge(_AdditionalInfo.BirthDate);
 
             try {
                 using (var connection = await conn.getConnection()) {
                     using (var cmd = new MySqlCommand(stmt1, connection)) {
-                        cmd.Parameters.AddWithValue("id", _AdditionalInfo.Id);
-                        cmd.Parameters.AddWithValue("user_id", UserId);
-                        cmd.Parameters.AddWithValue("is_voter", _AdditionalInfo.IsVoter);
-                        cmd.Parameters.AddWithValue("civil_status", _AdditionalInfo.CivilStatus);
-                        cmd.Parameters.AddWithValue("educational_attaintment", _AdditionalInfo.EducAttain);
-                        cmd.Parameters.AddWithValue("employment_status", _AdditionalInfo.EmpStatus);
-                        cmd.Parameters.AddWithValue("resident_type", _AdditionalInfo.ResidentType);
-                        cmd.Parameters.AddWithValue("religion", _AdditionalInfo.Religion);
-                        cmd.Parameters.AddWithValue("birth_day", _AdditionalInfo.BirthDate.ToString("yyyy-MM-dd"));
-                        cmd.Parameters.AddWithValue("age", Age);
-                        cmd.Parameters.AddWithValue("contact_number", _AdditionalInfo.ContactNo);
-                        cmd.Parameters.AddWithValue("profile_image", _AdditionalInfo.ProfileImage);
-                        cmd.Parameters.AddWithValue("proof_of_residency", _AdditionalInfo.ProofOfResidency);
+                        cmd.Parameters.AddWithValue("@id", _AdditionalInfo.Id);
+                        cmd.Parameters.AddWithValue("@user_id", UserId);
+                        cmd.Parameters.AddWithValue("@is_voter", _AdditionalInfo.IsVoter);
+                        cmd.Parameters.AddWithValue("@civil_status", _AdditionalInfo.CivilStatus);
+                        cmd.Parameters.AddWithValue("@educational_attaintment", _AdditionalInfo.EducAttain);
+                        cmd.Parameters.AddWithValue("@employment_status", _AdditionalInfo.EmpStatus);
+                        cmd.Parameters.AddWithValue("@resident_type", _AdditionalInfo.ResidentType);
+                        cmd.Parameters.AddWithValue("@religion", _AdditionalInfo.Religion);
+                        cmd.Parameters.AddWithValue("@birth_day", _AdditionalInfo.BirthDate.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@age", Age);
+                        cmd.Parameters.AddWithValue("@contact_number", _AdditionalInfo.ContactNo);
+                        cmd.Parameters.AddWithValue("@profile_image", _AdditionalInfo.ProfileImage);
+                        cmd.Parameters.AddWithValue("@proof_of_residency", _AdditionalInfo.ProofOfResidency);
                         await cmd.ExecuteNonQueryAsync();
                     }
                 }
@@ -159,7 +162,7 @@ namespace BrgyMs.backend.database.repositories {
         //Get all the information of the specific user 
         public async Task<DbDataReader> GetUserAllInformation(string UserId) {
             string stmt = "SELECT u.id, u.email, u.username, u.password, u.role, u.status, " +
-                "p.firstname, p.middlename, p.lastname, p.suffix, p.gender," +
+                "p.firstname, p.middlename, p.lastname, p.suffix, p.gender, " +
                 "ai.is_voter, ai.civil_status, ai.educational_attaintment, ai.employment_status, " +
                 "ai.resident_type, ai.religion, ai.birth_day, ai.age, ai.contact_number, " +
                 "ai.profile_image, ai.proof_of_residency, " +

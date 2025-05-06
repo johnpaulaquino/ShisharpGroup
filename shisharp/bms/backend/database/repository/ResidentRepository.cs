@@ -85,6 +85,28 @@ namespace BrgyMs.backend.database.repositories {
         }//End of Function
 
 
+        public async Task<bool> IsUserRequested(string userId) {
+            string stmt = "Select id from request_document where user_id = @userid";
+
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@userid", userId);
+                        using (var reader = await cmd.ExecuteReaderAsync()) {
+                            if (await reader.ReadAsync()) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
+
+        // insert request docs
         public async Task AddRequestDocuments(ResidentDocumentRequest _RequestDocu) {
             string stmt = "INSERT INTO request_document(id, user_id, document_type, status, "
             + "purpose, fjob_seeker, other_purposes) "
@@ -125,28 +147,6 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         }
-
-
-        public async Task<Dictionary<string, string>> GetElectionHistories() {
-            string stmt = "SELECT * FROM officials";
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            using (var connection = await conn.getConnection()) {
-                using (var cmd = new MySqlCommand(stmt, connection)) {
-                    int i = 0;
-
-                    using (var reader = await cmd.ExecuteReaderAsync()) {
-                        while (reader.Read()) {
-                            data.Add($"election_histories{i}", reader.GetString(5));
-                            i++;
-                        }
-                        return data;
-                    }
-                }
-            }
-
-        } // end of the function
-
-
 
 
 

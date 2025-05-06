@@ -41,8 +41,12 @@ namespace BrgyMs.backend.services {
         public async Task CreateResidentDocument(ResidentDocumentRequest _RequestDocs) {
             try {
 
+                if (await _ResidentRepo.IsUserRequested(_RequestDocs.UserId)) {
+                    throw new Exception("Please wait for the approval of you requested document!");
+                }
                 //Validate fields first before insertion.
                 _Validation.ValidateRequestDocs(_RequestDocs);
+
 
                 // Insert data on database
                 await _ResidentRepo.AddRequestDocuments(_RequestDocs);

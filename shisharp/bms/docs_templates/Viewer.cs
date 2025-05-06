@@ -1,4 +1,5 @@
 ﻿
+using BrgyMS.backend.utils;
 using FastReport;
 using Microsoft.Reporting.WinForms;
 using Stimulsoft.Report;
@@ -62,7 +63,15 @@ namespace BrgyMS.docs_templates {
         }
 
         private void Viewer_Load_1(object sender, EventArgs e) {
-         
+
+
+        }
+
+        private void kryptonButton1_Click_1(object sender, EventArgs e) {
+            DocumentsGenerator docs = new DocumentsGenerator();
+
+            //docs.GenerateIndigencyDocument();
+
         }
     }
 

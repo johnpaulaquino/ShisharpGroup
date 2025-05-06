@@ -197,11 +197,12 @@ namespace BrgyMs.backend.utils {
         public string GenerateOTP() {
 
             string otp = totp.ComputeTotp();
+
             return otp;
         }
 
         public bool VerifyTOTP(string code) {
-            bool isValid = totp.VerifyTotp(code, out long timeStepMatched);
+            bool isValid = totp.VerifyTotp(code, out long timeStepMatched, window: new VerificationWindow(previous: 1, future: 1));
 
             return isValid;
         }

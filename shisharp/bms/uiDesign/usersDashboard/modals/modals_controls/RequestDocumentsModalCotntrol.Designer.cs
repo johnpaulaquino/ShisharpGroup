@@ -70,8 +70,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel3);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel2);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel1);
-            this.pnlMainContentHolder.Controls.Add(this.btnSaveChanges);
             this.pnlMainContentHolder.Controls.Add(this.btnSubmitRequest);
+            this.pnlMainContentHolder.Controls.Add(this.btnSaveChanges);
             this.pnlMainContentHolder.Location = new System.Drawing.Point(3, 0);
             this.pnlMainContentHolder.Name = "pnlMainContentHolder";
             this.pnlMainContentHolder.Size = new System.Drawing.Size(315, 581);

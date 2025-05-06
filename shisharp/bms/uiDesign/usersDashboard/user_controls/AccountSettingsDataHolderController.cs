@@ -132,8 +132,9 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                     validation.ValidateFileType(fileDialog.FileName); // the image file extension, if it is valid
                                                                       // 
                     filePathProofOfR = fileDialog.FileName;
-
+                    
                     picAsProfilePicture.Image = new Bitmap(filePathProofOfR);
+
                 }
             }
             catch (Exception ex) {
@@ -169,7 +170,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
 
                 byte[] profileImage = uiResident.GetBytesFromPictureBox(picAsProfilePicture);
 
-                MessageBox.Show("S profile image is null?" + (profileImage == null));
+
                 additionalInfo = new AdditionalInfo(isVoter,
                     dtpkAsBday.Value.Date,
                     cboAsEmploymentStatus.SelectedItem.ToString(),

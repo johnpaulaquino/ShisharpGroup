@@ -22,10 +22,9 @@ namespace BrgyMS.uiDesign.uiUtils.ui_residents_utils {
         //Get the bytes from picture box
         public byte[] GetBytesFromPictureBox(KryptonPictureBox picture) {
             byte[] bytes = null;
-            if (picture != null) {
-
+            if (picture != null && picture.Image != null) {
                 using (MemoryStream ms = new MemoryStream()) {
-                    picture?.Image?.Save(ms, ImageFormat.Png);
+                    picture.Image.Save(ms, ImageFormat.Png);
                     bytes = ms.ToArray();
                 }
 
@@ -79,11 +78,11 @@ namespace BrgyMS.uiDesign.uiUtils.ui_residents_utils {
 
         //set width to the request docs table
         public void SetWidthToRequestDocumentsTable(DataGridView dataGridView) {
-            dataGridView.Columns[0].Width = 50;
-            dataGridView.Columns[1].Width = 50;
-            dataGridView.Columns[2].Width = 150;
+            dataGridView.Columns[0].Width = 150;
+            dataGridView.Columns[1].Width = 100;
+            dataGridView.Columns[2].Width = 50;
             dataGridView.Columns[3].Width = 90;
-            dataGridView.Columns[4].Width = 100;
+            dataGridView.Columns[4].Width = 150;
         }
         //Set the data int table
         public async Task SetRequestDocumentsControlsTable(DataGridView table,

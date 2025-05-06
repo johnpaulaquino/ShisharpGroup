@@ -402,7 +402,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
 
                     //check if the images is not null, then set to the picture box
-                    if (profileImg != null) {
+                    if (profileImg != null && profileImg.Length > 0) {
                         using (MemoryStream memoryStream = new MemoryStream(profileImg)) {
                             picprofilePic.Image = new Bitmap(memoryStream);
                             memoryStream.Close();
@@ -410,7 +410,7 @@ namespace BrgyMS.uiDesign.uiUtils.uiAdminUtils {
 
                     }
 
-                    if (proof != null) {
+                    if (proof != null && proof.Length > 0) {
                         using (MemoryStream memoryStream = new MemoryStream(proof)) {
                             picproofOfResidency.Image = new Bitmap(memoryStream);
                         }

@@ -186,21 +186,6 @@
         ypM+Lf4FwAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="picUserAccountManagement.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIGSURBVEhLtZU5
-        a1ZREIafWISoKVyCjVuhRlQIiNEmCloFl84/obgVamFhI8EFEgLRyvyOxMKt0CJq5Va4VG5dxJ8gD8z5
-        OBnvjZ988YEL574zZ869c+bMge65BPyI50I29soR4COwA9gJfAIOZ6deuAbcrN4dq60Ih4DnwPVKc6ym
-        rWv6gO3AYLxvBZ4CbyLnGypfx2pvgSfAltCdawxjLWEIeAV8AX4Cs8BX4GyTc8Uq4Fz4Ose5xngZMTvc
-        AyZjvAmYAo5W9n7gTlTQd+B2aIVjMce54vhuZWceOFELCQPORSp89L+VnSpOhn8HU/Ei8teEX13yLO6P
-        WhPGMEVnatE8XwEWgQO1IWha4Fv1XhiNGJezofAa2JPFSIdpMbDPg3QuCvsiRiu/gNVZjA11Ef/ELzd4
-        vcmFNRGjFY0DWfwH1v5tAX9vbxajKh5HnZvjhy1V15oiN/lqyyZPAB+A08D6OMWObX43km/ZZAtmyQH1
-        NDaV6Xh0znVJFxf7HD41pUwt/Q5WxfFaCIaB3VmsGAH2ZxE4lQ/aTBxvKa3C498tdaswNdMRs4ONyRRZ
-        gm7k/Whg56OhtaFNH32d41xLeQHYmJ1deVvUsnhyrZx3wMWGdu0V+h54BGwO3TI1xnId+A8OAs8aLhw1
-        bSvCf70yxQvecvXC3xXjsezUK16RbqCPG9sVvwFk6mj98CwItQAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="kryptonPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

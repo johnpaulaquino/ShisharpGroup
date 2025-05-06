@@ -59,10 +59,15 @@ namespace BrgyMs.backend.database.repositories {
         //Retrieve the requestDocuments of residents
         public async Task<DataTable> GetResidentRequestDocs() {
 
-            string stmt = "Select id as 'Transaction Id', document_type as 'Document Type', " +
-               "status as Status, request_date as 'Request Date', purpose as 'Purpose'" +
-               "FROM request_document " +
-               "Where status = @status";
+            string stmt = "Select p.user_id as ID, CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename " +
+                " IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END),  " +
+                "p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', d.document_type as 'Document Type', " +
+               "d.status as Status, d.request_date as 'Request Date', d.purpose as 'Purpose', d.other_purposes  'Other Purposes', " +
+               "d.fjob_seeker as 'FirstTime Job Seeker' " +
+               "FROM request_document d " +
+               "Right join  personal_info p " +
+               "On p.user_id = d.user_id " +
+               "Where d.status = @status";
 
             DataTable dt = new DataTable();
 
@@ -286,8 +291,40 @@ namespace BrgyMs.backend.database.repositories {
             }
 
 
-        }
+        } // end
 
+        public async Task UpdateResidentDocument(string userId) {
+            try {
+                string stmt = "Update request_document SET status = @status WHERE user_id = @userid ";
+                using (var conenction = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, conenction)) {
+                        cmd.Parameters.AddWithValue("@status", "approved");
+                        cmd.Parameters.AddWithValue("@userid", userId);
+
+                        await cmd.ExecuteNonQueryAsync();
+
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // end
+
+        public async Task DeleteRequestDocument(string userid) {
+            string stmt = "Delete FROM reuqest_document WHERE user_id = @userid";
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@userid", userid);
+                        await cmd.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
 
     }
 }

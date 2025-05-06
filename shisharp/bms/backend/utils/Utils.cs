@@ -159,63 +159,66 @@ namespace BrgyMs.backend.utils {
 
 
 
-        //    //Put blotter id on file
-        //    public void PutBlotterIdOnFile(String UserId) {
-        //        filename = "/tempblotterId.tmp";
-        //        //get the curr directory and add info directory
-        //        fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../../tempid");
+        //Put blotter id on file
+        public void PutDocumetntTypeInFile(String UserId) {
+            filename = "/documentType.tmp";
+            //get the curr directory and add info directory
+            fileDirectory = Path.Combine(Directory.GetCurrentDirectory(), "../../../../tempfile");
 
 
-        //        //check if not exist, then create
-        //        if (!Directory.Exists(fileDirectory)) {
-        //            Directory.CreateDirectory(fileDirectory);
+            //check if not exist, then create
+            if (!Directory.Exists(fileDirectory)) {
+                Directory.CreateDirectory(fileDirectory);
 
-        //        }
-        //        //// check if not exist, then create
-        //        String filepath = fileDirectory + filename; // location of the file the file
-        //        FileStream fileWriter = File.Create(filepath); // generate the file
-        //        fileWriter.Close(); //close the current file
+            }
+            //// check if not exist, then create
+            String filepath = fileDirectory + filename; // location of the file the file
+            FileStream fileWriter = File.Create(filepath); // generate the file
+            fileWriter.Close(); //close the current file
 
-        //        using (FileStream fs = new FileStream(filepath, FileMode.Create, FileAccess.Write, FileShare.Write)) {
-        //            using (StreamWriter writer = new StreamWriter(fs)) {
+            using (FileStream fs = new FileStream(filepath, FileMode.Create, FileAccess.Write, FileShare.Write)) {
+                using (StreamWriter writer = new StreamWriter(fs)) {
 
-        //                writer.Write(UserId);
-        //            }
-        //        }
+                    writer.Write(UserId);
+                    writer.Close();
+                }
+            }
 
-        //    }//end of function
+        }//end of function
 
-        //    //Read temporary file to get the blotter id
-        //    public string ReadBlotterIdInFile() {
-        //        filename = "/tempblotterId.tmp";
-        //        string UserId = "";
-        //        fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempid"); // location of the folder
-        //        string fileLocation = fileDirectory + filename; // the location of the file to read
-        //        //then read
-        //        if (File.Exists(fileLocation)) {
-        //            using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.None)) {
-        //                using (var reader = new StreamReader(fs)) {
-        //                    UserId = reader.ReadToEnd();
+        //Read temporary file to get the blotter id
+        public string ReadDocumentTypeInFile() {
+            filename = "/documentType.tmp";
+            string UserId = "";
+            fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempfile"); // location of the folder
+            string fileLocation = fileDirectory + filename; // the location of the file to read
+                                                            //then read
+            if (File.Exists(fileLocation)) {
+                using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.None)) {
+                    using (var reader = new StreamReader(fs)) {
+                        UserId = reader.ReadToEnd();
 
-        //                }
-        //            }
-        //        }
+                    }
+                }
+            }
 
 
-        //        return UserId;
-        //    }
+            return UserId;
+        }
 
-        //    //Delete temporary blotterId file
-        //    public void DeleteBlotterIdAfterCloseTheModal() {
-        //        filename = "/tempblotterId.tmp";
-        //        fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempid");
-        //        string fileLocation = fileDirectory + filename;
-        //        if (File.Exists(fileLocation)) {
-        //            using var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Delete);
-        //            File.Delete(fileLocation);
+        //Delete temporary blotterId file
+        public void DeleteDocumeAfterCloseTheModal() {
+            filename = "/documentType.tmp";
+            fileDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../tempfile");
+            string fileLocation = fileDirectory + filename;
+            if (File.Exists(fileLocation)) {
+                using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.Delete)) {
+                    File.Delete(fileLocation);
+                }
 
-        //        }
-        //    } // End of function
+
+            }
+        } // End of function
 
 
 
