@@ -1,6 +1,8 @@
 ﻿using BrgyMs.backend.utils;
 using BrgyMs.uiDesign;
 using BrgyMS.docs_templates;
+using BrgyMS.uiDesign.adminDashboard;
+using BrgyMS.uiDesign.usersDashboard;
 using DotNetEnv;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,7 @@ namespace shisharp {
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            Application.Run(new LoginForm());
+            Application.Run(new AdminDashboardForm());
         }
     }
 }

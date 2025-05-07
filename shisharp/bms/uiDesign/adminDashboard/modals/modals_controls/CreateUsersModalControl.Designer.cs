@@ -86,9 +86,9 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
             // cbMcShowPass
             // 
             this.cbMcShowPass.AutoSize = false;
-            this.cbMcShowPass.Location = new System.Drawing.Point(255, 309);
+            this.cbMcShowPass.Location = new System.Drawing.Point(227, 310);
             this.cbMcShowPass.Name = "cbMcShowPass";
-            this.cbMcShowPass.Size = new System.Drawing.Size(129, 39);
+            this.cbMcShowPass.Size = new System.Drawing.Size(157, 39);
             this.cbMcShowPass.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMcShowPass.TabIndex = 39;
             this.cbMcShowPass.Values.Text = "Show Password";

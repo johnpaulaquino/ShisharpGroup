@@ -19,6 +19,7 @@ using BrgyMs.backend.models.base_model;
 using BrgyMS.backend.models;
 using BrgyMS.backend.services;
 using Microsoft.VisualBasic.ApplicationServices;
+using Org.BouncyCastle.Pqc.Crypto.Lms;
 
 namespace BrgyMS.uiDesign.usersDashboard {
     public partial class ResidentPageForm : Form {
@@ -31,6 +32,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private AccountSettingsDataHolderController dataHolder;
         private Utils utils = new Utils();
         private string userId = "";
+        private bool isSlide;
 
         private BaseServices _BaseServices = new BaseServices();
         public ResidentPageForm() {
@@ -141,5 +143,78 @@ namespace BrgyMS.uiDesign.usersDashboard {
                 e.Cancel = true;
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            if (isSlide) {
+                pnlSidebar.Width -= 157;
+                if (pnlSidebar.Width == pnlSidebar.MinimumSize.Width) {
+                    isSlide = false;
+                    timer1.Stop();
+                }
+
+            }
+            else {
+                pnlSidebar.Width += 157;
+                if (pnlSidebar.Width == pnlSidebar.MaximumSize.Width) {
+                    isSlide = true;
+                    timer1.Stop();
+
+                }
+            }
+        }
+
+        private void picMenuButton_Click(object sender, EventArgs e) {
+            timer1.Start();
+        }
+
+        private void picMenuButton_MouseHover(object sender, EventArgs e) {
+            picMenuButton.Image = new Bitmap(@"C:\\Users\\ADMIN\\Desktop\\shisharpmain\\shisharp\\bms\\img\\menuIconHover.png");
+        }
+
+        private void picMenuButton_MouseLeave(object sender, EventArgs e) {
+            picMenuButton.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\menuIcon.png");
+
+        }
+
+        private void picUserRequestDocs_MouseHover(object sender, EventArgs e) {
+            picUserRequestDocs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\RequestDocsIconHover.png");
+        }
+
+        private void picUserRequestDocs_MouseLeave(object sender, EventArgs e) {
+            picUserRequestDocs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\RequestDocsIcon.png");
+
+        }
+
+        private void picUserDashboardIcon_MouseHover(object sender, EventArgs e) {
+            picUserDashboardIcon.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\DashboardIconHover.png");
+
+        }
+
+        private void picUserDashboardIcon_MouseLeave(object sender, EventArgs e) {
+            picUserDashboardIcon.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\DashboardIcon.png");
+
+
+        }
+
+        private void picUserAccountManagement_MouseHover(object sender, EventArgs e) {
+            picUserAccountManagement.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\AccManagementIconHover.png");
+
+        }
+
+        private void picUserAccountManagement_MouseLeave(object sender, EventArgs e) {
+            picUserAccountManagement.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\AccManagementIcon.png");
+
+        }
+
+        private void picUserLogs_MouseHover(object sender, EventArgs e) {
+            picUserLogs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\logsHoverIcon.png");
+
+        }
+
+        private void picUserLogs_MouseLeave(object sender, EventArgs e) {
+            picUserLogs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\logsIcon.png");
+
+        }
+
     }
 }

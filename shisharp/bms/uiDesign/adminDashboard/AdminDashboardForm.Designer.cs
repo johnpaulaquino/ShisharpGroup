@@ -26,6 +26,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboardForm));
             this.pnlMainContainer = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
@@ -50,6 +51,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picProfilePic = new Krypton.Toolkit.KryptonPictureBox();
             this.lblUsername = new Krypton.Toolkit.KryptonLabel();
             this.picMenuButton = new Krypton.Toolkit.KryptonPictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContainer)).BeginInit();
             this.pnlMainContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
@@ -111,9 +113,9 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.kryptonPanel1.Controls.Add(this.pnlRighSeperator);
             this.kryptonPanel1.Controls.Add(this.kryptonPanel3);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonPanel1.Location = new System.Drawing.Point(39, 0);
+            this.kryptonPanel1.Location = new System.Drawing.Point(40, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(989, 548);
+            this.kryptonPanel1.Size = new System.Drawing.Size(988, 548);
             this.kryptonPanel1.TabIndex = 5;
             // 
             // kryptonPanel4
@@ -122,7 +124,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.kryptonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel4.Location = new System.Drawing.Point(21, 22);
             this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.Size = new System.Drawing.Size(968, 526);
+            this.kryptonPanel4.Size = new System.Drawing.Size(967, 526);
             this.kryptonPanel4.TabIndex = 15;
             // 
             // pnlMainContentHolder1
@@ -131,7 +133,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.pnlMainContentHolder1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContentHolder1.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContentHolder1.Name = "pnlMainContentHolder1";
-            this.pnlMainContentHolder1.Size = new System.Drawing.Size(968, 526);
+            this.pnlMainContentHolder1.Size = new System.Drawing.Size(967, 526);
             this.pnlMainContentHolder1.StateCommon.Color1 = System.Drawing.Color.White;
             this.pnlMainContentHolder1.TabIndex = 13;
             // 
@@ -149,7 +151,7 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.kryptonPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonPanel3.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel3.Name = "kryptonPanel3";
-            this.kryptonPanel3.Size = new System.Drawing.Size(989, 22);
+            this.kryptonPanel3.Size = new System.Drawing.Size(988, 22);
             this.kryptonPanel3.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(224)))));
             this.kryptonPanel3.StateCommon.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.kryptonPanel3.TabIndex = 13;
@@ -166,9 +168,11 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.pnlSidebar.Controls.Add(this.kryptonPanel6);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSidebar.MaximumSize = new System.Drawing.Size(197, 548);
+            this.pnlSidebar.MinimumSize = new System.Drawing.Size(40, 548);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.pnlSidebar.Size = new System.Drawing.Size(39, 548);
+            this.pnlSidebar.Size = new System.Drawing.Size(40, 548);
             this.pnlSidebar.StateCommon.Color1 = System.Drawing.Color.IndianRed;
             this.pnlSidebar.StateCommon.Color2 = System.Drawing.Color.IndianRed;
             this.pnlSidebar.StateCommon.ColorAngle = 100F;
@@ -190,6 +194,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picOfficials.TabIndex = 10;
             this.picOfficials.TabStop = false;
             this.picOfficials.Click += new System.EventHandler(this.picOfficials_Click);
+            this.picOfficials.MouseLeave += new System.EventHandler(this.picOfficials_MouseLeave);
+            this.picOfficials.MouseHover += new System.EventHandler(this.picOfficials_MouseHover);
             // 
             // picBlotter
             // 
@@ -202,6 +208,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picBlotter.TabIndex = 9;
             this.picBlotter.TabStop = false;
             this.picBlotter.Click += new System.EventHandler(this.picBlotter_Click);
+            this.picBlotter.MouseLeave += new System.EventHandler(this.picBlotter_MouseLeave);
+            this.picBlotter.MouseHover += new System.EventHandler(this.picBlotter_MouseHover);
             // 
             // picAccountVerification
             // 
@@ -214,6 +222,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picAccountVerification.TabIndex = 7;
             this.picAccountVerification.TabStop = false;
             this.picAccountVerification.Click += new System.EventHandler(this.picAccountVerification_Click_1);
+            this.picAccountVerification.MouseLeave += new System.EventHandler(this.picAccountVerification_MouseLeave);
+            this.picAccountVerification.MouseHover += new System.EventHandler(this.picAccountVerification_MouseHover);
             // 
             // picAnnouncements
             // 
@@ -226,6 +236,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picAnnouncements.TabIndex = 6;
             this.picAnnouncements.TabStop = false;
             this.picAnnouncements.Click += new System.EventHandler(this.picAnnouncements_Click);
+            this.picAnnouncements.MouseLeave += new System.EventHandler(this.picAnnouncements_MouseLeave);
+            this.picAnnouncements.MouseHover += new System.EventHandler(this.picAnnouncements_MouseHover);
             // 
             // picLogs
             // 
@@ -238,6 +250,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picLogs.TabIndex = 5;
             this.picLogs.TabStop = false;
             this.picLogs.Click += new System.EventHandler(this.picLogs_Click_1);
+            this.picLogs.MouseLeave += new System.EventHandler(this.picLogs_MouseLeave);
+            this.picLogs.MouseHover += new System.EventHandler(this.picLogs_MouseHover);
             // 
             // picDashboardIcon
             // 
@@ -250,6 +264,8 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picDashboardIcon.TabIndex = 4;
             this.picDashboardIcon.TabStop = false;
             this.picDashboardIcon.Click += new System.EventHandler(this.picDashboardIcon_Click_1);
+            this.picDashboardIcon.MouseLeave += new System.EventHandler(this.picDashboardIcon_MouseLeave);
+            this.picDashboardIcon.MouseHover += new System.EventHandler(this.picDashboardIcon_MouseHover);
             // 
             // picAccountManagement
             // 
@@ -262,11 +278,13 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picAccountManagement.TabIndex = 3;
             this.picAccountManagement.TabStop = false;
             this.picAccountManagement.Click += new System.EventHandler(this.picAccountManagement_Click_1);
+            this.picAccountManagement.MouseLeave += new System.EventHandler(this.picAccountManagement_MouseLeave);
+            this.picAccountManagement.MouseHover += new System.EventHandler(this.picAccountManagement_MouseHover);
             // 
             // kryptonPanel6
             // 
             this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.kryptonPanel6.Location = new System.Drawing.Point(38, 0);
+            this.kryptonPanel6.Location = new System.Drawing.Point(39, 0);
             this.kryptonPanel6.Name = "kryptonPanel6";
             this.kryptonPanel6.Size = new System.Drawing.Size(1, 548);
             this.kryptonPanel6.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(224)))));
@@ -345,6 +363,13 @@ namespace BrgyMS.uiDesign.adminDashboard {
             this.picMenuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMenuButton.TabIndex = 1;
             this.picMenuButton.TabStop = false;
+            this.picMenuButton.Click += new System.EventHandler(this.picMenuButton_Click);
+            this.picMenuButton.MouseLeave += new System.EventHandler(this.picMenuButton_MouseLeave_1);
+            this.picMenuButton.MouseHover += new System.EventHandler(this.picMenuButton_MouseHover_1);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // AdminDashboardForm
             // 
@@ -415,5 +440,6 @@ namespace BrgyMS.uiDesign.adminDashboard {
         private Krypton.Toolkit.KryptonPanel pnlMainContentHolder1;
         private Krypton.Toolkit.KryptonPictureBox picBlotter;
         private Krypton.Toolkit.KryptonPictureBox picOfficials;
+        private Timer timer1;
     }
 }

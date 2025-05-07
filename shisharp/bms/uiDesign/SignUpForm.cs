@@ -171,7 +171,7 @@ namespace BrgyMs.uiDesign {
                 string civilStatus = cboACivilStatus.SelectedItem.ToString();
                 string educationalStatus = cboAEducAttain.SelectedItem.ToString();
                 string empStatus = cboEmpStatus.SelectedItem.ToString();
-                string religion = txtAReligion.Text;
+                string religion = utils.CapitalizeFirstLetter(txtAReligion.Text);
                 DateTime bday = dtpkABirthday.Value.Date;
                 int age = utils.calculateAge(bday);
                 string contactNo = txtAContactNo.Text;
@@ -276,7 +276,7 @@ namespace BrgyMs.uiDesign {
                     case 2:
 
                         _UserValidation.ValidatePersonalInfo(_PersonalInfo);
-                 
+
 
                         break;
 
@@ -346,8 +346,8 @@ namespace BrgyMs.uiDesign {
             try {
                 // This is the 5th page for address
                 string houseNo = txtSHouseNo.Text;
-                string street = txtSStreet.Text;
-                string villagename = txtSSubdivision.Text;
+                string street = utils.CapitalizeFirstLetter(txtSStreet.Text);
+                string villagename = utils.CapitalizeFirstLetter(txtSSubdivision.Text);
                 string lotNo = txtSLotNo.Text;
                 string blockNo = txtSBlockNo.Text;
 

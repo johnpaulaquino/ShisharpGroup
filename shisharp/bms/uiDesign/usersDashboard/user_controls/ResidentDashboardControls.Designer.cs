@@ -44,7 +44,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.pnlAannouncementContent = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel8 = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.lblAnnouncementSliding = new Krypton.Toolkit.KryptonLabel();
             this.kryptonPanel4 = new Krypton.Toolkit.KryptonPanel();
             this.lblDetails = new Krypton.Toolkit.KryptonLabel();
             this.lblDatePost = new Krypton.Toolkit.KryptonLabel();
@@ -205,7 +205,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.ctxOFficialsInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewOfficialToolStripMenuItem});
             this.ctxOFficialsInfo.Name = "ctxOFficialsInfo";
-            this.ctxOFficialsInfo.Size = new System.Drawing.Size(212, 48);
+            this.ctxOFficialsInfo.Size = new System.Drawing.Size(212, 26);
             this.ctxOFficialsInfo.Text = "Officials Information";
             this.ctxOFficialsInfo.Opening += new System.ComponentModel.CancelEventHandler(this.ctxOFficialsInfo_Opening);
             // 
@@ -257,26 +257,26 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             this.kryptonPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonPanel8.Controls.Add(this.kryptonLabel3);
+            this.kryptonPanel8.Controls.Add(this.lblAnnouncementSliding);
             this.kryptonPanel8.Location = new System.Drawing.Point(3, 8);
             this.kryptonPanel8.Name = "kryptonPanel8";
             this.kryptonPanel8.Size = new System.Drawing.Size(789, 52);
             this.kryptonPanel8.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(199)))), ((int)(((byte)(64)))));
             this.kryptonPanel8.TabIndex = 6;
             // 
-            // kryptonLabel3
+            // lblAnnouncementSliding
             // 
-            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonLabel3.AutoSize = false;
-            this.kryptonLabel3.Location = new System.Drawing.Point(276, 15);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(226, 31);
-            this.kryptonLabel3.StateCommon.ShortText.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Control;
-            this.kryptonLabel3.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel3.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonLabel3.StateCommon.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.kryptonLabel3.TabIndex = 4;
-            this.kryptonLabel3.Values.Text = "Officials";
+            this.lblAnnouncementSliding.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAnnouncementSliding.AutoSize = false;
+            this.lblAnnouncementSliding.Location = new System.Drawing.Point(276, 13);
+            this.lblAnnouncementSliding.Name = "lblAnnouncementSliding";
+            this.lblAnnouncementSliding.Size = new System.Drawing.Size(226, 31);
+            this.lblAnnouncementSliding.StateCommon.ShortText.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Control;
+            this.lblAnnouncementSliding.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnnouncementSliding.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.lblAnnouncementSliding.StateCommon.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.lblAnnouncementSliding.TabIndex = 4;
+            this.lblAnnouncementSliding.Values.Text = "Announcements";
             // 
             // kryptonPanel4
             // 
@@ -299,8 +299,10 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.lblDetails.Margin = new System.Windows.Forms.Padding(0);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(424, 96);
+            this.lblDetails.StateCommon.LongText.MultiLine = Krypton.Toolkit.InheritBool.True;
             this.lblDetails.StateCommon.ShortText.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Control;
             this.lblDetails.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetails.StateCommon.ShortText.MultiLine = Krypton.Toolkit.InheritBool.True;
             this.lblDetails.StateCommon.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Near;
             this.lblDetails.TabIndex = 3;
             this.lblDetails.Values.Text = "Details";
@@ -388,6 +390,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             // timerAnnouncementLabel
             // 
+            this.timerAnnouncementLabel.Interval = 2000;
             this.timerAnnouncementLabel.Tick += new System.EventHandler(this.timerAnnouncementLabel_Tick);
             // 
             // ResidentDashboardControls
@@ -456,6 +459,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel7;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel8;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonLabel lblAnnouncementSliding;
     }
 }

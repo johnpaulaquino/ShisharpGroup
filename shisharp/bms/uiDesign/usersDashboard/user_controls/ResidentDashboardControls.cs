@@ -22,8 +22,10 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private AuthUtils _AuthUtils = new AuthUtils();
         List<AnnouncementsModel> data = new List<AnnouncementsModel>();
         private int index = 0;
+        private int currLoc = 0;
         public ResidentDashboardControls() {
             InitializeComponent();
+
         }
         public async Task SetAnnouncementsData() {
             await Task.Run(async () =>
@@ -42,7 +44,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         }
 
         private void timerAnnouncementLabel_Tick(object sender, EventArgs e) {
-
         }
 
         public async Task SetOfficialsDataInTable() {

@@ -33,6 +33,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private SecretaryOfficialsControl officialsControl;
         private string userId = "";
         private Utils utils = new Utils();
+        private bool isSlide;
 
 
         private BaseServices _BaseServices = new BaseServices();
@@ -177,6 +178,94 @@ namespace BrgyMS.uiDesign.usersDashboard {
                 control.Dock = DockStyle.Fill;
                 Cursor = Cursors.Default;
             }));
+        }
+
+        private void picMenuButton_MouseHover(object sender, EventArgs e) {
+            picMenuButton.Image = new Bitmap(@"C:\\Users\\ADMIN\\Desktop\\shisharpmain\\shisharp\\bms\\img\\menuIconHover.png");
+
+        }
+
+        private void picMenuButton_MouseLeave(object sender, EventArgs e) {
+            picMenuButton.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\menuIcon.png");
+
+        }
+
+
+        private void picUserLogs_MouseHover_1(object sender, EventArgs e) {
+            picUserLogs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\logsHoverIcon.png");
+
+        }
+
+        private void picUserLogs_MouseLeave_1(object sender, EventArgs e) {
+            picUserLogs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\logsIcon.png");
+
+        }
+
+        private void picUserRequestDocs_MouseHover_1(object sender, EventArgs e) {
+            picUserRequestDocs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\RequestDocsIconHover.png");
+
+        }
+
+        private void picUserRequestDocs_MouseLeave_1(object sender, EventArgs e) {
+            picUserRequestDocs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\RequestDocsIcon.png");
+
+        }
+
+        private void picApprovalDocs_MouseHover(object sender, EventArgs e) {
+            picApprovalDocs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\blotterIconHover.png");
+
+        }
+
+        private void picApprovalDocs_DragLeave(object sender, EventArgs e) {
+
+        }
+
+        private void picApprovalDocs_MouseLeave(object sender, EventArgs e) {
+            picApprovalDocs.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\blotterIcon.png");
+
+        }
+
+        private void picOfficials_MouseHover(object sender, EventArgs e) {
+            picOfficials.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\OfficialsIvonHover.png");
+
+        }
+
+        private void picOfficials_MouseLeave(object sender, EventArgs e) {
+            picOfficials.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\OfficialsIcon.png");
+
+        }
+
+        private void picUserDashboardIcon_MouseHover_1(object sender, EventArgs e) {
+            picUserDashboardIcon.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\DashboardIconHover.png");
+        }
+
+        private void picUserDashboardIcon_MouseLeave_1(object sender, EventArgs e) {
+            picUserDashboardIcon.Image = new Bitmap(@"C:\Users\ADMIN\Desktop\shisharpmain\shisharp\bms\img\DashboardIcon.png");
+
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            if (isSlide) {
+                pnlSidebar.Width -= 157;
+                if (pnlSidebar.Width == pnlSidebar.MinimumSize.Width) {
+                    isSlide = false;
+                    timer1.Stop();
+                }
+
+            }
+            else {
+                pnlSidebar.Width += 157;
+                if (pnlSidebar.Width == pnlSidebar.MaximumSize.Width) {
+                    isSlide = true;
+                    timer1.Stop();
+
+                }
+            }
+        }
+
+        private void picMenuButton_Click(object sender, EventArgs e) {
+            timer1.Start();
         }
     }
 }

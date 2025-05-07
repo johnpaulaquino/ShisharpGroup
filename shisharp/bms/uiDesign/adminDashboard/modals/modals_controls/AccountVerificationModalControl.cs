@@ -87,10 +87,6 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
 
                     await uiadmin.ActivateUserAccount(userId, isActivted,
                                       txtAvEmail.Text, txtAvFname.Text);
-
-                    accverifyControl.Refresh();
-                    accverifyControl.dataGridAmTable.Refresh(); // refresh the table after changes
-
                     string id = await _BaseServices.GenerateLogsId();
                     Logs logs = new Logs(id, AdminId, "Ativate user")
                     {
