@@ -10,7 +10,6 @@ namespace BrgyMs.backend.models.residents_docs {
         public string DocumentType { get; set; }
         public string Status { get; set; }
         public string Purpose { get; set; }
-        public bool isFirstTImeJbSeeker { get; set; }
         public string OtherPurposes { get; set; }
 
         public ResidentDocumentRequest(

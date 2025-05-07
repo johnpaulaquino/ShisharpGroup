@@ -16,7 +16,6 @@ using BrgyMs.backend.models.residents_docs;
 using System.Windows.Forms;
 using Mysqlx.Sql;
 using BrgyMS.backend.models;
-using static Stimulsoft.Report.StiRecentConnections;
 
 
 
@@ -86,12 +85,13 @@ namespace BrgyMs.backend.database.repositories {
 
 
         public async Task<bool> IsUserRequested(string userId) {
-            string stmt = "Select id from request_document where user_id = @userid";
+            string stmt = "Select id from request_document where user_id = @userid and status = @status ";
 
             try {
                 using (var connection = await conn.getConnection()) {
                     using (var cmd = new MySqlCommand(stmt, connection)) {
                         cmd.Parameters.AddWithValue("@userid", userId);
+                        cmd.Parameters.AddWithValue("@status", "pending");
                         using (var reader = await cmd.ExecuteReaderAsync()) {
                             if (await reader.ReadAsync()) {
                                 return true;
@@ -109,15 +109,14 @@ namespace BrgyMs.backend.database.repositories {
         // insert request docs
         public async Task AddRequestDocuments(ResidentDocumentRequest _RequestDocu) {
             string stmt = "INSERT INTO request_document(id, user_id, document_type, status, "
-            + "purpose, fjob_seeker, other_purposes) "
-            + "Values(@id, @user_id, @docs, @status, @purpose, @seeker, @others)";
+            + "purpose, other_purposes) "
+            + "Values(@id, @user_id, @docs, @status, @purpose, @others)";
             try {
                 using (var cmd = new MySqlCommand(stmt, await conn.getConnection())) {
                     cmd.Parameters.AddWithValue("@id", _RequestDocu.Id);
                     cmd.Parameters.AddWithValue("@user_id", _RequestDocu.UserId);
                     cmd.Parameters.AddWithValue("@docs", _RequestDocu.DocumentType);
                     cmd.Parameters.AddWithValue("@status", _RequestDocu.Status);
-                    cmd.Parameters.AddWithValue("@seeker", _RequestDocu.isFirstTImeJbSeeker);
                     cmd.Parameters.AddWithValue("@others", _RequestDocu.OtherPurposes);
                     cmd.Parameters.AddWithValue("@purpose", _RequestDocu.Purpose);
                     await cmd.ExecuteNonQueryAsync();
@@ -261,10 +260,9 @@ namespace BrgyMs.backend.database.repositories {
         //update resident Reslated docs
         public async Task UpdateRequestDocs(string id,
             string document_type,
-            string purpose, string others, bool isfirstime) {
+            string purpose, string others) {
             try {
                 string stmt = "UPDATE request_document SET document_type = @doc_type, purpose = @purpose, other_purposes = @others," +
-                    "fjob_seeker = @job_seeker " +
                     "Where id = @id ";
 
                 using (var connection = await conn.getConnection()) {
@@ -272,7 +270,6 @@ namespace BrgyMs.backend.database.repositories {
                         cmd.Parameters.AddWithValue("@doc_type", document_type);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters.AddWithValue("@purpose", purpose);
-                        cmd.Parameters.AddWithValue("@job_seeker", isfirstime);
                         cmd.Parameters.AddWithValue("@others", others);
                         await cmd.ExecuteNonQueryAsync();
                     }

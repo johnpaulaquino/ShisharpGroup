@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrgyMs.backend.models.base_model;
 using Krypton.Toolkit;
-using Stimulsoft.Controls.Win.DotNetBar;
 using Microsoft.VisualBasic.ApplicationServices;
 using Mysqlx.Crud;
 
@@ -45,6 +44,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             control.Dock = DockStyle.Fill;
 
             docs.ShowDialog(this);
+
             await uioResident.SetRequestDocumentsControlsTable(dataGridAdminDashboard, UserId);
 
         }
@@ -83,8 +83,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             docs.pnlContainer.Controls.Add(control);
             control.Dock = DockStyle.Fill;
 
-            await SetExisitngData(control.cboDocsType, control.cboPurposes, control.txtOtherPurpose
-                , control.cbFirstTimeJobSeeker);
+            await SetExisitngData(control.cboDocsType, control.cboPurposes, control.txtOtherPurpose);
 
             docs.ShowDialog(this);
             //refresh table after close the modal
@@ -121,8 +120,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         } // end
 
         public async Task SetExisitngData(KryptonComboBox cboDocType,
-            KryptonComboBox cboPurpose, KryptonTextBox otherPurpose,
-            KryptonCheckBox isFirsttime) {
+            KryptonComboBox cboPurpose, KryptonTextBox otherPurpose) {
             try {
                 string token = _Authutils.ReadTokenInFile();
 
@@ -134,9 +132,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                     Invoke(new Action(() =>
                     {
                         foreach (DataRow item in dt.Rows) {
-                            if ((int)item["fjob_seeker"] == 1) {
-                                isFirsttime.Checked = true;
-                            }
                             cboDocType.SelectedItem = (string)item["document_type"];
                             cboPurpose.SelectedItem = (string)item["purpose"];
                             otherPurpose.Text = (string)item["other_purposes"];
@@ -144,7 +139,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
 
                     }));
                 }
-
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);

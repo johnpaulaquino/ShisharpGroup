@@ -39,53 +39,107 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
         private async void approveDocumentsToolStripMenuItem_Click(object sender, EventArgs e) {
             try {
+
+                string doctype = utils.ReadDocumentTypeInFile();
+
                 var option = MessageBox.Show("Are you sure you want to approve this? ",
                     "Approval", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (option == DialogResult.Yes) {
                     Cursor = Cursors.WaitCursor;
-                    await Task.Run(async () =>
-                      {
-                          string userid = utils.ReadIdInFile(); // get the id from file
-                          var list = await _BaseServices.GetAllUserInformations(userid); //  get all user information
-                                                                                         //  
-                          _DocsGenerator.GenerateIndigencyDocument(userid); // generate indigency document
+                    MessageBox.Show(doctype);
+                    //for barangay idigency
+                    if (string.Equals("Barangay Certificate of Indigency", doctype)) {
+                        await Task.Run(async () =>
+                        {
+                            string userid = utils.ReadIdInFile(); // get the id from file
+                            var list = await _BaseServices.GetAllUserInformations(userid); //  get all user information
+                                                                                           //  
+                            _DocsGenerator.GenerateIndigencyDocument(userid); // generate indigency document
 
 
-                          string fileLoc = _DocsGenerator.GetIndigencyLocation(); // get all users
+                            string fileLoc = _DocsGenerator.GetIndigencyLocation(); // get all users
 
 
-                          if (list != null) {
-                              var user = (User)list[0]; // get the account credentials
-                              var personalInfo = (PersonalInformation)list[1]; //
+                            if (list != null) {
+                                var user = (User)list[0]; // get the account credentials
+                                var personalInfo = (PersonalInformation)list[1]; //
 
-                              if (File.Exists(fileLoc)) { // check if the file is exist
-                                  string doctype = utils.ReadDocumentTypeInFile();
-                                  await _EmailServices.SendEmailWithAttachment( // send email
-                             user.Email, "Barangay Indigency", "Here is your requested document.\nThank you.",
-                             fileLoc, $"{personalInfo.Firstname[0].ToString()}. {personalInfo.Lastname} {doctype}");
+                                if (File.Exists(fileLoc)) { // check if the file is exist
 
-
-                                  string id = await _BaseServices.GenerateLogsId(); // generate Id for logs
-                                  string token = _AuthUtils.ReadTokenInFile(); // r ead token for user id
-                                  var cachedId = _AuthUtils.ValidateToken(token); // get the user credentials
+                                    await _EmailServices.SendEmailWithAttachment( // send email
+                               user.Email, doctype, "Here is your requested document.\nThank you.",
+                               fileLoc, $"{personalInfo.Firstname[0].ToString()}. {personalInfo.Lastname} {doctype}");
 
 
-                                  Logs logs = new Logs(id, cachedId.UserId, // logs
-                                      "Update")
-                                  {
-                                      DatePerformed = DateTime.Now,
-                                      ActionsMade = "Approve resident document."
-                                  };
-                                  await _BaseServices.LogUserActions(logs);// insert into logs
-                                  await _SecServices.UpdateResidentDocument(userid);
-                              }
-                              else {
-                                  throw new Exception("File not found!");
-                              }
+                                    string id = await _BaseServices.GenerateLogsId(); // generate Id for logs
+                                    string token = _AuthUtils.ReadTokenInFile(); // r ead token for user id
+                                    var cachedId = _AuthUtils.ValidateToken(token); // get the user credentials
 
-                          }
-                      });
+
+                                    Logs logs = new Logs(id, cachedId.UserId, // logs
+                                        "Update")
+                                    {
+                                        DatePerformed = DateTime.Now,
+                                        ActionsMade = "Approve resident document."
+                                    };
+                                    await _BaseServices.LogUserActions(logs);// insert into logs
+                                    await _SecServices.UpdateResidentDocument(userid);
+                                }
+                                else {
+                                    throw new Exception("File not found!");
+                                }
+
+                            }
+                        });
+                    }
+                    //for barangay clearance
+                    else {
+                        await Task.Run(async () =>
+                        {
+                            string userid = utils.ReadIdInFile(); // get the id from file
+                            var list = await _BaseServices.GetAllUserInformations(userid); //  get all user information
+                                                                                           //  
+                            _DocsGenerator.GenerateFirstTimeJobSeekerDocument(userid); // generate barangay cloerance document
+
+
+                            string fileLoc = _DocsGenerator.GetFirstTimeJobSeekerocation(); // get all users
+
+
+                            if (list != null) {
+                                var user = (User)list[0]; // get the account credentials
+                                var personalInfo = (PersonalInformation)list[1]; //
+
+                                if (File.Exists(fileLoc)) { // check if the file is exist
+
+                                    await _EmailServices.SendEmailWithAttachment( // send email
+                               user.Email, doctype, "Here is your requested document.\nThank you.",
+                               fileLoc, $"{personalInfo.Firstname[0].ToString()}. {personalInfo.Lastname} {doctype}");
+
+
+                                    string id = await _BaseServices.GenerateLogsId(); // generate Id for logs
+                                    string token = _AuthUtils.ReadTokenInFile(); // r ead token for user id
+                                    var cachedId = _AuthUtils.ValidateToken(token); // get the user credentials
+
+
+                                    Logs logs = new Logs(id, cachedId.UserId, // logs
+                                        "Update")
+                                    {
+                                        DatePerformed = DateTime.Now,
+                                        ActionsMade = "Approve resident document."
+                                    };
+                                    await _BaseServices.LogUserActions(logs);// insert into logs
+                                    await _SecServices.UpdateResidentDocument(userid);
+                                }
+                                else {
+                                    throw new Exception("File not found!");
+                                }
+
+                            }
+
+                        });
+                    }
+
                     MessageBox.Show("Successfully approve docuemnt!");
 
                     await _SecServices.SetDataForApproveDocumentsTable(dataGridApproveDocument);
@@ -94,10 +148,10 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+
             finally {
                 Cursor = Cursors.Default;
             }
-
 
         }
 
@@ -129,14 +183,14 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
                     dataGridApproveDocument.Rows[hit.RowIndex].Selected = true; // set selection where the mouse clicked
 
                     string userId = dataGridApproveDocument.Rows[hit.RowIndex].Cells[0].Value?.ToString();
-                    string docType = dataGridApproveDocument.Rows[hit.RowIndex].Cells[1].Value?.ToString();
+                    string docType = dataGridApproveDocument.Rows[hit.RowIndex].Cells[2].Value?.ToString();
                     try {
                         utils.PutIdOnFile(userId);
                         utils.PutDocumetntTypeInFile(docType);
 
 
                         //show the context
-                        ctxApproveDocuments.Show(this, dataGridApproveDocument.PointToScreen(e.Location));
+                        ctxApproveDocuments.Show(dataGridApproveDocument, e.Location);
                     }
                     catch (Exception ex) {
                         MessageBox.Show(ex.Message);
@@ -149,14 +203,10 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             try {
                 var option = MessageBox.Show("Are you sure you want to decline this?");
                 if (option == DialogResult.Yes) {
-                    string reason = Interaction.InputBox("State the reason for declining: ");
-
-                    if (string.IsNullOrEmpty(reason)) {
-                        throw new Exception("Please state the reason!");
-                    }
-
+                    Cursor = Cursors.WaitCursor;
                     await Task.Run(async () =>
                     {
+                        MessageBox.Show("HEy");
                         string userid = utils.ReadIdInFile(); // read the user id of the resident
                         var list = await _BaseServices.GetAllUserInformations(userid); // get the user information of the resident who requested docs
 
@@ -164,7 +214,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
                             var user = (User)list[0]; // get the account credentials
                             var personalInfo = (PersonalInformation)list[1]; //
                             string doctype = utils.ReadDocumentTypeInFile();
-                            await _EmailServices.SendPlainEmail(user.Email, $"{doctype}", $"Your {doctype} has been delcined due to the {reason}.\n" +
+                            await _EmailServices.SendPlainEmail(user.Email, $"{doctype}", $"Your {doctype} has been delcined.\n" +
                                 $"Thank you for your understanding.");
                         }
 
@@ -184,14 +234,19 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
 
                     });
+
                     MessageBox.Show("Successfully declined request!");
 
                     await _SecServices.SetDataForApproveDocumentsTable(dataGridApproveDocument); // refresh table
 
                 }
+
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
+            }
+            finally {
+                Cursor = Cursors.Default;
             }
         }
     }

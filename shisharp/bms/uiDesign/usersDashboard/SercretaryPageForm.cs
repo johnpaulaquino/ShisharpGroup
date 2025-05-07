@@ -18,7 +18,6 @@ using BrgyMS.uiDesign.adminDashboard.controls;
 using BrgyMS.uiDesign.usersDashboard.secretary_controls;
 using BrgyMS.backend.models;
 using BrgyMS.backend.services;
-using Stimulsoft.Editor;
 using BrgyMs.backend.models.base_model;
 
 namespace BrgyMS.uiDesign.usersDashboard {

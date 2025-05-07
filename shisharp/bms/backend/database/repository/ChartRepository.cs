@@ -16,15 +16,19 @@ namespace shisharp.bms.backend.database.repository {
 
         public async Task<List<ChartsModel>> GetTotalMaleAndFemale() {
             string stmt = "SELECT count(p.gender)as total, p.gender as gender " +
-                "FROM personal_info p " +
-                "LEFT JOIN address a " +
-                "ON p.user_id = a.user_id " +
+                "FROM users u " +
+                "RIGHT JOIN personal_info p " +
+                "ON u.id = p.user_id " +
+                "RIGHT JOIN address a " +
+                "ON u.id = a.user_id " +
+                "WHERE u.status = @status " +
                 "GROUP BY p.gender ";
 
             try {
                 using (var connection = await conn.getConnection()) {
                     List<ChartsModel> totalList = new List<ChartsModel>();
                     using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@status", "1");
                         using (var reader = await cmd.ExecuteReaderAsync()) {
                             while (await reader.ReadAsync()) {
                                 totalList.Add(
@@ -39,7 +43,6 @@ namespace shisharp.bms.backend.database.repository {
                         }
                     }
                 }
-                return null;
             }
             catch (Exception ex) {
                 throw;
@@ -74,7 +77,6 @@ namespace shisharp.bms.backend.database.repository {
                             return listData;
                         }
                     }
-                    return null;
                 }
             }
             catch (Exception) {
@@ -84,14 +86,17 @@ namespace shisharp.bms.backend.database.repository {
 
         public async Task<List<int>> GetTotalVoters() {
             try {
-                string stmt = "SELECT count(age) as TotalAge, count(is_voter) TotalVoter " +
-                    "FROM additional_info " +
-                    "WHERe age >= @age and is_voter = @is_voter ";
+                string stmt = "SELECT count(p.age) as TotalAge, count(p.is_voter) TotalVoter " +
+                    "FROM users u " +
+                    "LEFT JOIN additional_info p " +
+                    "ON u.id = p.user_id " +
+                    "WHERe u.status = @status and age >= @age and is_voter = @is_voter";
                 List<int> data = new List<int>();
                 using (var connection = await conn.getConnection()) {
                     using (var cmd = new MySqlCommand(stmt, connection)) {
                         cmd.Parameters.AddWithValue("@age", "18");
                         cmd.Parameters.AddWithValue("@is_voter", '1');
+                        cmd.Parameters.AddWithValue("@status", '1');
                         using (var reader = await cmd.ExecuteReaderAsync()) {
                             if (await reader.ReadAsync()) {
                                 data.Add(reader.GetInt32(reader.GetOrdinal("TotalAge")));

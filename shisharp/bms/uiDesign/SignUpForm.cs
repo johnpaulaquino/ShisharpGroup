@@ -471,6 +471,10 @@ namespace BrgyMs.uiDesign {
         private void SignUpForm_FormClosing(object sender, FormClosingEventArgs e) {
 
         }
+
+        private void cbSShowPass_CheckedChanged(object sender, EventArgs e) {
+
+        }
     }
 
 }

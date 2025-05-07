@@ -30,15 +30,13 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.pnlMainContentHolder = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             this.txtOtherPurpose = new Krypton.Toolkit.KryptonTextBox();
-            this.cbFirstTimeJobSeeker = new Krypton.Toolkit.KryptonCheckBox();
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             this.cboPurposes = new Krypton.Toolkit.KryptonComboBox();
             this.cboDocsType = new Krypton.Toolkit.KryptonComboBox();
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.btnSaveChanges = new Krypton.Toolkit.KryptonButton();
             this.btnSubmitRequest = new Krypton.Toolkit.KryptonButton();
+            this.btnSaveChanges = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentHolder)).BeginInit();
@@ -63,8 +61,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.pnlMainContentHolder.AutoScroll = true;
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel5);
             this.pnlMainContentHolder.Controls.Add(this.txtOtherPurpose);
-            this.pnlMainContentHolder.Controls.Add(this.cbFirstTimeJobSeeker);
-            this.pnlMainContentHolder.Controls.Add(this.kryptonLabel4);
             this.pnlMainContentHolder.Controls.Add(this.cboPurposes);
             this.pnlMainContentHolder.Controls.Add(this.cboDocsType);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel3);
@@ -95,26 +91,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.txtOtherPurpose.ReadOnly = true;
             this.txtOtherPurpose.Size = new System.Drawing.Size(299, 119);
             this.txtOtherPurpose.TabIndex = 43;
-            // 
-            // cbFirstTimeJobSeeker
-            // 
-            this.cbFirstTimeJobSeeker.AutoSize = false;
-            this.cbFirstTimeJobSeeker.Enabled = false;
-            this.cbFirstTimeJobSeeker.Location = new System.Drawing.Point(0, 469);
-            this.cbFirstTimeJobSeeker.Name = "cbFirstTimeJobSeeker";
-            this.cbFirstTimeJobSeeker.Size = new System.Drawing.Size(299, 33);
-            this.cbFirstTimeJobSeeker.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFirstTimeJobSeeker.TabIndex = 42;
-            this.cbFirstTimeJobSeeker.Values.Text = "Yes";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(0, 425);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(256, 33);
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel4.TabIndex = 41;
-            this.kryptonLabel4.Values.Text = "First Time Job Seeker";
             // 
             // cboPurposes
             // 
@@ -179,66 +155,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel1.TabIndex = 17;
             this.kryptonLabel1.Values.Text = "Purpose";
             // 
-            // btnSaveChanges
-            // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(76, 534);
-            this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnSaveChanges.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSaveChanges.OverrideDefault.Border.Rounding = 5F;
-            this.btnSaveChanges.OverrideDefault.Border.Width = 1;
-            this.btnSaveChanges.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSaveChanges.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSaveChanges.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnSaveChanges.Size = new System.Drawing.Size(160, 44);
-            this.btnSaveChanges.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateCommon.Back.ColorAngle = 45F;
-            this.btnSaveChanges.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSaveChanges.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSaveChanges.StateCommon.Border.ColorAngle = 45F;
-            this.btnSaveChanges.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSaveChanges.StateCommon.Border.Rounding = 5F;
-            this.btnSaveChanges.StateCommon.Border.Width = 1;
-            this.btnSaveChanges.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSaveChanges.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSaveChanges.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.StateDisabled.Border.Rounding = 5F;
-            this.btnSaveChanges.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateNormal.Border.Rounding = 5F;
-            this.btnSaveChanges.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSaveChanges.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSaveChanges.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnSaveChanges.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnSaveChanges.StatePressed.Back.ColorAngle = 130F;
-            this.btnSaveChanges.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnSaveChanges.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnSaveChanges.StatePressed.Border.ColorAngle = 130F;
-            this.btnSaveChanges.StatePressed.Border.Rounding = 5F;
-            this.btnSaveChanges.StatePressed.Border.Width = 1;
-            this.btnSaveChanges.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnSaveChanges.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnSaveChanges.StateTracking.Back.ColorAngle = 45F;
-            this.btnSaveChanges.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSaveChanges.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateTracking.Border.ColorAngle = 45F;
-            this.btnSaveChanges.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSaveChanges.StateTracking.Border.Rounding = 5F;
-            this.btnSaveChanges.StateTracking.Border.Width = 1;
-            this.btnSaveChanges.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSaveChanges.TabIndex = 39;
-            this.btnSaveChanges.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnSaveChanges.Values.Text = "Save Changes";
-            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
-            // 
             // btnSubmitRequest
             // 
             this.btnSubmitRequest.Location = new System.Drawing.Point(76, 534);
@@ -299,6 +215,66 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.btnSubmitRequest.Values.Text = "Submit";
             this.btnSubmitRequest.Click += new System.EventHandler(this.btnSubmitRequest_Click_1);
             // 
+            // btnSaveChanges
+            // 
+            this.btnSaveChanges.Location = new System.Drawing.Point(76, 534);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.OverrideDefault.Back.ColorAngle = 45F;
+            this.btnSaveChanges.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSaveChanges.OverrideDefault.Border.Rounding = 5F;
+            this.btnSaveChanges.OverrideDefault.Border.Width = 1;
+            this.btnSaveChanges.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSaveChanges.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSaveChanges.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnSaveChanges.Size = new System.Drawing.Size(160, 44);
+            this.btnSaveChanges.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateCommon.Back.ColorAngle = 45F;
+            this.btnSaveChanges.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSaveChanges.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSaveChanges.StateCommon.Border.ColorAngle = 45F;
+            this.btnSaveChanges.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSaveChanges.StateCommon.Border.Rounding = 5F;
+            this.btnSaveChanges.StateCommon.Border.Width = 1;
+            this.btnSaveChanges.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSaveChanges.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSaveChanges.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChanges.StateDisabled.Border.Rounding = 5F;
+            this.btnSaveChanges.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateNormal.Border.Rounding = 5F;
+            this.btnSaveChanges.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSaveChanges.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSaveChanges.StatePressed.Back.Color1 = System.Drawing.Color.White;
+            this.btnSaveChanges.StatePressed.Back.Color2 = System.Drawing.Color.White;
+            this.btnSaveChanges.StatePressed.Back.ColorAngle = 130F;
+            this.btnSaveChanges.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.btnSaveChanges.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
+            this.btnSaveChanges.StatePressed.Border.ColorAngle = 130F;
+            this.btnSaveChanges.StatePressed.Border.Rounding = 5F;
+            this.btnSaveChanges.StatePressed.Border.Width = 1;
+            this.btnSaveChanges.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveChanges.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveChanges.StateTracking.Back.ColorAngle = 45F;
+            this.btnSaveChanges.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSaveChanges.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateTracking.Border.ColorAngle = 45F;
+            this.btnSaveChanges.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSaveChanges.StateTracking.Border.Rounding = 5F;
+            this.btnSaveChanges.StateTracking.Border.Width = 1;
+            this.btnSaveChanges.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSaveChanges.TabIndex = 39;
+            this.btnSaveChanges.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.btnSaveChanges.Values.Text = "Save Changes";
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+            // 
             // RequestDocumentsModalCotntrol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,13 +300,11 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         protected internal Krypton.Toolkit.KryptonComboBox cboDocsType;
         protected internal Krypton.Toolkit.KryptonButton btnSubmitRequest;
         protected internal Krypton.Toolkit.KryptonButton btnSaveChanges;
         protected internal Krypton.Toolkit.KryptonComboBox cboPurposes;
-        protected internal Krypton.Toolkit.KryptonCheckBox cbFirstTimeJobSeeker;
         protected internal Krypton.Toolkit.KryptonTextBox txtOtherPurpose;
     }
 }

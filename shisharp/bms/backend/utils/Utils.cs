@@ -116,6 +116,7 @@ namespace BrgyMs.backend.utils {
                 using (StreamWriter writer = new StreamWriter(fs)) {
 
                     writer.Write(id);
+                    writer.Close();
                 }
             }
 
@@ -133,6 +134,7 @@ namespace BrgyMs.backend.utils {
                 using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.None)) {
                     using (var reader = new StreamReader(fs)) {
                         UserId = reader.ReadToEnd();
+                        reader.Close();
 
                     }
                 }
@@ -197,7 +199,7 @@ namespace BrgyMs.backend.utils {
                 using (var fs = new FileStream(fileLocation, FileMode.Open, FileAccess.Read, FileShare.None)) {
                     using (var reader = new StreamReader(fs)) {
                         UserId = reader.ReadToEnd();
-
+                        reader.Close();
                     }
                 }
             }
@@ -219,6 +221,39 @@ namespace BrgyMs.backend.utils {
 
             }
         } // End of function
+
+        public string FormatDay(string day) {
+            if (!int.TryParse(day, out int dayNumber) || dayNumber < 1 || dayNumber > 31) {
+                throw new ArgumentException("Invalid day");
+            }
+
+            string suffix;
+
+            // Handle special cases 11, 12, 13
+            if (dayNumber % 100 >= 11 && dayNumber % 100 <= 13) {
+                suffix = "th";
+            }
+            else {
+                switch (dayNumber % 10) {
+                    case 1:
+                        suffix = "st";
+                        break;
+                    case 2:
+                        suffix = "nd";
+                        break;
+                    case 3:
+                        suffix = "rd";
+                        break;
+                    default:
+                        suffix = "th";
+                        break;
+                }
+            }
+
+            return dayNumber + suffix;
+        }
+
+
 
 
 

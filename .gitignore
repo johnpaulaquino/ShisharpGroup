@@ -3,7 +3,6 @@ bin/
 obj/
 packages/
 Localization/
-Properties/
 *.user
 *.suo
 *.cache

@@ -62,8 +62,7 @@ namespace BrgyMs.backend.database.repositories {
             string stmt = "Select p.user_id as ID, CONCAT_WS(' ', p.firstname, (CASE WHEN p.middlename " +
                 " IS NULL OR p.middlename = '' THEN NULL ELSE  CONCAT(LEFT(p.middlename, 1), '.') END),  " +
                 "p.lastname, NULLIF(p.suffix, '') ) as 'Fullname', d.document_type as 'Document Type', " +
-               "d.status as Status, d.request_date as 'Request Date', d.purpose as 'Purpose', d.other_purposes  'Other Purposes', " +
-               "d.fjob_seeker as 'FirstTime Job Seeker' " +
+               "d.status as Status, d.request_date as 'Request Date', d.purpose as 'Purpose', d.other_purposes  'Other Purposes' " +
                "FROM request_document d " +
                "Right join  personal_info p " +
                "On p.user_id = d.user_id " +

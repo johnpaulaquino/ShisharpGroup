@@ -545,6 +545,7 @@ namespace BrgyMs.uiDesign {
             this.cbSShowPass.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSShowPass.TabIndex = 34;
             this.cbSShowPass.Values.Text = "Show Password";
+            this.cbSShowPass.CheckedChanged += new System.EventHandler(this.cbSShowPass_CheckedChanged);
             // 
             // lblPanelInfo
             // 

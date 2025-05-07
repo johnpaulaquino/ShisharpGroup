@@ -1,10 +1,6 @@
 ﻿
 using BrgyMS.backend.utils;
-using FastReport;
 using Microsoft.Reporting.WinForms;
-using Stimulsoft.Report;
-using Stimulsoft.Report.Components;
-using Stimulsoft.Report.Dictionary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Stimulsoft.Report.StiOptions.Export;
+
 
 
 namespace BrgyMS.docs_templates {
@@ -70,7 +66,7 @@ namespace BrgyMS.docs_templates {
         private void kryptonButton1_Click_1(object sender, EventArgs e) {
             DocumentsGenerator docs = new DocumentsGenerator();
 
-            //docs.GenerateIndigencyDocument();
+            docs.GenerateFirstTimeJobSeekerDocument("0008");
 
         }
     }

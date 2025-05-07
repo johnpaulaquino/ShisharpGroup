@@ -19,7 +19,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Stimulsoft.Report.Design.StiActions;
 
 namespace BrgyMS.uiDesign.usersDashboard.modals {
     public partial class RequestDocumentsModalCotntrol : UserControl {
@@ -79,7 +78,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 var user = _AuthUtils.ValidateToken(token);
 
                 string purpose = cboPurposes.SelectedItem.ToString();
-                MessageBox.Show(purpose);
+
                 //Check if purpose is others
                 if (string.Equals(purpose, "Others")) {
                     if (string.IsNullOrEmpty(txtOtherPurpose.Text)) {
@@ -87,18 +86,11 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                     }
                 }
 
-                bool isFirstTime = false;
-
-                if (cbFirstTimeJobSeeker.Checked) {
-                    isFirstTime = true;
-                }
-
                 ResidentDocumentRequest requestDocs = new ResidentDocumentRequest()
                 {
                     UserId = user.UserId,
                     DocumentType = cboDocsType.SelectedItem.ToString(),
                     Purpose = purpose,
-                    isFirstTImeJbSeeker = isFirstTime,
                     OtherPurposes = txtOtherPurpose.Text
                 };
 
@@ -110,24 +102,29 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                "Personal Information", MessageBoxButtons.YesNo,
                MessageBoxIcon.Question);
 
+                if (option == DialogResult.Yes) {
+                    Cursor = Cursors.WaitCursor;
+                    // to  not interrupt the other UI background while processing the data
+                    await Task.Run(async () =>
+                    {
+                        string id = await _BaseServices.GenerateLogsId(); // generate id for logs
+                        await _ResidentServices.CreateResidentDocument(requestDocs); // request docs
+                        Logs logs = new Logs(id, user.UserId, "Request Docs", DateTime.Now)
+                        { Details = $"Requested {docsType}." };
+                        await _BaseServices.LogUserActions(logs);
+                    });
+                    MessageBox.Show("Successfully requested documents, we will notify you once it is processed.");
 
-                // to  not interrupt the other UI background while processing the data
-                await Task.Run(async () =>
-                {
-                    string id = await _BaseServices.GenerateLogsId(); // generate id for logs
-                    await _ResidentServices.CreateResidentDocument(requestDocs); // request docs
-                    Logs logs = new Logs(id, user.UserId, "Request Docs", DateTime.Now
-
-                        )
-                    { Details = $"Requested {docsType}." };
-                    await _BaseServices.LogUserActions(logs);
-                });
-
-                MessageBox.Show("Successfully requested documents, we will notify you once it is processed.");
-
+                    cboDocsType.SelectedItem = "Barangay Certificate of Indigency";
+                    cboPurposes.SelectedIndex = 0;
+                    txtOtherPurpose.Text = "";
+                }
             }
             catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                throw;
+            }
+            finally {
+                Cursor = Cursors.Default;
             }
         }
 
@@ -136,15 +133,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
         }
 
         private void cboPurposes_SelectedValueChanged(object sender, EventArgs e) {
-            if (string.Equals(cboPurposes.SelectedItem.ToString(), "NBI/Police Clearance Application")) {
-                cbFirstTimeJobSeeker.Enabled = true;
-
-            }
-            else {
-                cbFirstTimeJobSeeker.Enabled = false;
-                cbFirstTimeJobSeeker.Checked = false;
-            }
-
             if (string.Equals(cboPurposes.SelectedItem.ToString(), "Others")) {
                 txtOtherPurpose.ReadOnly = false;
             }
@@ -160,21 +148,13 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             try {
                 string id = utils.ReadIdInFile();
 
-                bool isFirstime = false;
-
 
                 ResidentDocumentRequest dcs = new ResidentDocumentRequest()
                 {
                     DocumentType = cboDocsType.SelectedItem.ToString(),
                     Purpose = cboPurposes.SelectedItem.ToString(),
-                    isFirstTImeJbSeeker = isFirstime,
                     OtherPurposes = txtOtherPurpose.Text
                 };
-
-                if (cbFirstTimeJobSeeker.Checked) {
-                    isFirstime = true;
-                    dcs.isFirstTImeJbSeeker = isFirstime;
-                }
                 validation.ValidateRequestDocs(dcs);
 
                 var option = MessageBox.Show("Are you sure you want to update this? ", "Update",
@@ -182,7 +162,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
 
                 if (option == DialogResult.Yes) {
                     await _ResidentServices.UpdateResidentRequestDocs(id,
-                  dcs.DocumentType, dcs.Purpose, dcs.OtherPurposes, dcs.isFirstTImeJbSeeker);
+                  dcs.DocumentType, dcs.Purpose, dcs.OtherPurposes);
 
 
                     string token = _AuthUtils.ReadTokenInFile();
