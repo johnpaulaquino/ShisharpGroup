@@ -22,7 +22,7 @@ using BrgyMS.backend.models;
 namespace BrgyMs.backend.database.repositories {
     public class ResidentRepository : BaseRepository {
         private Connector conn;
-        private readonly AuthUtils _AuthUtils;
+        private AuthUtils _AuthUtils;
 
         public ResidentRepository() {
             conn = new Connector();
@@ -280,6 +280,25 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         } // end
+
+        public async Task UpdatePassword(string userid, string password) {
+            _AuthUtils = new AuthUtils();
+            string stmt = "UPDAte users set password =  @password Where id = @id";
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@password", _AuthUtils.HashedPassword(password));
+                        cmd.Parameters.AddWithValue("@id", userid);
+
+                        await cmd.ExecuteNonQueryAsync();
+
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
 
     }
 }

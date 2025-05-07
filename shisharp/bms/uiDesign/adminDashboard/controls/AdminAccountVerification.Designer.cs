@@ -27,8 +27,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.ctxAccountVerification = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.atsVerfiyAccount = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +55,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonSeparator1
             // 
-            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonSeparator1.Location = new System.Drawing.Point(-3, 68);
             this.kryptonSeparator1.Name = "kryptonSeparator1";
             this.kryptonSeparator1.Size = new System.Drawing.Size(809, 4);
@@ -80,7 +79,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // pnlMainContentControler
             // 
-            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel2);
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel1);
             this.pnlMainContentControler.Location = new System.Drawing.Point(0, -30);
@@ -90,7 +90,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel2
             // 
-            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel2.Controls.Add(this.kryptonSeparator1);
             this.kryptonPanel2.Controls.Add(this.kryptonLabel2);
@@ -112,7 +112,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.Controls.Add(this.dataGridAmTable);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
@@ -129,8 +130,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTable.AllowUserToDeleteRows = false;
             this.dataGridAmTable.AllowUserToResizeColumns = false;
             this.dataGridAmTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAmTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAmTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAmTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAmTable.AutoGenerateKryptonColumns = false;
@@ -151,8 +152,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTable.Name = "dataGridAmTable";
             this.dataGridAmTable.RowHeadersVisible = false;
             this.dataGridAmTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAmTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAmTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridAmTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAmTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAmTable.Size = new System.Drawing.Size(765, 472);

@@ -415,6 +415,12 @@
     <Compile Include="bms\uiDesign\adminDashboard\controls\AdminBlotterControl.Designer.cs">
       <DependentUpon>AdminBlotterControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="bms\uiDesign\ChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bms\uiDesign\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="bms\uiDesign\EmailVerification.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -621,6 +627,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="bms\docs_templates\BarangayId.rdlc" />
     <EmbeddedResource Include="bms\docs_templates\IndigencyTemplate.rdlc" />
     <EmbeddedResource Include="bms\docs_templates\FirstTimeJobSeeker.rdlc" />
     <EmbeddedResource Include="bms\docs_templates\Viewer.resx">
@@ -661,6 +668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\adminDashboard\modals\modals_controls\UserInformationModalControl.resx">
       <DependentUpon>UserInformationModalControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\EmailVerification.resx">
       <DependentUpon>EmailVerification.cs</DependentUpon>

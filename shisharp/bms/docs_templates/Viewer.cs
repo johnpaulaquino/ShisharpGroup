@@ -61,6 +61,7 @@ namespace BrgyMS.docs_templates {
         private void Viewer_Load_1(object sender, EventArgs e) {
 
 
+            this.reportViewer2.RefreshReport();
         }
 
         private void kryptonButton1_Click_1(object sender, EventArgs e) {

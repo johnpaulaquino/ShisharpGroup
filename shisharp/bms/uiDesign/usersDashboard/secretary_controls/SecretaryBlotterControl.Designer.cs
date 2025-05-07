@@ -54,7 +54,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             // kryptonSeparator1
             // 
-            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonSeparator1.Location = new System.Drawing.Point(-3, 68);
             this.kryptonSeparator1.Name = "kryptonSeparator1";
@@ -63,7 +63,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel1.Controls.Add(this.btnBlotter);
             this.kryptonPanel1.Controls.Add(this.dataGridBlotterTable);
@@ -143,7 +143,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.dataGridBlotterTable.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridBlotterTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridBlotterTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridBlotterTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridBlotterTable.AutoGenerateKryptonColumns = false;
             this.dataGridBlotterTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -224,7 +224,8 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             // pnlMainContentControler
             // 
-            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel2);
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel1);
             this.pnlMainContentControler.Location = new System.Drawing.Point(0, -30);
@@ -234,7 +235,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             // kryptonPanel2
             // 
-            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel2.Controls.Add(this.kryptonSeparator1);
             this.kryptonPanel2.Controls.Add(this.kryptonLabel2);
@@ -254,12 +255,12 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Blotter Management";
             // 
-            // AdminBlotterControl
+            // SecretaryBlotterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlMainContentControler);
-            this.Name = "AdminBlotterControl";
+            this.Name = "SecretaryBlotterControl";
             this.Size = new System.Drawing.Size(809, 526);
             this.Load += new System.EventHandler(this.SecretaryBlotterControl_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();

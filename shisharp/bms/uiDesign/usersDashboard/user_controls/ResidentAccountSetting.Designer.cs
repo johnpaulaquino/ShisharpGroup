@@ -31,16 +31,16 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.pnlAsMainContentHolder = new Krypton.Toolkit.KryptonPanel();
-            this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.ctxmenuAccManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlMainContentControler)).BeginInit();
             this.pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAsMainContentHolder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAsMainContentHolder)).BeginInit();
             this.SuspendLayout();
             // 
             // ctxmenuAccManagement
@@ -60,7 +60,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             // pnlMainContentControler
             // 
-            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel2);
             this.pnlMainContentControler.Controls.Add(this.pnlAsMainContentHolder);
             this.pnlMainContentControler.Location = new System.Drawing.Point(0, -30);
@@ -79,6 +80,15 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel2.Size = new System.Drawing.Size(809, 69);
             this.kryptonPanel2.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel2.TabIndex = 2;
+            // 
+            // kryptonSeparator1
+            // 
+            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonSeparator1.Location = new System.Drawing.Point(0, 65);
+            this.kryptonSeparator1.Name = "kryptonSeparator1";
+            this.kryptonSeparator1.Size = new System.Drawing.Size(809, 4);
+            this.kryptonSeparator1.TabIndex = 4;
             // 
             // kryptonLabel2
             // 
@@ -100,15 +110,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.pnlAsMainContentHolder.StateCommon.Color1 = System.Drawing.Color.White;
             this.pnlAsMainContentHolder.TabIndex = 5;
             // 
-            // kryptonSeparator1
-            // 
-            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonSeparator1.Location = new System.Drawing.Point(0, 65);
-            this.kryptonSeparator1.Name = "kryptonSeparator1";
-            this.kryptonSeparator1.Size = new System.Drawing.Size(809, 4);
-            this.kryptonSeparator1.TabIndex = 4;
-            // 
             // ResidentAccountSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,8 +124,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAsMainContentHolder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAsMainContentHolder)).EndInit();
             this.ResumeLayout(false);
 
         }

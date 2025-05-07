@@ -36,22 +36,6 @@ namespace BrgyMs.uiDesign {
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.btnSNext = new Krypton.Toolkit.KryptonButton();
             this.btnSCreateAccount = new Krypton.Toolkit.KryptonButton();
-            this.pnlSLogCredentials = new Krypton.Toolkit.KryptonPanel();
-            this.lblPageNum1 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel33 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel32 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel31 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel30 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
-            this.txtSUsername = new Krypton.Toolkit.KryptonTextBox();
-            this.cbSShowPass = new Krypton.Toolkit.KryptonCheckBox();
-            this.lblPanelInfo = new Krypton.Toolkit.KryptonLabel();
-            this.txtSPassword = new Krypton.Toolkit.KryptonTextBox();
-            this.txtSEmail = new Krypton.Toolkit.KryptonTextBox();
-            this.txtSConfirmPass = new Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             this.pnlSEmailVerification = new Krypton.Toolkit.KryptonPanel();
             this.btnResend = new Krypton.Toolkit.KryptonButton();
             this.lblTimer = new Krypton.Toolkit.KryptonLabel();
@@ -132,14 +116,28 @@ namespace BrgyMs.uiDesign {
             this.kryptonLabel40 = new Krypton.Toolkit.KryptonLabel();
             this.lblPageNum6 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel42 = new Krypton.Toolkit.KryptonLabel();
+            this.pnlSLogCredentials = new Krypton.Toolkit.KryptonPanel();
+            this.lblPageNum1 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel33 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel32 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel31 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel30 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.txtSUsername = new Krypton.Toolkit.KryptonTextBox();
+            this.cbSShowPass = new Krypton.Toolkit.KryptonCheckBox();
+            this.lblPanelInfo = new Krypton.Toolkit.KryptonLabel();
+            this.txtSPassword = new Krypton.Toolkit.KryptonTextBox();
+            this.txtSEmail = new Krypton.Toolkit.KryptonTextBox();
+            this.txtSConfirmPass = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             this.btnAAddPOR = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlSLogCredentials)).BeginInit();
-            this.pnlSLogCredentials.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSEmailVerification)).BeginInit();
             this.pnlSEmailVerification.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSPinfo1)).BeginInit();
@@ -156,6 +154,8 @@ namespace BrgyMs.uiDesign {
             this.pnlSAddInfo2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSAddress)).BeginInit();
             this.pnlSAddress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlSLogCredentials)).BeginInit();
+            this.pnlSLogCredentials.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPanel1
@@ -166,12 +166,12 @@ namespace BrgyMs.uiDesign {
             this.kryptonPanel1.Controls.Add(this.kryptonLabel3);
             this.kryptonPanel1.Controls.Add(this.btnSNext);
             this.kryptonPanel1.Controls.Add(this.btnSCreateAccount);
+            this.kryptonPanel1.Controls.Add(this.pnlSLogCredentials);
             this.kryptonPanel1.Controls.Add(this.pnlSEmailVerification);
             this.kryptonPanel1.Controls.Add(this.pnlSPinfo1);
             this.kryptonPanel1.Controls.Add(this.pnlSAddInfo1);
             this.kryptonPanel1.Controls.Add(this.pnlSAddInfo2);
             this.kryptonPanel1.Controls.Add(this.pnlSAddress);
-            this.kryptonPanel1.Controls.Add(this.pnlSLogCredentials);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
@@ -406,227 +406,6 @@ namespace BrgyMs.uiDesign {
             this.btnSCreateAccount.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnSCreateAccount.Values.Text = "Submit";
             this.btnSCreateAccount.Click += new System.EventHandler(this.btnSCreateAccount_Click);
-            // 
-            // pnlSLogCredentials
-            // 
-            this.pnlSLogCredentials.Controls.Add(this.lblPageNum1);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel33);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel32);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel31);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel30);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel6);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel5);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel4);
-            this.pnlSLogCredentials.Controls.Add(this.txtSUsername);
-            this.pnlSLogCredentials.Controls.Add(this.cbSShowPass);
-            this.pnlSLogCredentials.Controls.Add(this.lblPanelInfo);
-            this.pnlSLogCredentials.Controls.Add(this.txtSPassword);
-            this.pnlSLogCredentials.Controls.Add(this.txtSEmail);
-            this.pnlSLogCredentials.Controls.Add(this.txtSConfirmPass);
-            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel7);
-            this.pnlSLogCredentials.Location = new System.Drawing.Point(601, 101);
-            this.pnlSLogCredentials.Name = "pnlSLogCredentials";
-            this.pnlSLogCredentials.Size = new System.Drawing.Size(409, 432);
-            this.pnlSLogCredentials.StateCommon.Color1 = System.Drawing.Color.White;
-            this.pnlSLogCredentials.StateCommon.Color2 = System.Drawing.Color.White;
-            this.pnlSLogCredentials.TabIndex = 43;
-            // 
-            // lblPageNum1
-            // 
-            this.lblPageNum1.Location = new System.Drawing.Point(300, 14);
-            this.lblPageNum1.Name = "lblPageNum1";
-            this.lblPageNum1.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            this.lblPageNum1.Size = new System.Drawing.Size(94, 26);
-            this.lblPageNum1.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPageNum1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPageNum1.TabIndex = 65;
-            this.lblPageNum1.Values.Text = "1 out of 7";
-            // 
-            // kryptonLabel33
-            // 
-            this.kryptonLabel33.Location = new System.Drawing.Point(190, 306);
-            this.kryptonLabel33.Name = "kryptonLabel33";
-            this.kryptonLabel33.Size = new System.Drawing.Size(17, 26);
-            this.kryptonLabel33.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
-            this.kryptonLabel33.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
-            this.kryptonLabel33.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel33.TabIndex = 64;
-            this.kryptonLabel33.Values.Text = "*";
-            // 
-            // kryptonLabel32
-            // 
-            this.kryptonLabel32.Location = new System.Drawing.Point(115, 226);
-            this.kryptonLabel32.Name = "kryptonLabel32";
-            this.kryptonLabel32.Size = new System.Drawing.Size(17, 26);
-            this.kryptonLabel32.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
-            this.kryptonLabel32.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
-            this.kryptonLabel32.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel32.TabIndex = 63;
-            this.kryptonLabel32.Values.Text = "*";
-            // 
-            // kryptonLabel31
-            // 
-            this.kryptonLabel31.Location = new System.Drawing.Point(120, 147);
-            this.kryptonLabel31.Name = "kryptonLabel31";
-            this.kryptonLabel31.Size = new System.Drawing.Size(17, 26);
-            this.kryptonLabel31.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
-            this.kryptonLabel31.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
-            this.kryptonLabel31.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel31.TabIndex = 62;
-            this.kryptonLabel31.Values.Text = "*";
-            // 
-            // kryptonLabel30
-            // 
-            this.kryptonLabel30.Location = new System.Drawing.Point(81, 71);
-            this.kryptonLabel30.Name = "kryptonLabel30";
-            this.kryptonLabel30.Size = new System.Drawing.Size(17, 26);
-            this.kryptonLabel30.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
-            this.kryptonLabel30.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
-            this.kryptonLabel30.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel30.TabIndex = 61;
-            this.kryptonLabel30.Values.Text = "*";
-            // 
-            // kryptonLabel6
-            // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(24, 226);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(96, 26);
-            this.kryptonLabel6.StateCommon.Padding = new System.Windows.Forms.Padding(-1, -1, 0, -1);
-            this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel6.TabIndex = 38;
-            this.kryptonLabel6.Values.Text = "Password";
-            // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(24, 147);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(103, 26);
-            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel5.TabIndex = 37;
-            this.kryptonLabel5.Values.Text = "Username";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(24, 71);
-            this.kryptonLabel4.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(59, 26);
-            this.kryptonLabel4.StateCommon.Padding = new System.Windows.Forms.Padding(-1, -1, 0, -1);
-            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel4.TabIndex = 36;
-            this.kryptonLabel4.Values.Text = "Email";
-            // 
-            // txtSUsername
-            // 
-            this.txtSUsername.Location = new System.Drawing.Point(24, 175);
-            this.txtSUsername.Multiline = true;
-            this.txtSUsername.Name = "txtSUsername";
-            this.txtSUsername.Size = new System.Drawing.Size(357, 35);
-            this.txtSUsername.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSUsername.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSUsername.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSUsername.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSUsername.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSUsername.StateCommon.Border.Rounding = 5F;
-            this.txtSUsername.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSUsername.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSUsername.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtSUsername.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.txtSUsername.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtSUsername.TabIndex = 35;
-            // 
-            // cbSShowPass
-            // 
-            this.cbSShowPass.Location = new System.Drawing.Point(238, 383);
-            this.cbSShowPass.Name = "cbSShowPass";
-            this.cbSShowPass.Size = new System.Drawing.Size(166, 26);
-            this.cbSShowPass.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSShowPass.TabIndex = 34;
-            this.cbSShowPass.Values.Text = "Show Password";
-            this.cbSShowPass.CheckedChanged += new System.EventHandler(this.cbSShowPass_CheckedChanged);
-            // 
-            // lblPanelInfo
-            // 
-            this.lblPanelInfo.Location = new System.Drawing.Point(24, 14);
-            this.lblPanelInfo.Name = "lblPanelInfo";
-            this.lblPanelInfo.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
-            this.lblPanelInfo.Size = new System.Drawing.Size(165, 26);
-            this.lblPanelInfo.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPanelInfo.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPanelInfo.TabIndex = 26;
-            this.lblPanelInfo.Values.Text = "Login Credentials";
-            // 
-            // txtSPassword
-            // 
-            this.txtSPassword.Location = new System.Drawing.Point(24, 254);
-            this.txtSPassword.Multiline = true;
-            this.txtSPassword.Name = "txtSPassword";
-            this.txtSPassword.PasswordChar = '●';
-            this.txtSPassword.Size = new System.Drawing.Size(357, 35);
-            this.txtSPassword.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSPassword.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSPassword.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSPassword.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSPassword.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSPassword.StateCommon.Border.Rounding = 5F;
-            this.txtSPassword.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSPassword.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSPassword.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtSPassword.TabIndex = 32;
-            // 
-            // txtSEmail
-            // 
-            this.txtSEmail.Location = new System.Drawing.Point(24, 99);
-            this.txtSEmail.Multiline = true;
-            this.txtSEmail.Name = "txtSEmail";
-            this.txtSEmail.Size = new System.Drawing.Size(357, 35);
-            this.txtSEmail.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSEmail.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSEmail.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSEmail.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSEmail.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSEmail.StateCommon.Border.Rounding = 5F;
-            this.txtSEmail.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSEmail.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSEmail.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtSEmail.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.txtSEmail.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtSEmail.TabIndex = 30;
-            // 
-            // txtSConfirmPass
-            // 
-            this.txtSConfirmPass.Location = new System.Drawing.Point(24, 333);
-            this.txtSConfirmPass.Multiline = true;
-            this.txtSConfirmPass.Name = "txtSConfirmPass";
-            this.txtSConfirmPass.PasswordChar = '●';
-            this.txtSConfirmPass.Size = new System.Drawing.Size(357, 35);
-            this.txtSConfirmPass.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSConfirmPass.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSConfirmPass.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSConfirmPass.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSConfirmPass.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSConfirmPass.StateCommon.Border.Rounding = 5F;
-            this.txtSConfirmPass.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSConfirmPass.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSConfirmPass.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.txtSConfirmPass.TabIndex = 31;
-            // 
-            // kryptonLabel7
-            // 
-            this.kryptonLabel7.Location = new System.Drawing.Point(24, 305);
-            this.kryptonLabel7.Name = "kryptonLabel7";
-            this.kryptonLabel7.Size = new System.Drawing.Size(173, 26);
-            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kryptonLabel7.TabIndex = 39;
-            this.kryptonLabel7.Values.Text = "Confirm Password";
             // 
             // pnlSEmailVerification
             // 
@@ -1725,6 +1504,227 @@ namespace BrgyMs.uiDesign {
             this.kryptonLabel42.TabIndex = 27;
             this.kryptonLabel42.Values.Text = "Address ";
             // 
+            // pnlSLogCredentials
+            // 
+            this.pnlSLogCredentials.Controls.Add(this.lblPageNum1);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel33);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel32);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel31);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel30);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel6);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel5);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel4);
+            this.pnlSLogCredentials.Controls.Add(this.txtSUsername);
+            this.pnlSLogCredentials.Controls.Add(this.cbSShowPass);
+            this.pnlSLogCredentials.Controls.Add(this.lblPanelInfo);
+            this.pnlSLogCredentials.Controls.Add(this.txtSPassword);
+            this.pnlSLogCredentials.Controls.Add(this.txtSEmail);
+            this.pnlSLogCredentials.Controls.Add(this.txtSConfirmPass);
+            this.pnlSLogCredentials.Controls.Add(this.kryptonLabel7);
+            this.pnlSLogCredentials.Location = new System.Drawing.Point(601, 101);
+            this.pnlSLogCredentials.Name = "pnlSLogCredentials";
+            this.pnlSLogCredentials.Size = new System.Drawing.Size(409, 432);
+            this.pnlSLogCredentials.StateCommon.Color1 = System.Drawing.Color.White;
+            this.pnlSLogCredentials.StateCommon.Color2 = System.Drawing.Color.White;
+            this.pnlSLogCredentials.TabIndex = 43;
+            // 
+            // lblPageNum1
+            // 
+            this.lblPageNum1.Location = new System.Drawing.Point(300, 14);
+            this.lblPageNum1.Name = "lblPageNum1";
+            this.lblPageNum1.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            this.lblPageNum1.Size = new System.Drawing.Size(94, 26);
+            this.lblPageNum1.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNum1.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPageNum1.TabIndex = 65;
+            this.lblPageNum1.Values.Text = "1 out of 7";
+            // 
+            // kryptonLabel33
+            // 
+            this.kryptonLabel33.Location = new System.Drawing.Point(190, 306);
+            this.kryptonLabel33.Name = "kryptonLabel33";
+            this.kryptonLabel33.Size = new System.Drawing.Size(17, 26);
+            this.kryptonLabel33.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
+            this.kryptonLabel33.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.kryptonLabel33.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel33.TabIndex = 64;
+            this.kryptonLabel33.Values.Text = "*";
+            // 
+            // kryptonLabel32
+            // 
+            this.kryptonLabel32.Location = new System.Drawing.Point(115, 226);
+            this.kryptonLabel32.Name = "kryptonLabel32";
+            this.kryptonLabel32.Size = new System.Drawing.Size(17, 26);
+            this.kryptonLabel32.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
+            this.kryptonLabel32.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.kryptonLabel32.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel32.TabIndex = 63;
+            this.kryptonLabel32.Values.Text = "*";
+            // 
+            // kryptonLabel31
+            // 
+            this.kryptonLabel31.Location = new System.Drawing.Point(120, 147);
+            this.kryptonLabel31.Name = "kryptonLabel31";
+            this.kryptonLabel31.Size = new System.Drawing.Size(17, 26);
+            this.kryptonLabel31.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
+            this.kryptonLabel31.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.kryptonLabel31.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel31.TabIndex = 62;
+            this.kryptonLabel31.Values.Text = "*";
+            // 
+            // kryptonLabel30
+            // 
+            this.kryptonLabel30.Location = new System.Drawing.Point(81, 71);
+            this.kryptonLabel30.Name = "kryptonLabel30";
+            this.kryptonLabel30.Size = new System.Drawing.Size(17, 26);
+            this.kryptonLabel30.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
+            this.kryptonLabel30.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.kryptonLabel30.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel30.TabIndex = 61;
+            this.kryptonLabel30.Values.Text = "*";
+            // 
+            // kryptonLabel6
+            // 
+            this.kryptonLabel6.Location = new System.Drawing.Point(24, 226);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(96, 26);
+            this.kryptonLabel6.StateCommon.Padding = new System.Windows.Forms.Padding(-1, -1, 0, -1);
+            this.kryptonLabel6.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel6.TabIndex = 38;
+            this.kryptonLabel6.Values.Text = "Password";
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(24, 147);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(103, 26);
+            this.kryptonLabel5.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel5.TabIndex = 37;
+            this.kryptonLabel5.Values.Text = "Username";
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(24, 71);
+            this.kryptonLabel4.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(59, 26);
+            this.kryptonLabel4.StateCommon.Padding = new System.Windows.Forms.Padding(-1, -1, 0, -1);
+            this.kryptonLabel4.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel4.TabIndex = 36;
+            this.kryptonLabel4.Values.Text = "Email";
+            // 
+            // txtSUsername
+            // 
+            this.txtSUsername.Location = new System.Drawing.Point(24, 175);
+            this.txtSUsername.Multiline = true;
+            this.txtSUsername.Name = "txtSUsername";
+            this.txtSUsername.Size = new System.Drawing.Size(357, 35);
+            this.txtSUsername.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtSUsername.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSUsername.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSUsername.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtSUsername.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtSUsername.StateCommon.Border.Rounding = 5F;
+            this.txtSUsername.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+            this.txtSUsername.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSUsername.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtSUsername.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.txtSUsername.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtSUsername.TabIndex = 35;
+            // 
+            // cbSShowPass
+            // 
+            this.cbSShowPass.Location = new System.Drawing.Point(238, 383);
+            this.cbSShowPass.Name = "cbSShowPass";
+            this.cbSShowPass.Size = new System.Drawing.Size(166, 26);
+            this.cbSShowPass.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSShowPass.TabIndex = 34;
+            this.cbSShowPass.Values.Text = "Show Password";
+            this.cbSShowPass.CheckedChanged += new System.EventHandler(this.cbSShowPass_CheckedChanged);
+            // 
+            // lblPanelInfo
+            // 
+            this.lblPanelInfo.Location = new System.Drawing.Point(24, 14);
+            this.lblPanelInfo.Name = "lblPanelInfo";
+            this.lblPanelInfo.PaletteMode = Krypton.Toolkit.PaletteMode.Office2010White;
+            this.lblPanelInfo.Size = new System.Drawing.Size(165, 26);
+            this.lblPanelInfo.StateCommon.LongText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPanelInfo.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPanelInfo.TabIndex = 26;
+            this.lblPanelInfo.Values.Text = "Login Credentials";
+            // 
+            // txtSPassword
+            // 
+            this.txtSPassword.Location = new System.Drawing.Point(24, 254);
+            this.txtSPassword.Multiline = true;
+            this.txtSPassword.Name = "txtSPassword";
+            this.txtSPassword.PasswordChar = '●';
+            this.txtSPassword.Size = new System.Drawing.Size(357, 35);
+            this.txtSPassword.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtSPassword.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSPassword.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSPassword.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtSPassword.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtSPassword.StateCommon.Border.Rounding = 5F;
+            this.txtSPassword.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+            this.txtSPassword.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSPassword.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtSPassword.TabIndex = 32;
+            // 
+            // txtSEmail
+            // 
+            this.txtSEmail.Location = new System.Drawing.Point(24, 99);
+            this.txtSEmail.Multiline = true;
+            this.txtSEmail.Name = "txtSEmail";
+            this.txtSEmail.Size = new System.Drawing.Size(357, 35);
+            this.txtSEmail.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtSEmail.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSEmail.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSEmail.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtSEmail.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtSEmail.StateCommon.Border.Rounding = 5F;
+            this.txtSEmail.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+            this.txtSEmail.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSEmail.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtSEmail.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.txtSEmail.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtSEmail.TabIndex = 30;
+            // 
+            // txtSConfirmPass
+            // 
+            this.txtSConfirmPass.Location = new System.Drawing.Point(24, 333);
+            this.txtSConfirmPass.Multiline = true;
+            this.txtSConfirmPass.Name = "txtSConfirmPass";
+            this.txtSConfirmPass.PasswordChar = '●';
+            this.txtSConfirmPass.Size = new System.Drawing.Size(357, 35);
+            this.txtSConfirmPass.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtSConfirmPass.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSConfirmPass.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSConfirmPass.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtSConfirmPass.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtSConfirmPass.StateCommon.Border.Rounding = 5F;
+            this.txtSConfirmPass.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+            this.txtSConfirmPass.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSConfirmPass.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.txtSConfirmPass.TabIndex = 31;
+            // 
+            // kryptonLabel7
+            // 
+            this.kryptonLabel7.Location = new System.Drawing.Point(24, 305);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(173, 26);
+            this.kryptonLabel7.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel7.TabIndex = 39;
+            this.kryptonLabel7.Values.Text = "Confirm Password";
+            // 
             // btnAAddPOR
             // 
             this.btnAAddPOR.ButtonStyles.ButtonForm.StateNormal.Back.Color1 = System.Drawing.Color.White;
@@ -1786,9 +1786,6 @@ namespace BrgyMs.uiDesign {
             this.kryptonPanel1.ResumeLayout(false);
             this.kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlSLogCredentials)).EndInit();
-            this.pnlSLogCredentials.ResumeLayout(false);
-            this.pnlSLogCredentials.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSEmailVerification)).EndInit();
             this.pnlSEmailVerification.ResumeLayout(false);
             this.pnlSEmailVerification.PerformLayout();
@@ -1810,6 +1807,9 @@ namespace BrgyMs.uiDesign {
             ((System.ComponentModel.ISupportInitialize)(this.pnlSAddress)).EndInit();
             this.pnlSAddress.ResumeLayout(false);
             this.pnlSAddress.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlSLogCredentials)).EndInit();
+            this.pnlSLogCredentials.ResumeLayout(false);
+            this.pnlSLogCredentials.PerformLayout();
             this.ResumeLayout(false);
 
         }

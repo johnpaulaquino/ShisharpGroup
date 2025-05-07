@@ -58,8 +58,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonSeparator1
             // 
-            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.kryptonSeparator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonSeparator1.Location = new System.Drawing.Point(-3, 68);
             this.kryptonSeparator1.Name = "kryptonSeparator1";
             this.kryptonSeparator1.Size = new System.Drawing.Size(809, 4);
@@ -173,7 +172,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.updateBlotterToolStripMenuItem,
             this.deleteBlotterToolStripMenuItem});
             this.ctxOfficials.Name = "ctxBlotter";
-            this.ctxOfficials.Size = new System.Drawing.Size(211, 70);
+            this.ctxOfficials.Size = new System.Drawing.Size(211, 48);
             // 
             // updateBlotterToolStripMenuItem
             // 
@@ -202,7 +201,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonPanel2
             // 
-            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.kryptonPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel2.Controls.Add(this.kryptonSeparator1);
             this.kryptonPanel2.Controls.Add(this.kryptonLabel2);
@@ -214,7 +213,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // kryptonLabel2
             // 
-            this.kryptonLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.kryptonLabel2.Location = new System.Drawing.Point(31, 38);
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(321, 29);

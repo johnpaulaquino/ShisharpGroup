@@ -26,14 +26,14 @@
             this.components = new System.ComponentModel.Container();
             this.lblEmail = new Krypton.Toolkit.KryptonLabel();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            this.txtSOtpCode = new Krypton.Toolkit.KryptonTextBox();
-            this.btnSubmit = new Krypton.Toolkit.KryptonButton();
-            this.lblOtpCode = new Krypton.Toolkit.KryptonLabel();
-            this.txtEmail = new Krypton.Toolkit.KryptonTextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnResend = new Krypton.Toolkit.KryptonButton();
             this.lblTimer = new Krypton.Toolkit.KryptonLabel();
+            this.txtEmail = new Krypton.Toolkit.KryptonTextBox();
+            this.txtSOtpCode = new Krypton.Toolkit.KryptonTextBox();
+            this.lblOtpCode = new Krypton.Toolkit.KryptonLabel();
+            this.btnSubmit = new Krypton.Toolkit.KryptonButton();
             this.btnVerifyCode = new Krypton.Toolkit.KryptonButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,113 +65,6 @@
             this.kryptonPanel1.Size = new System.Drawing.Size(350, 306);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel1.TabIndex = 77;
-            // 
-            // txtSOtpCode
-            // 
-            this.txtSOtpCode.Location = new System.Drawing.Point(3, 103);
-            this.txtSOtpCode.Multiline = true;
-            this.txtSOtpCode.Name = "txtSOtpCode";
-            this.txtSOtpCode.Size = new System.Drawing.Size(344, 35);
-            this.txtSOtpCode.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtSOtpCode.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSOtpCode.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtSOtpCode.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtSOtpCode.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtSOtpCode.StateCommon.Border.Rounding = 5F;
-            this.txtSOtpCode.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtSOtpCode.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSOtpCode.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtSOtpCode.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.txtSOtpCode.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtSOtpCode.TabIndex = 79;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubmit.Location = new System.Drawing.Point(103, 259);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmit.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnSubmit.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmit.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSubmit.OverrideDefault.Border.Rounding = 18F;
-            this.btnSubmit.OverrideDefault.Border.Width = 1;
-            this.btnSubmit.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnSubmit.Size = new System.Drawing.Size(160, 44);
-            this.btnSubmit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StateCommon.Back.ColorAngle = 45F;
-            this.btnSubmit.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StateCommon.Border.ColorAngle = 45F;
-            this.btnSubmit.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSubmit.StateCommon.Border.Rounding = 5F;
-            this.btnSubmit.StateCommon.Border.Width = 1;
-            this.btnSubmit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSubmit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSubmit.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.StateNormal.Border.Rounding = 5F;
-            this.btnSubmit.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnSubmit.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnSubmit.StatePressed.Back.ColorAngle = 130F;
-            this.btnSubmit.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnSubmit.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnSubmit.StatePressed.Border.ColorAngle = 130F;
-            this.btnSubmit.StatePressed.Border.Rounding = 5F;
-            this.btnSubmit.StatePressed.Border.Width = 1;
-            this.btnSubmit.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSubmit.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSubmit.StateTracking.Back.ColorAngle = 45F;
-            this.btnSubmit.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmit.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmit.StateTracking.Border.ColorAngle = 45F;
-            this.btnSubmit.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSubmit.StateTracking.Border.Rounding = 5F;
-            this.btnSubmit.StateTracking.Border.Width = 1;
-            this.btnSubmit.TabIndex = 76;
-            this.btnSubmit.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnSubmit.Values.Text = "Submit";
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // lblOtpCode
-            // 
-            this.lblOtpCode.Location = new System.Drawing.Point(3, 71);
-            this.lblOtpCode.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.lblOtpCode.Name = "lblOtpCode";
-            this.lblOtpCode.Size = new System.Drawing.Size(102, 26);
-            this.lblOtpCode.StateCommon.Padding = new System.Windows.Forms.Padding(-1, -1, 0, -1);
-            this.lblOtpCode.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOtpCode.TabIndex = 80;
-            this.lblOtpCode.Values.Text = "OTP Code";
-            this.lblOtpCode.Visible = false;
-            this.lblOtpCode.Click += new System.EventHandler(this.kryptonLabel1_Click);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(3, 103);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(344, 35);
-            this.txtEmail.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtEmail.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtEmail.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtEmail.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtEmail.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.txtEmail.StateCommon.Border.Rounding = 5F;
-            this.txtEmail.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
-            this.txtEmail.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtEmail.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
-            this.txtEmail.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.txtEmail.TabIndex = 81;
             // 
             // btnResend
             // 
@@ -236,6 +129,113 @@
             this.lblTimer.Values.Text = "OTP expires in 60s";
             this.lblTimer.Visible = false;
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(3, 103);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(344, 35);
+            this.txtEmail.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtEmail.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtEmail.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtEmail.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtEmail.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtEmail.StateCommon.Border.Rounding = 5F;
+            this.txtEmail.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+            this.txtEmail.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtEmail.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.txtEmail.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtEmail.TabIndex = 81;
+            // 
+            // txtSOtpCode
+            // 
+            this.txtSOtpCode.Location = new System.Drawing.Point(3, 103);
+            this.txtSOtpCode.Multiline = true;
+            this.txtSOtpCode.Name = "txtSOtpCode";
+            this.txtSOtpCode.Size = new System.Drawing.Size(344, 35);
+            this.txtSOtpCode.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtSOtpCode.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSOtpCode.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtSOtpCode.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtSOtpCode.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.txtSOtpCode.StateCommon.Border.Rounding = 5F;
+            this.txtSOtpCode.StateCommon.Content.Color1 = System.Drawing.Color.Gray;
+            this.txtSOtpCode.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSOtpCode.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtSOtpCode.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
+            this.txtSOtpCode.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.txtSOtpCode.TabIndex = 79;
+            // 
+            // lblOtpCode
+            // 
+            this.lblOtpCode.Location = new System.Drawing.Point(3, 71);
+            this.lblOtpCode.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.lblOtpCode.Name = "lblOtpCode";
+            this.lblOtpCode.Size = new System.Drawing.Size(102, 26);
+            this.lblOtpCode.StateCommon.Padding = new System.Windows.Forms.Padding(-1, -1, 0, -1);
+            this.lblOtpCode.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtpCode.TabIndex = 80;
+            this.lblOtpCode.Values.Text = "OTP Code";
+            this.lblOtpCode.Visible = false;
+            this.lblOtpCode.Click += new System.EventHandler(this.kryptonLabel1_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSubmit.Location = new System.Drawing.Point(103, 259);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmit.OverrideDefault.Back.ColorAngle = 45F;
+            this.btnSubmit.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmit.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSubmit.OverrideDefault.Border.Rounding = 18F;
+            this.btnSubmit.OverrideDefault.Border.Width = 1;
+            this.btnSubmit.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnSubmit.Size = new System.Drawing.Size(160, 44);
+            this.btnSubmit.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StateCommon.Back.ColorAngle = 45F;
+            this.btnSubmit.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StateCommon.Border.ColorAngle = 45F;
+            this.btnSubmit.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSubmit.StateCommon.Border.Rounding = 5F;
+            this.btnSubmit.StateCommon.Border.Width = 1;
+            this.btnSubmit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSubmit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSubmit.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.StateNormal.Border.Rounding = 5F;
+            this.btnSubmit.StatePressed.Back.Color1 = System.Drawing.Color.White;
+            this.btnSubmit.StatePressed.Back.Color2 = System.Drawing.Color.White;
+            this.btnSubmit.StatePressed.Back.ColorAngle = 130F;
+            this.btnSubmit.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.btnSubmit.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
+            this.btnSubmit.StatePressed.Border.ColorAngle = 130F;
+            this.btnSubmit.StatePressed.Border.Rounding = 5F;
+            this.btnSubmit.StatePressed.Border.Width = 1;
+            this.btnSubmit.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSubmit.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSubmit.StateTracking.Back.ColorAngle = 45F;
+            this.btnSubmit.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmit.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmit.StateTracking.Border.ColorAngle = 45F;
+            this.btnSubmit.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSubmit.StateTracking.Border.Rounding = 5F;
+            this.btnSubmit.StateTracking.Border.Width = 1;
+            this.btnSubmit.TabIndex = 76;
+            this.btnSubmit.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.btnSubmit.Values.Text = "Submit";
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
             // btnVerifyCode
             // 
             this.btnVerifyCode.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -287,6 +287,11 @@
             this.btnVerifyCode.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnVerifyCode.Values.Text = "Verify";
             this.btnVerifyCode.Click += new System.EventHandler(this.btnVerifyCode_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // EmailVerification
             // 

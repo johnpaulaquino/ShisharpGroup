@@ -159,7 +159,8 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             // pnlMainContentControler
             // 
-            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel2);
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel1);
             this.pnlMainContentControler.Location = new System.Drawing.Point(0, -30);
@@ -196,7 +197,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.approveDocumentsToolStripMenuItem,
             this.delineRequestToolStripMenuItem});
             this.ctxApproveDocuments.Name = "ctxApproveDocuments";
-            this.ctxApproveDocuments.Size = new System.Drawing.Size(184, 70);
+            this.ctxApproveDocuments.Size = new System.Drawing.Size(184, 48);
             // 
             // approveDocumentsToolStripMenuItem
             // 

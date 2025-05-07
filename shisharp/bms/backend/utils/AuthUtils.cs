@@ -202,7 +202,7 @@ namespace BrgyMs.backend.utils {
         }
 
         public bool VerifyTOTP(string code) {
-            bool isValid = totp.VerifyTotp(code, out long timeStepMatched, window: new VerificationWindow(previous: 1, future: 1));
+            bool isValid = totp.VerifyTotp(code, out long timeStepMatched, window: new VerificationWindow(previous: 1, future: 0));
 
             return isValid;
         }

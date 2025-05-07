@@ -28,21 +28,24 @@
             this.btnSubmit = new Krypton.Toolkit.KryptonButton();
             this.lblEmail = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            this.cbSShowPass = new Krypton.Toolkit.KryptonCheckBox();
             this.SuspendLayout();
             // 
             // txtConfirmPass
             // 
-            this.txtConfirmPass.Location = new System.Drawing.Point(3, 188);
+            this.txtConfirmPass.Location = new System.Drawing.Point(0, 150);
             this.txtConfirmPass.Multiline = true;
             this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '●';
             this.txtConfirmPass.Size = new System.Drawing.Size(344, 45);
             this.txtConfirmPass.TabIndex = 0;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(3, 79);
+            this.txtPassword.Location = new System.Drawing.Point(0, 41);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(344, 45);
             this.txtPassword.TabIndex = 1;
             // 
@@ -100,7 +103,7 @@
             // 
             // lblEmail
             // 
-            this.lblEmail.Location = new System.Drawing.Point(3, 47);
+            this.lblEmail.Location = new System.Drawing.Point(0, 9);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(96, 26);
@@ -111,7 +114,7 @@
             // 
             // kryptonLabel1
             // 
-            this.kryptonLabel1.Location = new System.Drawing.Point(3, 156);
+            this.kryptonLabel1.Location = new System.Drawing.Point(0, 118);
             this.kryptonLabel1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(170, 26);
@@ -120,10 +123,21 @@
             this.kryptonLabel1.TabIndex = 79;
             this.kryptonLabel1.Values.Text = "Confirm Password";
             // 
+            // cbSShowPass
+            // 
+            this.cbSShowPass.Location = new System.Drawing.Point(178, 201);
+            this.cbSShowPass.Name = "cbSShowPass";
+            this.cbSShowPass.Size = new System.Drawing.Size(166, 26);
+            this.cbSShowPass.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSShowPass.TabIndex = 80;
+            this.cbSShowPass.Values.Text = "Show Password";
+            this.cbSShowPass.CheckedChanged += new System.EventHandler(this.cbSShowPass_CheckedChanged);
+            // 
             // ChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbSShowPass);
             this.Controls.Add(this.kryptonLabel1);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnSubmit);
@@ -143,5 +157,6 @@
         private Krypton.Toolkit.KryptonButton btnSubmit;
         private Krypton.Toolkit.KryptonLabel lblEmail;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonCheckBox cbSShowPass;
     }
 }

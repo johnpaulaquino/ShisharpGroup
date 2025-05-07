@@ -27,6 +27,7 @@ namespace BrgyMS.docs_templates {
         private void InitializeComponent() {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.kryptonButton1 = new Krypton.Toolkit.KryptonButton();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -39,7 +40,7 @@ namespace BrgyMS.docs_templates {
             // 
             // kryptonButton1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(339, 178);
+            this.kryptonButton1.Location = new System.Drawing.Point(285, 368);
             this.kryptonButton1.Name = "kryptonButton1";
             this.kryptonButton1.Size = new System.Drawing.Size(90, 25);
             this.kryptonButton1.TabIndex = 1;
@@ -47,11 +48,20 @@ namespace BrgyMS.docs_templates {
             this.kryptonButton1.Values.Text = "kryptonButton1";
             this.kryptonButton1.Click += new System.EventHandler(this.kryptonButton1_Click_1);
             // 
+            // reportViewer2
+            // 
+            this.reportViewer2.Location = new System.Drawing.Point(2, -2);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(686, 364);
+            this.reportViewer2.TabIndex = 2;
+            // 
             // Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.kryptonButton1);
             this.Name = "Viewer";
             this.Text = "Viewer";
@@ -64,5 +74,6 @@ namespace BrgyMS.docs_templates {
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
     }
 }

@@ -121,6 +121,30 @@ namespace BrgyMs.backend.services {
             catch (Exception) {
                 throw;
             }
+        }// 
+        public async Task UpdatePassword(string id, string password, string confirmPass) {
+            try {
+                if (string.IsNullOrWhiteSpace(password)) {
+                    throw new Exception("Password should not be empty!");
+                }
+                if (password.Length < 8) {
+                    throw new Exception("Password should atleast 8 characters!");
+                }
+                if (!string.Equals(password, confirmPass)) {
+                    throw new Exception("Password and Confirm password does not match!");
+                }
+
+                // then update the password
+                await Task.Run(async () =>
+                {
+                    await _ResidentRepo.UpdatePassword(id, password);
+
+                });
+
+            }
+            catch (Exception) {
+                throw;
+            }
         }
 
     }

@@ -38,6 +38,8 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.colusername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colrole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colactions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ctxOFficialsInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.viewOfficialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonPanel7 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.pnlAannouncementContent = new Krypton.Toolkit.KryptonPanel();
@@ -54,8 +56,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.timerAnnouncementsContent = new System.Windows.Forms.Timer(this.components);
             this.timerAnnouncementLabel = new System.Windows.Forms.Timer(this.components);
-            this.ctxOFficialsInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewOfficialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -64,6 +64,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).BeginInit();
             this.kryptonPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResidentDash)).BeginInit();
+            this.ctxOFficialsInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).BeginInit();
             this.kryptonPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlAannouncementContent)).BeginInit();
@@ -78,7 +79,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).BeginInit();
-            this.ctxOFficialsInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonSeparator1
@@ -93,9 +93,10 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // kryptonPanel1
             // 
             this.kryptonPanel1.Controls.Add(this.kryptonPanel6);
-            this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(809, 500);
+            this.kryptonPanel1.Size = new System.Drawing.Size(809, 587);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel1.TabIndex = 1;
             // 
@@ -105,7 +106,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel6.Controls.Add(this.kryptonPanel5);
             this.kryptonPanel6.Controls.Add(this.pnlAannouncementContent);
             this.kryptonPanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.kryptonPanel6.Location = new System.Drawing.Point(0, -15);
+            this.kryptonPanel6.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel6.Name = "kryptonPanel6";
             this.kryptonPanel6.Size = new System.Drawing.Size(809, 515);
             this.kryptonPanel6.StateCommon.Color1 = System.Drawing.Color.White;
@@ -195,6 +196,22 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.colactions.HeaderText = "Position";
             this.colactions.Name = "colactions";
             this.colactions.ReadOnly = true;
+            // 
+            // ctxOFficialsInfo
+            // 
+            this.ctxOFficialsInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctxOFficialsInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewOfficialToolStripMenuItem});
+            this.ctxOFficialsInfo.Name = "ctxOFficialsInfo";
+            this.ctxOFficialsInfo.Size = new System.Drawing.Size(212, 26);
+            this.ctxOFficialsInfo.Text = "Officials Information";
+            // 
+            // viewOfficialToolStripMenuItem
+            // 
+            this.viewOfficialToolStripMenuItem.Name = "viewOfficialToolStripMenuItem";
+            this.viewOfficialToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.viewOfficialToolStripMenuItem.Text = "View Official Informations";
+            this.viewOfficialToolStripMenuItem.Click += new System.EventHandler(this.viewOfficialToolStripMenuItem_Click);
             // 
             // kryptonPanel7
             // 
@@ -366,22 +383,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             this.timerAnnouncementLabel.Tick += new System.EventHandler(this.timerAnnouncementLabel_Tick);
             // 
-            // ctxOFficialsInfo
-            // 
-            this.ctxOFficialsInfo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ctxOFficialsInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewOfficialToolStripMenuItem});
-            this.ctxOFficialsInfo.Name = "ctxOFficialsInfo";
-            this.ctxOFficialsInfo.Size = new System.Drawing.Size(212, 48);
-            this.ctxOFficialsInfo.Text = "Officials Information";
-            // 
-            // viewOfficialToolStripMenuItem
-            // 
-            this.viewOfficialToolStripMenuItem.Name = "viewOfficialToolStripMenuItem";
-            this.viewOfficialToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.viewOfficialToolStripMenuItem.Text = "View Official Informations";
-            this.viewOfficialToolStripMenuItem.Click += new System.EventHandler(this.viewOfficialToolStripMenuItem_Click);
-            // 
             // ResidentDashboardControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +401,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel5)).EndInit();
             this.kryptonPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResidentDash)).EndInit();
+            this.ctxOFficialsInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel7)).EndInit();
             this.kryptonPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlAannouncementContent)).EndInit();
@@ -416,7 +418,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel3)).EndInit();
-            this.ctxOFficialsInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
