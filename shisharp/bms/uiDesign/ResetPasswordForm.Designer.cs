@@ -23,12 +23,35 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            this.pnlMainContent = new Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pnlMainContent
+            // 
+            this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMainContent.Location = new System.Drawing.Point(0, 0);
+            this.pnlMainContent.Name = "pnlMainContent";
+            this.pnlMainContent.Size = new System.Drawing.Size(350, 306);
+            this.pnlMainContent.StateCommon.Color1 = System.Drawing.Color.White;
+            this.pnlMainContent.TabIndex = 0;
+            // 
+            // ResetPasswordForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(350, 306);
+            this.Controls.Add(this.pnlMainContent);
+            this.Name = "ResetPasswordForm";
             this.Text = "ResetPasswordForm";
+            this.Load += new System.EventHandler(this.ResetPasswordForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMainContent)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Krypton.Toolkit.KryptonPanel pnlMainContent;
     }
 }

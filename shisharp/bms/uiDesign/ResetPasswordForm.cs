@@ -13,5 +13,19 @@ namespace shisharp.bms.uiDesign {
         public ResetPasswordForm() {
             InitializeComponent();
         }
+
+        private void btnSPrevious_Click(object sender, EventArgs e) {
+
+        }
+
+        private void ResetPasswordForm_Load(object sender, EventArgs e) {
+            EmailVerification control = new EmailVerification();
+
+            pnlMainContent.Controls.Clear();
+            pnlMainContent.Controls.Add(control);
+
+            control.Dock = DockStyle.Fill;
+
+        }
     }
 }

@@ -166,12 +166,12 @@ namespace BrgyMs.uiDesign {
             this.kryptonPanel1.Controls.Add(this.kryptonLabel3);
             this.kryptonPanel1.Controls.Add(this.btnSNext);
             this.kryptonPanel1.Controls.Add(this.btnSCreateAccount);
-            this.kryptonPanel1.Controls.Add(this.pnlSLogCredentials);
             this.kryptonPanel1.Controls.Add(this.pnlSEmailVerification);
             this.kryptonPanel1.Controls.Add(this.pnlSPinfo1);
             this.kryptonPanel1.Controls.Add(this.pnlSAddInfo1);
             this.kryptonPanel1.Controls.Add(this.pnlSAddInfo2);
             this.kryptonPanel1.Controls.Add(this.pnlSAddress);
+            this.kryptonPanel1.Controls.Add(this.pnlSLogCredentials);
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
             this.kryptonPanel1.Name = "kryptonPanel1";
@@ -444,7 +444,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel33
             // 
-            this.kryptonLabel33.Location = new System.Drawing.Point(164, 306);
+            this.kryptonLabel33.Location = new System.Drawing.Point(190, 306);
             this.kryptonLabel33.Name = "kryptonLabel33";
             this.kryptonLabel33.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel33.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
@@ -455,7 +455,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel32
             // 
-            this.kryptonLabel32.Location = new System.Drawing.Point(102, 226);
+            this.kryptonLabel32.Location = new System.Drawing.Point(115, 226);
             this.kryptonLabel32.Name = "kryptonLabel32";
             this.kryptonLabel32.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel32.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
@@ -466,7 +466,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel31
             // 
-            this.kryptonLabel31.Location = new System.Drawing.Point(131, 147);
+            this.kryptonLabel31.Location = new System.Drawing.Point(120, 147);
             this.kryptonLabel31.Name = "kryptonLabel31";
             this.kryptonLabel31.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel31.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
@@ -477,7 +477,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel30
             // 
-            this.kryptonLabel30.Location = new System.Drawing.Point(69, 71);
+            this.kryptonLabel30.Location = new System.Drawing.Point(81, 71);
             this.kryptonLabel30.Name = "kryptonLabel30";
             this.kryptonLabel30.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel30.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);

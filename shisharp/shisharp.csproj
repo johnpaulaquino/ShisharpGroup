@@ -415,6 +415,12 @@
     <Compile Include="bms\uiDesign\adminDashboard\controls\AdminBlotterControl.Designer.cs">
       <DependentUpon>AdminBlotterControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="bms\uiDesign\EmailVerification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bms\uiDesign\EmailVerification.Designer.cs">
+      <DependentUpon>EmailVerification.cs</DependentUpon>
+    </Compile>
     <Compile Include="bms\uiDesign\ResetPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -656,8 +662,14 @@
     <EmbeddedResource Include="bms\uiDesign\adminDashboard\modals\modals_controls\UserInformationModalControl.resx">
       <DependentUpon>UserInformationModalControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\EmailVerification.resx">
+      <DependentUpon>EmailVerification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\ResetPasswordForm.resx">
+      <DependentUpon>ResetPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\SignUpForm.resx">
       <DependentUpon>SignUpForm.cs</DependentUpon>

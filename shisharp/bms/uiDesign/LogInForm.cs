@@ -5,6 +5,7 @@ using BrgyMs.database.connector;
 using BrgyMs.uiDesign.uiLoginUtils;
 using DotNetEnv;
 using MySql.Data.MySqlClient;
+using shisharp.bms.uiDesign;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,8 @@ namespace BrgyMs.uiDesign {
         private AuthServices _Authervices = new AuthServices();
         private UILoginUtils uilogin = new UILoginUtils();
         private bool isCLicked = true;
+        private EmailServices emailservices = new EmailServices();
+        private AuthUtils authUtils = new AuthUtils();
         public LoginForm() {
             InitializeComponent();
         }
@@ -42,7 +45,7 @@ namespace BrgyMs.uiDesign {
                     if (isLoggedIn) {
 
                         MessageBox.Show("Successfully Login!");
-                     
+
                         uilogin.Homepage(this, _Authervices.GetStatus());
                     }
                 }
@@ -76,6 +79,17 @@ namespace BrgyMs.uiDesign {
             else {
                 txtPassword.PasswordChar = '*';
                 cbShowPass.Text = "Show Password";
+            }
+        }
+
+        private void kryptonLinkLabel1_LinkClicked(object sender, EventArgs e) {
+            try {
+                ResetPasswordForm modal = new ResetPasswordForm();
+                modal.StartPosition = FormStartPosition.CenterScreen;
+                modal.ShowDialog(this);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
     }

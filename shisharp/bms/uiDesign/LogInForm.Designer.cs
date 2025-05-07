@@ -128,6 +128,7 @@ namespace BrgyMs.uiDesign
             this.kryptonLinkLabel1.Size = new System.Drawing.Size(107, 20);
             this.kryptonLinkLabel1.TabIndex = 8;
             this.kryptonLinkLabel1.Values.Text = "Forgot Password?";
+            this.kryptonLinkLabel1.LinkClicked += new System.EventHandler(this.kryptonLinkLabel1_LinkClicked);
             // 
             // txtUsername
             // 

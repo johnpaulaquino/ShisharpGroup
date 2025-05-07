@@ -244,6 +244,7 @@ namespace BrgyMs.uiDesign {
                                 await _EmailServices.SendPlainEmail(
                               txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
                             });
+                            txtSOtpCode.Text = "";
                             StartOtpCountdown();
                         }
                         else {
@@ -324,6 +325,7 @@ namespace BrgyMs.uiDesign {
             try {
                 await Task.Run(async () =>
                  {
+                     btnResend.Enabled = false;
                      string otp = auth.GenerateOTP();
                      await _EmailServices.SendPlainEmail(
                    txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
