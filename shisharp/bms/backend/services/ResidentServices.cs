@@ -52,8 +52,8 @@ namespace BrgyMs.backend.services {
                 await _ResidentRepo.AddRequestDocuments(_RequestDocs);
 
             }
-            catch (Exception e) {
-                throw new Exception(e.Message);
+            catch (Exception) {
+                throw;
             }
         } // end of the function
 

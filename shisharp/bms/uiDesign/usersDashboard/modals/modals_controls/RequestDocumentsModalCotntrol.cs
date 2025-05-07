@@ -121,7 +121,7 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                 }
             }
             catch (Exception ex) {
-                throw;
+                MessageBox.Show(ex.Message);
             }
             finally {
                 Cursor = Cursors.Default;

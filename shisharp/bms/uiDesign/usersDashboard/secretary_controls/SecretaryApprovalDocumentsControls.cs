@@ -55,7 +55,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
                             string userid = utils.ReadIdInFile(); // get the id from file
                             var list = await _BaseServices.GetAllUserInformations(userid); //  get all user information
                                                                                            //  
-                            _DocsGenerator.GenerateIndigencyDocument(userid); // generate indigency document
+                            await _DocsGenerator.GenerateIndigencyDocument(userid); // generate indigency document
 
 
                             string fileLoc = _DocsGenerator.GetIndigencyLocation(); // get all users
@@ -100,7 +100,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
                             string userid = utils.ReadIdInFile(); // get the id from file
                             var list = await _BaseServices.GetAllUserInformations(userid); //  get all user information
                                                                                            //  
-                            _DocsGenerator.GenerateFirstTimeJobSeekerDocument(userid); // generate barangay cloerance document
+                            await _DocsGenerator.GenerateFirstTimeJobSeekerDocument(userid); // generate barangay cloerance document
 
 
                             string fileLoc = _DocsGenerator.GetFirstTimeJobSeekerocation(); // get all users
@@ -201,12 +201,14 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
 
         private async void delineRequestToolStripMenuItem_Click(object sender, EventArgs e) {
             try {
-                var option = MessageBox.Show("Are you sure you want to decline this?");
+                var option = MessageBox.Show("Are you sure you want to decline this?", "Document Request", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
                 if (option == DialogResult.Yes) {
                     Cursor = Cursors.WaitCursor;
                     await Task.Run(async () =>
                     {
-                        MessageBox.Show("HEy");
+
                         string userid = utils.ReadIdInFile(); // read the user id of the resident
                         var list = await _BaseServices.GetAllUserInformations(userid); // get the user information of the resident who requested docs
 
@@ -214,12 +216,10 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
                             var user = (User)list[0]; // get the account credentials
                             var personalInfo = (PersonalInformation)list[1]; //
                             string doctype = utils.ReadDocumentTypeInFile();
+                            await _SecServices.DeleteRequestDocument(userid); // delete the request docs
                             await _EmailServices.SendPlainEmail(user.Email, $"{doctype}", $"Your {doctype} has been delcined.\n" +
                                 $"Thank you for your understanding.");
                         }
-
-                        await _SecServices.DeleteRequestDocument(userid); // delete the request docs
-
                         string id = await _BaseServices.GenerateLogsId(); // generate Id for logs
 
 

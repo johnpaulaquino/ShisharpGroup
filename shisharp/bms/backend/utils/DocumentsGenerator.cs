@@ -24,7 +24,7 @@ namespace BrgyMS.backend.utils {
 
         }
 
-        public async void GenerateIndigencyDocument(string userId) {
+        public async Task GenerateIndigencyDocument(string userId) {
             try {
                 await Task.Run(async () =>
                  {
@@ -92,7 +92,7 @@ namespace BrgyMS.backend.utils {
         } //end
 
 
-        public async void GenerateFirstTimeJobSeekerDocument(string userId) {
+        public async Task GenerateFirstTimeJobSeekerDocument(string userId) {
             try {
                 await Task.Run(async () =>
                 {

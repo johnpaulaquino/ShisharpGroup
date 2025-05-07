@@ -37,8 +37,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            this.btnSubmitOfficials = new Krypton.Toolkit.KryptonButton();
             this.btnOfficialsSaveChanges = new Krypton.Toolkit.KryptonButton();
+            this.btnSubmitOfficials = new Krypton.Toolkit.KryptonButton();
             this.ctxRemoveAccom = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ctxRemoveAchievements = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,8 +61,8 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel3);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel2);
             this.pnlMainContentHolder.Controls.Add(this.kryptonLabel1);
-            this.pnlMainContentHolder.Controls.Add(this.btnOfficialsSaveChanges);
             this.pnlMainContentHolder.Controls.Add(this.btnSubmitOfficials);
+            this.pnlMainContentHolder.Controls.Add(this.btnOfficialsSaveChanges);
             this.pnlMainContentHolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContentHolder.Location = new System.Drawing.Point(0, 0);
             this.pnlMainContentHolder.Name = "pnlMainContentHolder";
@@ -179,66 +179,6 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.kryptonLabel1.TabIndex = 17;
             this.kryptonLabel1.Values.Text = "Start Term";
             // 
-            // btnSubmitOfficials
-            // 
-            this.btnSubmitOfficials.Location = new System.Drawing.Point(61, 534);
-            this.btnSubmitOfficials.Name = "btnSubmitOfficials";
-            this.btnSubmitOfficials.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnSubmitOfficials.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSubmitOfficials.OverrideDefault.Border.Rounding = 5F;
-            this.btnSubmitOfficials.OverrideDefault.Border.Width = 1;
-            this.btnSubmitOfficials.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnSubmitOfficials.Size = new System.Drawing.Size(160, 44);
-            this.btnSubmitOfficials.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateCommon.Back.ColorAngle = 45F;
-            this.btnSubmitOfficials.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmitOfficials.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmitOfficials.StateCommon.Border.ColorAngle = 45F;
-            this.btnSubmitOfficials.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSubmitOfficials.StateCommon.Border.Rounding = 5F;
-            this.btnSubmitOfficials.StateCommon.Border.Width = 1;
-            this.btnSubmitOfficials.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitOfficials.StateDisabled.Border.Rounding = 5F;
-            this.btnSubmitOfficials.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateNormal.Border.Rounding = 5F;
-            this.btnSubmitOfficials.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnSubmitOfficials.StatePressed.Back.ColorAngle = 130F;
-            this.btnSubmitOfficials.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnSubmitOfficials.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnSubmitOfficials.StatePressed.Border.ColorAngle = 130F;
-            this.btnSubmitOfficials.StatePressed.Border.Rounding = 5F;
-            this.btnSubmitOfficials.StatePressed.Border.Width = 1;
-            this.btnSubmitOfficials.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnSubmitOfficials.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnSubmitOfficials.StateTracking.Back.ColorAngle = 45F;
-            this.btnSubmitOfficials.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnSubmitOfficials.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateTracking.Border.ColorAngle = 45F;
-            this.btnSubmitOfficials.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnSubmitOfficials.StateTracking.Border.Rounding = 5F;
-            this.btnSubmitOfficials.StateTracking.Border.Width = 1;
-            this.btnSubmitOfficials.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnSubmitOfficials.TabIndex = 38;
-            this.btnSubmitOfficials.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnSubmitOfficials.Values.Text = "Submit";
-            this.btnSubmitOfficials.Click += new System.EventHandler(this.btnSubmitOfficials_Click_2);
-            // 
             // btnOfficialsSaveChanges
             // 
             this.btnOfficialsSaveChanges.Location = new System.Drawing.Point(61, 534);
@@ -298,6 +238,66 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
             this.btnOfficialsSaveChanges.Values.DropDownArrowColor = System.Drawing.Color.Empty;
             this.btnOfficialsSaveChanges.Values.Text = "Save Changes";
             this.btnOfficialsSaveChanges.Click += new System.EventHandler(this.btnOfficialsSaveChanges_Click);
+            // 
+            // btnSubmitOfficials
+            // 
+            this.btnSubmitOfficials.Location = new System.Drawing.Point(61, 534);
+            this.btnSubmitOfficials.Name = "btnSubmitOfficials";
+            this.btnSubmitOfficials.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.OverrideDefault.Back.ColorAngle = 45F;
+            this.btnSubmitOfficials.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSubmitOfficials.OverrideDefault.Border.Rounding = 5F;
+            this.btnSubmitOfficials.OverrideDefault.Border.Width = 1;
+            this.btnSubmitOfficials.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btnSubmitOfficials.Size = new System.Drawing.Size(160, 44);
+            this.btnSubmitOfficials.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateCommon.Back.ColorAngle = 45F;
+            this.btnSubmitOfficials.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmitOfficials.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmitOfficials.StateCommon.Border.ColorAngle = 45F;
+            this.btnSubmitOfficials.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSubmitOfficials.StateCommon.Border.Rounding = 5F;
+            this.btnSubmitOfficials.StateCommon.Border.Width = 1;
+            this.btnSubmitOfficials.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitOfficials.StateDisabled.Border.Rounding = 5F;
+            this.btnSubmitOfficials.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateNormal.Border.Rounding = 5F;
+            this.btnSubmitOfficials.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.StatePressed.Back.Color1 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.StatePressed.Back.Color2 = System.Drawing.Color.White;
+            this.btnSubmitOfficials.StatePressed.Back.ColorAngle = 130F;
+            this.btnSubmitOfficials.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.btnSubmitOfficials.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
+            this.btnSubmitOfficials.StatePressed.Border.ColorAngle = 130F;
+            this.btnSubmitOfficials.StatePressed.Border.Rounding = 5F;
+            this.btnSubmitOfficials.StatePressed.Border.Width = 1;
+            this.btnSubmitOfficials.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
+            this.btnSubmitOfficials.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
+            this.btnSubmitOfficials.StateTracking.Back.ColorAngle = 45F;
+            this.btnSubmitOfficials.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btnSubmitOfficials.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateTracking.Border.ColorAngle = 45F;
+            this.btnSubmitOfficials.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btnSubmitOfficials.StateTracking.Border.Rounding = 5F;
+            this.btnSubmitOfficials.StateTracking.Border.Width = 1;
+            this.btnSubmitOfficials.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btnSubmitOfficials.TabIndex = 38;
+            this.btnSubmitOfficials.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.btnSubmitOfficials.Values.Text = "Submit";
+            this.btnSubmitOfficials.Click += new System.EventHandler(this.btnSubmitOfficials_Click_2);
             // 
             // ctxRemoveAccom
             // 

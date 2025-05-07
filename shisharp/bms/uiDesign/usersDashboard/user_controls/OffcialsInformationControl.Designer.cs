@@ -1,5 +1,5 @@
 ﻿namespace shisharp.bms.uiDesign.usersDashboard.user_controls {
-    partial class OffcialsInformation {
+    partial class OffcialsInformationControl {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -23,8 +23,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // OffcialsInformation
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "OffcialsInformation";
+            this.Size = new System.Drawing.Size(500, 525);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

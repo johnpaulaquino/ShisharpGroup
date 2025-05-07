@@ -311,7 +311,7 @@ namespace BrgyMs.backend.database.repositories {
         } // end
 
         public async Task DeleteRequestDocument(string userid) {
-            string stmt = "Delete FROM reuqest_document WHERE user_id = @userid";
+            string stmt = "Delete FROM request_document WHERE user_id = @userid";
             try {
                 using (var connection = await conn.getConnection()) {
                     using (var cmd = new MySqlCommand(stmt, connection)) {

@@ -84,18 +84,6 @@ namespace BrgyMS.uiDesign.usersDashboard {
             Cursor = Cursors.Default;
         }
 
-        private void kryptonPictureBox1_Click(object sender, EventArgs e) {
-            DialogResult option = MessageBox.Show("Are you sure you want to logout?", "Logout",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (option == DialogResult.Yes) {
-                this.Hide();
-                _AuthUtils.DeleteTokeAfterLogoutOrCloseTheFrom();
-                LoginForm login = new LoginForm();
-                login.Owner = this;
-                login.Show();
-            }
-        }
-
         private void ResidentPageForm_Load(object sender, EventArgs e) {
             SetUserLabel(lblRole, lblUsername);
 
@@ -104,6 +92,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();
             pnlMainContentHolder.Controls.Add(dashboard);
+
             dashboard.Dock = DockStyle.Fill;
             Cursor = Cursors.Default;
         }

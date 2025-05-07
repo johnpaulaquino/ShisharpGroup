@@ -36,31 +36,33 @@ namespace BrgyMs.backend.utils {
 
 
             // to attach a file in the email
-            using (var fileStream = File.OpenRead(EmailAttachmentFilePath)) {
-                var _Attachment = new MimePart("application", "pdf")
-                {
-                    Content = new MimeContent(fileStream),
-                    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-                    ContentTransferEncoding = ContentEncoding.Base64,
-                    FileName = EMailFileName
-                };
-                // Combine message and the attachment 
-                var _Multipart = new Multipart() {
+
+            byte[] fileBytes = File.ReadAllBytes(EmailAttachmentFilePath); // Ensures no lock
+            var memoryStream = new MemoryStream(fileBytes);
+            var _Attachment = new MimePart("application", "pdf")
+            {
+                Content = new MimeContent(memoryStream),
+                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                ContentTransferEncoding = ContentEncoding.Base64,
+                FileName = EMailFileName
+            };
+            // Combine message and the attachment 
+            var _Multipart = new Multipart() {
                 _Body,
                 _Attachment
             };
 
 
-                _MimeMessage.Body = _Multipart; // pass the message into the body
+            _MimeMessage.Body = _Multipart; // pass the message into the body
 
-                // setup the email connection
-                using (var client = new SmtpClient()) {
-                    await client.ConnectAsync(settings.EMAIL_SERVER, settings.EMAIL_PORT, MailKit.Security.SecureSocketOptions.StartTls);
-                    await client.AuthenticateAsync(settings.EMAIL, settings.EMAIL_PASSWORD);
-                    await client.SendAsync(_MimeMessage);
-                    await client.DisconnectAsync(true);
-                }
+            // setup the email connection
+            using (var client = new SmtpClient()) {
+                await client.ConnectAsync(settings.EMAIL_SERVER, settings.EMAIL_PORT, MailKit.Security.SecureSocketOptions.StartTls);
+                await client.AuthenticateAsync(settings.EMAIL, settings.EMAIL_PASSWORD);
+                await client.SendAsync(_MimeMessage);
+                await client.DisconnectAsync(true);
             }
+
 
 
         }//end of function

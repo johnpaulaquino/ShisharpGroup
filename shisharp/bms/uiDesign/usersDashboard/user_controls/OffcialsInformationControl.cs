@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace shisharp.bms.uiDesign.usersDashboard.user_controls {
-    public partial class OffcialsInformation : UserControl {
-        public OffcialsInformation() {
+    public partial class OffcialsInformationControl : UserControl {
+        public OffcialsInformationControl() {
             InitializeComponent();
         }
     }

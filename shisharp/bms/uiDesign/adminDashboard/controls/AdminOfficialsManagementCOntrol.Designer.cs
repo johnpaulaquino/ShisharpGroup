@@ -173,7 +173,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.updateBlotterToolStripMenuItem,
             this.deleteBlotterToolStripMenuItem});
             this.ctxOfficials.Name = "ctxBlotter";
-            this.ctxOfficials.Size = new System.Drawing.Size(211, 48);
+            this.ctxOfficials.Size = new System.Drawing.Size(211, 70);
             // 
             // updateBlotterToolStripMenuItem
             // 
@@ -191,7 +191,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // 
             // pnlMainContentControler
             // 
-            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlMainContentControler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel2);
             this.pnlMainContentControler.Controls.Add(this.kryptonPanel1);
             this.pnlMainContentControler.Location = new System.Drawing.Point(0, -30);

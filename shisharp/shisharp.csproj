@@ -427,11 +427,17 @@
     <Compile Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryDashboardControl.Designer.cs">
       <DependentUpon>SecretaryDashboardControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="bms\uiDesign\usersDashboard\user_controls\OffcialsInformation.cs">
+    <Compile Include="bms\uiDesign\usersDashboard\user_controls\OffcialsInformationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="bms\uiDesign\usersDashboard\user_controls\OffcialsInformation.Designer.cs">
-      <DependentUpon>OffcialsInformation.cs</DependentUpon>
+    <Compile Include="bms\uiDesign\usersDashboard\user_controls\OffcialsInformationControl.Designer.cs">
+      <DependentUpon>OffcialsInformationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bms\uiDesign\usersDashboard\user_controls\OfficialsInfoModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bms\uiDesign\usersDashboard\user_controls\OfficialsInfoModal.Designer.cs">
+      <DependentUpon>OfficialsInfoModal.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="bms\uiDesign\adminDashboard\AdminDashboardForm.cs">
@@ -700,6 +706,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\AccountSettingsDataHolderController.resx">
       <DependentUpon>AccountSettingsDataHolderController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\OffcialsInformationControl.resx">
+      <DependentUpon>OffcialsInformationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\OfficialsInfoModal.resx">
+      <DependentUpon>OfficialsInfoModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\usersDashboard\user_controls\RequestDocumentsControls.resx">
       <DependentUpon>RequestDocumentsControls.cs</DependentUpon>
