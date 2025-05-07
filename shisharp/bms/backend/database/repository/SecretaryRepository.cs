@@ -292,6 +292,34 @@ namespace BrgyMs.backend.database.repositories {
 
         } // end
 
+        public async Task<DataTable> GetUserAndSecretaryLogs() {
+            string stmt = "SELECT la.id as 'ID', la.user_id as 'User ID', u.username as 'Username', CONCAT(UPPER(LEFT(u.role, 1)),LOWER(SUBSTRING(u.role FROM 2))) as 'Role', " +
+              "la.actions_made as 'Actions Made' ,la.details as 'Description', DATE_FORMAT(la.date_performed, '%W, %M %d, %Y %r' ) as 'Date Performed' " +
+              "FROM users u " +
+              "Right join action_logs la " +
+              "ON u.id = la.user_id " +
+              "WHERE u.role IN (@role1, @role2) " +
+              "ORDER by la.date_performed ASC ";
+
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var adapter = new MySqlDataAdapter(stmt, connection)) {
+                        adapter.SelectCommand.Parameters.AddWithValue("@role2", "secretary");
+                        adapter.SelectCommand.Parameters.AddWithValue("@role1", "users");
+                        DataTable dt = new DataTable();
+
+                        await adapter.FillAsync(dt);
+
+                        return dt;
+                    }
+                }
+
+            }
+            catch (Exception) {
+                throw;
+            }
+        } // End of function
+
         public async Task UpdateResidentDocument(string userId) {
             try {
                 string stmt = "Update request_document SET status = @status WHERE user_id = @userid ";

@@ -135,6 +135,8 @@ namespace BrgyMs.uiDesign {
             this.btnAAddPOR = new Krypton.Toolkit.KryptonCustomPaletteBase(this.components);
             this.kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.kryptonLabel27 = new Krypton.Toolkit.KryptonLabel();
+            this.kryptonLabel43 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -536,6 +538,7 @@ namespace BrgyMs.uiDesign {
             this.txtSOtpCode.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.txtSOtpCode.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.txtSOtpCode.TabIndex = 30;
+            this.txtSOtpCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSOtpCode_KeyPress);
             // 
             // pnlSPinfo1
             // 
@@ -564,7 +567,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel37
             // 
-            this.kryptonLabel37.Location = new System.Drawing.Point(274, 306);
+            this.kryptonLabel37.Location = new System.Drawing.Point(285, 306);
             this.kryptonLabel37.Name = "kryptonLabel37";
             this.kryptonLabel37.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel37.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
@@ -575,7 +578,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel36
             // 
-            this.kryptonLabel36.Location = new System.Drawing.Point(102, 226);
+            this.kryptonLabel36.Location = new System.Drawing.Point(115, 226);
             this.kryptonLabel36.Name = "kryptonLabel36";
             this.kryptonLabel36.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel36.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
@@ -586,7 +589,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel34
             // 
-            this.kryptonLabel34.Location = new System.Drawing.Point(102, 71);
+            this.kryptonLabel34.Location = new System.Drawing.Point(115, 71);
             this.kryptonLabel34.Name = "kryptonLabel34";
             this.kryptonLabel34.Size = new System.Drawing.Size(17, 26);
             this.kryptonLabel34.StateCommon.Padding = new System.Windows.Forms.Padding(0, -1, -1, -1);
@@ -673,6 +676,7 @@ namespace BrgyMs.uiDesign {
             this.txtSLastname.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.txtSLastname.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.txtSLastname.TabIndex = 41;
+            this.txtSLastname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSLastname_KeyPress);
             // 
             // kryptonLabel8
             // 
@@ -704,6 +708,7 @@ namespace BrgyMs.uiDesign {
             this.txtSMName.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.txtSMName.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.txtSMName.TabIndex = 39;
+            this.txtSMName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSMName_KeyPress);
             // 
             // kryptonLabel1
             // 
@@ -735,6 +740,7 @@ namespace BrgyMs.uiDesign {
             this.txtSFName.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.txtSFName.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.txtSFName.TabIndex = 37;
+            this.txtSFName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSFName_KeyPress);
             // 
             // lblPageNum3
             // 
@@ -800,7 +806,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel22
             // 
-            this.kryptonLabel22.Location = new System.Drawing.Point(133, 347);
+            this.kryptonLabel22.Location = new System.Drawing.Point(158, 347);
             this.kryptonLabel22.Name = "kryptonLabel22";
             this.kryptonLabel22.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel22.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -835,7 +841,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel20
             // 
-            this.kryptonLabel20.Location = new System.Drawing.Point(172, 282);
+            this.kryptonLabel20.Location = new System.Drawing.Point(202, 282);
             this.kryptonLabel20.Name = "kryptonLabel20";
             this.kryptonLabel20.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel20.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -873,7 +879,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel23
             // 
-            this.kryptonLabel23.Location = new System.Drawing.Point(111, 139);
+            this.kryptonLabel23.Location = new System.Drawing.Point(128, 139);
             this.kryptonLabel23.Name = "kryptonLabel23";
             this.kryptonLabel23.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel23.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -884,7 +890,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel14
             // 
-            this.kryptonLabel14.Location = new System.Drawing.Point(89, 71);
+            this.kryptonLabel14.Location = new System.Drawing.Point(103, 71);
             this.kryptonLabel14.Name = "kryptonLabel14";
             this.kryptonLabel14.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel14.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -906,7 +912,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel24
             // 
-            this.kryptonLabel24.Location = new System.Drawing.Point(207, 211);
+            this.kryptonLabel24.Location = new System.Drawing.Point(240, 211);
             this.kryptonLabel24.Name = "kryptonLabel24";
             this.kryptonLabel24.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel24.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -972,6 +978,7 @@ namespace BrgyMs.uiDesign {
             // 
             // cbAVoterStatus
             // 
+            this.cbAVoterStatus.Enabled = false;
             this.cbAVoterStatus.Location = new System.Drawing.Point(278, 99);
             this.cbAVoterStatus.Name = "cbAVoterStatus";
             this.cbAVoterStatus.Size = new System.Drawing.Size(78, 23);
@@ -987,6 +994,7 @@ namespace BrgyMs.uiDesign {
             this.dtpkABirthday.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpkABirthday.TabIndex = 38;
             this.dtpkABirthday.ValueNullable = new System.DateTime(2025, 4, 16, 0, 0, 0, 0);
+            this.dtpkABirthday.ValueChanged += new System.EventHandler(this.dtpkABirthday_ValueChanged);
             // 
             // kryptonLabel13
             // 
@@ -1033,6 +1041,7 @@ namespace BrgyMs.uiDesign {
             // 
             // pnlSAddInfo2
             // 
+            this.pnlSAddInfo2.Controls.Add(this.kryptonLabel43);
             this.pnlSAddInfo2.Controls.Add(this.kryptonLabel29);
             this.pnlSAddInfo2.Controls.Add(this.txtAContactNo);
             this.pnlSAddInfo2.Controls.Add(this.kryptonLabel18);
@@ -1057,7 +1066,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel29
             // 
-            this.kryptonLabel29.Location = new System.Drawing.Point(112, 147);
+            this.kryptonLabel29.Location = new System.Drawing.Point(130, 147);
             this.kryptonLabel29.Name = "kryptonLabel29";
             this.kryptonLabel29.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel29.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -1073,6 +1082,7 @@ namespace BrgyMs.uiDesign {
             this.txtAContactNo.Name = "txtAContactNo";
             this.txtAContactNo.Size = new System.Drawing.Size(360, 35);
             this.txtAContactNo.TabIndex = 68;
+            this.txtAContactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAContactNo_KeyPress);
             // 
             // kryptonLabel18
             // 
@@ -1086,7 +1096,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel25
             // 
-            this.kryptonLabel25.Location = new System.Drawing.Point(89, 68);
+            this.kryptonLabel25.Location = new System.Drawing.Point(103, 67);
             this.kryptonLabel25.Name = "kryptonLabel25";
             this.kryptonLabel25.Size = new System.Drawing.Size(15, 26);
             this.kryptonLabel25.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
@@ -1120,8 +1130,9 @@ namespace BrgyMs.uiDesign {
             this.txtAPoRFilePath.Location = new System.Drawing.Point(24, 257);
             this.txtAPoRFilePath.Multiline = true;
             this.txtAPoRFilePath.Name = "txtAPoRFilePath";
+            this.txtAPoRFilePath.ReadOnly = true;
             this.txtAPoRFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAPoRFilePath.Size = new System.Drawing.Size(256, 35);
+            this.txtAPoRFilePath.Size = new System.Drawing.Size(239, 35);
             this.txtAPoRFilePath.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAPoRFilePath.TabIndex = 54;
             this.txtAPoRFilePath.Text = "File Path";
@@ -1129,7 +1140,7 @@ namespace BrgyMs.uiDesign {
             // btnAProofOfresidency
             // 
             this.btnAProofOfresidency.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAProofOfresidency.Location = new System.Drawing.Point(294, 253);
+            this.btnAProofOfresidency.Location = new System.Drawing.Point(270, 254);
             this.btnAProofOfresidency.Name = "btnAProofOfresidency";
             this.btnAProofOfresidency.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnAProofOfresidency.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -1140,7 +1151,7 @@ namespace BrgyMs.uiDesign {
             this.btnAProofOfresidency.OverrideDefault.Border.Rounding = 18F;
             this.btnAProofOfresidency.OverrideDefault.Border.Width = 1;
             this.btnAProofOfresidency.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAProofOfresidency.Size = new System.Drawing.Size(91, 35);
+            this.btnAProofOfresidency.Size = new System.Drawing.Size(114, 35);
             this.btnAProofOfresidency.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnAProofOfresidency.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnAProofOfresidency.StateCommon.Back.ColorAngle = 45F;
@@ -1183,8 +1194,9 @@ namespace BrgyMs.uiDesign {
             this.txtAProfilePicFilePath.Location = new System.Drawing.Point(24, 333);
             this.txtAProfilePicFilePath.Multiline = true;
             this.txtAProfilePicFilePath.Name = "txtAProfilePicFilePath";
+            this.txtAProfilePicFilePath.ReadOnly = true;
             this.txtAProfilePicFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAProfilePicFilePath.Size = new System.Drawing.Size(256, 35);
+            this.txtAProfilePicFilePath.Size = new System.Drawing.Size(239, 35);
             this.txtAProfilePicFilePath.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAProfilePicFilePath.TabIndex = 51;
             this.txtAProfilePicFilePath.Text = "File Path";
@@ -1196,6 +1208,7 @@ namespace BrgyMs.uiDesign {
             this.txtAReligion.Name = "txtAReligion";
             this.txtAReligion.Size = new System.Drawing.Size(360, 35);
             this.txtAReligion.TabIndex = 46;
+            this.txtAReligion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAReligion_KeyPress);
             // 
             // kryptonLabel17
             // 
@@ -1210,7 +1223,7 @@ namespace BrgyMs.uiDesign {
             // btnAAddProfilePic
             // 
             this.btnAAddProfilePic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAAddProfilePic.Location = new System.Drawing.Point(294, 333);
+            this.btnAAddProfilePic.Location = new System.Drawing.Point(270, 333);
             this.btnAAddProfilePic.Name = "btnAAddProfilePic";
             this.btnAAddProfilePic.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnAAddProfilePic.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -1221,7 +1234,7 @@ namespace BrgyMs.uiDesign {
             this.btnAAddProfilePic.OverrideDefault.Border.Rounding = 18F;
             this.btnAAddProfilePic.OverrideDefault.Border.Width = 1;
             this.btnAAddProfilePic.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAAddProfilePic.Size = new System.Drawing.Size(91, 35);
+            this.btnAAddProfilePic.Size = new System.Drawing.Size(115, 35);
             this.btnAAddProfilePic.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnAAddProfilePic.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnAAddProfilePic.StateCommon.Back.ColorAngle = 45F;
@@ -1292,6 +1305,7 @@ namespace BrgyMs.uiDesign {
             // 
             // pnlSAddress
             // 
+            this.pnlSAddress.Controls.Add(this.kryptonLabel27);
             this.pnlSAddress.Controls.Add(this.lblBlockNoAs);
             this.pnlSAddress.Controls.Add(this.lblLotNoAs);
             this.pnlSAddress.Controls.Add(this.lblVillageAs);
@@ -1319,7 +1333,7 @@ namespace BrgyMs.uiDesign {
             // 
             // lblBlockNoAs
             // 
-            this.lblBlockNoAs.Location = new System.Drawing.Point(288, 347);
+            this.lblBlockNoAs.Location = new System.Drawing.Point(303, 347);
             this.lblBlockNoAs.Name = "lblBlockNoAs";
             this.lblBlockNoAs.Size = new System.Drawing.Size(14, 26);
             this.lblBlockNoAs.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
@@ -1330,7 +1344,7 @@ namespace BrgyMs.uiDesign {
             // 
             // lblLotNoAs
             // 
-            this.lblLotNoAs.Location = new System.Drawing.Point(82, 346);
+            this.lblLotNoAs.Location = new System.Drawing.Point(95, 346);
             this.lblLotNoAs.Name = "lblLotNoAs";
             this.lblLotNoAs.Size = new System.Drawing.Size(14, 26);
             this.lblLotNoAs.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
@@ -1341,7 +1355,7 @@ namespace BrgyMs.uiDesign {
             // 
             // lblVillageAs
             // 
-            this.lblVillageAs.Location = new System.Drawing.Point(122, 266);
+            this.lblVillageAs.Location = new System.Drawing.Point(138, 265);
             this.lblVillageAs.Name = "lblVillageAs";
             this.lblVillageAs.Size = new System.Drawing.Size(14, 26);
             this.lblVillageAs.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
@@ -1352,7 +1366,7 @@ namespace BrgyMs.uiDesign {
             // 
             // kryptonLabel44
             // 
-            this.kryptonLabel44.Location = new System.Drawing.Point(75, 193);
+            this.kryptonLabel44.Location = new System.Drawing.Point(84, 187);
             this.kryptonLabel44.Name = "kryptonLabel44";
             this.kryptonLabel44.Size = new System.Drawing.Size(14, 26);
             this.kryptonLabel44.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
@@ -1422,6 +1436,7 @@ namespace BrgyMs.uiDesign {
             this.txtSSubdivision.Size = new System.Drawing.Size(360, 35);
             this.txtSSubdivision.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSSubdivision.TabIndex = 58;
+            this.txtSSubdivision.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSSubdivision_KeyPress);
             // 
             // lblSubdivision
             // 
@@ -1471,6 +1486,7 @@ namespace BrgyMs.uiDesign {
             this.txtSStreet.Size = new System.Drawing.Size(360, 35);
             this.txtSStreet.StateCommon.Content.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSStreet.TabIndex = 51;
+            this.txtSStreet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSStreet_KeyPress);
             // 
             // kryptonLabel40
             // 
@@ -1633,6 +1649,7 @@ namespace BrgyMs.uiDesign {
             this.txtSUsername.StateCommon.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.txtSUsername.StateNormal.Content.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
             this.txtSUsername.TabIndex = 35;
+            this.txtSUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSUsername_KeyPress);
             // 
             // cbSShowPass
             // 
@@ -1770,6 +1787,28 @@ namespace BrgyMs.uiDesign {
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // kryptonLabel27
+            // 
+            this.kryptonLabel27.Location = new System.Drawing.Point(123, 116);
+            this.kryptonLabel27.Name = "kryptonLabel27";
+            this.kryptonLabel27.Size = new System.Drawing.Size(14, 26);
+            this.kryptonLabel27.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.kryptonLabel27.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel27.StateNormal.Padding = new System.Windows.Forms.Padding(0, -1, 0, -1);
+            this.kryptonLabel27.TabIndex = 68;
+            this.kryptonLabel27.Values.Text = "*";
+            // 
+            // kryptonLabel43
+            // 
+            this.kryptonLabel43.Location = new System.Drawing.Point(194, 229);
+            this.kryptonLabel43.Name = "kryptonLabel43";
+            this.kryptonLabel43.Size = new System.Drawing.Size(15, 26);
+            this.kryptonLabel43.StateCommon.Padding = new System.Windows.Forms.Padding(-2, -1, -1, -1);
+            this.kryptonLabel43.StateCommon.ShortText.Color1 = System.Drawing.Color.Red;
+            this.kryptonLabel43.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonLabel43.TabIndex = 70;
+            this.kryptonLabel43.Values.Text = "*";
             // 
             // SignUpForm
             // 
@@ -1928,5 +1967,7 @@ namespace BrgyMs.uiDesign {
         private Krypton.Toolkit.KryptonButton btnResend;
         private Krypton.Toolkit.KryptonLabel lblTimer;
         private System.Windows.Forms.Timer timer1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel27;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel43;
     }
 }

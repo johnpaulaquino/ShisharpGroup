@@ -114,11 +114,13 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             // kryptonPanel5
             // 
+            this.kryptonPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel5.Controls.Add(this.dataGridResidentDash);
             this.kryptonPanel5.Controls.Add(this.kryptonPanel7);
             this.kryptonPanel5.Location = new System.Drawing.Point(0, 356);
             this.kryptonPanel5.Name = "kryptonPanel5";
-            this.kryptonPanel5.Size = new System.Drawing.Size(812, 442);
+            this.kryptonPanel5.Size = new System.Drawing.Size(792, 442);
             this.kryptonPanel5.TabIndex = 6;
             // 
             // dataGridResidentDash
@@ -154,7 +156,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.dataGridResidentDash.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridResidentDash.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridResidentDash.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridResidentDash.Size = new System.Drawing.Size(815, 386);
+            this.dataGridResidentDash.Size = new System.Drawing.Size(795, 386);
             this.dataGridResidentDash.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridResidentDash.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dataGridResidentDash.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DimGray;
@@ -203,8 +205,9 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.ctxOFficialsInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewOfficialToolStripMenuItem});
             this.ctxOFficialsInfo.Name = "ctxOFficialsInfo";
-            this.ctxOFficialsInfo.Size = new System.Drawing.Size(212, 26);
+            this.ctxOFficialsInfo.Size = new System.Drawing.Size(212, 48);
             this.ctxOFficialsInfo.Text = "Officials Information";
+            this.ctxOFficialsInfo.Opening += new System.ComponentModel.CancelEventHandler(this.ctxOFficialsInfo_Opening);
             // 
             // viewOfficialToolStripMenuItem
             // 
@@ -220,12 +223,13 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel7.Controls.Add(this.kryptonLabel1);
             this.kryptonPanel7.Location = new System.Drawing.Point(0, 3);
             this.kryptonPanel7.Name = "kryptonPanel7";
-            this.kryptonPanel7.Size = new System.Drawing.Size(809, 52);
+            this.kryptonPanel7.Size = new System.Drawing.Size(789, 52);
             this.kryptonPanel7.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(199)))), ((int)(((byte)(64)))));
             this.kryptonPanel7.TabIndex = 5;
             // 
             // kryptonLabel1
             // 
+            this.kryptonLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonLabel1.AutoSize = false;
             this.kryptonLabel1.Location = new System.Drawing.Point(276, 10);
             this.kryptonLabel1.Name = "kryptonLabel1";
@@ -239,12 +243,13 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             // pnlAannouncementContent
             // 
+            this.pnlAannouncementContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlAannouncementContent.Controls.Add(this.kryptonPanel8);
             this.pnlAannouncementContent.Controls.Add(this.kryptonPanel4);
-            this.pnlAannouncementContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAannouncementContent.Location = new System.Drawing.Point(0, 0);
             this.pnlAannouncementContent.Name = "pnlAannouncementContent";
-            this.pnlAannouncementContent.Size = new System.Drawing.Size(812, 347);
+            this.pnlAannouncementContent.Size = new System.Drawing.Size(792, 347);
             this.pnlAannouncementContent.StateCommon.Color1 = System.Drawing.Color.White;
             this.pnlAannouncementContent.TabIndex = 5;
             // 
@@ -255,12 +260,13 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.kryptonPanel8.Controls.Add(this.kryptonLabel3);
             this.kryptonPanel8.Location = new System.Drawing.Point(3, 8);
             this.kryptonPanel8.Name = "kryptonPanel8";
-            this.kryptonPanel8.Size = new System.Drawing.Size(809, 52);
+            this.kryptonPanel8.Size = new System.Drawing.Size(789, 52);
             this.kryptonPanel8.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(199)))), ((int)(((byte)(64)))));
             this.kryptonPanel8.TabIndex = 6;
             // 
             // kryptonLabel3
             // 
+            this.kryptonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonLabel3.AutoSize = false;
             this.kryptonLabel3.Location = new System.Drawing.Point(276, 15);
             this.kryptonLabel3.Name = "kryptonLabel3";
@@ -274,13 +280,15 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             // kryptonPanel4
             // 
+            this.kryptonPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kryptonPanel4.Controls.Add(this.lblDetails);
             this.kryptonPanel4.Controls.Add(this.lblDatePost);
             this.kryptonPanel4.Controls.Add(this.picAttachements);
             this.kryptonPanel4.Controls.Add(this.lblTitle);
             this.kryptonPanel4.Location = new System.Drawing.Point(95, 63);
             this.kryptonPanel4.Name = "kryptonPanel4";
-            this.kryptonPanel4.Size = new System.Drawing.Size(604, 281);
+            this.kryptonPanel4.Size = new System.Drawing.Size(584, 281);
             this.kryptonPanel4.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(243)))), ((int)(((byte)(226)))));
             this.kryptonPanel4.TabIndex = 0;
             // 
@@ -299,7 +307,6 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             // 
             // lblDatePost
             // 
-            this.lblDatePost.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDatePost.Location = new System.Drawing.Point(427, 240);
             this.lblDatePost.Name = "lblDatePost";
             this.lblDatePost.Size = new System.Drawing.Size(47, 16);
@@ -322,7 +329,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             this.lblTitle.AutoSize = false;
             this.lblTitle.Location = new System.Drawing.Point(0, 3);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(601, 31);
+            this.lblTitle.Size = new System.Drawing.Size(584, 31);
             this.lblTitle.StateCommon.ShortText.ColorAlign = Krypton.Toolkit.PaletteRectangleAlign.Control;
             this.lblTitle.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;

@@ -28,7 +28,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
         private ResidentAccountSetting accountcontrol;
         private ResidentDashboardControls dashboard;
         private SecretaryApprovalDocumentsControls docs;
-        private ResidentUserLogsControl logsControl;
+        private SecretaryLogsControl logsControl;
         private SecretaryBlotterControl blotter;
         private SecretaryOfficialsControl officialsControl;
         private string userId = "";
@@ -81,7 +81,7 @@ namespace BrgyMS.uiDesign.usersDashboard {
 
         private void picUserLogs_Click_1(object sender, EventArgs e) {
             if (logsControl == null) {
-                logsControl = new ResidentUserLogsControl();
+                logsControl = new SecretaryLogsControl();
             }
             Cursor = Cursors.WaitCursor;
             pnlMainContentHolder.Controls.Clear();

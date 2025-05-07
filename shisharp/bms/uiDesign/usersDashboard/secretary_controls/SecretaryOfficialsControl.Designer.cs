@@ -27,11 +27,11 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            this.btnAddOfficials = new Krypton.Toolkit.KryptonButton();
             this.dataGridOfficalsTable = new Krypton.Toolkit.KryptonDataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colusername = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +41,9 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.pnlMainContentControler = new Krypton.Toolkit.KryptonPanel();
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.ctcOfficials = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addAsRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.officialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -49,6 +52,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.pnlMainContentControler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).BeginInit();
             this.kryptonPanel2.SuspendLayout();
+            this.ctcOfficials.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonSeparator1
@@ -64,73 +68,12 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             // 
             this.kryptonPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kryptonPanel1.Controls.Add(this.btnAddOfficials);
             this.kryptonPanel1.Controls.Add(this.dataGridOfficalsTable);
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 72);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(809, 515);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.White;
             this.kryptonPanel1.TabIndex = 1;
-            // 
-            // btnAddOfficials
-            // 
-            this.btnAddOfficials.Location = new System.Drawing.Point(27, 39);
-            this.btnAddOfficials.Name = "btnAddOfficials";
-            this.btnAddOfficials.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnAddOfficials.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.OverrideDefault.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddOfficials.OverrideDefault.Border.Rounding = 5F;
-            this.btnAddOfficials.OverrideDefault.Border.Width = 1;
-            this.btnAddOfficials.OverrideDefault.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddOfficials.OverrideDefault.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddOfficials.PaletteMode = Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnAddOfficials.Size = new System.Drawing.Size(141, 39);
-            this.btnAddOfficials.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateCommon.Back.ColorAngle = 45F;
-            this.btnAddOfficials.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddOfficials.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddOfficials.StateCommon.Border.ColorAngle = 45F;
-            this.btnAddOfficials.StateCommon.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddOfficials.StateCommon.Border.Rounding = 5F;
-            this.btnAddOfficials.StateCommon.Border.Width = 1;
-            this.btnAddOfficials.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddOfficials.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddOfficials.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddOfficials.StateDisabled.Border.Rounding = 5F;
-            this.btnAddOfficials.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateNormal.Border.Rounding = 5F;
-            this.btnAddOfficials.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnAddOfficials.StateNormal.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnAddOfficials.StatePressed.Back.Color1 = System.Drawing.Color.White;
-            this.btnAddOfficials.StatePressed.Back.Color2 = System.Drawing.Color.White;
-            this.btnAddOfficials.StatePressed.Back.ColorAngle = 130F;
-            this.btnAddOfficials.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
-            this.btnAddOfficials.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(122)))), ((int)(((byte)(206)))));
-            this.btnAddOfficials.StatePressed.Border.ColorAngle = 130F;
-            this.btnAddOfficials.StatePressed.Border.Rounding = 5F;
-            this.btnAddOfficials.StatePressed.Border.Width = 1;
-            this.btnAddOfficials.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StatePressed.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateTracking.Back.Color1 = System.Drawing.Color.WhiteSmoke;
-            this.btnAddOfficials.StateTracking.Back.Color2 = System.Drawing.Color.WhiteSmoke;
-            this.btnAddOfficials.StateTracking.Back.ColorAngle = 45F;
-            this.btnAddOfficials.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btnAddOfficials.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateTracking.Border.ColorAngle = 45F;
-            this.btnAddOfficials.StateTracking.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnAddOfficials.StateTracking.Border.Rounding = 5F;
-            this.btnAddOfficials.StateTracking.Border.Width = 1;
-            this.btnAddOfficials.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btnAddOfficials.TabIndex = 38;
-            this.btnAddOfficials.Values.DropDownArrowColor = System.Drawing.Color.Empty;
-            this.btnAddOfficials.Values.Text = "Add Officials";
-            this.btnAddOfficials.Click += new System.EventHandler(this.btnAddOfficials_Click);
             // 
             // dataGridOfficalsTable
             // 
@@ -140,8 +83,8 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.dataGridOfficalsTable.AllowUserToDeleteRows = false;
             this.dataGridOfficalsTable.AllowUserToResizeColumns = false;
             this.dataGridOfficalsTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridOfficalsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridOfficalsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridOfficalsTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridOfficalsTable.AutoGenerateKryptonColumns = false;
@@ -156,16 +99,16 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.colactions,
             this.colaffectedtable});
             this.dataGridOfficalsTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridOfficalsTable.Location = new System.Drawing.Point(31, 114);
+            this.dataGridOfficalsTable.Location = new System.Drawing.Point(31, 42);
             this.dataGridOfficalsTable.MultiSelect = false;
             this.dataGridOfficalsTable.Name = "dataGridOfficalsTable";
             this.dataGridOfficalsTable.RowHeadersVisible = false;
             this.dataGridOfficalsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridOfficalsTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridOfficalsTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridOfficalsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridOfficalsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridOfficalsTable.Size = new System.Drawing.Size(765, 370);
+            this.dataGridOfficalsTable.Size = new System.Drawing.Size(765, 442);
             this.dataGridOfficalsTable.StateCommon.Background.Color1 = System.Drawing.Color.White;
             this.dataGridOfficalsTable.StateCommon.BackStyle = Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.dataGridOfficalsTable.StateCommon.DataCell.Border.Color1 = System.Drawing.Color.DimGray;
@@ -182,6 +125,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.dataGridOfficalsTable.StateCommon.HeaderColumn.Content.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.dataGridOfficalsTable.TabIndex = 18;
             this.dataGridOfficalsTable.ToolTipShadow = false;
+            this.dataGridOfficalsTable.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridOfficalsTable_MouseDown);
             // 
             // id
             // 
@@ -246,6 +190,29 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Barangay Officials Management";
             // 
+            // ctcOfficials
+            // 
+            this.ctcOfficials.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ctcOfficials.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAsRToolStripMenuItem,
+            this.officialsToolStripMenuItem});
+            this.ctcOfficials.Name = "ctcOfficials";
+            this.ctcOfficials.Size = new System.Drawing.Size(181, 70);
+            // 
+            // addAsRToolStripMenuItem
+            // 
+            this.addAsRToolStripMenuItem.Name = "addAsRToolStripMenuItem";
+            this.addAsRToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addAsRToolStripMenuItem.Text = "Add as Officials";
+            this.addAsRToolStripMenuItem.Click += new System.EventHandler(this.addAsRToolStripMenuItem_Click);
+            // 
+            // officialsToolStripMenuItem
+            // 
+            this.officialsToolStripMenuItem.Name = "officialsToolStripMenuItem";
+            this.officialsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.officialsToolStripMenuItem.Text = "View Information";
+            this.officialsToolStripMenuItem.Click += new System.EventHandler(this.officialsToolStripMenuItem_Click);
+            // 
             // SecretaryOfficialsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,6 +229,7 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel2)).EndInit();
             this.kryptonPanel2.ResumeLayout(false);
             this.kryptonPanel2.PerformLayout();
+            this.ctcOfficials.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -273,11 +241,13 @@ namespace BrgyMS.uiDesign.usersDashboard.secretary_controls {
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
         private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonDataGridView dataGridOfficalsTable;
-        private Krypton.Toolkit.KryptonButton btnAddOfficials;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn colusername;
         private DataGridViewTextBoxColumn colrole;
         private DataGridViewTextBoxColumn colactions;
         private DataGridViewTextBoxColumn colaffectedtable;
+        private ContextMenuStrip ctcOfficials;
+        private ToolStripMenuItem addAsRToolStripMenuItem;
+        private ToolStripMenuItem officialsToolStripMenuItem;
     }
 }

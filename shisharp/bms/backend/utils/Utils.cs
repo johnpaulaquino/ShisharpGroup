@@ -103,17 +103,22 @@ namespace BrgyMs.backend.utils {
             return formattedDate;
         }
 
-        public string CapitalizeFirstLetter(string word) {
-            string result = "";
+        public string CapitalizeFirstLetter(string name) {
+            if (string.IsNullOrWhiteSpace(name))
+                return string.Empty;
 
-            word = word.ToLower();
-            if (string.IsNullOrEmpty(word)) {
-                return result;
+            // Normalize to lowercase and split by spaces
+            var words = name.ToLower().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries);
+
+            // Capitalize each word
+            for (int i = 0; i < words.Length; i++) {
+                var word = words[i];
+                if (word.Length > 0) {
+                    words[i] = char.ToUpper(word[0]) + word.Substring(1);
+                }
             }
-            result = $"{word[0].ToString().ToUpper()}{word.Substring(1)}";
 
-
-            return result;
+            return string.Join(" ", words);
         }
 
         //to write the id on the file

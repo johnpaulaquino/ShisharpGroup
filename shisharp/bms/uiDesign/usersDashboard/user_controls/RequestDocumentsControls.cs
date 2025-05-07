@@ -108,7 +108,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                         if (string.Equals(status, "pending")) {
                             utils.PutIdOnFile(userId);
                             //show the context
-                            ctxResidentRequestDocs.Show(this, e.Location);
+                            ctxResidentRequestDocs.Show(dataGridAdminDashboard, e.Location);
                         }
 
                     }

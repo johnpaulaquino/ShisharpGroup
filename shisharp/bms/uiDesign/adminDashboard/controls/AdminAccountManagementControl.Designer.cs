@@ -27,8 +27,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonSeparator1 = new Krypton.Toolkit.KryptonSeparator();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             this.btnCreateSec = new Krypton.Toolkit.KryptonButton();
@@ -49,6 +49,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSeparator1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -149,8 +150,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTableAdmin.AllowUserToDeleteRows = false;
             this.dataGridAmTableAdmin.AllowUserToResizeColumns = false;
             this.dataGridAmTableAdmin.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAmTableAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAmTableAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAmTableAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAmTableAdmin.AutoGenerateKryptonColumns = false;
@@ -175,8 +176,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.dataGridAmTableAdmin.Name = "dataGridAmTableAdmin";
             this.dataGridAmTableAdmin.RowHeadersVisible = false;
             this.dataGridAmTableAdmin.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridAmTableAdmin.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridAmTableAdmin.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridAmTableAdmin.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridAmTableAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAmTableAdmin.Size = new System.Drawing.Size(765, 363);
@@ -309,6 +310,11 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             this.kryptonLabel2.TabIndex = 4;
             this.kryptonLabel2.Values.Text = "Account Management";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            // 
             // AdminAccountManagementControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,5 +358,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private Krypton.Toolkit.KryptonButton btnCreateSec;
         private ToolStripMenuItem addAsBarangayOfficialsToolStripMenuItem;
         private Timer timer1;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -26,17 +26,18 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
             InitializeComponent();
         }
         public async Task SetAnnouncementsData() {
+            await Task.Run(async () =>
+            {
+                data = await _Services.GetAnnouncement();
+            });
 
-            data = await _Services.GetAnnouncement();
             timerAnnouncementsContent.Enabled = true;
         }
 
         private async void ResidentDashboardControls_Load(object sender, EventArgs e) {
 
-
             await SetAnnouncementsData();
             await SetOfficialsDataInTable();
-
 
         }
 
@@ -116,6 +117,10 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                 picAttachements.Image = new Bitmap(stream);
 
             }
+
+        }
+
+        private void ctxOFficialsInfo_Opening(object sender, CancelEventArgs e) {
 
         }
     }

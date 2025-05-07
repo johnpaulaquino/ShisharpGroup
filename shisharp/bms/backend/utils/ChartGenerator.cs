@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace shisharp.bms.backend.utils {
     public class ChartGenerator {
@@ -40,7 +41,7 @@ namespace shisharp.bms.backend.utils {
                 pieChart.Series = series;
             }
             catch (Exception ex) {
-                throw;
+                MessageBox.Show(ex.Message);
             }
         } // end
 
@@ -64,8 +65,8 @@ namespace shisharp.bms.backend.utils {
                 cartesianChart.LegendLocation = LegendLocation.Bottom;
                 cartesianChart.Series = series;
             }
-            catch (Exception) {
-                throw;
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         } // end
 
@@ -83,7 +84,7 @@ namespace shisharp.bms.backend.utils {
                 }
             }
             catch (Exception ex) {
-                throw;
+                MessageBox.Show(ex.Message);
             }
 
         }

@@ -16,15 +16,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BrgyMS.uiDesign.usersDashboard.user_controls {
-    public partial class ResidentUserLogsControl : UserControl {
+    public partial class SecretaryLogsControl : UserControl {
         private UIResidentUtils uiAdmin = new UIResidentUtils();
         private AdminServices _AdminServices = new AdminServices();
         private BaseServices _BaseServices = new BaseServices();
+        private SecretaryServices _SecretaryServices = new SecretaryServices();
         private AuthServices _AuthServices = new AuthServices();
         private AuthUtils _AuthUtils = new AuthUtils();
         private Utils _Utils = new Utils();
 
-        public ResidentUserLogsControl() {
+        public SecretaryLogsControl() {
             InitializeComponent();
         }
 
@@ -34,9 +35,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
                 User user = _AuthUtils.ValidateToken(token);
 
                 Cursor = Cursors.WaitCursor;
-
-               
-                var dt = await _BaseServices.GetUserlogs(user.UserId);
+                var dt = await _SecretaryServices.GetUserAndSecretaryLogs();
                 dataGridAdminDashboard.Columns.Clear();
                 dataGridAdminDashboard.DataSource = dt;
 

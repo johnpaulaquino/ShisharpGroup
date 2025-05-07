@@ -86,28 +86,39 @@ namespace shisharp.bms.backend.database.repository {
 
         public async Task<List<int>> GetTotalVoters() {
             try {
-                string stmt = "SELECT count(p.age) as TotalAge, count(p.is_voter) TotalVoter " +
-                    "FROM users u " +
-                    "LEFT JOIN additional_info p " +
-                    "ON u.id = p.user_id " +
-                    "WHERe u.status = @status and age >= @age and is_voter = @is_voter";
+                string stmt = @"SELECT 
+            (SELECT  COUNT(u.id) AS Population from users u 
+            LEFT JOIN additional_info p 
+            ON u.id = p.user_id
+            WHERE u.status = @status and p.age >= @age1) As Population, 
+            
+            (SELECT COUNT(u.id) FROM users u 
+            LEFT JOIN additional_info p ON u.id = p.user_id
+            WHERE u.status = @status1 AND age >= @age) AS Population";
+
                 List<int> data = new List<int>();
                 using (var connection = await conn.getConnection()) {
                     using (var cmd = new MySqlCommand(stmt, connection)) {
-                        cmd.Parameters.AddWithValue("@age", "18");
-                        cmd.Parameters.AddWithValue("@is_voter", '1');
-                        cmd.Parameters.AddWithValue("@status", '1');
+                        cmd.Parameters.AddWithValue("@status", 1);
+                        cmd.Parameters.AddWithValue("@status1", 1);
+                        cmd.Parameters.AddWithValue("@age", 18);
+                        cmd.Parameters.AddWithValue("@age1", 18);
+
                         using (var reader = await cmd.ExecuteReaderAsync()) {
                             if (await reader.ReadAsync()) {
-                                data.Add(reader.GetInt32(reader.GetOrdinal("TotalAge")));
-                                data.Add(reader.GetInt32(reader.GetOrdinal("TotalVoter")));
+                                int population = reader.GetInt32(reader.GetOrdinal("Population"));
+                                int totalVoter = reader.GetInt32(reader.GetOrdinal("Population"));
+                                data.Add(population);
+                                data.Add(totalVoter);
                             }
-                            return data;
+
                         }
                     }
+                    return data;
                 }
 
             }
+
             catch (Exception ex) { throw; }
 
         }

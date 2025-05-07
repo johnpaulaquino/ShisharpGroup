@@ -116,6 +116,11 @@ namespace BrgyMS.uiDesign.usersDashboard.modals {
                         await _BaseServices.LogUserActions(logs);
                     });
 
+                    txtStatements.Text = "";
+                    txtTitle.Text = "";
+                    cbHidePost.Checked = false;
+                    
+
                     MessageBox.Show("Susccessfully Updated Anouncement!");
                 }
 

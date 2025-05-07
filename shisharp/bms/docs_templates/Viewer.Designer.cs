@@ -28,6 +28,10 @@ namespace BrgyMS.docs_templates {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.kryptonButton2 = new Krypton.Toolkit.KryptonButton();
+            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
+            this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -50,22 +54,46 @@ namespace BrgyMS.docs_templates {
             // 
             // reportViewer2
             // 
-            this.reportViewer2.Location = new System.Drawing.Point(2, -2);
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer2.Location = new System.Drawing.Point(0, 0);
             this.reportViewer2.Name = "reportViewer2";
             this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(686, 364);
+            this.reportViewer2.Size = new System.Drawing.Size(686, 298);
             this.reportViewer2.TabIndex = 2;
+            this.reportViewer2.Load += new System.EventHandler(this.reportViewer2_Load);
+            // 
+            // kryptonButton2
+            // 
+            this.kryptonButton2.Location = new System.Drawing.Point(285, 304);
+            this.kryptonButton2.Name = "kryptonButton2";
+            this.kryptonButton2.Size = new System.Drawing.Size(90, 25);
+            this.kryptonButton2.TabIndex = 3;
+            this.kryptonButton2.Values.DropDownArrowColor = System.Drawing.Color.Empty;
+            this.kryptonButton2.Values.Text = "kryptonButton2";
+            this.kryptonButton2.Click += new System.EventHandler(this.kryptonButton2_Click);
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Controls.Add(this.reportViewer2);
+            this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kryptonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Size = new System.Drawing.Size(686, 298);
+            this.kryptonPanel1.TabIndex = 4;
             // 
             // Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
-            this.Controls.Add(this.reportViewer2);
+            this.Controls.Add(this.kryptonPanel1);
+            this.Controls.Add(this.kryptonButton2);
             this.Controls.Add(this.kryptonButton1);
             this.Name = "Viewer";
             this.Text = "Viewer";
             this.Load += new System.EventHandler(this.Viewer_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
+            this.kryptonPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -74,6 +102,8 @@ namespace BrgyMS.docs_templates {
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private Krypton.Toolkit.KryptonButton kryptonButton2;
+        protected internal Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
     }
 }

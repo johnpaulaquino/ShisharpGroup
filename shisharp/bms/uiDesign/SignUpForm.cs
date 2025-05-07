@@ -158,7 +158,7 @@ namespace BrgyMs.uiDesign {
                 string gender = utils.CapitalizeFirstLetter(cboSGender.SelectedItem.ToString());
 
 
-
+                _UserValidation.SetEmptyStringThatCanAcceptNullForPInfo(_PersonalInfo);
                 // personal info
                 _PersonalInfo = new PersonalInformation(firstname, middlename, lastname, gender) { Suffix = suffix };
 
@@ -222,7 +222,6 @@ namespace BrgyMs.uiDesign {
                 //validate per page
                 switch (pnlPage) {
                     case 0:
-
                         // validate first the field before go to another page.
                         await _UserValidation.ValidateUser(_Users, confirmPassword);
 
@@ -244,6 +243,7 @@ namespace BrgyMs.uiDesign {
                                 await _EmailServices.SendPlainEmail(
                               txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
                             });
+
                             txtSOtpCode.Text = "";
                             StartOtpCountdown();
                         }
@@ -270,11 +270,13 @@ namespace BrgyMs.uiDesign {
                         } // otherwise next the page
 
                         //set empty strings to the not required fields if not set.
-                        _UserValidation.SetEmptyStringThatCanAcceptNullForPInfo(_PersonalInfo);
+
                         break;
 
                     case 2:
+
                         _UserValidation.ValidatePersonalInfo(_PersonalInfo);
+                 
 
                         break;
 
@@ -323,15 +325,16 @@ namespace BrgyMs.uiDesign {
         private async void btnResend_Click(object sender, EventArgs e) {
             auth = new AuthUtils();
             try {
-                await Task.Run(async () =>
-                 {
-                     btnResend.Enabled = false;
-                     string otp = auth.GenerateOTP();
-                     await _EmailServices.SendPlainEmail(
-                   txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
-                     StartOtpCountdown();
-                 });
 
+                btnResend.Enabled = false;
+                string otp = auth.GenerateOTP();
+                await Task.Run(async () =>
+                {
+                    await _EmailServices.SendPlainEmail(
+             txtSEmail.Text.Trim(), "Email Verification", $"This is your OTP. {otp}.");
+                });
+
+                StartOtpCountdown();
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -362,6 +365,7 @@ namespace BrgyMs.uiDesign {
 
                 _UserValidation.SetEmptyStringThatCanAcceptNullForAddress(_Address);
                 Cursor = Cursors.WaitCursor;
+
                 await _ResidentServices.CreateResidentInformation(_Users, _PersonalInfo, _AddlInfo, _Address);
 
                 MessageBox.Show("Successfully created account. Please be patient for your account verification!");
@@ -414,18 +418,14 @@ namespace BrgyMs.uiDesign {
         }
 
         private void txtSHouseNo_KeyPress_1(object sender, KeyPressEventArgs e) {
-            char c = e.KeyChar;
-            if (!char.IsDigit(c) && c !=
-                (char)Keys.Back && c != (char)Keys.Delete) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
 
         }
 
         private void txtSBlockNo_KeyPress(object sender, KeyPressEventArgs e) {
-            char c = e.KeyChar;
-            if (!char.IsDigit(c) && c !=
-                (char)Keys.Back && c != (char)Keys.Delete) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
 
@@ -437,9 +437,7 @@ namespace BrgyMs.uiDesign {
         }
 
         private void txtSLotNo_KeyPress(object sender, KeyPressEventArgs e) {
-            char c = e.KeyChar;
-            if (!char.IsDigit(c) && c !=
-                (char)Keys.Back && c != (char)Keys.Delete) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
         }
@@ -472,6 +470,70 @@ namespace BrgyMs.uiDesign {
                 cbSShowPass.Text = "Show Password";
                 txtSConfirmPass.PasswordChar = '●';
                 txtSPassword.PasswordChar = '●';
+            }
+        }
+
+        private void txtSUsername_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSOtpCode_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSFName_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ') {
+                e.Handled = true;
+            }
+        } //end
+
+        private void txtSMName_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ') {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLastname_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ') {
+                e.Handled = true;
+            }
+        }
+
+        private void dtpkABirthday_ValueChanged(object sender, EventArgs e) {
+            int age = utils.calculateAge(dtpkABirthday.Value);
+            if (age < 18) {
+                cbAVoterStatus.Enabled = false;
+            }
+            else {
+                cbAVoterStatus.Enabled = true;
+            }
+        }
+
+        private void txtAReligion_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAContactNo_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSStreet_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSSubdivision_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ') {
+                e.Handled = true;
             }
         }
     }

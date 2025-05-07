@@ -170,6 +170,18 @@ namespace BrgyMs.backend.services {
             catch (Exception) {
                 throw;
             }
+        } // 
+        public async Task<DataTable> GetUserAndSecretaryLogs() {
+            try {
+                var dt = await Task.Run(async () =>
+                  {
+                      return await _SecretaryRepo.GetUserAndSecretaryLogs();
+                  });
+                return dt;
+            }
+            catch (Exception) {
+                throw;
+            }
         }
     }
 }

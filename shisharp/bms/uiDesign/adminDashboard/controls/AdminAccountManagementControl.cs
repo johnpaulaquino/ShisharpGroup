@@ -28,7 +28,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
         private AdminServices _AdminServices = new AdminServices();
         public AdminAccountManagementControl() {
             InitializeComponent();
-            AfterInit();
 
         }
 
@@ -36,7 +35,6 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             // Resfresh the table content
             Cursor = Cursors.WaitCursor;
             try {
-
 
                 await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
             }
@@ -51,7 +49,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
 
 
-        private void addAsBarangayOfficialsToolStripMenuItem_Click_1(object sender, EventArgs e) {
+        private async void addAsBarangayOfficialsToolStripMenuItem_Click_1(object sender, EventArgs e) {
             try {
                 OfficialsModalControl control = new OfficialsModalControl();
 
@@ -60,6 +58,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
                 control.Dock = DockStyle.Fill;
                 Officialmodal.ShowDialog(this);
+                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -70,7 +69,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
             }
         }
 
-        private void btnCreateSec_Click_1(object sender, EventArgs e) {
+        private async void btnCreateSec_Click_1(object sender, EventArgs e) {
             try {
                 isCliked = true; // to avoid multiple clicked and avoid error in showing modals
                 if (isCliked) {
@@ -80,6 +79,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
                     control.Dock = DockStyle.Fill;
                     modal.ShowDialog(this);
+                    await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
                 }
             }
             catch (Exception ex) {
@@ -135,7 +135,7 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
                         utils.PutIdOnFile(userId);
 
                         //show the context
-                        ctxmenuAccManagement.Show(this, dataGridAmTableAdmin.PointToScreen(e.Location));
+                        ctxmenuAccManagement.Show(dataGridAmTableAdmin, dataGridAmTableAdmin.PointToScreen(e.Location));
                     }
                     catch (Exception ex) {
                         MessageBox.Show(ex.Message);
@@ -146,52 +146,8 @@ namespace BrgyMS.uiDesign.adminDashboard.controls {
 
         private async void AdminAccountManagementControl_Load_1(object sender, EventArgs e) {
 
-            try {
-
-                Cursor = Cursors.WaitCursor;
-
-                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
-
-
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-            finally {
-                Cursor = Cursors.Default;
-            }
+            AfterInit();
         }
 
-        private async void txtSearch_TextChanged_1(object sender, EventArgs e) {
-            try {
-
-                Cursor = Cursors.WaitCursor;
-
-
-                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
-                ResumeLayout();
-
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-            finally {
-                Cursor = Cursors.Default;
-            }
-
-        }
-
-        private async void nudAmLimit_ValueChanged(object sender, EventArgs e) {
-            try {
-
-                await uiAdmin.SetInfoInAdminAccountTable(dataGridAmTableAdmin);
-
-                Cursor = Cursors.Default;
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
     }
 }

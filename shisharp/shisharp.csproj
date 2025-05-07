@@ -433,6 +433,12 @@
     <Compile Include="bms\uiDesign\ResetPasswordForm.Designer.cs">
       <DependentUpon>ResetPasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryLogsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryLogsControl.Designer.cs">
+      <DependentUpon>SecretaryLogsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryDashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -627,7 +633,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="bms\docs_templates\BarangayId.rdlc" />
+    <EmbeddedResource Include="bms\docs_templates\BarangayIdTemplate.rdlc" />
     <EmbeddedResource Include="bms\docs_templates\IndigencyTemplate.rdlc" />
     <EmbeddedResource Include="bms\docs_templates\FirstTimeJobSeeker.rdlc" />
     <EmbeddedResource Include="bms\docs_templates\Viewer.resx">
@@ -701,6 +707,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\usersDashboard\ResidentPageForm.resx">
       <DependentUpon>ResidentPageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryLogsControl.resx">
+      <DependentUpon>SecretaryLogsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bms\uiDesign\usersDashboard\secretary_controls\SecretaryDashboardControl.resx">
       <DependentUpon>SecretaryDashboardControl.cs</DependentUpon>

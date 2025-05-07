@@ -23,12 +23,12 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
         private readonly BaseServices _BaseServices = new BaseServices();
         private bool isActivted = false;
         private AdminAccountVerification accverifyControl = new AdminAccountVerification();
-        private string userId = "";
+        private string AdminId = "";
         public RequestDocumentsModalCotntrol() {
             InitializeComponent();
             string token = AuthUtils.ReadTokenInFile();
             User user = AuthUtils.ValidateToken(token);
-            userId = user.UserId;
+            AdminId = user.UserId;
         }
 
 
@@ -47,18 +47,19 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
                         accverifyControl.Refresh();
                         accverifyControl.dataGridAmTable.Refresh(); // refresh the table after changes
                         string id = await _BaseServices.GenerateLogsId();
-                        Logs logs = new Logs(id, userId, "Declined user")
+                        Logs logs = new Logs(id, AdminId, "Declined user")
                         {
                             DatePerformed = DateTime.Now,
-                            Details = "Declined User Accounct"
+                            Details = $"WE declined your account due to the: {reason}."
                         };
                         await Task.Run(async () =>
                         {
                             await _BaseServices.LogUserActions(logs);
                         });
 
+                        ClearField();
                         MessageBox.Show("Successfully declined account!");
-                        modal.Hide();
+                        accverifyControl.RefreshTabke();
                     }
                     else {
                         throw new Exception("Please specify the reason: ");
@@ -91,7 +92,7 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
                     accverifyControl.dataGridAmTable.Refresh(); // refresh the table after changes
 
                     string id = await _BaseServices.GenerateLogsId();
-                    Logs logs = new Logs(id, userId, "Ativate user")
+                    Logs logs = new Logs(id, AdminId, "Ativate user")
                     {
                         DatePerformed = DateTime.Now,
                         Details = "Activated User account."
@@ -100,10 +101,11 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
                     {
                         await _BaseServices.LogUserActions(logs);
                     });
-
+                    ClearField();
                     MessageBox.Show("Successfully activated account!");
 
                     accverifyControl.RefreshTabke();
+
 
 
                 }
@@ -126,6 +128,17 @@ namespace BrgyMS.uiDesign.adminDashboard.modals.modals_controls {
                txtAvAge,
                picAvProofOfResidency
                );
+        }// 
+
+        private void ClearField() {
+            txtAvAge.Text = "";
+            txtAvBday.Text = "";
+            txtAvEmail.Text = "";
+            txtxAvaddress.Text = "";
+            txtAvFname.Text = "";
+            txtAvGender.Text = "";
+            picAvProfilePicture.Image = null;
+            picAvProofOfResidency.Image = null;
         }
     }
 }

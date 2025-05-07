@@ -2,7 +2,9 @@
 using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.utils;
 using BrgyMS.backend.services;
+using BrgyMS.docs_templates;
 using Microsoft.Reporting.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
 using Org.BouncyCastle.Pqc.Crypto.Lms;
 using Org.BouncyCastle.Utilities.IO;
 using System;
@@ -161,9 +163,65 @@ namespace BrgyMS.backend.utils {
             var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "../../bms/docs_templates");
             fileLoc = folderPath + "/FirstTimeJobSeekerTemplate.pdf";
             return fileLoc;
+        } // 
+
+
+        public async Task GenerateBarangayId(string id) {
+            try {
+                await Task.Run(async () =>
+                {
+                    List<object> userInfo = await _BaseServices.GetAllUserInformations(id);
+
+                    if (userInfo != null) {
+
+                        var personalInfo = (PersonalInformation)userInfo[1];
+                        var addInfo = (AdditionalInfo)userInfo[2];
+                        var address = (Address)userInfo[3];
+
+                        string fullname = utils.FormatFullname(personalInfo.Firstname,
+                            personalInfo.Middlename,
+                            personalInfo.Lastname,
+                            personalInfo.Suffix);
+                        string age = addInfo.Age.ToString();
+                        string civilStatus = addInfo.CivilStatus;
+                        var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "../../bms/docs_templates");
+                        filePath = folderPath + "/BarangayIdTemplate.rdlc";
+                        fileLoc = folderPath + "/BarangayId.pdf";
+
+                        if (!Directory.Exists(folderPath)) {
+                            Directory.CreateDirectory(folderPath);
+                        }
+
+                        LocalReport report = new LocalReport();
+                        report.ReportPath = filePath;
+
+                        report.EnableExternalImages = true;
+                        report.SetParameters(new[]
+                  {
+            new ReportParameter("Lastname", "Paul"),
+            new ReportParameter("Middlename","John"),
+            new ReportParameter("Firstname", "ASd"),
+              new ReportParameter("Address", "asd"),
+                new ReportParameter("Residentid", "Asd"),
+                 new ReportParameter("profImage", @"file:///"+@"C:\\Users\\ADMIN\\Desktop\\shisharpmain\\shisharp\\bms\\img\\logsHoverIcon.png".Replace(@"\\\","//" )),
+
+         });
+                        byte[] data = report.Render("PDF");
+
+                        File.WriteAllBytes(fileLoc, data);
+
+
+
+                    }
+                });
+
+
+
+            }
+            catch (Exception) {
+                throw;
+            }
         }
-
-
 
     }
 
