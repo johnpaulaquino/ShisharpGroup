@@ -41,8 +41,7 @@ namespace BrgyMs.uiDesign {
         private ResidentServices _ResidentServices = new ResidentServices();
         private EmailServices _EmailServices = new EmailServices();
         private AuthUtils auth;
-        private DateTime startTime;
-        private DateTime endTime;
+
         private int timeer = 60; // limit of the otp
         private bool isEmailValidated = false;
         private string tempEmail = ""; // use to check if the user is change email in the signup form
@@ -54,18 +53,7 @@ namespace BrgyMs.uiDesign {
         }
 
 
-        private void cbSShowPass_CheckedChanged_1(object sender, EventArgs e) {
-            if (cbSShowPass.Checked) {
-                cbSShowPass.Text = "Hide Password";
-                txtSConfirmPass.PasswordChar = (char)0;
-                txtSPassword.PasswordChar = (char)0;
-            }
-            else {
-                cbSShowPass.Text = "Show Password";
-                txtSConfirmPass.PasswordChar = '●';
-                txtSPassword.PasswordChar = '●';
-            }
-        }
+
         //after the components intialize
         public void AfterInitComponent() {
             //set the first option in the combo box suffix and gender
@@ -166,7 +154,7 @@ namespace BrgyMs.uiDesign {
                 string firstname = utils.CapitalizeFirstLetter(txtSFName.Text);
                 string middlename = utils.CapitalizeFirstLetter(txtSMName.Text);
                 string lastname = utils.CapitalizeFirstLetter(txtSLastname.Text);
-                string suffix = utils.CapitalizeFirstLetter(cboSSuffix.SelectedItem.ToString());
+                string suffix = cboSSuffix.SelectedItem.ToString();
                 string gender = utils.CapitalizeFirstLetter(cboSGender.SelectedItem.ToString());
 
 
@@ -473,7 +461,16 @@ namespace BrgyMs.uiDesign {
         }
 
         private void cbSShowPass_CheckedChanged(object sender, EventArgs e) {
-
+            if (cbSShowPass.Checked) {
+                cbSShowPass.Text = "Hide Password";
+                txtSConfirmPass.PasswordChar = (char)0;
+                txtSPassword.PasswordChar = (char)0;
+            }
+            else {
+                cbSShowPass.Text = "Show Password";
+                txtSConfirmPass.PasswordChar = '●';
+                txtSPassword.PasswordChar = '●';
+            }
         }
     }
 

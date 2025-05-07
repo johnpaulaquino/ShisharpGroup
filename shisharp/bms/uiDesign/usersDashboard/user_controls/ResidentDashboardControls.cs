@@ -69,7 +69,7 @@ namespace BrgyMS.uiDesign.usersDashboard.user_controls {
         private void viewOfficialToolStripMenuItem_Click(object sender, EventArgs e) {
             OfficialsInfoModal modal = new OfficialsInfoModal();
 
-            modal.ShowDialog();
+            modal.ShowDialog(this);
 
         }
         private void dataGridResidentDash_MouseDown_1(object sender, MouseEventArgs e) {

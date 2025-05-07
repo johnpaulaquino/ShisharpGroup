@@ -173,6 +173,20 @@ namespace BrgyMS.backend.services {
             catch (Exception) {
                 throw;
             }
+        } // 
+        public async Task<List<object>> GetOfficiaslInformation(string id) {
+
+            try {
+                List<object> data = await Task.Run(async () =>
+                 {
+                     return await _BaseRepo.GetOfficiaslInformation(id);
+                 });
+
+                return data;
+            }
+            catch (Exception) {
+                throw;
+            }
         }
     }
 

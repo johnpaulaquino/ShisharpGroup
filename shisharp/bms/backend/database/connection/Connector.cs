@@ -22,6 +22,7 @@ namespace BrgyMs.database.connector {
             var connection = new MySqlConnection(DB_URL);
             await connection.OpenAsync();
             return connection;
-        }
+        } 
+
     }
 }

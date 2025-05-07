@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrgyMs.backend.database.repositories;
+using BrgyMs.backend.models.base_model;
 using BrgyMs.backend.services;
 using BrgyMs.database.connector;
 using BrgyMS.backend.services;
@@ -62,6 +63,26 @@ namespace BrgyMs.backend.utils {
             return fullname;
         }
 
+        public string FormatAddress(Address addressModel) {
+            string address = "";
+
+            if (!string.IsNullOrWhiteSpace(addressModel.HouseNumber))
+                address += "House No. " + addressModel.HouseNumber;
+
+            if (!string.IsNullOrWhiteSpace(addressModel.Street))
+                address += (address.Length > 0 ? ", " : "") + "Street: " + addressModel.Street;
+
+            if (!string.IsNullOrWhiteSpace(addressModel.BlockNumber))
+                address += (address.Length > 0 ? ", " : "") + "Block " + addressModel.BlockNumber;
+
+            if (!string.IsNullOrWhiteSpace(addressModel.LotNo))
+                address += (address.Length > 0 ? ", " : "") + "Lot " + addressModel.LotNo;
+
+            if (!string.IsNullOrWhiteSpace(addressModel.SubdivisionName))
+                address += (address.Length > 0 ? ", " : "") + "Village: " + addressModel.SubdivisionName;
+
+            return address;
+        }
         //to format roles as Capital First
         public String FormatRoles(string role) {
             string formattedRole = "";

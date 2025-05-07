@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
 using BrgyMs.backend.models.base_model;
+using BrgyMs.backend.models.bo_model;
 using BrgyMs.backend.utils;
 using BrgyMs.database.connector;
 using BrgyMS.backend.models;
@@ -526,5 +527,75 @@ namespace BrgyMs.backend.database.repositories {
                 throw;
             }
         } // End of function
+
+        public async Task<List<object>> GetOfficiaslInformation(string userid) {
+            string stmt = "SELECT u.email, p.firstname, p.middlename, p.lastname, p.suffix, " +
+                "ai.profile_image, a.house_number, a.street, a.subdivision, a.block_number, a.lot_number, " +
+                "o.position " +
+                "FROM users u " +
+                "LEFT JOIN personal_info p " +
+                "ON u.id = p.user_id " +
+                "LEFT JOIN additional_info ai " +
+                "ON u.id = ai.user_id " +
+                "LEFT JOIN address a " +
+                "ON u.id = a.user_id " +
+                "LEFT JOIN officials o " +
+                "ON u.id = o.user_id " +
+                "WHERE u.id = @userid";
+
+            List<object> listData = new List<object>();
+
+            try {
+                using (var connection = await conn.getConnection()) {
+                    using (var cmd = new MySqlCommand(stmt, connection)) {
+                        cmd.Parameters.AddWithValue("@userid", userid);
+                        using (var reader = await cmd.ExecuteReaderAsync()) {
+                            if (await reader.ReadAsync()) {
+
+                                User user = new User(reader.GetString(reader.GetOrdinal("email")), "");
+
+                                //Personal Information
+                                PersonalInformation pInfo = new PersonalInformation(
+                                    reader.GetString(reader.GetOrdinal("firstname")),
+                                    reader.GetString(reader.GetOrdinal("middlename")),
+                                    reader.GetString(reader.GetOrdinal("lastname")),
+                                    "")
+                                { Suffix = reader.GetString(reader.GetOrdinal("suffix")), }
+                                ;
+                                byte[] bytes = new byte[4];
+                                AdditionalInfo addInfo = new AdditionalInfo(true, DateTime.Now, "", "", "", "",
+                                    "", "", bytes)
+                                { ProfileImage = (byte[])reader["profile_image"] };
+                                //Address
+                                Address address = new Address(
+                                    reader.GetString(reader.GetOrdinal("house_number")),
+                                    reader.GetString(reader.GetOrdinal("street")))
+                                {
+                                    LotNo = reader.GetString(reader.GetOrdinal("lot_number")),
+                                    SubdivisionName = reader.GetString(reader.GetOrdinal("subdivision")),
+                                    BlockNumber = reader.GetString(reader.GetOrdinal("block_number"))
+                                };
+
+                                OfficialsInfo officials = new OfficialsInfo()
+                                {
+                                    Position = reader.GetString(reader.GetOrdinal("position"))
+                                };
+
+                                //add
+                                listData.Add(user);
+                                listData.Add(pInfo);
+                                listData.Add(addInfo);
+                                listData.Add(address);
+                                listData.Add(officials);
+                            }
+                            return listData;
+                        }
+                    }
+                }
+            }
+            catch (Exception) {
+                throw;
+            }
+        }
     }
 }
